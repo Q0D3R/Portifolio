@@ -1,37 +1,5 @@
-//Variable declaration
-$bg1: #F0F0F0;
-$bg2: #E0E0E0;
-$bg3: #E4E4E4;
-$bg4: #B0B0B0;
-$bg5: #888888;
-$bg6: #444444;
-$bg7: #121212;
-$bg8: #F5E8D8;
-$bg9: #0f2862;
-$bg10: #6B7A8F;
-$bg11: #d4d4dc;
-$bg12: #393f4d;
-$bg13: #1d1e22;
+@use 'variables';
 
-$color1: #0D0D0D;
-$color2: #FFFFFF;
-$color3: #00FF85;
-$color4: #1E90FF;
-$color5: #FF0099;
-
-$font-bold: 800;
-
-$font-xlarge: 80px;
-$font-large: 26px;
-$font-medium: 20px;
-$font-normal: 16px;
-$font-small: 12px;
-
-$hover1: #FFFFFF;
-$hover2: #121212;
-$hover3: #A8DADC;
-$hover4: #004D61;
-$hover5: #FF5722;
 
 * {
     box-sizing: none;
@@ -94,7 +62,7 @@ body {
                 width: 100%;
 
                 .about {
-                    color: $color1;
+                    color: variables.$color1;
                     padding: 2px;
                     font-size: 1.2rem;
                     text-align: center;
@@ -132,24 +100,24 @@ body {
                                 gap: 2px;
 
                                 .title {
-                                    font-size: $font-medium;
-                                    font-weight: $font-bold;
+                                    font-size: variables.$font-medium;
+                                    font-weight: variables.$font-bold;
                                     padding: 2px;
                                     text-align: left;
                                     width: 32%;
                                 }
 
                                 .colon {
-                                    font-size: $font-medium;
-                                    font-weight: $font-bold;
+                                    font-size: variables.$font-medium;
+                                    font-weight: variables.$font-bold;
                                     text-align: center;
                                     width: auto;
                                 }
 
                                 .name {
-                                    color: $color1;
-                                    font-size: $font-medium;
-                                    font-weight: $font-normal;
+                                    color: variables.$color1;
+                                    font-size: variables.$font-medium;
+                                    font-weight: variables.$font-normal;
                                     padding: 2px;
                                     text-align: left;
                                     width: 66%;
@@ -160,9 +128,9 @@ body {
                 }
 
                 .services {
-                    color: $color1;
+                    color: variables.$color1;
                     padding: 2px;
-                    font-size: $font-medium;
+                    font-size: variables.$font-medium;
                     text-align: center;
                     width: 10%;
 
@@ -175,19 +143,19 @@ body {
                         width: 100%;
 
                         a {
-                            color: $color1;
-                            font-size: $font-medium;
-                            font-weight: $font-normal;
+                            color: variables.$color1;
+                            font-size: variables.$font-medium;
+                            font-weight: variables.$font-normal;
                             padding-bottom: 4px;
                             text-decoration: none;
 
                             &:hover {
-                                color: $hover1;
+                                color: variables.$hover1;
                             }
                         }
 
                         .line {
-                            border-top: 1px solid $hover2;
+                            border-top: 1px solid variables.$hover2;
                             margin-left: 10px;
                             width: 60%;
                         }
@@ -195,7 +163,7 @@ body {
                 }
 
                 .projects {
-                    color: $color1;
+                    color: variables.$color1;
                     display: flex;
                     flex-direction: column;
                     gap: 2px;
@@ -220,23 +188,23 @@ body {
 
                         .links {
                             align-items: center;
-                            border-top: 1px solid $hover2;
-                            color: $color1;
+                            border-top: 1px solid variables.$hover2;
+                            color: variables.$color1;
                             display: flex;
                             flex-direction: row;
                             gap: 2px;
                             justify-content: center;
-                            font-size: $font-medium;
+                            font-size: variables.$font-medium;
                             text-align: center;
                             width: 100%;
 
                             a {
-                                color: $color2;
+                                color: variables.$color2;
                                 padding: 4px;
                                 text-decoration: none;
 
                                 &:hover {
-                                    color: $hover1;
+                                    color: variables.$hover1;
                                 }
                             }
                         }
@@ -244,16 +212,16 @@ body {
                 }
 
                 .contact {
-                    color: $color1;
+                    color: variables.$color1;
                     padding: 5px;
                     font-size: 1.2rem;
                     text-align: center;
                     width: 27vw;
 
                     .title {
-                        color: $color1;
+                        color: variables.$color1;
                         font-size: 1.2rem;
-                        font-weight: $font-bold;
+                        font-weight: variables.$font-bold;
                         padding: 10px;
                     }
 
@@ -264,36 +232,36 @@ body {
                         padding: 10px;
 
                         button {
-                            background-color: $hover2;
-                            border: 1px solid $hover2;
-                            color: $color1;
+                            background-color: variables.$hover2;
+                            border: 1px solid variables.$hover2;
+                            color: variables.$color1;
                             padding: 10px;
                             transition: background-color 0.5s;
                             transition-delay: 0s;
 
                             &:hover {
-                                background-color: $hover2;
-                                color: $hover1;
+                                background-color: variables.$hover2;
+                                color: variables.$hover1;
                             }
                         }
 
                         input {
-                            border: 1px solid $hover2;
-                            color: $color1;
+                            border: 1px solid variables.$hover2;
+                            color: variables.$color1;
                             padding: 10px;
                             transition: background-color 0.5s;
                             transition-delay: 0s;
                             width: 100%;
 
                             &:hover {
-                                border: 1px solid $hover2;
-                                color: $hover1;
+                                border: 1px solid variables.$hover2;
+                                color: variables.$hover1;
                             }
                         }
 
                         textarea {
-                            border: 1px solid $hover2;
-                            color: $color1;
+                            border: 1px solid variables.$hover2;
+                            color: variables.$color1;
                             height: 138px;
                             padding: 10px;
                             transition: background-color 0.5s;
@@ -301,15 +269,15 @@ body {
                             width: 100%;
 
                             &:hover {
-                                border: 1px solid $hover2;
-                                color: $hover1;
+                                border: 1px solid variables.$hover2;
+                                color: variables.$hover1;
                             }
                         }
                     }
 
                     .social {
                         align-items: center;
-                        border-top: 1px solid $hover2;
+                        border-top: 1px solid variables.$hover2;
                         display: flex;
                         flex-direction: row;
                         gap: 15px;
@@ -318,36 +286,36 @@ body {
                         width: 100%;
 
                         .icon {
-                            border: 1px solid $hover2;
+                            border: 1px solid variables.$hover2;
                             border-radius: 50%;
-                            color: $color1;
-                            font-size: $font-normal;
+                            color: variables.$color1;
+                            font-size: variables.$font-normal;
                             margin: 10px;
-                            outline: 1px solid $color1;
+                            outline: 1px solid variables.$color1;
                             padding: 10px 2px;
                             transition: 0.5s;
                             transition-delay: 0s;
 
                             &:hover {
-                                color: $hover1;
-                                outline: 1px solid $hover1;
+                                color: variables.$hover1;
+                                outline: 1px solid variables.$hover1;
                             }
                         }
 
                         &:hover {
-                            color: $hover1;
+                            color: variables.$hover1;
                         }
                     }
                 }
 
                 .statement {
-                    border-top: 1px solid $hover2;
-                    color: $color1;
+                    border-top: 1px solid variables.$hover2;
+                    color: variables.$color1;
                     display: flex;
                     flex-direction: column;
                     gap: 2px;
                     padding: 10px;
-                    font-size: $font-small;
+                    font-size: variables.$font-small;
                     text-align: center;
                     width: 98vw;
 
@@ -355,21 +323,21 @@ body {
                         display: flex;
                         gap: 2px;
                         padding: 10px;
-                        font-size: $font-small;
+                        font-size: variables.$font-small;
 
                         p {
-                            color: $color1;
+                            color: variables.$color1;
                             padding: 2px;
-                            font-size: $font-small;
+                            font-size: variables.$font-small;
                             text-align: center;
                             width: 96vw;
 
                             a {
-                                color: $color1;
+                                color: variables.$color1;
                                 text-decoration: none;
 
                                 &:hover {
-                                    color: $hover1;
+                                    color: variables.$hover1;
                                 }
                             }
                         }
@@ -380,12 +348,12 @@ body {
                         flex-direction: row;
                         gap: 2px;
                         padding: 10px;
-                        font-size: $font-small;
+                        font-size: variables.$font-small;
 
                         .copyright {
-                            color: $color1;
+                            color: variables.$color1;
                             display: flex;
-                            font-size: $font-small;
+                            font-size: variables.$font-small;
                             justify-content: flex-start;
                             padding-left: 10px;
                             text-align: center;
@@ -394,21 +362,21 @@ body {
 
                         .developer {
                             align-items: center;
-                            color: $color1;
+                            color: variables.$color1;
                             display: flex;
                             justify-content: flex-end;
                             padding-right: 10px;
-                            font-size: $font-small;
+                            font-size: variables.$font-small;
                             text-align: right;
                             width: 48vw;
                         }
 
                         a {
-                            color: $color1;
+                            color: variables.$color1;
                             text-decoration: none;
 
                             &:hover {
-                                color: $hover1;
+                                color: variables.$hover1;
                             }
                         }
                     }
@@ -447,14 +415,14 @@ body {
             padding: 20px;
 
             button {
-                background-color: $color4;
-                color: $color2;
+                background-color: variables.$color4;
+                color: variables.$color2;
                 height: 30px;
                 padding: 0 10px;
 
                 &:hover {
-                    background-color: $color2;
-                    color: $color4;
+                    background-color: variables.$color2;
+                    color: variables.$color4;
                 }
             }
         }
@@ -467,13 +435,13 @@ body {
             padding: 20px; 
             
             button {
-                background-color: $color5;
-                border: 1px solid $color1;
+                background-color: variables.$color5;
+                border: 1px solid variables.$color1;
                 border-radius: 50%;
                 border-left: none;
                 border-right: 10px;
                 border-bottom: 10px;
-                color: $color2;
+                color: variables.$color2;
                 cursor: pointer;
                 height: 30px;
                 margin-left: -14px;
@@ -483,27 +451,27 @@ body {
                 z-index: 1;
 
                 i {
-                    color: $color1;
-                    font-size: $font-normal;
+                    color: variables.$color1;
+                    font-size: variables.$font-normal;
                     transition: 0.5s;
                     transition-delay: 0s;
                 }
 
                 &:hover {
-                    background-color: $hover4;
-                    color: $hover2;
+                    background-color: variables.$hover4;
+                    color: variables.$hover2;
 
                     i:hover {
-                        color: $color2;
+                        color: variables.$color2;
                     }
                 }
             }
 
             input {
                 background: transparent;
-                border: 1px solid $hover4;
+                border: 1px solid variables.$hover4;
                 border-radius: 20px 0 0 20px;
-                color: $color1;
+                color: variables.$color1;
                 cursor: pointer;
                 height: 12px;
                 outline: none;
@@ -511,8 +479,8 @@ body {
                 width: 180px;
 
                 &:hover {
-                    background: $hover3;
-                    color: $hover4;
+                    background: variables.$hover3;
+                    color: variables.$hover4;
                 }
             }
         }
@@ -520,26 +488,15 @@ body {
 
     .logo {
         display: flex;
-        filter: drop-shadow(0 2px 8px $color1);
+        filter: drop-shadow(0 2px 8px variables.$color1);
         height: auto;
         width: 10vw;
 
         img {
             aspect-ratio: 1 / 1;
-            background-image: url(../img/logo/Kush-transparent.png);
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
             overflow: hidden;
             padding: 0 10px;
             width: 60px;
-
-            &:hover {
-                background-image: url(../img/logo/Kush-bg.png);
-                background-size: cover;
-                background-position: center;
-                background-repeat: no-repeat;
-            }
         }
     }   
 
@@ -563,12 +520,12 @@ body {
                 flex-direction: row;
                 align-items: center;
                 padding: 1rem 0;
-                color: $color4;
+                color: variables.$color4;
                 text-decoration: none;
 
             .icon {
                 aspect-ratio: 1 / 1;
-                border: 1px solid $color2;
+                border: 1px solid variables.$color2;
                 border-radius: 50%;
                 font-size: 30px;
                 position: relative;
@@ -580,14 +537,14 @@ body {
                     //margin: 20px;
 
                     &:hover {
-                        color: $color1;
+                        color: variables.$color1;
                     }
                 }
             }
 
             .text {
                 display: none;
-                font-size: $font-medium;
+                font-size: variables.$font-medium;
                 margin-top: 0.25rem;
                 margin-left: 10px;
                 transition: opacity 0.2s;
@@ -599,7 +556,7 @@ body {
                 }
 
                 .text {
-                    color: $color1;
+                    color: variables.$color1;
                     display: block;
                     opacity: 1;
                 }

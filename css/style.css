@@ -424,19 +424,9 @@ body .parent footer .container .statement .last a:hover {
 }
 .navbar .logo img {
   aspect-ratio: 1/1;
-  background-image: url(../img/logo/Kush-transparent.png);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   overflow: hidden;
   padding: 0 10px;
   width: 60px;
-}
-.navbar .logo img:hover {
-  background-image: url(../img/logo/Kush-bg.png);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 .navbar .nav-links {
   align-items: center;

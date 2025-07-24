@@ -1,0 +1,41 @@
+@use 'style.scss';
+
+.hollow-container {
+    aspect-ratio: 16 / 9;
+    background: transparent; // Colored, semi-opaque overlay
+    border: 1px solid #1a1a1a;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    position: relative;
+    width: 98vw;
+
+    // The "hole"
+    .hollow {        
+        background: url(../img/pic/help-desk.jpg);
+        border-radius: 50%;
+        box-shadow: 0 0 0 9px rgb(240, 237, 237); // Creates a hollowed-out area
+        pointer-events: none; // Let clicks pass through
+        position: absolute;
+        top: 40%; left: 80%;
+        transform: translate(-50%, -50%);
+        width: 400px; height: 400px;
+    }
+
+    .welcome {
+        background: transparent;
+        padding: 20px;
+        width: 50vw;
+
+        h1 {
+            font-size: 40px;
+            padding: 20px;
+        }
+
+        p {
+            font-size: 25px;
+            padding: 50px;
+        }
+    }
+}
+  

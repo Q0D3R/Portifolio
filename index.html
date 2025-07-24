@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+    <script src="js/vanta-script.js"></script>
+    <title>D3-C0D3R</title>
+</head>
+
+<body class="parent">
+    <nav class="navbar">
+        <div class="logo">
+            <img/>
+        </div>
+        <ul class="nav-links">
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <span class="icon">
+                        <i class="fa fa-home"></i>
+                    </span>
+                    <span class="text">Home</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <span class="icon">
+                        <i class="fa fa-briefcase"></i>
+                    </span>
+                    <span class="text">Projects</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <span class="icon">
+                        <i class="fa fa-user"></i>
+                    </span>
+                    <span class="text">Profile</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <span class="icon">
+                        <i class="fa fa-envelope"></i>
+                    </span>
+                    <span class="text">Contact</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <span class="icon">
+                        <i class="fa fa-info-circle"></i>
+                    </span>
+                    <span class="text">About</span>
+                </a>
+            </li>
+        </ul>
+        <div class="extra">
+            <div class="search">
+                <input type="text" placeholder="Search" />
+                <button class="search-button" type="submit">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+            <div class="account">
+                <button class="account-button" type="submit">
+                    <span class="icon">
+                        <i class="fa fa-user"></i>
+                    </span>
+                    <span class="text">Account</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <header>
+        <div class="hollow-container">            
+            <div class="welcome">
+                <h1 id="typing-heading"></h1>
+                <p id="typing-content"></p>
+            </div>
+            <!-- This inner div makes a "hole" effect -->
+            <div class="hollow"></div>
+        </div>
+    </header>
+    <footer>
+        <div class="container">
+            <div class="about">
+                <div class="title">About Us</div>
+                <div class="container">
+                    <div class="first">
+                        <img class="img" src="img/Developer.jpg" alt="About Us" />
+                    </div>
+                    <div class="last">
+                        <div class="text">
+                            <div class="title">Title :</div>
+                            <div class="colon">:</div>
+                            <div class="name">Junior Software Developer</div>
+                        </div>
+                        <div class="text">
+                            <div class="title">Name :</div>
+                            <div class="colon">:</div>
+                            <div class="name">Mlambo Dakarai Kushata</div>
+                        </div>
+                        <div class="text">
+                            <div class="title">Email :</div>
+                            <div class="colon">:</div>
+                            <div class="name">dakaraimk@proton.me</div>
+                        </div>
+                        <div class="text">
+                            <div class="title">Phone :</div>
+                            <div class="colon">:</div>
+                            <div class="name">+263 778 055 883</div>
+                        </div>
+                        <div class="text">
+                            <div class="title">Address :</div>
+                            <div class="colon">:</div>
+                            <div class="name">2 Daventry Road, Eastlea, Harare</div>
+                        </div>
+                        <div class="text">
+                            <div class="title">Nation :</div>
+                            <div class="colon">:</div>
+                            <div class="name">Zimbabwe</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="services">
+                <div class="title left">Discover</div>
+                <hr class="line" />
+                <div class="container">
+                    <a href="#">Home</a>
+                    <a href="#">Services</a>
+                    <a href="#">Projects</a>
+                    <a href="#">Testimonials</a>
+                    <a href="#">Contact</a>
+                    <a href="#">About</a>
+                </div>
+                <div class="title left">Quick Links</div>
+                <hr class="line" />
+                <div class="container">
+                    <a href="#">Careers</a>
+                    <a href="#">Reviews</a>
+                    <a href="#">Site Map</a>
+                    <a href="#">Digital Trends</a>
+                </div>
+            </div>
+            <div class="projects">
+                <div class="title">Projects</div>
+                <div class="container">
+                    <img class="img" src="img/coding.jpg" alt="Project 1" />
+                    <img class="img" src="img/desktop.jpg" alt="Project 2" />
+                    <img class="img" src="img/harddisk.jpg" alt="Project 3" />
+                    <img class="img" src="img/html.jpg" alt="Project 4" />
+                    <img class="img" src="img/pc-repairs.jpg" alt="Project 5" />
+                    <img class="img" src="img/javascript.jpg" alt="Project 6" />
+                    <img class="img" src="img/mobile.jpg" alt="Project 7" />
+                    <img class="img" src="img/typescript.jpg" alt="Project 8" />
+                    <img class="img" src="img/dashboard.jpg" alt="Project 9" />
+
+                    <div class="links">
+                        <a href="#">Disclaimer</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Cookie Settings</a>
+                    </div>
+                </div>
+            </div>
+            <div class="contact">
+                <div class="title">Get in Touch</div>
+                <form class="form">
+                    <input type="text" placeholder="Name" />
+                    <input type="email" placeholder="Email" />
+                    <textarea placeholder="Message"></textarea>
+                    <button type="submit">
+                        <i class="fa fa-paper-plane">&nbsp;Send</i>
+                    </button>
+                </form>
+                <div class="social">
+                    <i class="fa fa-facebook"></i>
+                    <i class="fa fa-github"></i>
+                    <i class="fa fa-instagram"></i>
+                    <i class="fa fa-linkedin"></i>
+                    <i class="fa fa-twitter"></i>
+                    <i class="fa fa-youtube"></i>
+                </div>
+            </div>
+            <div class="statement">
+                <div class="first">
+                    <p>
+                        This website is a personal project and is not affiliated with any company or organization.
+                    </p>
+                </div>
+                <div class="last">
+                    <div class="copyright">
+                        Copyright &copy; 2013-2025 &nbsp;<a href="https://www.kushsystems.com">Kush Systems</a>. All
+                        rights
+                        reserved.
+                    </div>
+                    <div class="developer">
+                        Designed and Developed by &nbsp;<a href="https://www.d3-c0d3r.com">D3-C0D3R</a>.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/motion.js"></script>
+    <script src="js/vanta-script.js"></script>
+</body>
+
+</html>

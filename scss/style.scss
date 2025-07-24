@@ -1,0 +1,611 @@
+//Variable declaration
+$bg1: #F0F0F0;
+$bg2: #E0E0E0;
+$bg3: #E4E4E4;
+$bg4: #B0B0B0;
+$bg5: #888888;
+$bg6: #444444;
+$bg7: #121212;
+$bg8: #F5E8D8;
+$bg9: #0f2862;
+$bg10: #6B7A8F;
+$bg11: #d4d4dc;
+$bg12: #393f4d;
+$bg13: #1d1e22;
+
+$color1: #0D0D0D;
+$color2: #FFFFFF;
+$color3: #00FF85;
+$color4: #1E90FF;
+$color5: #FF0099;
+
+$font-bold: 800;
+
+$font-xlarge: 80px;
+$font-large: 26px;
+$font-medium: 20px;
+$font-normal: 16px;
+$font-small: 12px;
+
+$hover1: #FFFFFF;
+$hover2: #121212;
+$hover3: #A8DADC;
+$hover4: #004D61;
+$hover5: #FF5722;
+
+* {
+    box-sizing: none;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    //background: url("img/");
+
+    .parent {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        gap: 10px;
+
+        header {
+
+        }
+
+        main {
+
+        }
+
+        footer {
+            backdrop-filter: blur(10px);
+            border: 2px solid RGBA(255, 255, 255, 0.18);
+            box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
+            grid-column: span 12 / span 12;
+            grid-row-start: 4;
+            margin: 2px;
+            width: 100%;
+
+            .container {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 10px;
+                padding: 10px;
+                width: 100%;
+
+                .about {
+                    color: $color1;
+                    padding: 2px;
+                    font-size: 1.2rem;
+                    text-align: center;
+                    width: 20%;
+
+                    .container {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 2px;
+                        width: 100%;
+
+                        .first {
+                            align-items: center;
+                            display: flex;
+                            justify-content: center;
+
+                            .img {
+                                aspect-ratio: 1 / 1;
+                                border-radius: 50%;
+                                max-width: 8vw;
+                                object-fit: cover;
+                                object-position: center;
+                                padding: 2px;
+                            }
+                        }
+
+                        .last {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 2px;
+
+                            .text {
+                                display: flex;
+                                flex-direction: row;
+                                gap: 2px;
+
+                                .title {
+                                    font-size: $font-medium;
+                                    font-weight: $font-bold;
+                                    padding: 2px;
+                                    text-align: left;
+                                    width: 32%;
+                                }
+
+                                .colon {
+                                    font-size: $font-medium;
+                                    font-weight: $font-bold;
+                                    text-align: center;
+                                    width: auto;
+                                }
+
+                                .name {
+                                    color: $color1;
+                                    font-size: $font-medium;
+                                    font-weight: $font-normal;
+                                    padding: 2px;
+                                    text-align: left;
+                                    width: 66%;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .services {
+                    color: $color1;
+                    padding: 2px;
+                    font-size: $font-medium;
+                    text-align: center;
+                    width: 10%;
+
+                    .container {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 2px;
+                        padding-left: 10px;
+                        text-align: left;
+                        width: 100%;
+
+                        a {
+                            color: $color1;
+                            font-size: $font-medium;
+                            font-weight: $font-normal;
+                            padding-bottom: 4px;
+                            text-decoration: none;
+
+                            &:hover {
+                                color: $hover1;
+                            }
+                        }
+
+                        .line {
+                            border-top: 1px solid $hover2;
+                            margin-left: 10px;
+                            width: 60%;
+                        }
+                    }
+                }
+
+                .projects {
+                    color: $color1;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 2px;
+                    padding: 2px 0 2px 2px;
+                    font-size: 1.2rem;
+                    text-align: center;
+                    width: 40%;
+
+                    .container {
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+
+                        .img {
+                            aspect-ratio: 16 / 9;
+                            border-radius: 10px;
+                            object-fit: cover;
+                            object-position: center;
+                            padding: 2px;
+                            width: 12vw;
+                        }
+
+                        .links {
+                            align-items: center;
+                            border-top: 1px solid $hover2;
+                            color: $color1;
+                            display: flex;
+                            flex-direction: row;
+                            gap: 2px;
+                            justify-content: center;
+                            font-size: $font-medium;
+                            text-align: center;
+                            width: 100%;
+
+                            a {
+                                color: $color2;
+                                padding: 4px;
+                                text-decoration: none;
+
+                                &:hover {
+                                    color: $hover1;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .contact {
+                    color: $color1;
+                    padding: 5px;
+                    font-size: 1.2rem;
+                    text-align: center;
+                    width: 27vw;
+
+                    .title {
+                        color: $color1;
+                        font-size: 1.2rem;
+                        font-weight: $font-bold;
+                        padding: 10px;
+                    }
+
+                    .form {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                        padding: 10px;
+
+                        button {
+                            background-color: $hover2;
+                            border: 1px solid $hover2;
+                            color: $color1;
+                            padding: 10px;
+                            transition: background-color 0.5s;
+                            transition-delay: 0s;
+
+                            &:hover {
+                                background-color: $hover2;
+                                color: $hover1;
+                            }
+                        }
+
+                        input {
+                            border: 1px solid $hover2;
+                            color: $color1;
+                            padding: 10px;
+                            transition: background-color 0.5s;
+                            transition-delay: 0s;
+                            width: 100%;
+
+                            &:hover {
+                                border: 1px solid $hover2;
+                                color: $hover1;
+                            }
+                        }
+
+                        textarea {
+                            border: 1px solid $hover2;
+                            color: $color1;
+                            height: 138px;
+                            padding: 10px;
+                            transition: background-color 0.5s;
+                            transition-delay: 0s;
+                            width: 100%;
+
+                            &:hover {
+                                border: 1px solid $hover2;
+                                color: $hover1;
+                            }
+                        }
+                    }
+
+                    .social {
+                        align-items: center;
+                        border-top: 1px solid $hover2;
+                        display: flex;
+                        flex-direction: row;
+                        gap: 15px;
+                        justify-content: center;
+                        padding: 5px;
+                        width: 100%;
+
+                        .icon {
+                            border: 1px solid $hover2;
+                            border-radius: 50%;
+                            color: $color1;
+                            font-size: $font-normal;
+                            margin: 10px;
+                            outline: 1px solid $color1;
+                            padding: 10px 2px;
+                            transition: 0.5s;
+                            transition-delay: 0s;
+
+                            &:hover {
+                                color: $hover1;
+                                outline: 1px solid $hover1;
+                            }
+                        }
+
+                        &:hover {
+                            color: $hover1;
+                        }
+                    }
+                }
+
+                .statement {
+                    border-top: 1px solid $hover2;
+                    color: $color1;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 2px;
+                    padding: 10px;
+                    font-size: $font-small;
+                    text-align: center;
+                    width: 98vw;
+
+                    .first {
+                        display: flex;
+                        gap: 2px;
+                        padding: 10px;
+                        font-size: $font-small;
+
+                        p {
+                            color: $color1;
+                            padding: 2px;
+                            font-size: $font-small;
+                            text-align: center;
+                            width: 96vw;
+
+                            a {
+                                color: $color1;
+                                text-decoration: none;
+
+                                &:hover {
+                                    color: $hover1;
+                                }
+                            }
+                        }
+                    }
+
+                    .last {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 2px;
+                        padding: 10px;
+                        font-size: $font-small;
+
+                        .copyright {
+                            color: $color1;
+                            display: flex;
+                            font-size: $font-small;
+                            justify-content: flex-start;
+                            padding-left: 10px;
+                            text-align: center;
+                            width: 48vw;
+                        }
+
+                        .developer {
+                            align-items: center;
+                            color: $color1;
+                            display: flex;
+                            justify-content: flex-end;
+                            padding-right: 10px;
+                            font-size: $font-small;
+                            text-align: right;
+                            width: 48vw;
+                        }
+
+                        a {
+                            color: $color1;
+                            text-decoration: none;
+
+                            &:hover {
+                                color: $hover1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.navbar {
+    align-items: center;
+    backdrop-filter: blur(30px);
+    border: 2px solid RGBA(255, 255, 255, 0.18);
+    box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+
+    //background: $hover2;   
+    padding: 0;
+
+    
+    .extra {
+        align-items: flex-end;
+        display: flex;
+        flex-direction: row;
+        padding-left: 30px;
+
+        .account {
+            align-items: center;
+            display: flex;
+            flex-direction: row; 
+            justify-content: flex-end;
+            padding: 20px;
+
+            button {
+                background-color: $color4;
+                color: $color2;
+                height: 30px;
+                padding: 0 10px;
+
+                &:hover {
+                    background-color: $color2;
+                    color: $color4;
+                }
+            }
+        }
+
+        .search {
+            align-items: center;
+            display: flex;
+            flex-direction: row; 
+            justify-content: flex-start;  
+            padding: 20px; 
+            
+            button {
+                background-color: $color5;
+                border: 1px solid $color1;
+                border-radius: 50%;
+                border-left: none;
+                border-right: 10px;
+                border-bottom: 10px;
+                color: $color2;
+                cursor: pointer;
+                height: 30px;
+                margin-left: -14px;
+                width: 30px;
+                transition: background-color 0.5s;
+                transition-delay: 0s;
+                z-index: 1;
+
+                i {
+                    color: $color1;
+                    font-size: $font-normal;
+                    transition: 0.5s;
+                    transition-delay: 0s;
+                }
+
+                &:hover {
+                    background-color: $hover4;
+                    color: $hover2;
+
+                    i:hover {
+                        color: $color2;
+                    }
+                }
+            }
+
+            input {
+                background: transparent;
+                border: 1px solid $hover4;
+                border-radius: 20px 0 0 20px;
+                color: $color1;
+                cursor: pointer;
+                height: 12px;
+                outline: none;
+                padding: 8px 0px 8px 20px;
+                width: 180px;
+
+                &:hover {
+                    background: $hover3;
+                    color: $hover4;
+                }
+            }
+        }
+    }
+
+    .logo {
+        display: flex;
+        filter: drop-shadow(0 2px 8px $color1);
+        height: auto;
+        width: 10vw;
+
+        img {
+            aspect-ratio: 1 / 1;
+            background-image: url(../img/logo/Kush-transparent.png);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow: hidden;
+            padding: 0 10px;
+            width: 60px;
+
+            &:hover {
+                background-image: url(../img/logo/Kush-bg.png);
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+        }
+    }   
+
+    .nav-links {
+        align-items: center;
+        //background: $hover2;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-items: center;
+        gap: 1rem;
+        list-style: none;
+        padding: 0 20px;
+        margin: 0;
+    }   
+
+    .nav-item {
+
+        .nav-link {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                padding: 1rem 0;
+                color: $color4;
+                text-decoration: none;
+
+            .icon {
+                aspect-ratio: 1 / 1;
+                border: 1px solid $color2;
+                border-radius: 50%;
+                font-size: 30px;
+                position: relative;
+                text-align: center;
+                transition: transform 0.2s;
+                width: 40px;
+
+                i {
+                    //margin: 20px;
+
+                    &:hover {
+                        color: $color1;
+                    }
+                }
+            }
+
+            .text {
+                display: none;
+                font-size: 1rem;
+                margin-top: 0.25rem;
+                margin-left: 10px;
+                transition: opacity 0.2s;
+            }
+
+            &:hover, &:focus {
+                .icon {
+                    transform: scale(1.1);              
+                }
+
+                .text {
+                    color: $color1;
+                    display: block;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+  
+
+// Responsive adjustments
+@media (max-width: 768px) {
+    .navbar .nav-links {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+  
+@media (max-width: 480px) {
+    .navbar .nav-links {
+        grid-template-columns: repeat(2, 1fr);
+
+        .nav-link {
+            flex-direction: row;
+
+            .nav-text {
+                margin-top: 0;
+                margin-left: 0.5rem;
+            }
+        }
+    }
+}
+  

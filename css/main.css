@@ -10,6 +10,27 @@ body .parent {
   grid-template-rows: repeat(4, 1fr);
   gap: 10px;
 }
+body .parent nav {
+  align-items: center;
+  justify-items: center;
+  grid-column: span 12/span 12;
+  grid-row-start: 1;
+  z-index: 11;
+}
+body .parent header {
+  align-items: center;
+  justify-items: center;
+  grid-column: span 12/span 12;
+  grid-row-start: 2;
+  z-index: 11;
+}
+body .parent main {
+  align-items: center;
+  justify-items: center;
+  grid-column: span 12/span 12;
+  grid-row-start: 3;
+  z-index: 11;
+}
 body .parent footer {
   backdrop-filter: blur(10px);
   border: 2px solid RGBA(255, 255, 255, 0.18);
@@ -18,6 +39,7 @@ body .parent footer {
   grid-row-start: 4;
   margin: 2px;
   width: 100%;
+  z-index: 11;
 }
 body .parent footer .container {
   display: flex;
@@ -307,14 +329,18 @@ body .parent footer .container .statement .last a:hover {
 }
 
 .navbar {
-  align-items: center;
+  align-items: flex-start;
   backdrop-filter: blur(30px);
   border: 2px solid RGBA(255, 255, 255, 0.18);
+  border-radius: 0 0 10px 10px;
   box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
   display: flex;
-  flex-direction: row;
-  justify-items: center;
+  justify-content: center;
   padding: 0;
+  position: fixed;
+  top: 1px;
+  width: 100%;
+  z-index: 11;
 }
 .navbar .extra {
   align-items: flex-end;
@@ -446,7 +472,7 @@ body .parent footer .container .statement .last a:hover {
 }
 .navbar .nav-item .nav-link .text {
   display: none;
-  font-size: 1rem;
+  font-size: 20px;
   margin-top: 0.25rem;
   margin-left: 10px;
   transition: opacity 0.2s;
@@ -477,27 +503,114 @@ body .parent footer .container .statement .last a:hover {
     margin-left: 0.5rem;
   }
 }
+.circle-container {
+  height: 300px;
+  margin: auto;
+  position: relative;
+  width: 49vw;
+}
+.circle-container .center-circle {
+  background-color: #3498db;
+  border: 1px solid red;
+  border-radius: 50%;
+  height: 120px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  z-index: 2;
+}
+.circle-container .center-circle .img {
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  position: relative;
+  width: 110px;
+}
+.circle-container .around-img {
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  position: absolute;
+  width: 100px;
+}
+.circle-container .around-img:nth-child(2) {
+  top: calc(50% + 0px - 25px);
+  left: calc(50% + 120px - 25px);
+}
+.circle-container .around-img:nth-child(3) {
+  top: calc(50% + 84.8528137424px - 25px);
+  left: calc(50% + 84.8528137424px - 25px);
+}
+.circle-container .around-img:nth-child(4) {
+  top: calc(50% + 120px - 25px);
+  left: calc(50% + 0px - 25px);
+}
+.circle-container .around-img:nth-child(5) {
+  top: calc(50% + 84.8528137424px - 25px);
+  left: calc(50% - 84.8528137424px - 25px);
+}
+.circle-container .around-img:nth-child(6) {
+  top: calc(50% + 0px - 25px);
+  left: calc(50% - 120px - 25px);
+}
+.circle-container .around-img:nth-child(7) {
+  top: calc(50% - 84.8528137424px - 25px);
+  left: calc(50% - 84.8528137424px - 25px);
+}
+.circle-container .around-img:nth-child(8) {
+  top: calc(50% - 120px - 25px);
+  left: calc(50% + 0px - 25px);
+}
+.circle-container .around-img:nth-child(9) {
+  top: calc(50% - 84.8528137424px - 25px);
+  left: calc(50% + 84.8528137424px - 25px);
+}
+.circle-container .around-img:nth-child(10) {
+  top: calc(50% + 0px - 25px);
+  left: calc(50% + 120px - 25px);
+}
+
 .hollow-container {
   aspect-ratio: 16/9;
   background: transparent;
   border: 1px solid #1a1a1a;
   display: flex;
   flex-direction: row;
+  margin: 0 1vw;
   overflow: hidden;
+  top: 80px;
   position: relative;
   width: 98vw;
 }
 .hollow-container .hollow {
   background: url(../img/pic/help-desk.jpg);
   border-radius: 50%;
-  box-shadow: 0 0 0 9px rgb(240, 237, 237);
+  box-shadow: 0 0 0 0px transparent;
   pointer-events: none;
   position: absolute;
-  top: 40%;
-  left: 80%;
+  top: 50%;
+  left: 75%;
   transform: translate(-50%, -50%);
-  width: 400px;
-  height: 400px;
+  width: 600px;
+  height: 600px;
+}
+.hollow-container .html5 {
+  aspect-ratio: 1/1;
+  position: absolute;
+  width: 30px;
+  z-index: 10;
+}
+.hollow-container .javascript {
+  aspect-ratio: 1/1;
+  position: absolute;
+  width: 20px;
+  z-index: 10;
+}
+.hollow-container .sass {
+  aspect-ratio: 1/1;
+  position: absolute;
+  width: 40px;
+  z-index: 10;
 }
 .hollow-container .welcome {
   background: transparent;
@@ -511,4 +624,28 @@ body .parent footer .container .statement .last a:hover {
 .hollow-container .welcome p {
   font-size: 25px;
   padding: 50px;
+}
+
+.peach {
+  width: 200px;
+  height: 250px;
+  background-image: url("img/pic/help-desk.jpg");
+  background-size: cover;
+  background-position: center;
+  border: 1px solid green;
+  border-radius: 50%/60% 60% 40% 40%;
+  position: relative;
+  box-shadow: inset -10px 0 20px rgba(255, 224, 189, 0.5);
+}
+.peach ::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  width: 60px;
+  height: 30px;
+  background: green;
+  border-radius: 50% 50% 0 0;
+  transform: translateX(-50%) rotate(-20deg);
+  box-shadow: 0 2px 5px rgba(0, 100, 0, 0.6);
 }

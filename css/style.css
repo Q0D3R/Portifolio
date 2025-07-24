@@ -10,6 +10,27 @@ body .parent {
   grid-template-rows: repeat(4, 1fr);
   gap: 10px;
 }
+body .parent nav {
+  align-items: center;
+  justify-items: center;
+  grid-column: span 12/span 12;
+  grid-row-start: 1;
+  z-index: 11;
+}
+body .parent header {
+  align-items: center;
+  justify-items: center;
+  grid-column: span 12/span 12;
+  grid-row-start: 2;
+  z-index: 11;
+}
+body .parent main {
+  align-items: center;
+  justify-items: center;
+  grid-column: span 12/span 12;
+  grid-row-start: 3;
+  z-index: 11;
+}
 body .parent footer {
   backdrop-filter: blur(10px);
   border: 2px solid RGBA(255, 255, 255, 0.18);
@@ -18,6 +39,7 @@ body .parent footer {
   grid-row-start: 4;
   margin: 2px;
   width: 100%;
+  z-index: 11;
 }
 body .parent footer .container {
   display: flex;
@@ -307,14 +329,18 @@ body .parent footer .container .statement .last a:hover {
 }
 
 .navbar {
-  align-items: center;
+  align-items: flex-start;
   backdrop-filter: blur(30px);
   border: 2px solid RGBA(255, 255, 255, 0.18);
+  border-radius: 0 0 10px 10px;
   box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
   display: flex;
-  flex-direction: row;
-  justify-items: center;
+  justify-content: center;
   padding: 0;
+  position: fixed;
+  top: 1px;
+  width: 100%;
+  z-index: 11;
 }
 .navbar .extra {
   align-items: flex-end;
@@ -446,7 +472,7 @@ body .parent footer .container .statement .last a:hover {
 }
 .navbar .nav-item .nav-link .text {
   display: none;
-  font-size: 1rem;
+  font-size: 20px;
   margin-top: 0.25rem;
   margin-left: 10px;
   transition: opacity 0.2s;

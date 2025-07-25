@@ -1,70 +1,66 @@
-.circle-container {
-  height: 300px;
-  margin: auto;
-  position: relative;
-  width: 49vw;
-}
-.circle-container .center-circle {
-  background-color: #3498db;
-  border: 1px solid red;
-  border-radius: 50%;
-  height: 120px;
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 120px;
-  z-index: 2;
-}
-.circle-container .center-circle .img {
-  aspect-ratio: 1/1;
-  border-radius: 50%;
-  position: relative;
-  width: 110px;
-}
-.circle-container .around-img {
-  aspect-ratio: 1/1;
-  border-radius: 50%;
-  position: absolute;
-  width: 100px;
-}
-.circle-container .around-img:nth-child(2) {
-  top: calc(50% + 0px - 25px);
-  left: calc(50% + 120px - 25px);
-}
-.circle-container .around-img:nth-child(3) {
-  top: calc(50% + 84.8528137424px - 25px);
-  left: calc(50% + 84.8528137424px - 25px);
-}
-.circle-container .around-img:nth-child(4) {
-  top: calc(50% + 120px - 25px);
-  left: calc(50% + 0px - 25px);
-}
-.circle-container .around-img:nth-child(5) {
-  top: calc(50% + 84.8528137424px - 25px);
-  left: calc(50% - 84.8528137424px - 25px);
-}
-.circle-container .around-img:nth-child(6) {
-  top: calc(50% + 0px - 25px);
-  left: calc(50% - 120px - 25px);
-}
-.circle-container .around-img:nth-child(7) {
-  top: calc(50% - 84.8528137424px - 25px);
-  left: calc(50% - 84.8528137424px - 25px);
-}
-.circle-container .around-img:nth-child(8) {
-  top: calc(50% - 120px - 25px);
-  left: calc(50% + 0px - 25px);
-}
-.circle-container .around-img:nth-child(9) {
-  top: calc(50% - 84.8528137424px - 25px);
-  left: calc(50% + 84.8528137424px - 25px);
-}
-.circle-container .around-img:nth-child(10) {
-  top: calc(50% + 0px - 25px);
-  left: calc(50% + 120px - 25px);
+* {
+  box-sizing: none;
+  margin: 0;
+  padding: 0;
 }
 
+/* Extra small devices (phones, 600px and down) */
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* Medium devices (landscape tablets, 768px, Large devices (laptops/desktops, 992px and up) and extra large devices (large laptops and desktops, 1200px and up)*/
+@media only screen and (min-width: 768px) and (max-width: 991px) and (min-width: 1200px) {
+  body .parent {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 10px;
+  }
+  body .parent nav {
+    align-items: center;
+    backdrop-filter: blur(10px);
+    border: 2px solid RGBA(255, 255, 255, 0.18);
+    box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
+    grid-column: span 12/span 12;
+    grid-row-start: 1;
+    justify-items: center;
+    margin: 2px;
+    width: 100%;
+    z-index: 1100;
+  }
+  body .parent header {
+    align-items: center;
+    backdrop-filter: blur(10px);
+    border: 2px solid RGBA(255, 255, 255, 0.18);
+    box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
+    grid-column: span 12/span 12;
+    grid-row-start: 2;
+    justify-items: center;
+    margin: 2px;
+    width: 100%;
+    z-index: 11;
+  }
+  body .parent main {
+    align-items: center;
+    backdrop-filter: blur(10px);
+    border: 2px solid RGBA(255, 255, 255, 0.18);
+    box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
+    grid-column: span 12/span 12;
+    grid-row-start: 3;
+    justify-items: center;
+    margin: 2px;
+    width: 100%;
+    z-index: 11;
+  }
+  body .parent footer {
+    backdrop-filter: blur(10px);
+    border: 2px solid RGBA(255, 255, 255, 0.18);
+    box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
+    grid-column: span 12/span 12;
+    grid-row-start: 4;
+    margin: 2px;
+    width: 98vw;
+    z-index: 11;
+  }
+}
 .hollow-container {
   aspect-ratio: 16/9;
   background: transparent;
@@ -119,28 +115,4 @@
 .hollow-container .welcome p {
   font-size: 25px;
   padding: 50px;
-}
-
-.peach {
-  width: 200px;
-  height: 250px;
-  background-image: url("img/pic/help-desk.jpg");
-  background-size: cover;
-  background-position: center;
-  border: 1px solid green;
-  border-radius: 50%/60% 60% 40% 40%;
-  position: relative;
-  box-shadow: inset -10px 0 20px rgba(255, 224, 189, 0.5);
-}
-.peach ::before {
-  content: "";
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  width: 60px;
-  height: 30px;
-  background: green;
-  border-radius: 50% 50% 0 0;
-  transform: translateX(-50%) rotate(-20deg);
-  box-shadow: 0 2px 5px rgba(0, 100, 0, 0.6);
 }

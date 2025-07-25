@@ -1,73 +1,203 @@
-* {
-  box-sizing: none;
-  margin: 0;
-  padding: 0;
+.title {
+  color: #1E90FF;
+  font-weight: 600;
 }
 
-body .parent {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  gap: 10px;
+.call {
+  color: #1E90FF;
+  font-weight: 400;
 }
-body .parent nav {
-  align-items: center;
-  justify-items: center;
-  grid-column: span 12/span 12;
-  grid-row-start: 1;
-  z-index: 11;
-}
-body .parent header {
-  align-items: center;
-  justify-items: center;
-  grid-column: span 12/span 12;
-  grid-row-start: 2;
-  z-index: 11;
-}
-body .parent main {
-  align-items: center;
-  justify-items: center;
-  grid-column: span 12/span 12;
-  grid-row-start: 3;
-  z-index: 11;
-}
-body .parent footer {
-  backdrop-filter: blur(10px);
-  border: 2px solid RGBA(255, 255, 255, 0.18);
-  box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
-  grid-column: span 12/span 12;
-  grid-row-start: 4;
-  margin: 2px;
-  width: 100%;
-  z-index: 11;
-}
-body .parent footer .container {
+
+.h-container {
+  border: 1px solid #0D0D0D;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 10px;
-  padding: 10px;
-  width: 100%;
+  margin: 10px;
+  top: 80px;
+  width: 99vw;
 }
-body .parent footer .container .about {
+.h-container .welcome {
+  padding: 10px;
+  position: relative;
+  width: 40vw;
+}
+.h-container .welcome h1 {
+  font-size: 80px;
+  font-weight: 600;
+  padding: 10px;
+}
+.h-container .welcome P {
+  font-size: 26px;
+  font-weight: 500;
+  padding: 10px;
+}
+.h-container .peach {
+  width: 40vh;
+  height: 25vw;
+  background-image: url(".../img/pic/help-desk.jpg");
+  background-size: cover;
+  background-position: center;
+  border: 1px solid green;
+  border-radius: 50%/60% 60% 40% 40%;
+  left: 20%;
+  overflow: hidden;
+  position: relative;
+  top: 10%;
+  box-shadow: inset -10px 0 20px rgba(255, 224, 189, 0.5);
+}
+.h-container .peach .img {
+  aspect-ratio: 5/4;
+  width: 45vw;
+}
+.h-container .peach ::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  width: 60px;
+  height: 30px;
+  background: green;
+  border-radius: 50% 50% 0 0;
+  transform: translateX(-50%) rotate(-20deg);
+  box-shadow: 0 2px 5px rgba(0, 100, 0, 0.6);
+}
+
+.m-container {
+  border: 1px solid #0D0D0D;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 60px 10px;
+  top: auto;
+  width: 99vw;
+}
+.m-container .col {
+  border: 1px solid #0D0D0D;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 98vw;
+}
+.m-container .description {
+  align-items: center;
+  border: 1px solid #0D0D0D;
+  display: flex;
+  justify-content: flex-start;
+  margin: 2px;
+  width: 24vw;
+}
+.m-container .description p {
+  padding: 2px;
+}
+.m-container .description p ul {
+  padding: 5px;
+}
+.m-container .projects {
+  border: 1px solid #0D0D0D;
+  height: 300px;
+  margin: 2px;
+  position: relative;
+  width: 20vw;
+}
+.m-container .projects .center-circle {
+  background-color: #1E90FF;
+  border-radius: 50%;
+  height: 120px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  z-index: 2;
+}
+.m-container .projects .center-circle .img {
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  position: relative;
+  width: 110px;
+}
+.m-container .projects .around-img {
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  position: absolute;
+  width: 100px;
+}
+.m-container .projects .around-img:nth-child(2) {
+  top: calc(50% + 0px - 47px);
+  left: calc(50% + 120px - 47px);
+}
+.m-container .projects .around-img:nth-child(3) {
+  top: calc(50% + 84.8528137424px - 47px);
+  left: calc(50% + 84.8528137424px - 47px);
+}
+.m-container .projects .around-img:nth-child(4) {
+  top: calc(50% + 120px - 47px);
+  left: calc(50% + 0px - 47px);
+}
+.m-container .projects .around-img:nth-child(5) {
+  top: calc(50% + 84.8528137424px - 47px);
+  left: calc(50% - 84.8528137424px - 47px);
+}
+.m-container .projects .around-img:nth-child(6) {
+  top: calc(50% + 0px - 47px);
+  left: calc(50% - 120px - 47px);
+}
+.m-container .projects .around-img:nth-child(7) {
+  top: calc(50% - 84.8528137424px - 47px);
+  left: calc(50% - 84.8528137424px - 47px);
+}
+.m-container .projects .around-img:nth-child(8) {
+  top: calc(50% - 120px - 47px);
+  left: calc(50% + 0px - 47px);
+}
+.m-container .projects .around-img:nth-child(9) {
+  top: calc(50% - 84.8528137424px - 47px);
+  left: calc(50% + 84.8528137424px - 47px);
+}
+.m-container .projects .around-img:nth-child(10) {
+  top: calc(50% + 0px - 47px);
+  left: calc(50% + 120px - 47px);
+}
+.m-container .row {
+  border: 1px solid #0D0D0D;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 45vw;
+}
+
+.f-container {
+  align-content: center;
+  border: 1px0 solid #0D0D0D;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: fit-content;
+  justify-content: center;
+  margin: 10px;
+  padding: 1px 1px;
+  width: 99vw;
+}
+.f-container .about {
   color: #0D0D0D;
   padding: 2px;
   font-size: 1.2rem;
   text-align: center;
-  width: 20%;
+  width: 19vw;
 }
-body .parent footer .container .about .container {
+.f-container .about .container {
   display: flex;
   flex-direction: column;
   gap: 2px;
   width: 100%;
 }
-body .parent footer .container .about .container .first {
+.f-container .about .container .first {
   align-items: center;
   display: flex;
   justify-content: center;
 }
-body .parent footer .container .about .container .first .img {
+.f-container .about .container .first .img {
   aspect-ratio: 1/1;
   border-radius: 50%;
   max-width: 8vw;
@@ -75,45 +205,48 @@ body .parent footer .container .about .container .first .img {
   object-position: center;
   padding: 2px;
 }
-body .parent footer .container .about .container .last {
+.f-container .about .container .last {
   display: flex;
   flex-direction: column;
   gap: 2px;
 }
-body .parent footer .container .about .container .last .text {
+.f-container .about .container .last .text {
   display: flex;
   flex-direction: row;
   gap: 2px;
 }
-body .parent footer .container .about .container .last .text .title {
+.f-container .about .container .last .text .title {
   font-size: 20px;
   font-weight: 800;
   padding: 2px;
   text-align: left;
   width: 32%;
 }
-body .parent footer .container .about .container .last .text .colon {
+.f-container .about .container .last .text .colon {
   font-size: 20px;
   font-weight: 800;
+  padding-right: 20px;
   text-align: center;
   width: auto;
 }
-body .parent footer .container .about .container .last .text .name {
+.f-container .about .container .last .text .name {
+  align-items: flex-end;
   color: #0D0D0D;
   font-size: 20px;
   font-weight: 16px;
+  justify-items: flex-end;
   padding: 2px;
   text-align: left;
   width: 66%;
 }
-body .parent footer .container .services {
+.f-container .services {
   color: #0D0D0D;
   padding: 2px;
   font-size: 20px;
   text-align: center;
-  width: 10%;
+  width: 9vw;
 }
-body .parent footer .container .services .container {
+.f-container .services .container {
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -121,37 +254,42 @@ body .parent footer .container .services .container {
   text-align: left;
   width: 100%;
 }
-body .parent footer .container .services .container a {
+.f-container .services .container a {
   color: #0D0D0D;
   font-size: 20px;
   font-weight: 16px;
   padding-bottom: 4px;
   text-decoration: none;
 }
-body .parent footer .container .services .container a:hover {
+.f-container .services .container a:hover {
   color: #FFFFFF;
 }
-body .parent footer .container .services .container .line {
+.f-container .services .container .line {
   border-top: 1px solid #121212;
   margin-left: 10px;
   width: 60%;
 }
-body .parent footer .container .projects {
+.f-container .projects {
+  align-items: center;
   color: #0D0D0D;
   display: flex;
   flex-direction: column;
   gap: 2px;
+  justify-items: center;
   padding: 2px 0 2px 2px;
   font-size: 1.2rem;
   text-align: center;
-  width: 40%;
+  width: 42vw;
 }
-body .parent footer .container .projects .container {
+.f-container .projects .container {
+  align-items: center;
+  border: 1px solid #0D0D0D;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
 }
-body .parent footer .container .projects .container .img {
+.f-container .projects .container .img {
   aspect-ratio: 16/9;
   border-radius: 10px;
   object-fit: cover;
@@ -159,7 +297,7 @@ body .parent footer .container .projects .container .img {
   padding: 2px;
   width: 12vw;
 }
-body .parent footer .container .projects .container .links {
+.f-container .projects .container .links {
   align-items: center;
   border-top: 1px solid #121212;
   color: #0D0D0D;
@@ -171,34 +309,34 @@ body .parent footer .container .projects .container .links {
   text-align: center;
   width: 100%;
 }
-body .parent footer .container .projects .container .links a {
+.f-container .projects .container .links a {
   color: #FFFFFF;
   padding: 4px;
   text-decoration: none;
 }
-body .parent footer .container .projects .container .links a:hover {
+.f-container .projects .container .links a:hover {
   color: #FFFFFF;
 }
-body .parent footer .container .contact {
+.f-container .contact {
   color: #0D0D0D;
   padding: 5px;
   font-size: 1.2rem;
   text-align: center;
-  width: 27vw;
+  width: 25vw;
 }
-body .parent footer .container .contact .title {
+.f-container .contact .title {
   color: #0D0D0D;
   font-size: 1.2rem;
   font-weight: 800;
   padding: 10px;
 }
-body .parent footer .container .contact .form {
+.f-container .contact .form {
   display: flex;
   flex-direction: column;
   gap: 10px;
   padding: 10px;
 }
-body .parent footer .container .contact .form button {
+.f-container .contact .form button {
   background-color: #121212;
   border: 1px solid #121212;
   color: #0D0D0D;
@@ -206,11 +344,11 @@ body .parent footer .container .contact .form button {
   transition: background-color 0.5s;
   transition-delay: 0s;
 }
-body .parent footer .container .contact .form button:hover {
+.f-container .contact .form button:hover {
   background-color: #121212;
   color: #FFFFFF;
 }
-body .parent footer .container .contact .form input {
+.f-container .contact .form input {
   border: 1px solid #121212;
   color: #0D0D0D;
   padding: 10px;
@@ -218,11 +356,11 @@ body .parent footer .container .contact .form input {
   transition-delay: 0s;
   width: 100%;
 }
-body .parent footer .container .contact .form input:hover {
+.f-container .contact .form input:hover {
   border: 1px solid #121212;
   color: #FFFFFF;
 }
-body .parent footer .container .contact .form textarea {
+.f-container .contact .form textarea {
   border: 1px solid #121212;
   color: #0D0D0D;
   height: 138px;
@@ -231,11 +369,11 @@ body .parent footer .container .contact .form textarea {
   transition-delay: 0s;
   width: 100%;
 }
-body .parent footer .container .contact .form textarea:hover {
+.f-container .contact .form textarea:hover {
   border: 1px solid #121212;
   color: #FFFFFF;
 }
-body .parent footer .container .contact .social {
+.f-container .contact .social {
   align-items: center;
   border-top: 1px solid #121212;
   display: flex;
@@ -245,7 +383,7 @@ body .parent footer .container .contact .social {
   padding: 5px;
   width: 100%;
 }
-body .parent footer .container .contact .social .icon {
+.f-container .contact .social .icon {
   border: 1px solid #121212;
   border-radius: 50%;
   color: #0D0D0D;
@@ -256,14 +394,14 @@ body .parent footer .container .contact .social .icon {
   transition: 0.5s;
   transition-delay: 0s;
 }
-body .parent footer .container .contact .social .icon:hover {
+.f-container .contact .social .icon:hover {
   color: #FFFFFF;
   outline: 1px solid #FFFFFF;
 }
-body .parent footer .container .contact .social:hover {
+.f-container .contact .social:hover {
   color: #FFFFFF;
 }
-body .parent footer .container .statement {
+.f-container .statement {
   border-top: 1px solid #121212;
   color: #0D0D0D;
   display: flex;
@@ -274,34 +412,33 @@ body .parent footer .container .statement {
   text-align: center;
   width: 98vw;
 }
-body .parent footer .container .statement .first {
+.f-container .statement .first {
   display: flex;
   gap: 2px;
   padding: 10px;
   font-size: 12px;
 }
-body .parent footer .container .statement .first p {
+.f-container .statement .first p {
   color: #0D0D0D;
   padding: 2px;
   font-size: 12px;
   text-align: center;
   width: 96vw;
 }
-body .parent footer .container .statement .first p a {
+.f-container .statement .first p a {
   color: #0D0D0D;
   text-decoration: none;
 }
-body .parent footer .container .statement .first p a:hover {
+.f-container .statement .first p a:hover {
   color: #FFFFFF;
 }
-body .parent footer .container .statement .last {
+.f-container .statement .last {
   display: flex;
   flex-direction: row;
-  gap: 2px;
   padding: 10px;
   font-size: 12px;
 }
-body .parent footer .container .statement .last .copyright {
+.f-container .statement .last .copyright {
   color: #0D0D0D;
   display: flex;
   font-size: 12px;
@@ -310,7 +447,7 @@ body .parent footer .container .statement .last .copyright {
   text-align: center;
   width: 48vw;
 }
-body .parent footer .container .statement .last .developer {
+.f-container .statement .last .developer {
   align-items: center;
   color: #0D0D0D;
   display: flex;
@@ -320,11 +457,11 @@ body .parent footer .container .statement .last .developer {
   text-align: right;
   width: 48vw;
 }
-body .parent footer .container .statement .last a {
+.f-container .statement .last a {
   color: #0D0D0D;
   text-decoration: none;
 }
-body .parent footer .container .statement .last a:hover {
+.f-container .statement .last a:hover {
   color: #FFFFFF;
 }
 

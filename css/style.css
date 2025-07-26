@@ -630,3 +630,40 @@
     margin-left: 0.5rem;
   }
 }
+.container {
+  display: flex;
+  width: 100%;
+  height: 70vh;
+  outline: none;
+  border: 2px solid transparent;
+  transition: border-color 0.5s ease;
+}
+.container:focus {
+  border-color: #007BFF;
+}
+.container:not(:focus) .side {
+  transform: scale(0.95);
+  opacity: 0.85;
+}
+
+.side {
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+.side.left-side {
+  background-color: #f0f0f0;
+  width: 30vw;
+}
+.side.left-side:hover {
+  width: 100%;
+  z-index: 3;
+}
+.side.right-side {
+  background-color: #d0d0d0;
+}
+.side.right-side:hover {
+  width: 100%;
+  z-index: 3;
+}

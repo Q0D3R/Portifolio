@@ -1,4 +1,5 @@
-@use 'variables';
+@use "colors";
+@use "variables";
 
 .card-shuffle-slideshow {
     aspect-ratio: 16 / 9;
@@ -101,10 +102,10 @@
     padding: 3rem;
     max-width: 900px;
     margin: 2rem auto;
-    background: linear-gradient(135deg, variables.$color1, #3a89c9);
+    background: linear-gradient(135deg, colors.$color1, #3a89c9);
     border-radius: 15px;
-    box-shadow: 0 8px 20px variables.$color1;
-    color: variables.$color2;
+    box-shadow: 0 8px 20px colors.$color1;
+    color: colors.$color2;
     outline: none;
     transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1),
         box-shadow 0.7s cubic-bezier(0.4, 0, 0.2, 1);

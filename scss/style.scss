@@ -1,17 +1,18 @@
+@use "colors";
 @use "variables";
 
 .title {
-    color: variables.$color4;
+    color: colors.$color4;
     font-weight: 600;
 }
 
 .call {
-    color: variables.$color4;
+    color: colors.$color4;
     font-weight: 400;
 }
 
 .h-container {
-    border: 1px solid variables.$color1;
+    border: 1px solid colors.$color1;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -41,7 +42,7 @@
 }
 
 .m-container {
-    border: 1px solid variables.$color1;
+    border: 1px solid colors.$color1;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -50,7 +51,7 @@
     width: 99vw;
 
     .col {
-        border: 1px solid variables.$color1;
+        border: 1px solid colors.$color1;
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
@@ -59,7 +60,7 @@
 
     .description {
         align-items: center;
-        border: 1px solid variables.$color1;
+        border: 1px solid colors.$color1;
         display: flex;
         justify-content: flex-start;
         margin: 2px;
@@ -75,14 +76,14 @@
     }
 
     .projects {
-        border: 1px solid variables.$color1;
+        border: 1px solid colors.$color1;
         height: 300px;
         margin: 2px;
         position: relative;
         width: 20vw;
 
         .center-circle {
-            background-color: variables.$color4;
+            background-color: colors.$color4;
             border-radius: 50%;
             height: 120px;
             left: 50%;
@@ -158,7 +159,7 @@
     }
 
     .row {
-        border: 1px solid variables.$color1;
+        border: 1px solid colors.$color1;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -168,7 +169,7 @@
 
 .f-container {
     align-content: center;
-    border: 1px solid variables.$color1;
+    border: 1px solid colors.$color1;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -179,8 +180,8 @@
     width: 99vw;
 
     .about {
-        border: 1px solid variables.$color1;
-        color: variables.$color1;
+        border: 1px solid colors.$color1;
+        color: colors.$color1;
         padding: 2px;
         font-size: 1.2rem;
         text-align: center;
@@ -219,7 +220,7 @@
 
                     .title {
                         font-size: variables.$font-medium;
-                        font-weight: variables.$font-bold;
+                        font-weight: variables.$bold-vlight;
                         padding: 2px;
                         text-align: left;
                         width: 32%;
@@ -227,7 +228,7 @@
 
                     .colon {
                         font-size: variables.$font-medium;
-                        font-weight: variables.$font-bold;
+                        font-weight: variables.$bold-vlight;
                         padding-right: 20px;
                         text-align: center;
                         width: auto;
@@ -235,7 +236,7 @@
 
                     .name {
                         align-items: flex-end;
-                        color: variables.$color1;
+                        color: colors.$color1;
                         font-size: variables.$font-medium;
                         font-weight: variables.$font-normal;
                         justify-items: flex-end;
@@ -249,8 +250,8 @@
     }
 
     .services {
-        border: 1px solid variables.$color1;
-        color: variables.$color1;
+        border: 1px solid colors.$color1;
+        color: colors.$color1;
         padding: 2px;
         font-size: variables.$font-medium;
         text-align: center;
@@ -265,19 +266,19 @@
             width: 100%;
 
             a {
-                color: variables.$color1;
+                color: colors.$color1;
                 font-size: variables.$font-medium;
                 font-weight: variables.$font-normal;
                 padding-bottom: 4px;
                 text-decoration: none;
 
                 &:hover {
-                    color: variables.$hover1;
+                    color: colors.$hover1;
                 }
             }
 
             .line {
-                border-top: 1px solid variables.$hover2;
+                border-top: 1px solid colors.$hover2;
                 //margin-left: 10px;
                 //width: 60%;
             }
@@ -286,8 +287,8 @@
 
     .projects {
         align-items: center;
-        border: 1px solid variables.$color1;
-        color: variables.$color1;
+        border: 1px solid colors.$color1;
+        color: colors.$color1;
         display: flex;
         flex-direction: column;
         gap: 2px;
@@ -299,7 +300,7 @@
 
         .container {
             align-items: center;
-            border: 1px solid variables.$color1;
+            border: 1px solid colors.$color1;
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
@@ -316,8 +317,8 @@
 
             .links {
                 align-items: center;
-                border-top: 1px solid variables.$hover2;
-                color: variables.$color1;
+                border-top: 1px solid colors.$hover2;
+                color: colors.$color1;
                 display: flex;
                 flex-direction: row;
                 gap: 2px;
@@ -327,12 +328,12 @@
                 width: 100%;
 
                 a {
-                    color: variables.$color2;
+                    color: colors.$color2;
                     padding: 4px;
                     text-decoration: none;
 
                     &:hover {
-                        color: variables.$hover1;
+                        color: colors.$hover1;
                     }
                 }
             }
@@ -340,16 +341,16 @@
     }
 
     .contact {
-        color: variables.$color1;
+        color: colors.$color1;
         padding: 5px;
         font-size: 1.2rem;
         text-align: center;
         width: 25vw;
 
         .title {
-            color: variables.$color1;
+            color: colors.$color1;
             font-size: 1.2rem;
-            font-weight: variables.$font-bold;
+            font-weight: variables.$bold-vlight;
             padding: 10px;
         }
 
@@ -360,36 +361,36 @@
             padding: 10px;
 
             button {
-                background-color: variables.$hover2;
-                border: 1px solid variables.$hover2;
-                color: variables.$color1;
+                background-color: colors.$hover2;
+                border: 1px solid colors.$hover2;
+                color: colors.$color1;
                 padding: 10px;
                 transition: background-color 0.5s;
                 transition-delay: 0s;
 
                 &:hover {
-                    background-color: variables.$hover2;
-                    color: variables.$hover1;
+                    background-color: colors.$hover2;
+                    color: colors.$hover1;
                 }
             }
 
             input {
-                border: 1px solid variables.$hover2;
-                color: variables.$color1;
+                border: 1px solid colors.$hover2;
+                color: colors.$color1;
                 padding: 10px;
                 transition: background-color 0.5s;
                 transition-delay: 0s;
                 width: 100%;
 
                 &:hover {
-                    border: 1px solid variables.$hover2;
-                    color: variables.$hover1;
+                    border: 1px solid colors.$hover2;
+                    color: colors.$hover1;
                 }
             }
 
             textarea {
-                border: 1px solid variables.$hover2;
-                color: variables.$color1;
+                border: 1px solid colors.$hover2;
+                color: colors.$color1;
                 height: 138px;
                 padding: 10px;
                 transition: background-color 0.5s;
@@ -397,15 +398,15 @@
                 width: 100%;
 
                 &:hover {
-                    border: 1px solid variables.$hover2;
-                    color: variables.$hover1;
+                    border: 1px solid colors.$hover2;
+                    color: colors.$hover1;
                 }
             }
         }
 
         .social {
             align-items: center;
-            border-top: 1px solid variables.$hover2;
+            border-top: 1px solid colors.$hover2;
             display: flex;
             flex-direction: row;
             gap: 15px;
@@ -414,31 +415,31 @@
             width: 100%;
 
             .icon {
-                border: 1px solid variables.$hover2;
+                border: 1px solid colors.$hover2;
                 border-radius: 50%;
-                color: variables.$color1;
+                color: colors.$color1;
                 font-size: variables.$font-normal;
                 margin: 10px;
-                outline: 1px solid variables.$color1;
+                outline: 1px solid colors.$color1;
                 padding: 10px 2px;
                 transition: 0.5s;
                 transition-delay: 0s;
 
                 &:hover {
-                    color: variables.$hover1;
-                    outline: 1px solid variables.$hover1;
+                    color: colors.$hover1;
+                    outline: 1px solid colors.$hover1;
                 }
             }
 
             &:hover {
-                color: variables.$hover1;
+                color: colors.$hover1;
             }
         }
     }
 
     .statement {
-        border-top: 1px solid variables.$hover2;
-        color: variables.$color1;
+        border-top: 1px solid colors.$hover2;
+        color: colors.$color1;
         display: flex;
         flex-direction: column;
         gap: 2px;
@@ -454,18 +455,18 @@
             font-size: variables.$font-small;
 
             p {
-                color: variables.$color1;
+                color: colors.$color1;
                 padding: 2px;
                 font-size: variables.$font-small;
                 text-align: center;
                 width: 96vw;
 
                 a {
-                    color: variables.$color1;
+                    color: colors.$color1;
                     text-decoration: none;
 
                     &:hover {
-                        color: variables.$hover1;
+                        color: colors.$hover1;
                     }
                 }
             }
@@ -478,7 +479,7 @@
             font-size: variables.$font-small;
 
             .copyright {
-                color: variables.$color1;
+                color: colors.$color1;
                 display: flex;
                 font-size: variables.$font-small;
                 justify-content: flex-start;
@@ -489,7 +490,7 @@
 
             .developer {
                 align-items: center;
-                color: variables.$color1;
+                color: colors.$color1;
                 display: flex;
                 justify-content: flex-end;
                 padding-right: 10px;
@@ -499,11 +500,11 @@
             }
 
             a {
-                color: variables.$color1;
+                color: colors.$color1;
                 text-decoration: none;
 
                 &:hover {
-                    color: variables.$hover1;
+                    color: colors.$hover1;
                 }
             }
         }
@@ -539,14 +540,14 @@
             padding: 20px;
 
             button {
-                background-color: variables.$color4;
-                color: variables.$color2;
+                background-color: colors.$color4;
+                color: colors.$color2;
                 height: 30px;
                 padding: 0 10px;
 
                 &:hover {
-                    background-color: variables.$color2;
-                    color: variables.$color4;
+                    background-color: colors.$color2;
+                    color: colors.$color4;
                 }
             }
         }
@@ -559,13 +560,13 @@
             padding: 20px;
 
             button {
-                background-color: variables.$color5;
-                border: 1px solid variables.$color1;
+                background-color: colors.$color5;
+                border: 1px solid colors.$color1;
                 border-radius: 50%;
                 border-left: none;
                 border-right: 10px;
                 border-bottom: 10px;
-                color: variables.$color2;
+                color: colors.$color2;
                 cursor: pointer;
                 height: 30px;
                 margin-left: -14px;
@@ -575,27 +576,27 @@
                 z-index: 1;
 
                 i {
-                    color: variables.$color1;
+                    color: colors.$color1;
                     font-size: variables.$font-normal;
                     transition: 0.5s;
                     transition-delay: 0s;
                 }
 
                 &:hover {
-                    background-color: variables.$hover4;
-                    color: variables.$hover2;
+                    background-color: colors.$hover4;
+                    color: colors.$hover2;
 
                     i:hover {
-                        color: variables.$color2;
+                        color: colors.$color2;
                     }
                 }
             }
 
             input {
                 background: transparent;
-                border: 1px solid variables.$hover4;
+                border: 1px solid colors.$hover4;
                 border-radius: 20px 0 0 20px;
-                color: variables.$color1;
+                color: colors.$color1;
                 cursor: pointer;
                 height: 12px;
                 outline: none;
@@ -603,8 +604,8 @@
                 width: 180px;
 
                 &:hover {
-                    background: variables.$hover3;
-                    color: variables.$hover4;
+                    background: colors.$hover3;
+                    color: colors.$hover4;
                 }
             }
         }
@@ -612,7 +613,7 @@
 
     .logo {
         display: flex;
-        filter: drop-shadow(0 2px 8px variables.$color1);
+        filter: drop-shadow(0 2px 8px colors.$color1);
         height: auto;
         width: 10vw;
 
@@ -643,12 +644,12 @@
             flex-direction: row;
             align-items: center;
             padding: 1rem 0;
-            color: variables.$color4;
+            color: colors.$color4;
             text-decoration: none;
 
             .icon {
                 aspect-ratio: 1 / 1;
-                border: 1px solid variables.$color2;
+                border: 1px solid colors.$color2;
                 border-radius: 50%;
                 font-size: 30px;
                 position: relative;
@@ -660,7 +661,7 @@
                     //margin: 20px;
 
                     &:hover {
-                        color: variables.$color1;
+                        color: colors.$color1;
                     }
                 }
             }
@@ -680,7 +681,7 @@
                 }
 
                 .text {
-                    color: variables.$color1;
+                    color: colors.$color1;
                     display: block;
                     opacity: 1;
                 }

@@ -26,41 +26,13 @@
   font-size: 80px;
   font-weight: 600;
   padding: 10px;
+  text-align: center;
 }
 .h-container .welcome P {
   font-size: 26px;
   font-weight: 500;
   padding: 10px;
-}
-.h-container .peach {
-  width: 40vh;
-  height: 25vw;
-  background-image: url(".../img/pic/help-desk.jpg");
-  background-size: cover;
-  background-position: center;
-  border: 1px solid green;
-  border-radius: 50%/60% 60% 40% 40%;
-  left: 20%;
-  overflow: hidden;
-  position: relative;
-  top: 10%;
-  box-shadow: inset -10px 0 20px rgba(255, 224, 189, 0.5);
-}
-.h-container .peach .img {
-  aspect-ratio: 5/4;
-  width: 45vw;
-}
-.h-container .peach ::before {
-  content: "";
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  width: 60px;
-  height: 30px;
-  background: green;
-  border-radius: 50% 50% 0 0;
-  transform: translateX(-50%) rotate(-20deg);
-  box-shadow: 0 2px 5px rgba(0, 100, 0, 0.6);
+  text-align: center;
 }
 
 .m-container {
@@ -169,7 +141,7 @@
 
 .f-container {
   align-content: center;
-  border: 1px0 solid #0D0D0D;
+  border: 1px solid #0D0D0D;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -180,6 +152,7 @@
   width: 99vw;
 }
 .f-container .about {
+  border: 1px solid #0D0D0D;
   color: #0D0D0D;
   padding: 2px;
   font-size: 1.2rem;
@@ -240,6 +213,7 @@
   width: 66%;
 }
 .f-container .services {
+  border: 1px solid #0D0D0D;
   color: #0D0D0D;
   padding: 2px;
   font-size: 20px;
@@ -266,11 +240,10 @@
 }
 .f-container .services .container .line {
   border-top: 1px solid #121212;
-  margin-left: 10px;
-  width: 60%;
 }
 .f-container .projects {
   align-items: center;
+  border: 1px solid #0D0D0D;
   color: #0D0D0D;
   display: flex;
   flex-direction: column;
@@ -648,13 +621,13 @@
 
 .side {
   flex: 1;
+  flex-wrap: wrap;
   padding: 20px;
   box-sizing: border-box;
   transition: transform 0.5s ease, opacity 0.5s ease;
 }
 .side.left-side {
   background-color: #f0f0f0;
-  width: 30vw;
 }
 .side.left-side:hover {
   width: 100%;

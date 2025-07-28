@@ -28,46 +28,14 @@
             font-size: variables.$font-xlarge;
             font-weight: 600;
             padding: 10px;
+            text-align: center;
         }
 
         P {
             font-size: variables.$font-large;
             font-weight: 500;
             padding: 10px;
-        }
-    }
-
-    .peach {
-        width: 40vh;
-        height: 25vw;
-        background-image: url(".../img/pic/help-desk.jpg"); // Use your peach image URL
-        background-size: cover;
-        background-position: center;
-        border: 1px solid green;
-        border-radius: 50% / 60% 60% 40% 40%; // elliptical peach shape
-        left: 20%;
-        overflow: hidden;
-        position: relative;
-        top: 10%;
-        box-shadow: inset -10px 0 20px rgba(255, 224, 189, 0.5); // optional shading inside
-
-        .img {
-            aspect-ratio: 5 / 4;
-            width: 45vw;
-        }
-
-        // Optional: add a leaf at the top using ::before
-        ::before {
-            content: "";
-            position: absolute;
-            top: 10px;
-            left: 50%;
-            width: 60px;
-            height: 30px;
-            background: green;
-            border-radius: 50% 50% 0 0;
-            transform: translateX(-50%) rotate(-20deg);
-            box-shadow: 0 2px 5px rgba(0, 100, 0, 0.6);
+            text-align: center;
         }
     }
 }
@@ -200,7 +168,7 @@
 
 .f-container {
     align-content: center;
-    border: 1px0 solid variables.$color1;
+    border: 1px solid variables.$color1;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -211,6 +179,7 @@
     width: 99vw;
 
     .about {
+        border: 1px solid variables.$color1;
         color: variables.$color1;
         padding: 2px;
         font-size: 1.2rem;
@@ -280,6 +249,7 @@
     }
 
     .services {
+        border: 1px solid variables.$color1;
         color: variables.$color1;
         padding: 2px;
         font-size: variables.$font-medium;
@@ -308,14 +278,15 @@
 
             .line {
                 border-top: 1px solid variables.$hover2;
-                margin-left: 10px;
-                width: 60%;
+                //margin-left: 10px;
+                //width: 60%;
             }
         }
     }
 
     .projects {
         align-items: center;
+        border: 1px solid variables.$color1;
         color: variables.$color1;
         display: flex;
         flex-direction: column;
@@ -763,13 +734,14 @@
 
 .side {
     flex: 1; // equal width sides
+    flex-wrap: wrap;
     padding: 20px;
     box-sizing: border-box;
     transition: transform 0.5s ease, opacity 0.5s ease;
 
     &.left-side {
         background-color: #f0f0f0;
-        width: 30vw;
+        //width: 50%;
 
         &:hover {
             width: 100%;
@@ -779,6 +751,7 @@
 
     &.right-side {
         background-color: #d0d0d0;
+        //width: 50%;
         
         &:hover {
             width: 100%;

@@ -9,14 +9,106 @@
 }
 
 
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+/* Extra small devices (phones, 600px and down),and small devices (portrait tablets and large phones, 600px and up) */
+@media (max-width: 768px) {
 
-}
+    .parent {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        gap: 10px;
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
+        nav {
+            align-items: center;
+            backdrop-filter: blur(10px);
+            border: 2px solid RGBA(255, 255, 255, 0.18);
+            box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
+            grid-column: span 12 / span 12;
+            grid-row-start: 1;
+            justify-items: center;
+            margin: 2px;
+            width: 100%;
+            z-index: 1100;
 
+            .hamburger {
+                display: flex;
+            }
+          
+            .nav-menu {
+                flex-direction: column;
+                align-items: flex-end;
+                background: rgba(34, 34, 34, 0.98);
+                position: absolute;
+                top: 100%;
+                right: 0;
+                width: 200px;
+                padding: 2rem 1rem 1rem 1rem;
+                gap: 1rem;
+                display: none;
+          
+                li {
+                    &a {
+                        font-size: 1.2rem;
+                      }
+                } 
+            }
+
+            // Toggle menu open when the checkbox is checked
+            .menu-toggle:checked ~ .nav-menu {
+                display: flex;
+            }
+        
+            // Animate hamburger icon into X when open
+            .menu-toggle:checked + .hamburger span:nth-child(1) {
+                transform: translateY(9px) rotate(45deg);
+            }
+
+            .menu-toggle:checked + .hamburger span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle:checked + .hamburger span:nth-child(3) {
+                transform: translateY(-9px) rotate(-45deg);
+            }
+        }
+
+        header {
+            align-items: center;
+            backdrop-filter: blur(10px);
+            border: 2px solid RGBA(255, 255, 255, 0.18);
+            box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
+            grid-column: span 12 / span 12;
+            grid-row-start: 2;
+            justify-items: center;
+            margin: 2px;
+            width: 100%;
+            z-index: 11;
+        }
+
+        main {
+            align-items: center;
+            backdrop-filter: blur(10px);
+            border: 2px solid RGBA(255, 255, 255, 0.18);
+            box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
+            grid-column: span 12 / span 12;
+            grid-row-start: 3;
+            justify-items: center;
+            margin: 2px;
+            width: 100%;
+            z-index: 11;
+        }
+
+        footer {
+            backdrop-filter: blur(10px);
+            border: 2px solid RGBA(255, 255, 255, 0.18);
+            box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
+            grid-column: span 12 / span 12;
+            grid-row-start: 4;
+            margin: 2px;
+            width: 98vw;
+            z-index: 11;
+        }
+    }                
 }
 
 /* Medium devices (landscape tablets, 768px, Large devices (laptops/desktops, 992px and up) and extra large devices (large laptops and desktops, 1200px and up)*/
@@ -40,6 +132,63 @@
                 margin: 2px;
                 width: 100%;
                 z-index: 1100;
+
+                .navbar {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    background: #222;
+                    padding: 1rem 2rem;
+                    position: relative;
+                  
+                    .logo {
+                      color: #fff;
+                      font-size: 1.5rem;
+                      font-weight: bold;
+                    }
+                  
+                    .menu-toggle {
+                      display: none;
+                    }
+                  
+                    .hamburger {
+                        display: none;
+                        width: 2rem;
+                        height: 2rem;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        cursor: pointer;
+                        z-index: 1001;
+                    
+                        span {
+                          display: block;
+                          height: 0.25rem;
+                          background: #fff;
+                          border-radius: 2px;
+                          transition: all 0.3s;
+                        }
+                    }
+                
+                    .nav-menu {
+                        display: flex;
+                        gap: 1.5rem;
+                        list-style: none;
+                    
+                        li {
+
+                            a {
+                                color: #fff;
+                                text-decoration: none;
+                                font-size: 1rem;
+                                transition: color 0.2s;
+                          
+                                &:hover {
+                                  color: #ffd000;
+                                }
+                            }
+                        }
+                    }
+                }
             }
     
             header {

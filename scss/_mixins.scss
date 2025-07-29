@@ -1,0 +1,290 @@
+// ========================================
+// SCSS MIXINS COLLECTION
+// ========================================
+
+// ========================================
+// LAYOUT MIXINS
+// ========================================
+
+// Flexbox Center (from your existing code)
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+// Flexbox Center with Direction
+@mixin flex-center-direction($direction: row) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: $direction;
+}
+
+// Absolute Center (from your existing code)
+@mixin absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// Grid Center
+@mixin grid-center {
+    display: grid;
+    place-items: center;
+}
+
+// ========================================
+// RESPONSIVE MIXINS
+// ========================================
+
+// Media Query Mixin
+@mixin respond-to($breakpoint) {
+    @if $breakpoint == phone {
+        @media (max-width: 767px) { @content; }
+    } @else if $breakpoint == tablet {
+        @media (min-width: 768px) and (max-width: 1023px) { @content; }
+    } @else if $breakpoint == desktop {
+        @media (min-width: 1024px) { @content; }
+    } @else if $breakpoint == large {
+        @media (min-width: 1200px) { @content; }
+    }
+}
+
+// Custom Breakpoint
+@mixin breakpoint($width) {
+    @media (max-width: $width) {
+        @content;
+    }
+}
+
+// ========================================
+// VISUAL EFFECTS MIXINS
+// ========================================
+
+// Glass Effect (from your existing code)
+@mixin glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+// Box Shadow
+@mixin box-shadow($level: 1) {
+    @if $level == 1 {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    } @else if $level == 2 {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    } @else if $level == 3 {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    } @else if $level == 4 {
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
+    }
+}
+
+// Gradient Background
+@mixin gradient($direction: to right, $color1: #667eea, $color2: #764ba2) {
+    background: linear-gradient($direction, $color1, $color2);
+}
+
+// Border Radius
+@mixin border-radius($radius: 12px) {
+    border-radius: $radius;
+}
+
+// ========================================
+// TYPOGRAPHY MIXINS
+// ========================================
+
+// Font Size with Line Height
+@mixin font-size($size, $line-height: 1.5) {
+    font-size: $size;
+    line-height: $line-height;
+}
+
+// Text Truncate
+@mixin text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+// Multi-line Text Truncate
+@mixin text-truncate-multiline($lines: 2) {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+// ========================================
+// ANIMATION MIXINS
+// ========================================
+
+// Transition
+@mixin transition($properties: all, $duration: 0.3s, $timing: ease) {
+    transition: $properties $duration $timing;
+}
+
+// Hover Effect
+@mixin hover-lift($distance: -5px) {
+    transition: transform 0.3s ease;
+    
+    &:hover {
+        transform: translateY($distance);
+    }
+}
+
+// Scale on Hover
+@mixin hover-scale($scale: 1.05) {
+    transition: transform 0.3s ease;
+    
+    &:hover {
+        transform: scale($scale);
+    }
+}
+
+// ========================================
+// BUTTON MIXINS
+// ========================================
+
+// Button Base
+@mixin button-base($padding: 12px 24px, $border-radius: 8px) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: $padding;
+    border: none;
+    border-radius: $border-radius;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+// Button Variants
+@mixin button-variant($bg-color, $text-color: white, $hover-bg: darken($bg-color, 10%)) {
+    background-color: $bg-color;
+    color: $text-color;
+    
+    &:hover {
+        background-color: $hover-bg;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+}
+
+// ========================================
+// CARD MIXINS
+// ========================================
+
+// Card Base
+@mixin card-base($padding: 20px, $border-radius: 12px) {
+    background: white;
+    border-radius: $border-radius;
+    padding: $padding;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    
+    &:hover {
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
+}
+
+// ========================================
+// UTILITY MIXINS
+// ========================================
+
+// Clearfix
+@mixin clearfix {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+// Hide Element
+@mixin hide {
+    display: none !important;
+}
+
+// Visually Hidden (for accessibility)
+@mixin visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+// ========================================
+// ADVANCED MIXINS WITH PARAMETERS
+// ========================================
+
+// Custom Button with Parameters
+@mixin custom-button($bg-color, $text-color, $padding: 12px 24px, $border-radius: 8px) {
+    @include button-base($padding, $border-radius);
+    background-color: $bg-color;
+    color: $text-color;
+    
+    &:hover {
+        //background-color: darken($bg-color, 10%);
+        transform: translateY(-2px);
+    }
+}
+
+// Responsive Font Size
+@mixin responsive-font($min-size, $max-size, $min-width: 320px, $max-width: 1200px) {
+    font-size: $min-size;
+    
+    @media (min-width: $min-width) {
+        font-size: calc(#{$min-size} + #{strip-unit($max-size - $min-size)} * ((100vw - #{$min-width}) / #{strip-unit($max-width - $min-width)}));
+    }
+    
+    @media (min-width: $max-width) {
+        font-size: $max-size;
+    }
+}
+
+// Strip Unit Helper Function
+@function strip-unit($value) {
+    @return $value / ($value * 0 + 1);
+}
+
+// ========================================
+// USAGE EXAMPLES
+// ========================================
+
+/*
+Example usage in your components:
+
+.button {
+    @include custom-button(#1E90FF, white);
+}
+
+.card {
+    @include card-base;
+    @include flex-center;
+}
+
+.responsive-text {
+    @include responsive-font(16px, 24px);
+}
+
+.glass-card {
+    @include glass-effect;
+    @include card-base;
+}
+
+@media (max-width: 768px) {
+    .mobile-only {
+        @include hide;
+    }
+}
+*/ 

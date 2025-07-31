@@ -1,82 +1,6 @@
 @use "colors";
+@use "mixins";
 @use "variables";
-
-// Variables
-$primary-color: #1E90FF;
-$secondary-color: #0D0D0D;
-$white: #FFFFFF;
-$gray: #f0f0f0;
-$dark-gray: #333;
-$shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-$border-radius: 12px;
-$transition: all 0.3s ease;
-
-// Mixins
-@mixin absolute-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-// Button styling
-@mixin button-styling {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-// Flexbox Center
-@mixin flex-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-// Flexbox Center with Direction
-@mixin flex-center-direction($direction: row) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: $direction;
-}
-
-
-@mixin glass-effect {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-// Grid Center
-@mixin grid-center {
-    display: grid;
-    place-items: center;
-}
-
-// ========================================
-// RESPONSIVE MIXINS
-// ========================================
-
-// Media Query Mixin
-@mixin respond-to($breakpoint) {
-    @if $breakpoint == phone {
-        @media (max-width: 767px) { @content; }
-    } @else if $breakpoint == tablet {
-        @media (min-width: 768px) and (max-width: 1023px) { @content; }
-    } @else if $breakpoint == desktop {
-        @media (min-width: 1024px) { @content; }
-    } @else if $breakpoint == large {
-        @media (min-width: 1200px) { @content; }
-    }
-}
-
-// Custom Breakpoint
-@mixin breakpoint($width) {
-    @media (max-width: $width) {
-        @content;
-    }
-}
 
 
 // Reset and base styles
@@ -177,7 +101,7 @@ body {
                 border-radius: 50%;
                 cursor: pointer;
                 transition: $transition;
-                @include flex-center;
+                @include mixins.flex-center;
 
                 &:hover {
                     background: rgba(255, 255, 255, 0.3);

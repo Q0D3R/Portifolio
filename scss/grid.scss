@@ -1,0 +1,273 @@
+
+// Import your mixins
+@import "mixins";
+@use "variables" as var;
+
+   
+
+// Mobile phone
+@media (min-width: 0px) {
+    
+    .parent {
+        @include media-style;
+        gap: 5px;
+    
+        .header {
+            grid-column: span 2 / span 2;
+        }
+        
+        .nav {
+            grid-row: span 2 / span 2;
+            grid-row-start: 2;
+        }
+        
+        .main {
+            grid-row-start: 2;
+        }
+        
+        .footer {
+            grid-column-start: 2;
+            grid-row-start: 3;
+        }
+    }
+}
+
+// Tablet
+
+// Laptop and Desktop
+@media (min-width: 600px) {    
+     
+    .parent {
+        @include media-style;
+        gap: 5px;
+
+        
+        .nav {
+            @include glass-effect;
+            background-color: yellowgreen;
+            grid-column: span 1 / span 1;
+            grid-column-start: 1;
+            grid-row-start: 1;
+            grid-row: span 3 / span 3;
+            width: 100%;
+
+            .nav-container {
+                @include flex-center;
+                @include flex-direction(column);
+                position: fixed;
+                z-index: 100;
+
+
+                .nav-logo {
+                    @include flex-center;
+                    @include flex-direction(column);
+                    width: 1.25rem;
+
+                    .nav-logo-img {
+                        aspect-ratio: 1 / 1;
+                        width: 20px;
+                    }
+                }
+
+                .nav-links {
+                    @include flex-center-space-between;
+                    @include flex-direction(column);
+                    list-style: none;
+
+                    .nav-item {
+                        margin-right: 10px;
+                    }
+        
+                    .nav-link {
+                        text-decoration: none;
+                    }
+                }
+            
+            }
+        }
+
+        .header {
+            @include glass-effect;
+            background-color: blueviolet;
+            grid-column: span 7 / span 7;
+            grid-column-start: 2;
+            width: auto;
+        }
+        
+        .main {
+            background-color: aquamarine;
+            grid-column: span 7 / span 7;
+            grid-column-start: 2;
+            grid-row-start: 2;
+            width: auto;
+        }
+        
+        .footer {
+            @include glass-effect;
+            background-color: gainsboro;
+            grid-column: span 7 / span 7;
+            grid-column-start: 2;
+            grid-row-start: 3;
+            width: auto;
+
+            .footer-container {
+
+                .footer-bottom {
+                    @include flex-center;
+                    @include flex-direction(row);
+                    flex-wrap: wrap;
+
+                    .footer-copyright {
+                        @include flex-center;
+                        @include flex-direction(row);
+
+                        width: 33%;
+                    }
+
+                    .footer-links {
+                        @include flex-center;
+                        @include flex-direction(row);
+                        margin: 0.25rem;
+
+                        width: 33%;
+
+                        &a {
+                            color: green;
+                            text-decoration: none;
+
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+
+                    .footer-social {
+                        @include flex-center;
+                        @include flex-direction(row);
+
+                        width: 33%;
+
+                        a {
+                            aspect-ratio: 1 / 1;
+                            color: #3e8e41;
+                            background-color: #f1f1f1;
+                            border-radius: 50%;
+                            margin: 0.25rem;
+                            padding: 0.25rem;
+                            width: 1rem;
+
+                            &:hover {
+                                background-color: #3e8e41;
+                                color: #f1f1f1;
+                            }
+                        }
+
+
+                    }
+                }
+
+                .footer-content {
+                    @include flex-center;
+                    @include flex-direction(row);
+                    flex-wrap: wrap;
+
+                    .footer-contact {
+                        @include flex-center;
+                        @include flex-direction(row);
+
+                        width: 30%;
+
+                        form {
+                            margin: 0.10rem;
+                        }
+                    }
+
+                    .footer-gallery {
+                        @include flex-center;
+                        @include flex-direction(row);
+
+                        width: 40%;
+
+                        .img {
+                            aspect-ratio: 1 / 1;
+                            width: 1rem;
+                        }
+                    }
+
+                    .footer-profile {
+                        @include flex-center;
+                        @include flex-direction(column);
+
+                        width: 20%;
+                    }
+
+                    .footer-qlinks {
+                        @include flex-center;
+                        @include flex-direction(column);
+
+                        width: 10%;
+                    }
+                }
+            }
+        }
+    } 
+}
+
+
+
+
+
+/* CSS */
+
+  
+/* Container needed to position the dropdown content correctly */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    
+    /* Style for the dropdown link */
+    .dropbtn {
+        background-color: #04AA6D;
+        color: white;
+        padding: 16px;
+        text-decoration: none;
+        display: inline-block;
+        cursor: pointer;
+        border: none;
+    }
+  
+    /* Dropdown content - hidden by default */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+        z-index: 1;
+    
+        /* Individual links inside dropdown */
+        a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            
+            /* Change color on hover */
+            &:hover {
+                background-color: #ddd;
+            }
+        }
+    }
+
+    /* Show the dropdown menu when hovering over the link */
+    &:hover .dropdown-content {
+        display: block;
+    } 
+
+    /* Optional: change link background when dropdown is visible */
+    .dropdown:hover .dropbtn {
+        background-color: #3e8e41;
+    }
+}  
+
+        

@@ -1,3 +1,5 @@
+@use "variables" as variables;
+
 // ========================================
 // SCSS MIXINS COLLECTION
 // ========================================
@@ -29,11 +31,36 @@
     justify-content: center;
 }
 
-// Flexbox Center with Direction
-@mixin flex-center-direction($direction: row) {
-    display: flex;
+// Flexbox Center Space Between
+@mixin flex-center-space-between {
     align-items: center;
+    justify-content: space-between;
+}
+
+// Flexbox Center Space Around
+@mixin flex-center-space-around {
+    align-items: center;
+    justify-content: space-around;
+}
+
+// Flexbox Center
+@mixin flex-center {
+    display: flex;
+    align-items: first baseline;
     justify-content: center;
+}
+
+@mixin flex-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+}
+
+// Flexbox Center with Direction
+@mixin flex-direction($direction) {
+    display: flex;
     flex-direction: $direction;
 }
 
@@ -46,13 +73,55 @@
 
 // Grid Center
 @mixin grid-center {
+    align-items: center;
     display: grid;
     place-items: center;
+}
+
+@mixin grid-center-space-between {
+    align-items: center;
+    display: grid;
+    place-items: space-between;
+}
+
+@mixin grid-center-space-around {
+    align-items: center;
+    display: grid;
+    place-items: space-around;
+}
+
+@mixin grid-center-space-evenly {
+    align-items: center;
+    display: grid;
+    place-items: space-evenly;
+}
+
+@mixin grid-center-start {
+    align-items: start;
+    display: grid;
+    place-items: start;
 }
 
 // ========================================
 // RESPONSIVE MIXINS
 // ========================================
+
+// Media Query Mixin
+@mixin media-style {
+    @if variables.$min-width-mobile == 360px {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+    } @else if variables.$min-width-tablet == 600px {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    } @else if variables.$min-width-desktop == 900px {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
+}
 
 // Media Query Mixin
 @mixin respond-to($breakpoint) {

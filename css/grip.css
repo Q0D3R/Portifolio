@@ -25,167 +25,57 @@ Example usage in your components:
     }
 }
 */
-.parent {
+.container {
+  background-color: #2E2E2E;
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  gap: 5px;
+  grid-area: main;
 }
-.parent .header {
-  backdrop-filter: blur(10px);
-  border: 2px solid RGBA(255, 255, 255, 0.18);
-  box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
-  grid-column: span 2/span 2;
-  grid-row-start: 1;
+.container .centered {
+  background-color: #1E1E1E;
+  color: #D6CFE0;
+  margin: auto;
+  padding: 10rem auto;
 }
-.parent .nav {
-  backdrop-filter: blur(10px);
-  border: 2px solid RGBA(255, 255, 255, 0.18);
-  box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
-  grid-row: span 3/span 3;
-  grid-row-start: 1;
-}
-.parent .nav .nav-container {
+.container .form {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: auto;
+}
+.container .form .fieldset {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
-.parent .nav .nav-container .nav-logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.parent .nav .nav-container .nav-logo .nav-logo-img {
-  aspect-ratio: 1/1;
-  width: 0.25rem;
-}
-.parent .nav .nav-container .nav-links {
-  align-items: center;
-  justify-content: space-between;
-  display: flex;
-  flex-direction: row;
-  list-style: none;
-}
-.parent .nav .nav-container .nav-links .nav-item {
-  margin-right: 10px;
-}
-.parent .nav .nav-container .nav-links .nav-link {
-  text-decoration: none;
-}
-.parent .main {
-  grid-column: span 2/span 2;
-  grid-row-start: 2;
-}
-.parent .footer {
-  backdrop-filter: blur(10px);
-  border: 2px solid RGBA(255, 255, 255, 0.18);
-  box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
-  grid-column: span 2/span 2;
-  grid-column-start: 2;
-  grid-row-start: 3;
-}
-.parent .footer .footer-container .footer-bottom {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  flex-direction: row;
-}
-.parent .footer .footer-container .footer-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  flex-direction: row;
+.container .form .fieldset input {
+  background-color: transparent;
+  border-radius: 20px;
+  font-size: 1.5rem;
+  height: 30px;
+  width: 100%;
 }
 
-@media (min-width: 360px) {
-  .parent {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    gap: 5px;
-  }
-  .parent .header {
-    grid-column: span 2/span 2;
-  }
-  .parent .nav {
-    grid-row: span 2/span 2;
-    grid-row-start: 2;
-  }
-  .parent .main {
-    grid-row-start: 2;
-  }
-  .parent .footer {
-    grid-column-start: 2;
-    grid-row-start: 3;
-  }
+.legend {
+  font-weight: 900;
+  margin: auto;
 }
-@media (min-width: 600px) {
-  .parent {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    gap: 5px;
-  }
-  .parent .header {
-    grid-column: span 2/span 2;
-  }
-  .parent .nav {
-    grid-row: span 2/span 2;
-    grid-row-start: 2;
-  }
-  .parent .main {
-    grid-row-start: 2;
-  }
-  .parent .footer {
-    grid-column-start: 2;
-    grid-row-start: 3;
-  }
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
 }
-/* CSS */
-/* Container needed to position the dropdown content correctly */
-.dropdown {
-  position: relative;
-  display: inline-block;
-  /* Style for the dropdown link */
-  /* Dropdown content - hidden by default */
-  /* Show the dropdown menu when hovering over the link */
-  /* Optional: change link background when dropdown is visible */
-}
-.dropdown .dropbtn {
-  background-color: #04AA6D;
-  color: white;
-  padding: 16px;
-  text-decoration: none;
-  display: inline-block;
-  cursor: pointer;
-  border: none;
-}
-.dropdown .dropdown-content {
-  display: none;
+
+#lbl {
   position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  /* Individual links inside dropdown */
 }
-.dropdown .dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  /* Change color on hover */
+
+.btn {
+  color: #000;
 }
-.dropdown .dropdown-content a:hover {
-  background-color: #ddd;
+.btn :active:after {
+  color: transparent;
 }
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-.dropdown .dropdown:hover .dropbtn {
-  background-color: #3e8e41;
+
+.link {
+  color: blueviolet;
 }

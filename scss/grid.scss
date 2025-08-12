@@ -1,7 +1,7 @@
 
 // Import your mixins
-@import "mixins";
 @use "variables" as var;
+@use "mixins" as mix;
 
    
 
@@ -9,7 +9,7 @@
 @media (min-width: 0px) {
     
     .parent {
-        @include media-style;
+        @include mix.media-style;
         gap: 5px;
     
         .header {
@@ -38,12 +38,12 @@
 @media (min-width: 600px) {    
      
     .parent {
-        @include media-style;
+        @include mix.media-style;
         gap: 5px;
 
         
         .nav {
-            @include glass-effect;
+            @include mix.glass-effect;
             background-color: yellowgreen;
             grid-column: span 1 / span 1;
             grid-column-start: 1;
@@ -52,15 +52,15 @@
             width: 100%;
 
             .nav-container {
-                @include flex-center;
-                @include flex-direction(column);
+                @include mix.flex-center;
+                @include mix.flex-direction(column);
                 position: fixed;
                 z-index: 100;
 
 
                 .nav-logo {
-                    @include flex-center;
-                    @include flex-direction(column);
+                    @include mix.flex-center;
+                    @include mix.flex-direction(column);
                     width: 1.25rem;
 
                     .nav-logo-img {
@@ -70,8 +70,8 @@
                 }
 
                 .nav-links {
-                    @include flex-center-space-between;
-                    @include flex-direction(column);
+                    @include mix.flex-center-space-between;
+                    @include mix.flex-direction(column);
                     list-style: none;
 
                     .nav-item {
@@ -87,7 +87,7 @@
         }
 
         .header {
-            @include glass-effect;
+            @include mix.glass-effect;
             background-color: blueviolet;
             grid-column: span 7 / span 7;
             grid-column-start: 2;
@@ -103,7 +103,7 @@
         }
         
         .footer {
-            @include glass-effect;
+            @include mix.glass-effect;
             background-color: gainsboro;
             grid-column: span 7 / span 7;
             grid-column-start: 2;
@@ -113,20 +113,20 @@
             .footer-container {
 
                 .footer-bottom {
-                    @include flex-center;
-                    @include flex-direction(row);
+                    @include mix.flex-center;
+                    @include mix.flex-direction(row);
                     flex-wrap: wrap;
 
                     .footer-copyright {
-                        @include flex-center;
-                        @include flex-direction(row);
+                        @include mix.flex-center;
+                        @include mix.flex-direction(row);
 
                         width: 33%;
                     }
 
                     .footer-links {
-                        @include flex-center;
-                        @include flex-direction(row);
+                        @include mix.flex-center;
+                        @include mix.flex-direction(row);
                         margin: 0.25rem;
 
                         width: 33%;
@@ -142,8 +142,8 @@
                     }
 
                     .footer-social {
-                        @include flex-center;
-                        @include flex-direction(row);
+                        @include mix.flex-center;
+                        @include mix.flex-direction(row);
 
                         width: 33%;
 
@@ -167,13 +167,13 @@
                 }
 
                 .footer-content {
-                    @include flex-center;
-                    @include flex-direction(row);
+                    @include mix.flex-center;
+                    @include mix.flex-direction(row);
                     flex-wrap: wrap;
 
                     .footer-contact {
-                        @include flex-center;
-                        @include flex-direction(row);
+                        @include mix.flex-center;
+                        @include mix.flex-direction(row);
 
                         width: 30%;
 
@@ -183,8 +183,8 @@
                     }
 
                     .footer-gallery {
-                        @include flex-center;
-                        @include flex-direction(row);
+                        @include mix.flex-center;
+                        @include mix.flex-direction(row);
 
                         width: 40%;
 
@@ -195,15 +195,15 @@
                     }
 
                     .footer-profile {
-                        @include flex-center;
-                        @include flex-direction(column);
+                        @include mix.flex-center;
+                        @include mix.flex-direction(column);
 
                         width: 20%;
                     }
 
                     .footer-qlinks {
-                        @include flex-center;
-                        @include flex-direction(column);
+                        @include mix.flex-center;
+                        @include mix.flex-direction(column);
 
                         width: 10%;
                     }

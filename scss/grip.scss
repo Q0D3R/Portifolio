@@ -1,0 +1,62 @@
+@use "variables" as var;
+@use "mixins" as mix;
+
+  
+.container {
+    background-color: #2E2E2E;
+    display: grid;
+    grid-area: main;
+
+    .centered {
+        background-color: #1E1E1E;
+        color: #D6CFE0;
+        margin: auto;
+        padding: 10rem auto;
+    }
+  
+    .form {
+        @include mix.flex-center;
+        margin: auto;
+
+        .fieldset {
+            display: flex;
+            flex-direction: column;
+
+            input {
+                background-color: transparent;
+                border-radius: 20px;
+                font-size: 1.5rem;
+                height: 30px;
+                width: 100%;
+            }
+        }
+    }
+}
+  
+  
+.legend {
+    font-weight: 900;
+    margin: auto;
+}
+  
+.field {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+  
+#lbl {
+    position: absolute;
+}
+                      
+.btn {
+    color: #000;
+
+    :active:after {
+        color: transparent;
+    }
+}
+  
+.link {
+    color: blueviolet;
+}

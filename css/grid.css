@@ -71,6 +71,8 @@ Example usage in your components:
     justify-content: center;
     display: flex;
     flex-direction: column;
+    position: fixed;
+    z-index: 100;
   }
   .parent .nav .nav-container .nav-logo {
     display: flex;
@@ -82,7 +84,7 @@ Example usage in your components:
   }
   .parent .nav .nav-container .nav-logo .nav-logo-img {
     aspect-ratio: 1/1;
-    width: 0.25rem;
+    width: 20px;
   }
   .parent .nav .nav-container .nav-links {
     align-items: center;
@@ -145,10 +147,15 @@ Example usage in your components:
     justify-content: center;
     display: flex;
     flex-direction: row;
+    margin: 0.25rem;
     width: 33%;
   }
-  .parent .footer .footer-container .footer-bottom .footer-links a {
+  .parent .footer .footer-container .footer-bottom .footer-linksa {
+    color: green;
     text-decoration: none;
+  }
+  .parent .footer .footer-container .footer-bottom .footer-linksa:hover {
+    text-decoration: underline;
   }
   .parent .footer .footer-container .footer-bottom .footer-social {
     display: flex;

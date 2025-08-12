@@ -1,303 +1,205 @@
-@use "colors";
-@use "variables";
-  
+@use "variables" as var;
+@use "colors" as col;
+@use "mixins" as mix;
 
-* {
-    box-sizing: none;
-    margin: 0;
-    padding: 0;
-}
-
-
-/* Extra small devices (phones, 600px and down),and small devices (portrait tablets and large phones, 600px and up) */
-@media (max-width: 768px) {
-
-    .parent {
+@media screen and (min-width: 0px) {
+    .layout {
         display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        grid-template-rows: repeat(4, 1fr);
-        gap: 10px;
+        gap: 0.25rem;
+        grid-template-areas: 'header' 'nav' 'main' 'widget' 'footer';
+        grid-template-columns: 1fr;
+        grid-template-rows: 4rem 6rem auto 6rem 6rem 4rem;
+        height: 100vh;
 
-        nav {
-            align-items: center;
-            backdrop-filter: blur(10px);
-            border: 2px solid RGBA(255, 255, 255, 0.18);
-            box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
-            grid-column: span 12 / span 12;
-            grid-row-start: 1;
-            justify-items: center;
-            margin: 2px;
-            width: 100%;
-            z-index: 1100;
-
-            .hamburger {
-                display: flex;
-            }
-          
-            .nav-menu {
-                flex-direction: column;
-                align-items: flex-end;
-                background: rgba(34, 34, 34, 0.98);
-                position: absolute;
-                top: 100%;
-                right: 0;
-                width: 200px;
-                padding: 2rem 1rem 1rem 1rem;
-                gap: 1rem;
-                display: none;
-          
-                li {
-                    &a {
-                        font-size: 1.2rem;
-                      }
-                } 
-            }
-
-            // Toggle menu open when the checkbox is checked
-            .menu-toggle:checked ~ .nav-menu {
-                display: flex;
-            }
-        
-            // Animate hamburger icon into X when open
-            .menu-toggle:checked + .hamburger span:nth-child(1) {
-                transform: translateY(9px) rotate(45deg);
-            }
-
-            .menu-toggle:checked + .hamburger span:nth-child(2) {
-                opacity: 0;
-            }
-
-            .menu-toggle:checked + .hamburger span:nth-child(3) {
-                transform: translateY(-9px) rotate(-45deg);
-            }
+        .header {
+            @include mix.glass-effect;
+            background-color: blueviolet;
+            grid-area: header;
         }
 
-        header {
-            align-items: center;
-            backdrop-filter: blur(10px);
-            border: 2px solid RGBA(255, 255, 255, 0.18);
-            box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
-            grid-column: span 12 / span 12;
-            grid-row-start: 2;
-            justify-items: center;
-            margin: 2px;
-            width: 100%;
-            z-index: 11;
+        .nav {
+            @include mix.glass-effect;
+            background-color: yellowgreen;
+            grid-area: nav;
         }
 
-        main {
-            align-items: center;
-            backdrop-filter: blur(10px);
-            border: 2px solid RGBA(255, 255, 255, 0.18);
-            box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
-            grid-column: span 12 / span 12;
-            grid-row-start: 3;
-            justify-items: center;
-            margin: 2px;
-            width: 100%;
-            z-index: 11;
+        .main {
+            @include mix.glass-effect;
+            background-color: gainsboro;
+            grid-area: main;
         }
 
-        footer {
-            backdrop-filter: blur(10px);
-            border: 2px solid RGBA(255, 255, 255, 0.18);
-            box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
-            grid-column: span 12 / span 12;
-            grid-row-start: 4;
-            margin: 2px;
-            width: 98vw;
-            z-index: 11;
+        .widget {
+            @include mix.glass-effect;
+            background-color: red;
+            grid-area: widget;
         }
-    }                
+
+        .footer {
+            @include mix.glass-effect;
+            background-color: green;
+            grid-area: footer;
+        }
+    }
 }
 
-/* Medium devices (landscape tablets, 768px, Large devices (laptops/desktops, 992px and up) and extra large devices (large laptops and desktops, 1200px and up)*/
-@media only screen and (min-width: 768px) and (max-width: 991px) and (min-width: 1200px)  {
+@media screen and (min-width: 480px) {
+    .layout {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto 6rem auto 6rem 6rem 4rem;
+        grid-template-areas: 'header header header' 
+                            'nav nav nav' 
+                            'main main main' 
+                            'main main main' 
+                            'main main main' 
+                            'footer footer footer';
 
-    body {  
-        .parent {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            grid-template-rows: repeat(4, 1fr);
-            gap: 10px;
-    
-            nav {
-                align-items: center;
-                backdrop-filter: blur(10px);
-                border: 2px solid RGBA(255, 255, 255, 0.18);
-                box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
-                grid-column: span 12 / span 12;
-                grid-row-start: 1;
-                justify-items: center;
-                margin: 2px;
-                width: 100%;
-                z-index: 1100;
+        .header {
+            grid-area: header;
+            @include mix.flex-direction(row);
+            @include mix.flex-center-space-between;
+           
+            .header-logo {
+                img {
+                    width: 100px;
+                    height: 100px;
+                }
+            }
 
-                .navbar {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    background: #222;
-                    padding: 1rem 2rem;
-                    position: relative;
-                  
-                    .logo {
-                      color: #fff;
-                      font-size: 1.5rem;
-                      font-weight: bold;
+            .header-title {
+
+                h1 {
+                    font-size: 2rem;
+                    font-weight: 600;
+                    color: var.$primary-color;
+                }
+                p {
+                    font-size: 1rem;
+                    font-weight: 400;
+                    color: var.$secondary-color;
+                }
+            }
+        }
+
+        .nav {
+            @include mix.flex-direction(row);
+            @include mix.flex-center-space-between;
+
+            grid-area: nav;
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+
+            .nav-logo {
+                img {
+                    width: 100px;
+                    height: 100px;
+                }
+            }
+            
+           .nav-links {
+                a {
+                    color: col.$color1;
+                    font-size: 1rem;
+                    font-weight: 400;
+                    padding: 0.25rem;
+                    text-decoration: none;
+
+                    i {
+                        color: col.$color1;
+                        font-size: 1rem;
+                        font-weight: 400;
+                        padding: 0.10rem;
                     }
-                  
-                    .menu-toggle {
-                      display: none;
+
+                    &:hover, i:hover {
+                        color: col.$hover1;
+                        text-decoration: underline;
                     }
-                  
-                    .hamburger {
-                        display: none;
-                        width: 2rem;
-                        height: 2rem;
-                        flex-direction: column;
-                        justify-content: space-between;
-                        cursor: pointer;
-                        z-index: 1001;
-                    
-                        span {
-                          display: block;
-                          height: 0.25rem;
-                          background: #fff;
-                          border-radius: 2px;
-                          transition: all 0.3s;
-                        }
-                    }
+                }
+           }
+
+           .nav-search {
+                @include mix.flex-direction(row);
+                @include mix.flex-center;   
                 
-                    .nav-menu {
-                        display: flex;
-                        gap: 1.5rem;
-                        list-style: none;
-                    
-                        li {
+                button {
+                    aspect-ratio: 1 / 1;
+                    background-color: col.$color2;
+                    border-radius: 50%;
+                    color: col.$hover2;
+                    height: 25px;
+                    left: -25px;
+                    z-index: 1;
 
-                            a {
-                                color: #fff;
-                                text-decoration: none;
-                                font-size: 1rem;
-                                transition: color 0.2s;
-                          
-                                &:hover {
-                                  color: #ffd000;
-                                }
-                            }
+                    &:hover {
+                        background-color: col.$hover2;
+                        color: col.$color2;
+                    }
+                }
+
+                input {               
+                    background-color: transparent;
+                    border: 1px solid col.$color1;
+                    border-radius: 20px;
+                    color: col.$hover1;
+                    height: 25px;
+                    outline: none;
+                    padding-left: 0.1rem;
+                    text-indent: 1rem;
+                    width: 100%;
+
+                    &:hover {
+                        border: 1px solid col.$hover1;
+                        color: col.$color1;
+                    }
+                }
+
+                .nav-account {
+
+                    button {
+                        color: col.$color1;
+                        background-color: col.$color4;
+                        font-size: 1rem;
+                        font-weight: 400;
+                        height: 25px;
+                        padding: 1rem;
+                        width: 2rem;
+
+                        i {
+                            color: col.$color1;
+                            font-size: 1rem;
+                            font-weight: 400;
+                            padding: 0.10rem;
+                        }
+
+                        &:hover {
+                            color: col.$hover1;
+                            background-color: col.$color4;
                         }
                     }
                 }
             }
-    
-            header {
-                align-items: center;
-                backdrop-filter: blur(10px);
-                border: 2px solid RGBA(255, 255, 255, 0.18);
-                box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
-                grid-column: span 12 / span 12;
-                grid-row-start: 2;
-                justify-items: center;
-                margin: 2px;
-                width: 100%;
-                z-index: 11;
-            }
-    
-            main {
-                align-items: center;
-                backdrop-filter: blur(10px);
-                border: 2px solid RGBA(255, 255, 255, 0.18);
-                box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
-                grid-column: span 12 / span 12;
-                grid-row-start: 3;
-                justify-items: center;
-                margin: 2px;
-                width: 100%;
-                z-index: 11;
-            }
-    
-            footer {
-                backdrop-filter: blur(10px);
-                border: 2px solid RGBA(255, 255, 255, 0.18);
-                box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
-                grid-column: span 12 / span 12;
-                grid-row-start: 4;
-                margin: 2px;
-                width: 98vw;
-                z-index: 11;
+
+            .nav-social {
+                a {
+                    font-size: 1rem;
+                    font-weight: 400;
+                    color: var.$secondary-color;
+                }
             }
         }
-    
-    }
-    
 
-}
-
-
-
-
-.hollow-container {
-    aspect-ratio: 16 / 9;
-    background: transparent; // Colored, semi-opaque overlay
-    border: 1px solid #1a1a1a;
-    display: flex;
-    flex-direction: row;
-    margin: 0 1vw;
-    overflow: hidden;
-    top: 80px;
-    position: relative;
-    width: 98vw;
-
-    // The "hole"
-    .hollow {
-        background: url(../img/pic/help-desk.jpg);
-        border-radius: 50%;
-        box-shadow: 0 0 0 0px transparent; // rgb(240, 237, 237); // Creates a hollowed-out area
-        pointer-events: none; // Let clicks pass through
-        position: absolute;
-        top: 50%;
-        left: 75%;
-        transform: translate(-50%, -50%);
-        width: 600px;
-        height: 600px;
-    }
-
-    .html5 {
-        aspect-ratio: 1 / 1;
-        position: absolute;
-        width: 30px;
-        z-index: 10;
-    }
-
-    .javascript {
-        aspect-ratio: 1 / 1;
-        position: absolute;
-        width: 20px;
-        z-index: 10;
-    }
-
-    .sass {
-        aspect-ratio: 1 / 1;
-        position: absolute;
-        width: 40px;
-        z-index: 10;
-    }
-
-    .welcome {
-        background: transparent;
-        padding: 20px;
-        width: 50vw;
-
-        h1 {
-            font-size: 40px;
-            padding: 20px;
+        .main {
+            grid-area: main;
         }
 
-        p {
-            font-size: 25px;
-            padding: 50px;
+        .widget {
+            grid-area: widget;
+        }
+
+        .footer {
+            grid-area: footer;
         }
     }
 }
-

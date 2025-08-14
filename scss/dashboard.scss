@@ -1,0 +1,167 @@
+@use "variables" as var;
+@use "colors" as col;
+@use "mixins" as mix;
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (min-width: 0px) {
+    .container {
+        display: grid;
+        gap: 0.25rem;
+        grid-template-areas: 'header' 'nav' 'main' 'widget' 'footer';
+        grid-template-columns: 1fr;
+        grid-template-rows: 4rem 6rem auto 6rem 6rem 4rem;
+        height: 100vh;
+
+        .header {
+            @include mix.flex-direction(row);
+            @include mix.flex-center-space-between;
+            @include mix.glass-effect;
+            background-color: blueviolet;
+            grid-area: header;
+        }
+
+        .nav {
+            @include mix.flex-direction(column);
+            @include mix.flex-center;
+            @include mix.glass-effect;
+            background-color: yellowgreen;
+            grid-area: nav;
+        }
+
+        .main {
+            @include mix.glass-effect;
+            background-color: gainsboro;
+            grid-area: main;
+        }
+
+        .widget {
+            @include mix.glass-effect;
+            background-color: red;
+            grid-area: widget;
+        }
+
+        .footer {
+            @include mix.glass-effect;
+            background-color: green;
+            grid-area: footer;
+        }
+    }
+}
+
+@media screen and (min-width: 480px) {
+    .container {
+        display: grid;
+        grid-template-areas:    'nav nav header header header header header header header header' 
+                                'nav nav main main main main main main main main'
+                                'nav nav footer footer footer footer footer footer footer footer';
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 10% auto auto 10%;
+        height: 100vh;
+
+        .nav {
+            @include mix.flex-direction(column);
+            @include mix.flex-center;
+            @include mix.glass-effect;
+            background-color: rgb(38, 95, 180);
+            grid-area: nav;
+
+            .nav-menu {
+                @include mix.flex-direction(column);
+                @include mix.flex-center;
+                padding: 1rem auto;
+            }
+
+            .nav-settings {
+                @include mix.flex-direction(column);
+                @include mix.flex-center;
+            }
+        }
+
+        .header {
+            @include mix.glass-effect;
+            background-color: blueviolet;
+            grid-area: header;
+
+            .header-links {
+                @include mix.flex-direction(row);
+                @include mix.flex-center;
+            }
+
+            .header-extra {
+                @include mix.flex-direction(row);
+                @include mix.flex-center;
+            }
+        }
+
+        .main {
+            @include mix.glass-effect;
+            background-color: rgb(185, 236, 66);
+            grid-area: main;
+        }
+
+        .footer {
+            @include mix.glass-effect;
+            background-color: rgb(207, 40, 104);
+            grid-area: footer;
+
+            .footer-links {
+                @include mix.flex-direction(column);
+                @include mix.flex-center;
+            }
+
+            .footer-copyright {
+                @include mix.flex-direction(column);
+                @include mix.flex-center;
+            }
+
+            .footer-social {
+                @include mix.flex-direction(column);
+                @include mix.flex-center;
+            }
+        }
+    }
+}
+
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+
+     /* Hide the checkbox input */
+    input[type="checkbox"] {
+        display: none;
+
+        /* Hide the nested ul by default */
+        &~ ul {
+            display: none;
+            padding-left: 15px;
+            font-size: 0.9rem;
+            list-style-type: circle;
+        }
+        
+        /* Show the nested ul when the checkbox is checked */
+        &:checked ~ ul {
+            display: block;
+        }
+    }
+}
+
+/* Style the label as a clickable link */
+label {
+    color: col.$color1;
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+
+    &::after {
+        color: col.$hover1;
+        text-decoration: underline;
+        user-select: contain;
+    }
+}
+
+  

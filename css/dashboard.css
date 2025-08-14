@@ -1,0 +1,210 @@
+/*
+Example usage in your components:
+
+.button {
+    @include custom-button(#1E90FF, white);
+}
+
+.card {
+    @include card-base;
+    @include flex-center;
+}
+
+.responsive-text {
+    @include responsive-font(16px, 24px);
+}
+
+.glass-card {
+    @include glass-effect;
+    @include card-base;
+}
+
+@media (max-width: 768px) {
+    .mobile-only {
+        @include hide;
+    }
+}
+*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (min-width: 0px) {
+  .container {
+    display: grid;
+    gap: 0.25rem;
+    grid-template-areas: "header" "nav" "main" "widget" "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: 4rem 6rem auto 6rem 6rem 4rem;
+    height: 100vh;
+  }
+  .container .header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    backdrop-filter: blur(10px);
+    border: 2px solid RGBA(255, 255, 255, 0.18);
+    box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
+    background-color: blueviolet;
+    grid-area: header;
+  }
+  .container .nav {
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    border: 2px solid RGBA(255, 255, 255, 0.18);
+    box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
+    background-color: yellowgreen;
+    grid-area: nav;
+  }
+  .container .main {
+    backdrop-filter: blur(10px);
+    border: 2px solid RGBA(255, 255, 255, 0.18);
+    box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
+    background-color: gainsboro;
+    grid-area: main;
+  }
+  .container .widget {
+    backdrop-filter: blur(10px);
+    border: 2px solid RGBA(255, 255, 255, 0.18);
+    box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
+    background-color: red;
+    grid-area: widget;
+  }
+  .container .footer {
+    backdrop-filter: blur(10px);
+    border: 2px solid RGBA(255, 255, 255, 0.18);
+    box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
+    background-color: green;
+    grid-area: footer;
+  }
+}
+@media screen and (min-width: 480px) {
+  .container {
+    display: grid;
+    grid-template-areas: "nav nav header header header header header header header header" "nav nav main main main main main main main main" "nav nav footer footer footer footer footer footer footer footer";
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 10% auto auto 10%;
+    height: 100vh;
+  }
+  .container .nav {
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    border: 2px solid RGBA(255, 255, 255, 0.18);
+    box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
+    background-color: rgb(38, 95, 180);
+    grid-area: nav;
+  }
+  .container .nav .nav-menu {
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem auto;
+  }
+  .container .nav .nav-settings {
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .container .header {
+    backdrop-filter: blur(10px);
+    border: 2px solid RGBA(255, 255, 255, 0.18);
+    box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
+    background-color: blueviolet;
+    grid-area: header;
+  }
+  .container .header .header-links {
+    display: flex;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .container .header .header-extra {
+    display: flex;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .container .main {
+    backdrop-filter: blur(10px);
+    border: 2px solid RGBA(255, 255, 255, 0.18);
+    box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
+    background-color: rgb(185, 236, 66);
+    grid-area: main;
+  }
+  .container .footer {
+    backdrop-filter: blur(10px);
+    border: 2px solid RGBA(255, 255, 255, 0.18);
+    box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
+    background-color: rgb(207, 40, 104);
+    grid-area: footer;
+  }
+  .container .footer .footer-links {
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .container .footer .footer-copyright {
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .container .footer .footer-social {
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  /* Hide the checkbox input */
+}
+ul input[type=checkbox] {
+  display: none;
+  /* Hide the nested ul by default */
+  /* Show the nested ul when the checkbox is checked */
+}
+ul input[type=checkbox] ~ ul {
+  display: none;
+  padding-left: 15px;
+  font-size: 0.9rem;
+  list-style-type: circle;
+}
+ul input[type=checkbox]:checked ~ ul {
+  display: block;
+}
+
+/* Style the label as a clickable link */
+label {
+  color: #121212;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+}
+label::after {
+  color: #FFFFFF;
+  text-decoration: underline;
+  user-select: contain;
+}

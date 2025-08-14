@@ -2,66 +2,86 @@
 <html>
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="css/device.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <title>D3-C0D3R</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"/>
+  <base rel="img"/>
+  <title>Dash</title>
 </head>
 
-<body>
-    <nav>
+<body class="container">
+  <nav class="nav">
+    <div class="nav-menu">
+      <a href=""><i class="fa-solid fa-grip"></i></a>
+            
+      <a href=""><i class="fa-solid fa-bars"></i></a>
+      <ul>
+        <li><i class="fa-solid fa-grip"></i>Dashboard</li>
+        <li>
+          <input type="checkbox" id="toggle-sublist" />
+          <label for="toggle-sublist"><i class="fa-solid fa-uses"></i>Management</label>
+          <ul>
+            <li><i class="fa-solid fa-uses"></i>Accomodation</li>
+            <li><i class="fa-solid fa-sack-dollar"></i>Donations</li>
+            <li><i class="fa-solid fa-coins"></i>Financial</li>
+            <li><i class="fa-solid fa-utensils"></i>Food & Beverages</li>
+            <li><i class="fa-solid fa-boxes-stacked"></i>Inventory</li>
+            <li><i class="fa-solid fa-briefcase-medical"></i>Medical</li>
+          </ul>
+        </li>
+        <li>
+          <input type="checkbox" id="toggle-sublist" />
+          <label for="toggle-sublist"><i class="fa-solid fa-people-group></i>Staff</label>
+          <ul>
+            <li><i class="fa-solid fa-children"></i>Children</li>
+            <li><i class="fa-solid fa-user-tie"></i>Employees</li>
+            <li><i class="fa-solid fa-bed"></i>Residents</li>
+            <li><i class="fa-solid fa-graduate"></i>Students</li>
+            <li><i class="fa-solid fa-user-group"></i>Visitors</li>
+            <li><i class="fa-solid fa-user"></i>Users</li>
+          </ul>
+        </li>
+        <li>Dashboard</li>
+        <li>Dashboard</li>
+        <li><i class="fa-solid fa-chart-line"></i>Analytics</li>
+        <li>Settings</li>
+      </ul>
+    </div>
+    <div class="nav-settings">
+      <a href=""><i class="fa-solid fa-cog"></i></a>
+    </div>
+  </nav>
+  <header class="header">
+    <div class="header-menu">
+      <a href=""><i class="fa-solid fa-bars"></i></a>
+    </div>
+    <div class="header-links">
 
-    </nav>
-    <header>
+    </div>
+    <div class="header-extra">
 
-    </header>
-    <main>
-        <section class="main-section" tabindex="0">
-            <div class="profile-image">
-                <img src="img/logo/Developer.jpg" alt="Developer Profile Picture">
-            </div>
-            <div class="intro-text">
-                <h1>Hello, I'm Mlambo Dakarai Kushata</h1>
-                <h2>Web and Software Developer & Designer</h2>
-                <p>
-                    I build elegant, performant web, mobile and desktop applications.<br>
-                    Explore my projects and skills below!
-                </p>
-                <button class="contact-btn">Contact Me</button>
-            </div>
-        </section>
-        <div class="card-shuffle-slideshow" tabindex="0" aria-label="Playing cards shuffle slideshow">
-            <div class="card">
-              <img src="img/pic/javascript.jpg" alt="Card 1">
-            </div>
-            <div class="card">
-              <img src="img/pic/coding.jpg" alt="Card 2">
-            </div>
-            <div class="card">
-              <img src="img/pic/harddisk.jpg" alt="Card 3">
-            </div>
-            <div class="card">
-                <img src="img/pic/desktop.jpg" alt="Card 4">
-              </div>
-              <div class="card">
-                <img src="img/pic/typescript.jpg" alt="Card 5">
-              </div>
-              <div class="card">
-                <img src="img/pic/pc-repairs.jpg" alt="Card 6">
-              </div>
-              <div class="card">
-                <img src="img/pic/mobile.jpg" alt="Card 7">
-              </div>
-              <div class="card">
-                <img src="img/pic/ict.jpg" alt="Card 8">
-              </div>
-        </div>          
-    </main>
-    <footer>
+    </div>
+  </header>
+  <main class="main">
+    <section class="main-section" tabindex="0">
+      <div class="profile-image">
+        <img src="img/logo" alt="Developer Profile Picture">
+      </div>
+      <div class="intro-text">
+        <h1>Hello, I'm Mlambo Dakarai Kushata</h1>
+        <h2>Web and Software Developer & Designer</h2>
+        <p>
+          I build elegant, performant web, mobile and desktop applications.<br>
+          Explore my projects and skills below!
+        </p>
+        <button class="contact-btn">Contact Me</button>
+      </div>
+    </section>
+    
+  </main>
+  <footer class="footer">
 
-    </footer>
-
-    <script src="js/behave.js"></script>
+  </footer>
 </body>
 
 </html>

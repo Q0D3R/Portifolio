@@ -1,5 +1,10 @@
 @use "variables" as var;
+@use "colors" as col;
 @use "mixins" as mix;
+
+$s-count: 3;
+$s-width: 100%; // width of each slide, can be px or % based on your layout
+$a-duration: 10s;
 
   
 .container {
@@ -59,4 +64,51 @@
   
 .link {
     color: blueviolet;
+}
+
+
+.slideshow {
+    overflow: hidden;
+    position: relative;
+    width: $s-width;
+}
+
+.slides {
+    display: flex;
+    width: calc(#{$s-count} * 2 * 100%);
+    animation: scroll $a-duration linear infinite;
+
+    img {
+        width: $s-width;
+        flex-shrink: 0;
+    }
+}
+
+
+.auto-scroll {
+    animation: scroll 10s linear infinite;
+    display: grid;
+    gap: 2rem;
+    grid-auto-flow: column;
+    grid-auto-columns: 2rem;
+    justify-content: stretch;
+
+    img {
+        aspect-ratio: 1 / 1;
+        width: 4rem;
+    }
+}
+
+@keyframes scroll {
+    //to {
+        //translate: calc(-5 * 2rem);
+    //}
+
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-50%)); // move to half width to show duplicates exactly
+    }
 }

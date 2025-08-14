@@ -79,3 +79,41 @@ Example usage in your components:
 .link {
   color: blueviolet;
 }
+
+.slideshow {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.slides {
+  display: flex;
+  width: calc(3 * 2 * 100%);
+  animation: scroll 10s linear infinite;
+}
+.slides img {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.auto-scroll {
+  animation: scroll 10s linear infinite;
+  display: grid;
+  gap: 2rem;
+  grid-auto-flow: column;
+  grid-auto-columns: 2rem;
+  justify-content: stretch;
+}
+.auto-scroll img {
+  aspect-ratio: 1/1;
+  width: 4rem;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

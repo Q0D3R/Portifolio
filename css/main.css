@@ -25,6 +25,11 @@ Example usage in your components:
     }
 }
 */
+* {
+  margin: 0;
+  padding: 0;
+}
+
 @media screen and (min-width: 0px) {
   .layout {
     display: grid;
@@ -73,7 +78,7 @@ Example usage in your components:
 @media screen and (min-width: 480px) {
   .layout {
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto 6rem auto 6rem 6rem 4rem;
+    grid-template-rows: auto 6rem auto 6rem 6rem auto;
     grid-template-areas: "header header header" "nav nav nav" "main main main" "main main main" "main main main" "footer footer footer";
   }
   .layout .header {
@@ -95,7 +100,7 @@ Example usage in your components:
   .layout .header .header-title p {
     font-size: 1rem;
     font-weight: 400;
-    color: #0D0D0D;
+    color: #6B7A8F;
   }
   .layout .nav {
     display: flex;
@@ -112,14 +117,14 @@ Example usage in your components:
     height: 100px;
   }
   .layout .nav .nav-links a {
-    color: #0D0D0D;
+    color: #121212;
     font-size: 1rem;
     font-weight: 400;
     padding: 0.25rem;
     text-decoration: none;
   }
   .layout .nav .nav-links a i {
-    color: #0D0D0D;
+    color: #121212;
     font-size: 1rem;
     font-weight: 400;
     padding: 0.1rem;
@@ -139,18 +144,18 @@ Example usage in your components:
     aspect-ratio: 1/1;
     background-color: #FFFFFF;
     border-radius: 50%;
-    color: #121212;
+    color: #0D0D0D;
     height: 25px;
     left: -25px;
     z-index: 1;
   }
   .layout .nav .nav-search button:hover {
-    background-color: #121212;
+    background-color: #0D0D0D;
     color: #FFFFFF;
   }
   .layout .nav .nav-search input {
     background-color: transparent;
-    border: 1px solid #0D0D0D;
+    border: 1px solid #121212;
     border-radius: 20px;
     color: #FFFFFF;
     height: 25px;
@@ -161,31 +166,12 @@ Example usage in your components:
   }
   .layout .nav .nav-search input:hover {
     border: 1px solid #FFFFFF;
-    color: #0D0D0D;
-  }
-  .layout .nav .nav-search .nav-account button {
-    color: #0D0D0D;
-    background-color: #1E90FF;
-    font-size: 1rem;
-    font-weight: 400;
-    height: 25px;
-    padding: 1rem;
-    width: 2rem;
-  }
-  .layout .nav .nav-search .nav-account button i {
-    color: #0D0D0D;
-    font-size: 1rem;
-    font-weight: 400;
-    padding: 0.1rem;
-  }
-  .layout .nav .nav-search .nav-account button:hover {
-    color: #FFFFFF;
-    background-color: #1E90FF;
+    color: #121212;
   }
   .layout .nav .nav-social a {
     font-size: 1rem;
     font-weight: 400;
-    color: #0D0D0D;
+    color: #6B7A8F;
   }
   .layout .main {
     grid-area: main;
@@ -194,6 +180,76 @@ Example usage in your components:
     grid-area: widget;
   }
   .layout .footer {
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     grid-area: footer;
+  }
+  .layout .footer footer-top {
+    display: flex;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .layout .footer footer-top footer-profile {
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .layout .footer footer-top footer-profile img {
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    padding: auto 1rem;
+    width: 2rem;
+  }
+  .layout .footer footer-top footer-links {
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .layout .footer footer-top footer-links legend {
+    padding: auto 1rem;
+  }
+  .layout .footer footer-top footer-links a {
+    text-decoration: none;
+  }
+  .layout .footer footer-top footer-links a :hover {
+    text-decoration: underline;
+  }
+  .layout .footer footer-top footer-gallery img {
+    padding: auto 1rem;
+  }
+  .layout .footer footer-top footer-contact form {
+    padding: auto 1rem;
+  }
+  .layout .footer footer-top footer-contact form legend {
+    font-weight: 900;
+  }
+  .layout .footer footer-bottom {
+    display: flex;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .layout .footer footer-bottom footer-copyright p {
+    padding: auto 1rem;
+  }
+  .layout .footer footer-bottom footer-extra a {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #6B7A8F;
+  }
+  .layout .footer footer-bottom footer-social a {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #6B7A8F;
   }
 }

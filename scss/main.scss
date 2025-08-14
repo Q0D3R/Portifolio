@@ -2,6 +2,11 @@
 @use "colors" as col;
 @use "mixins" as mix;
 
+* {
+    margin: 0;
+    padding: 0;
+}
+
 @media screen and (min-width: 0px) {
     .layout {
         display: grid;
@@ -46,7 +51,7 @@
 @media screen and (min-width: 480px) {
     .layout {
         grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: auto 6rem auto 6rem 6rem 4rem;
+        grid-template-rows: auto 6rem auto 6rem 6rem auto;
         grid-template-areas: 'header header header' 
                             'nav nav nav' 
                             'main main main' 
@@ -71,12 +76,12 @@
                 h1 {
                     font-size: 2rem;
                     font-weight: 600;
-                    color: col.$primary-color;
+                    color: col.$color6;
                 }
                 p {
                     font-size: 1rem;
                     font-weight: 400;
-                    color: col.$secondary-color;
+                    color: col.$hover6;
                 }
             }
         }
@@ -157,27 +162,7 @@
 
                 .nav-account {
 
-                    button {
-                        color: col.$color1;
-                        background-color: col.$color4;
-                        font-size: 1rem;
-                        font-weight: 400;
-                        height: 25px;
-                        padding: 1rem;
-                        width: 2rem;
-
-                        i {
-                            color: col.$color1;
-                            font-size: 1rem;
-                            font-weight: 400;
-                            padding: 0.10rem;
-                        }
-
-                        &:hover {
-                            color: col.$hover1;
-                            background-color: col.$color4;
-                        }
-                    }
+                    
                 }
             }
 
@@ -185,7 +170,7 @@
                 a {
                     font-size: 1rem;
                     font-weight: 400;
-                    color: col.$secondary-color;
+                    color: col.$hover6;
                 }
             }
         }
@@ -199,7 +184,88 @@
         }
 
         .footer {
+            @include mix.flex-direction(column);
+            @include mix.flex-center;
             grid-area: footer;
+
+            footer-top {
+                @include mix.flex-direction(row);
+                @include mix.flex-center;
+
+                footer-profile{
+                    @include mix.flex-direction(column);
+                    @include mix.flex-center;
+
+                    img {
+                        aspect-ratio: 1 / 1;
+                        border-radius: 50%;
+                        padding: auto 1rem;
+                        width: 2rem;
+                    }
+
+
+                }
+
+                footer-links {
+                    @include mix.flex-direction(column);
+                    @include mix.flex-center;
+
+                    legend {
+                        padding: auto 1rem;
+                    }
+
+                    a {
+                        text-decoration: none;
+
+                        :hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
+                footer-gallery {
+                    img {
+                        padding: auto 1rem;
+                    }
+                }
+
+                footer-contact {
+                    form {
+                        padding: auto 1rem;
+
+                        legend {
+                            font-weight: 900;
+                        }
+                    }
+                }
+            }
+
+            footer-bottom {
+                @include mix.flex-direction(row);
+                @include mix.flex-center;
+
+                footer-copyright {
+                    p {
+                        padding: auto 1rem;
+                    }
+                }
+
+                footer-extra {
+                    a {
+                        font-size: 1rem;
+                        font-weight: 400;
+                        color: col.$hover6;
+                    }
+                }
+    
+                footer-social {
+                    a {
+                        font-size: 1rem;
+                        font-weight: 400;
+                        color: col.$hover6;
+                    }
+                }
+            }
         }
     }
 }

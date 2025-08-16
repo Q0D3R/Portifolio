@@ -112,3 +112,134 @@ $a-duration: 10s;
         transform: translateX(calc(-50%)); // move to half width to show duplicates exactly
     }
 }
+
+.form-control {
+    position: relative;
+    margin: 30px 0 40px;
+    width: 190px;
+    
+    input {
+        background-color: transparent;
+        border: 0;
+        border-bottom: 2px col.$color1 solid;
+        color: col.$color2;
+        display: block;
+        font-size: 0.75rem;
+        padding: 0.75rem 0;
+        width: 100%;       
+        
+        
+        &:focus, &:valid {            
+            border-bottom-color: col.$color2;
+            outline: 0;
+        }
+
+        &:focus+label,
+        &:valid+label {
+
+            span {
+                color: col.$color2;
+                transform: translateY(-1.4rem);
+            }
+        }
+    }
+  
+    label {
+        position: absolute;
+        top: 1.5rem;
+        left: 0;
+        pointer-events: none;
+
+        span {
+            display: inline-block;
+            font-size: 0.75rem;
+            max-width: 0.5rem;
+            color: col.$color6;
+            transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+    }
+}
+
+
+.slider {
+    margin: 0 70px 55px;
+    max-width: 1200px;
+    overflow: hidden;
+
+    .card-list {
+        @include mix.flex-direction(row);
+        @include mix.flex-center;
+        column-gap: 2rem;
+
+        .card-item {
+            @include mix.flex-direction(column);
+            @include mix.flex-center;
+    
+            backdrop-filter: blur(30px);
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            color: col.$color2;
+            height: auto;
+            padding: 35px;
+            user-select: none;      
+    
+            .user-image {
+                aspect-ratio: 1 / 1;
+                border: 3px solid col.$color2;
+                border-radius: 50%;
+                margin-bottom: 40px;            
+                padding: 4px;
+                width: 150px;
+            }
+    
+            .user-profession {
+                color: col.$color3;
+                font-size: 1.15rem;
+                font-weight: 500;
+                margin: 14px 0 40px;
+            }
+    
+            .message-button {
+                background: col.$color2;
+                border: 1px solid transparent;
+                border-radius: 6px;
+                color: col.$color6;
+                cursor: pointer;
+                font-weight: 500;
+                font-size: 1.25rem;
+                padding: 10px 35px;
+                transition: width 0.2s ease-in cubic-bezier(0.1, 0.7, 1.0, 0.1);
+    
+                &:hover {
+                    background: rgba(255, 255, 255, 0.1);
+                    border: 1px solid col.$color5;
+                    color: col.$color2;
+                }
+            }
+              
+        }
+    }
+   
+    .swiper-bullet {
+        background: col.$color2;
+        height: 13px;
+        width: 13px;
+        opacity: 0.5;
+    }
+      
+    .swiper-bullet-active {
+        opacity: 1;
+    }
+    
+    .swiper-slide-button {
+        color: col.$color2;
+        margin-top: -55px;
+        transition: 0.2s ease;
+
+        &:hover {
+            color: #4658ff;
+        }
+    }
+   
+}

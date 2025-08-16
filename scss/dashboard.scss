@@ -5,6 +5,16 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: url("images/bg.jpg") #030728 no-repeat center;
 }
 
 @media screen and (min-width: 0px) {
@@ -59,31 +69,74 @@
                                 'nav nav main main main main main main main main'
                                 'nav nav footer footer footer footer footer footer footer footer';
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-        grid-template-rows: 10% auto auto 10%;
+        grid-template-rows: auto auto auto auto;
         height: 100vh;
 
         .nav {
             @include mix.flex-direction(column);
             @include mix.flex-center;
             @include mix.glass-effect;
-            background-color: rgb(38, 95, 180);
+            background-color: col.$bg6;
             grid-area: nav;
 
             .nav-menu {
                 @include mix.flex-direction(column);
-                @include mix.flex-center;
-                padding: 1rem auto;
+                @include mix.flex-start;
+                padding: 0.75rem 0.5rem;
+
+                label {
+                    color: col.$color2;
+                    font-size: 0.75rem;
+                    font-weight: 500;
+                    margin: 1rem 1rem 0 1rem;
+                    text-transform:uppercase;
+                }
             }
 
-            .nav-settings {
+            .nav-user {
                 @include mix.flex-direction(column);
                 @include mix.flex-center;
+
+                .icon {
+                    @include mix.flex-direction(column);
+                    @include mix.flex-center;
+
+                    .img {
+                        aspect-ratio: 1 / 1;
+                        border-radius: 50%;
+                        width: 2rem;
+                    }
+                }
+
+                .user {
+                    @include mix.flex-direction(column);
+                    @include mix.flex-center;
+
+                    .button {
+                        padding: 1rem;
+                        width: 100%;
+
+                        a {
+                            text-decoration: none;
+                        }
+                    }
+
+                    .name {
+                        color: col.$color1;
+                        font-size: 0.75rem;
+                    }
+
+                    .profession {
+                        color: col.$color2;
+                        font-size: 0.75rem;
+                    }
+                }
             }
         }
 
         .header {
             @include mix.glass-effect;
-            background-color: blueviolet;
+            background-color: col.$bg6;
             grid-area: header;
 
             .header-links {
@@ -127,87 +180,107 @@
 }
 
 
-ul {
-    list-style-type: disc;
+.list {
+    list-style-type: none;
     padding-left: 20px;
 
-     /* Hide the checkbox input */
-    input[type="checkbox"] {
-        display: none;
+    .item {
+        @include mix.flex-direction(row);
+        padding: 0.5rem 0;
 
-        /* Hide the nested ul by default */
-        &~ ul {
+        i {
+            color: col.$color6;
+            margin: 0 0 0 0.4rem;
+        }
+
+        /* Hide the checkbox input */
+        input[type="checkbox"] {
             display: none;
-            padding-left: 15px;
-            font-size: 0.9rem;
-            list-style-type: circle;
-        }
-        
-        /* Show the nested ul when the checkbox is checked */
-        &:checked ~ ul {
-            display: block;
-        }
-    }
-}
-
-/* Style the label as a clickable link */
-label {
-    color: col.$color1;
-    text-decoration: none;
-    cursor: pointer;
-    user-select: none;
-
-    &::after {
-        color: col.$hover1;
-        text-decoration: underline;
-        user-select: contain;
-    }
-}
-
-  
-/* From Uiverse.io by liyaxu123 */ 
-.form-control {
-    position: relative;
-    margin: 20px 0 40px;
-    width: 190px;
     
-    input {
-        background-color: transparent;
-        border: 0;
-        border-bottom: 2px col.$color2 solid;
-        display: block;
-        width: 100%;
-        padding: 15px 0;
-        font-size: 18px;
-        color: col.$color2;
-        
-        &:focus, &:valid {
-            outline: 0;
-            border-bottom-color: lightblue;
+            /* Hide the nested ul by default */
+            &~ .list {
+                display: none;
+                padding-left: 15px;
+                font-size: 0.9rem;
+                list-style-type: none;
+            }
+            
+            /* Show the nested ul when the checkbox is checked */
+            &:checked ~ .list {
+                display: block;
+                list-style-type: none;
+            }
         }
 
-        &:focus+label,
-        &:valid+label {
+        /* Style the label as a clickable link */
+        label {
+            color: col.$color1;
+            text-decoration: none;
+            cursor: pointer;
+            user-select: none;
+        
+            &::after {
+                color: col.$hover1;
+                text-decoration: underline;
+                user-select: contain;
+            }
+        }
 
-            span {
-                color: lightblue;
-                transform: translateY(-30px);
+        .text {
+            color: col.$color2;
+            margin: 0 0.4rem 0 0;
+
+            &:hover {
+                color: col.$hover3;
             }
         }
     }
-  
-    label {
-        position: absolute;
-        top: 15px;
-        left: 0;
-        pointer-events: none;
+                        
+}
 
-        span {
-            display: inline-block;
-            font-size: 18px;
-            min-width: 5px;
-            color: col.$color2;
-            transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+.list-menu {
+    position: relative;
+    width: 100%;
+
+    .list-toggle {
+        background: none;
+        border: none;
+        color: inherit;
+        width: 100%;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font: inherit;
+        cursor: pointer;
+        //padding: 0.5rem 0;
+        transition: background 0.2s;
+    
+        .list-toggle:hover,
+        .list-toggle[aria-expanded="true"] {
+            background: rgba(0,0,0,0.05);
+        }
+
+        list-arrow {
+            margin-left: auto;
+            transition: transform 0.2s;
+        }
+
+        .mini-list {
+            margin: 0.25rem 0 0 1.5rem;
+            padding: 0;
+            list-style: none;
+            background: none;
+            border-left: 2px solid #eee;
+            transition: max-height 0.2s;
+        
+            .item {
+                padding: 0.25rem 0;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
         }
     }
 }
+

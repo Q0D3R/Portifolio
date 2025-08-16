@@ -1,0 +1,27 @@
+/*
+Example usage in your components:
+
+.button {
+    @include custom-button(#1E90FF, white);
+}
+
+.card {
+    @include card-base;
+    @include flex-center;
+}
+
+.responsive-text {
+    @include responsive-font(16px, 24px);
+}
+
+.glass-card {
+    @include glass-effect;
+    @include card-base;
+}
+
+@media (max-width: 768px) {
+    .mobile-only {
+        @include hide;
+    }
+}
+*/

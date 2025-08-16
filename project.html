@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="css/dashboard.css" />
   <link rel="stylesheet" href="css/grip.css" />
+  <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" />
   <base rel="img" />
   <title>Dash</title>
@@ -13,8 +14,9 @@
 <body class="container">
   <nav class="nav">
     <div class="nav-menu">
-      <a href=""><i class="fa-solid fa-grip"></i></a>
-
+      <div class="logo">
+        <img class="img" src="img/logo/Kush-bg.png" />
+      </div>
       <label>GENERAL</label>
       <ul class="list">
         <li class="item">
@@ -26,22 +28,40 @@
         <li class="item">
           <div class="list-menu">
             <button class="list-toggle" aria-expanded="false" aria-controls="list-inventory">
-              <i class="fa-solid fa-cart-shopping"></i><legend class="text">Payments</legend>
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span class="text">Finance</span>
+              <i class="fa-solid fa-chevron-down list-arrow"></i>
             </button>
-          </div>
-        </li>
-        <li class="item">
-          <div class="list-menu">
-            <button class="list-toggle" aria-expanded="false" aria-controls="list-inventory">
-              <i class="fa-solid fa-coins"></i><legend class="text">Income</legend>
-            </button>
-          </div>
-        </li>
-        <li class="item">
-          <div class="list-menu">
-            <button class="list-toggle" aria-expanded="false" aria-controls="list-inventory">
-              <i class="fa-solid fa-sack-dollar"></i><legend class="text">Donations</legend>
-            </button>
+            <ul class="list mini-list" id="list-inventory" hidden>
+              <li class="item">
+                <div class="list-menu">
+                  <button class="list-toggle" aria-expanded="false" aria-controls="list-inventory">
+                    <i class="fa-solid fa-sack-dollar"></i><legend class="text">Donations</legend>
+                  </button>
+                </div>
+              </li>
+              <li class="item">
+                <div class="list-menu">
+                  <button class="list-toggle" aria-expanded="false" aria-controls="list-inventory">
+                    <i class="fa-solid fa-coins"></i><legend class="text">Income</legend>
+                  </button>
+                </div>
+              </li>
+              <li class="item">
+                <div class="list-menu">
+                  <button class="list-toggle" aria-expanded="false" aria-controls="list-inventory">
+                    <i class="fa-solid fa-cog"></i><legend class="text">Invoice</legend>
+                  </button>
+                </div>
+              </li>
+              <li class="item">
+                <div class="list-menu">
+                  <button class="list-toggle" aria-expanded="false" aria-controls="list-inventory">
+                    <i class="fa-solid fa-sack-dollar"></i><legend class="text">Sales</legend>
+                  </button>
+                </div>
+              </li>
+            </ul>
           </div>
         </li>
         <li class="item">
@@ -55,28 +75,28 @@
               <li class="item">
                 <div class="list-menu">
                   <button class="list-toggle" aria-expanded="false" aria-controls="list-inventory">
-                    <i class="fa-solid fa-hotel"></i>Accomodation
+                    <i class="fa-solid fa-hotel"></i><legend class="text">Accomodation</legend>
                   </button>
                 </div>
               </li>
               <li class="item">
                 <div class="list-menu">
                   <button class="list-toggle" aria-expanded="false" aria-controls="list-inventory">
-                    <i class="fa-solid fa-sack-dollar"></i>Donations
+                    <i class="fa-solid fa-sack-dollar"></i><legend class="text">Donations</legend>
                   </button>
                 </div>
               </li>
               <li class="item">
                 <div class="list-menu">
                   <button class="list-toggle" aria-expanded="false" aria-controls="list-inventory">
-                    <i class="fa-solid fa-utensils"></i>Food & Beverages
+                    <i class="fa-solid fa-utensils"></i><legend class="text">Food & Beverages</legend>
                   </button>
                 </div>
               </li>
               <li class="item">
                 <div class="list-menu">
                   <button class="list-toggle" aria-expanded="false" aria-controls="list-inventory">
-                    <i class="fa-solid fa-briefcase-medical"></i>Medical
+                    <i class="fa-solid fa-briefcase-medical"></i><legend class="text">Medical</legend>
                   </button>
                 </div>
               </li>
@@ -94,14 +114,14 @@
               <li class="item">
                 <div class="list-menu">
                   <button class="list-toggle" aria-expanded="false" aria-controls="list-inventory">
-                    <i class="fa-solid fa-users"></i>Employees
+                    <i class="fa-solid fa-users"></i><legend class="text">Employees</legend>
                   </button>
                 </div>
               </li>
               <li class="item">
                 <div class="list-menu">
                   <button class="list-toggle" aria-expanded="false" aria-controls="list-inventory">
-                    <i class="fa-solid fa-handshake-angle"></i>Volunteers
+                    <i class="fa-solid fa-handshake-angle"></i><legend class="text">Volunteers</legend>
                   </button>
                 </div>
               </li>
@@ -119,28 +139,28 @@
               <li class="item">
                 <div class="list-menu">
                   <button class="list-toggle" aria-expanded="false" aria-controls="list-inventory">
-                    <i class="fa-solid fa-children"></i>Children
+                    <i class="fa-solid fa-children"></i><legend class="text">Children</legend>
                   </button>
                 </div>
               </li>
               <li class="item">
                 <div class="list-menu">
                   <button class="list-toggle" aria-expanded="false" aria-controls="list-inventory">
-                    <i class="fa-solid fa-bed-pulse"></i>Patients
+                    <i class="fa-solid fa-bed-pulse"></i><legend class="text">Patients</legend>
                   </button>
                 </div>
               </li>
               <li class="item">
                 <div class="list-menu">
                   <button class="list-toggle" aria-expanded="false" aria-controls="list-inventory">
-                    <i class="fa-solid fa-user-graduate"></i>Students
+                    <i class="fa-solid fa-user-graduate"></i><legend class="text">Students</legend>
                   </button>
                 </div>
               </li>
               <li class="item">
                 <div class="list-menu">
                   <button class="list-toggle" aria-expanded="false" aria-controls="list-inventory">
-                    <i class="fa-solid fa-user-group"></i>Visitors
+                    <i class="fa-solid fa-user-group"></i><legend class="text">Visitors</legend>
                   </button>
                 </div>
               </li>
@@ -153,27 +173,29 @@
         <li class="item">
           <div class="list-menu">
             <button class="list-toggle" aria-expanded="false" aria-controls="list-inventory">
-              <i class="fa-solid fa-shield-halved"></i><legend class="text">Security</legend>
+              <i class="fa-solid fa-shield-halved"></i>
+              <span class="text">Security</span>
+              <i class="fa-solid fa-chevron-down list-arrow"></i>
             </button>
             <ul class="list mini-list" id="list-clients" hidden>
               <li class="item">
                 <div class="list-menu">
                   <button class="list-toggle" aria-expanded="false" aria-controls="list-inventory">
-                    <i class="fa-solid fa-fingerprint"></i>Access ID
+                    <i class="fa-solid fa-fingerprint"></i><legend class="text">Access ID</legend>
                   </button>
                 </div>
               </li>
               <li class="item">
                 <div class="list-menu">
                   <button class="list-toggle" aria-expanded="false" aria-controls="list-inventory">
-                    <i class="fa-solid fa-user-clock"></i>Audit Trail
+                    <i class="fa-solid fa-user-clock"></i><legend class="text">Audit Trail</legend>
                   </button>
                 </div>
               </li>
               <li class="item">
                 <div class="list-menu">
                   <button class="list-toggle" aria-expanded="false" aria-controls="list-inventory">
-                    <i class="fa-solid fa-user-gear"></i>Users
+                    <i class="fa-solid fa-user-gear"></i><legend class="text">Users</legend>
                   </button>
                 </div>
               </li>
@@ -190,21 +212,67 @@
         <li class="item">
           <div class="list-menu">
             <button class="list-toggle" aria-expanded="false" aria-controls="list-inventory">
-              <i class="fa-solid fa-cog"></i><legend class="text">Reports</legend>
+              <i class="fa-solid fa-cog"></i>
+              <span class="text">Reports</span>
+              <i class="fa-solid fa-chevron-down list-arrow"></i>
             </button>
+            <ul class="list mini-list" id="list-clients" hidden>
+              <li class="item">
+                <div class="list-menu">
+                  <button class="list-toggle" aria-expanded="false" aria-controls="list-inventory">
+                    <i class="fa-solid fa-hotel"></i><legend class="text">Accomodation</legend>
+                  </button>
+                </div>
+              </li>
+              <li class="item">
+                <div class="list-menu">
+                  <button class="list-toggle" aria-expanded="false" aria-controls="list-inventory">
+                    <i class="fa-solid fa-user-clock"></i><legend class="text">Audit Trail</legend>
+                  </button>
+                </div>
+              </li>
+              <li class="item">
+                <div class="list-menu">
+                  <button class="list-toggle" aria-expanded="false" aria-controls="list-inventory">
+                    <i class="fa-solid fa-hands-holding-child"></i><legend class="text">Child Welfare</legend>
+                  </button>
+                </div>
+              </li>
+              <li class="item">
+                <div class="list-menu">
+                  <button class="list-toggle" aria-expanded="false" aria-controls="list-inventory">
+                    <i class="fa-solid fa-coins"></i><legend class="text">Financial</legend>
+                  </button>
+                </div>
+              </li>
+              <li class="item">
+                <div class="list-menu">
+                  <button class="list-toggle" aria-expanded="false" aria-controls="list-inventory">
+                    <i class="fa-solid fa-boxes-stacked"></i><legend class="text">Inventory</legend>
+                  </button>
+                </div>
+              </li>
+              <li class="item">
+                <div class="list-menu">
+                  <button class="list-toggle" aria-expanded="false" aria-controls="list-inventory">
+                    <i class="fa-solid fa-briefcase-medical"></i><legend class="text">Medical</legend>
+                  </button>
+                </div>
+              </li>
+              <li class="item">
+                <div class="list-menu">
+                  <button class="list-toggle" aria-expanded="false" aria-controls="list-inventory">
+                    <i class="fa-solid fa-user-lock"></i><legend class="text">Security</legend>
+                  </button>
+                </div>
+              </li>
+            </ul>            
           </div>
         </li>
         <li class="item">
           <div class="list-menu">
             <button class="list-toggle" aria-expanded="false" aria-controls="list-inventory">
               <i class="fa-solid fa-chart-column"></i><legend class="text">Analytics</legend>
-            </button>
-          </div>
-        </li>
-        <li class="item">
-          <div class="list-menu">
-            <button class="list-toggle" aria-expanded="false" aria-controls="list-inventory">
-              <i class="fa-solid fa-cog"></i><legend class="text">Invoice</legend>
             </button>
           </div>
         </li>
@@ -241,17 +309,27 @@
         </div>
         <div class="user">
           <h2 class="name">Mlambo Dakarai K.</h2>
-          <p class="profession">Software Developer</p>
+          <p class="profession">System Admin</p>
         </div>        
       </div>
-      <button class="button">
-        <a href=""><i class="fa-solid fa-cog"></i>Message</a>
+      <button class="button magnet-btn">
+        <a href=""><i class="fa-solid fa-envelope"></i>Message</a>
       </button>
     </div>
   </nav>
   <header class="header">
     <div class="header-menu">
-      <a href=""><i class="fa-solid fa-bars"></i></a>
+      <div class="main-links">
+        <div class="Search-Input">
+          <input placeholder="Type Here" type="text" class="textInput">
+          <button class=""><i class="fa-solid fa-magnifying-glass"></i></button>
+          <button class="reset"><i class="fa-solid fa-x-mark"></i></button>
+      </div>
+      </div>
+      <div class="extra-links">
+        <a href=""><i class="fa-solid fa-envelope"></i></a>
+        <a href=""><i class="fa-solid fa-bell"></i></a>
+      </div>     
     </div>
     <div class="header-links">
       <div class="form-control">
@@ -274,33 +352,56 @@
     </div>
   </header>
   <main class="main">
-    <section class="main-section" tabindex="0">
-      <div class="profile-image">
-        <img src="img/logo" alt="Developer Profile Picture">
-      </div>
-      <div class="intro-text">
-        <h1>Hello, I'm Mlambo Dakarai Kushata</h1>
-        <h2>Web and Software Developer & Designer</h2>
+    <section class="portfolio-header" tabindex="0">
+      <div class="overlay">
+        <h1>Welcome to my Portfolio</h1>
         <p>
-          I build elegant, performant web, mobile and desktop applications.<br>
-          Explore my projects and skills below!
+          Hi, I'm Mlambo Dakarai Kushata. Driven by curiosity and a love for coding, I build 
+          modern and responsive websites, and mobile and desktop applications that engage users<br>
+          Explore my projects and skills in detail!
         </p>
-        <button class="contact-btn">Contact Me</button>
+        <button class="contact-btn">More...</button>
       </div>
+      </div>        
     </section>
+
     <section class="slider">
       <div class="card-list swiper-wrapper">
         <div class="card-item swiper-slide">
           <img src="img/logo/Developer.jpg" alt="User Image" class="user-image">
           <h2 class="user-name">Mlambo Dakarai Kushata</h2>
-          <p class="user-profession">Software Developer</p>
-          <button class="message-button">Message</button>
+          <p class="user-profession">Web Developer</p>
+          <button class="message-button">Get more</button>
         </div>
         <div class="card-item swiper-slide">
           <img src="img/logo/Developer.jpg" alt="User Image" class="user-image">
           <h2 class="user-name">Mlambo Dakarai Kushata</h2>
           <p class="user-profession">Graphic Designer</p>
-          <button class="message-button">Message</button>
+          <button class="message-button">Get more</button>
+        </div>
+        <div class="card-item swiper-slide">
+          <img src="img/logo/Developer.jpg" alt="User Image" class="user-image">
+          <h2 class="user-name">Mlambo Dakarai Kushata</h2>
+          <p class="user-profession">Software Developer</p>
+          <button class="message-button">Get more</button>
+        </div>
+        <div class="card-item swiper-slide">
+          <img src="img/logo/Developer.jpg" alt="User Image" class="user-image">
+          <h2 class="user-name">Mlambo Dakarai Kushata</h2>
+          <p class="user-profession">IT Officer</p>
+          <button class="message-button">Get more</button>
+        </div>
+        <div class="card-item swiper-slide">
+          <img src="img/logo/Developer.jpg" alt="User Image" class="user-image">
+          <h2 class="user-name">Mlambo Dakarai Kushata</h2>
+          <p class="user-profession">Sports Director(Deputy)</p>
+          <button class="message-button">Get more</button>
+        </div>
+        <div class="card-item swiper-slide">
+          <img src="img/logo/Developer.jpg" alt="User Image" class="user-image">
+          <h2 class="user-name">Mlambo Dakarai Kushata</h2>
+          <p class="user-profession">Caregiver</p>
+          <button class="message-button">Get more</button>
         </div>
       </div>
 
@@ -333,6 +434,43 @@
         });
       });
     });
+
+    const btn = document.querySelector('.magnet-btn');
+
+    btn.addEventListener('mousemove', (e) => {
+      const { left, top, width, height } = btn.getBoundingClientRect();
+      const x = e.clientX - (left + width / 2);
+      const y = e.clientY - (top + height / 2);
+
+      // Tilt values
+      let tiltVal = 20;
+      const rotateX = (y / height) * tiltVal;
+      const rotateY = (x / width) * -tiltVal;
+      let strength = 0.3;
+
+      gsap.to(btn, {
+        x: x * strength,
+        y: y * strength,
+        rotationX: rotateX,
+        rotationY: rotateY,
+        transformPerspective: 500,
+        transformOrigin: "center center",
+        duration: 0.3,
+        ease: "power2.out"
+      });
+    });
+
+    btn.addEventListener('mouseleave', () => {
+      gsap.to(btn, {
+        x: 0,
+        y: 0,
+        rotationX: 0,
+        rotationY: 0,
+        duration: 0.3,
+        ease: 'power2.out'
+      });
+    });
+
   </script>
 </body>
 

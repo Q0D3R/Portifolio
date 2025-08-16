@@ -227,7 +227,7 @@ body {
     backdrop-filter: blur(10px);
     border: 2px solid RGBA(255, 255, 255, 0.18);
     box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
-    background-color: rgb(185, 236, 66);
+    background-color: #b9ec42;
     grid-area: main;
     height: 74vh;
     margin: 0 0.5rem 0 0;
@@ -241,7 +241,7 @@ body {
     backdrop-filter: blur(10px);
     border: 2px solid RGBA(255, 255, 255, 0.18);
     box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
-    background-color: rgb(207, 40, 104);
+    background-color: #cf2868;
     border-radius: 0 0 1rem 0;
     bottom: 0;
     grid-area: footer;

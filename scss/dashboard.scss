@@ -65,19 +65,27 @@ body {
 @media screen and (min-width: 480px) {
     .container {
         display: grid;
-        grid-template-areas:    'nav nav header header header header header header header header' 
-                                'nav nav main main main main main main main main'
-                                'nav nav footer footer footer footer footer footer footer footer';
+        grid-template-areas:    'nav header header header header header header header header header' 
+                                'nav main main main main main main main main main'
+                                'nav footer footer footer footer footer footer footer footer footer';
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-        grid-template-rows: auto auto auto auto;
-        height: 100vh;
+        grid-template-rows: auto 5vh 90vh 5vh;
+        //height: 100vh;
 
         .nav {
             @include mix.flex-direction(column);
-            @include mix.flex-center;
+            @include mix.flex-start;
             @include mix.glass-effect;
             background-color: col.$bg6;
+            border-radius: 1rem 0 0 1rem;
             grid-area: nav;
+            height: 98.5vh;
+            left: 0;
+            margin: 0.5rem 0 0.5rem 0.5rem;
+            overflow-y: scroll;
+            position: fixed;  // Stays visible when scrolling
+            top: 0;
+            z-index: 100;
 
             .nav-menu {
                 @include mix.flex-direction(column);
@@ -90,6 +98,16 @@ body {
                     font-weight: 500;
                     margin: 1rem 1rem 0 1rem;
                     text-transform:uppercase;
+                }
+
+                .logo {
+                    @include mix.flex-center;
+                    @include mix.flex-direction(row);
+
+                    .img {                    
+                        aspect-ratio: 1 / 1;
+                        width: 4rem;
+                    }
                 }
             }
 
@@ -137,29 +155,59 @@ body {
         .header {
             @include mix.glass-effect;
             background-color: col.$bg6;
+            border-radius: 0 1rem 0 0;
             grid-area: header;
+            margin: 0.5rem 0.5rem 0 0;
+            position: fixed;  // Stays visible when scrolling
+            top: 0;
+            right: 0;
+            width: 87.5%;
+            z-index: 99;
 
-            .header-links {
-                @include mix.flex-direction(row);
+            .header-menu {
+                @include mix.flex-direction(column);
                 @include mix.flex-center;
-            }
 
-            .header-extra {
-                @include mix.flex-direction(row);
-                @include mix.flex-center;
+                .main-links {
+                    @include mix.flex-direction(row);
+                    @include mix.flex-center;
+    
+                    
+                }
+    
+                .extra-links {
+                    @include mix.flex-direction(row);
+                    @include mix.flex-center;
+                }
             }
         }
 
         .main {
             @include mix.glass-effect;
             background-color: rgb(185, 236, 66);
+            
             grid-area: main;
+            height: 74vh;
+            margin: 0 0.5rem 0 0;
+            overflow-y: scroll;
+            position: fixed;  // Stays visible when scrolling
+            right: 0;
+            width: 87.5%;
+            z-index: 99;
         }
 
         .footer {
             @include mix.glass-effect;
             background-color: rgb(207, 40, 104);
+            border-radius: 0 0 1rem 0;
+            bottom: 0;
             grid-area: footer;
+            margin: 0 0.5rem 0.5rem 0;
+            padding: 1rem;
+            position: fixed;  // Stays visible when scrolling
+            right: 0;
+            width: 87.5%;
+            z-index: 100;
 
             .footer-links {
                 @include mix.flex-direction(column);

@@ -2,33 +2,83 @@
 @use "colors" as col;
 @use "mixins" as mix;
 
+.group {
+    display: flex;
+    line-height: clamp(0.8rem, 1vw, 1.75rem);
+    align-items: center;
+    margin: 0 0 0 clamp(0.5rem, 1vw, 1rem);
+    max-width: clamp(6rem, 1vw, 12rem);
+    position: relative;
+    
+
+    .input {
+        background-color: #f3f3f4;
+        border: 2px solid transparent;
+        border-radius: clamp(0.25rem, 1vw, 0.5rem);
+        color: #0d0c22;
+        height: clamp(1.2rem, 1vw, 2.5rem);
+        line-height: clamp(0.8rem, 1vw, 1.75rem);
+        outline: none;
+        padding: 0 clamp(0.5rem, 1vw, 1rem);
+        padding-left: clamp(1.2rem, 1vw, 2.5rem);
+        transition: .3s ease;
+        width: 100%;
+
+        &::placeholder {
+            color: #9e9ea7;
+        }
+
+        &:focus,
+        input:hover {
+            outline: none;
+            border-color: rgba(234, 76, 137, 0.4);
+            background-color: #fff;
+            box-shadow: 0 0 0 clamp(0.12rem, 1vw, 0.25rem) rgb(234 76 137 / 10%);
+        }
+    }
+
+    i {
+        aspect-ratio: 1 / 1;
+        width: clamp(0.3rem, 1vw, 0.6rem);
+    }
+
+    .icon {
+        fill: #9e9ea7;
+        height: 1rem;
+        left: 0.5rem;
+        position: absolute;
+        width: 1rem; 
+    }
+}
+
 .list {
     list-style-type: none;
-    padding-left: 20px;
+    padding-left: clamp(0.1rem, 1vw, 0.2rem);
 
     .item {
         @include mix.flex-direction(row);
-        padding: 0.5rem 0;
+        padding: clamp(0.1rem, 1vw, 0.2rem) 0;
 
         i {
             color: col.$color6;
-            margin: 0 0 0 0.4rem;
+            font-size: clamp(0.2rem, 1vw, 1.5rem);
+            margin: 0 0 0 clamp(0.07rem, 1vw, 0.15rem);
         }
 
         /* Hide the checkbox input */
         input[type="checkbox"] {
             display: none;
-    
+
             /* Hide the nested ul by default */
-            &~ .list {
+            &~.list {
                 display: none;
-                padding-left: 15px;
-                font-size: 0.9rem;
+                padding-left: clamp(0.4rem, 1vw, 0.9rem);
+                font-size: clamp(0.4rem, 1vw, 0.9rem);
                 list-style-type: none;
             }
-            
+
             /* Show the nested ul when the checkbox is checked */
-            &:checked ~ .list {
+            &:checked~.list {
                 display: block;
                 list-style-type: none;
             }
@@ -40,7 +90,7 @@
             text-decoration: none;
             cursor: pointer;
             user-select: none;
-        
+
             &::after {
                 color: col.$hover1;
                 text-decoration: underline;
@@ -50,14 +100,15 @@
 
         .text {
             color: col.$color2;
-            margin: 0 0.4rem 0 0;
+            font-size: clamp(0.2rem, 1vw, 1.5rem);
+            margin: 0 clamp(0.2rem, 1vw, 0.4rem) 0 0;
 
             &:hover {
                 color: col.$hover3;
             }
         }
     }
-                        
+
 }
 
 .list-menu {
@@ -72,35 +123,35 @@
         text-align: left;
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: clamp(0.25rem, 1vw, 0.5rem);
         font: inherit;
         cursor: pointer;
         //padding: 0.5rem 0;
         transition: background 0.2s;
-    
+
         .list-toggle:hover,
         .list-toggle[aria-expanded="true"] {
-            background: rgba(0,0,0,0.05);
+            background: rgba(0, 0, 0, 0.05);
         }
 
-        list-arrow {
+        .list-arrow {
             margin-left: auto;
             transition: transform 0.2s;
         }
 
         .mini-list {
-            margin: 0.25rem 0 0 1.5rem;
+            margin: clamp(0.25rem, 1vw, 0.5rem) 0 0 clamp(0.7rem, 1vw, 1.5rem);
             padding: 0;
             list-style: none;
             background: none;
-            border-left: 2px solid #eee;
+            border-left: clamp(0.06rem, 1vw, 0.125rem) solid #eee;
             transition: max-height 0.2s;
-        
+
             .item {
-                padding: 0.25rem 0;
+                padding: clamp(0.25rem, 1vw, 0.4rem) 0;
                 display: flex;
                 align-items: center;
-                gap: 0.5rem;
+                gap: clamp(0.25rem, 1vw, 0.5rem);
             }
         }
     }
@@ -109,30 +160,40 @@
 .magnet-btn {
     background: linear-gradient(145deg, #3498db, #2980b9);
     border: none;
-    border-radius: clamp(0.7rem, 1vw, 1.1rem);
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.136);
+    border-radius: clamp(0.5rem, 1vw, 1.1rem);
+    box-shadow: clamp(0.15rem, 0.1vw, 0.3rem) clamp(0.15rem, 1vw, 0.3rem) clamp(0.4rem, 1vw, 0.9rem) rgba(0, 0, 0, 0.136);
     color: col.$color2;
     cursor: pointer;
     display: inline-block;
-    font-size: var.$fs-normal;
+    font-size: clamp(0.2rem, 1vw, 1.5rem);
     font-weight: bold;
-    margin: clamp(0.6rem, 1vw, 1rem);
-    padding: clamp(0.7rem, 1vw, 1.1rem) clamp(0.7rem, 1vw, 1.1rem);
+    margin: clamp(0.5rem, 1vw, 1rem);
+    padding: clamp(0.5rem, 1vw, 1.1rem) clamp(0.5rem, 1vw, 1.1rem);
     position: relative;
     transform-style: preserve-3d;
     transition: background 0.3s ease in;
 
+    a {
+        color: col.$color1;
+        text-decoration: none;
+
+        &:hover {
+            color: col.$color2;
+        }
+    }
+
     &:hover {
-        background: linear-gradient(145deg, #4ae664, #2c8dce);
+        background: linear-gradient(145deg, #7dad85, #021c2e);
+        color: col.$color1;
     }
 }
 
 .portfolio-header {
-    @include mix.flex-centre-flex-start;
+    @include mix.flex-center-flex-start;
     background: url('img/logo/Developer.png') center left no-repeat;
     background-size: cover;
-    color: white;
-    height: 33.5rem; // Adjust height as needed
+    color: col.$color2;
+    height: clamp(17rem, 1vw, 33.5rem); // Adjust height as needed
     position: relative;
 
     // Half visible background
@@ -151,137 +212,138 @@
     .overlay {
         position: relative;
         z-index: 2;
-        padding: 0 40px;
-        max-width: 50%; // Text over half the section
+        padding: 0 clamp(1.2rem, 1vw, 2.5rem);
+        max-width: 50%; 
 
-        h1 {
-            font-size: clamp(1.9rem, 1vw, 2.8rem);
-            font-weight: 700;
-            text-shadow: clamp(0.07rem, 1vw, 0.17rem) 2px 8px rgba(0, 0, 0, 0.7);
-        }
-    }
-}
-
-.Search-Input {
-    --accent-color: #a3e583;
-    margin: 0.5rem 0.42rem;
-    padding: 0 0 0 2rem;
-    position: relative;
-    //text-indent: 0.4rem;
-    width: 15rem;
-   
-
-    &:before {
-        transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.42);
-    }
-
-    &:before,
-    &:after {
-        content: "";
-        left: 0;
-        right: 0;
-        position: absolute;
-        pointer-events: none;
-        bottom: -1px;
-        z-index: 4;
-        width: 100%;
-    }
-
-    &:focus-within:before {
-        border-bottom: 1px solid var(--accent-color);
-    }
-
-    &:before {
-        transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.42);
-    }
-
-    &:focus-within:before {
-        border-bottom: 1px solid var(--accent-color);
-        transform: scaleX(1);
-    }
-
-    &:focus-within:after {
-        border-bottom: 2px solid var(--accent-color);
-        transform: scaleX(1);
-    }
-
-    &:after {
-        content: "";
-        transform: scaleX(0);
-        transition: transform 250ms cubic-bezier(0, 0, 0.2, 1) 0ms;
-        will-change: transform;
-        border-bottom: 2px solid var(--accent-color);
-        border-bottom-color: var(--accent-color);
-    }
-
-    &::placeholder {
-        transition: opacity 250ms cubic-bezier(0, 0, 0.2, 1) 0ms;
-        opacity: 1;
-        user-select: none;
-        color: rgba(255, 255, 255, 0.582);
-    }
-
-    &:focus-within{
-        .textInput {
-            background-color: #353535;
-        }
-    } 
-
-    &:focus-within .textInput::placeholder {
-        opacity: 0;
-    }
-
-    button {
-        aspect-ratio: 1 / 1;
-        border-radius: 50%;
-        height: 1.9rem;
-        left: 12.9rem;
-        position: absolute;
-        bottom: 5;
-
-        i {
-            color: col.$color3;
-        }
-    }
-
-    .textInput {
-        border-radius: 5px 5px 0px 0px;
-        box-shadow: 0px 2px 5px rgb(35 35 35 / 30%);
-        max-height: 36px;
-        background-color: #252525;
-        transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
-        transition-duration: 200ms;
-        transition-property: background-color;
-        border-radius: 1.7rem;
-        color: col.$color2;
-        font-size: 14px;
-        font-weight: 500;
-        padding: 1rem;
-        width: 100%;
-        border-left: none;
-        border-bottom: none;
-        border-right: none;
-
-        &:focus, &:active {
-            outline: none;
-        }
-
-        &:focus, &:active {
-            background-color: #353535;
-        }
-
-        .reset {
+        button {
+            background: linear-gradient(145deg, #3498db, #2980b9);
             border: none;
-            background: none;
-            opacity: 0;
-            visibility: hidden;
+            border-radius: clamp(0.5rem, 1vw, 1.1rem);
+            box-shadow: clamp(0.15rem, 0.1vw, 0.3rem) clamp(0.15rem, 1vw, 0.3rem) clamp(0.4rem, 1vw, 0.9rem) rgba(0, 0, 0, 0.136);
+            color: col.$color1;
+            cursor: pointer;
+            display: inline-block;
+            font-size: clamp(1rem, 1vw, 1.5rem);
+            font-weight: 400;
+            margin: clamp(0.5rem, 1vw, 1rem);
+            padding: 0 clamp(1rem, 1vw, 1.1rem);
+            position: relative;
+            transform-style: preserve-3d;
+            transition: background 0.3s ease in;
+
+            &:hover {
+                background: linear-gradient(145deg, #7dad85, #021c2e);
+                color: col.$color2;
+            }
+        }
+        
+        // Text over half the section
+        h1 {
+            font-size: clamp(2rem, 1vw, 2rem);
+            font-weight: 700;
+            text-align: center;
+            text-shadow: clamp(0.06rem, 1vw, 0.125rem) clamp(0.06rem, 1vw, 0.125rem) clamp(0.25rem, 1vw, 0.5rem) rgba(0, 0, 0, 0.7);
         }
 
-        &:not(:placeholder-shown) ~ .reset {
-            opacity: 1;
-            visibility: visible;
+        p {
+            font-size: clamp(1rem, 1vw, 2rem);
+            font-weight: 100;
+            padding: 0 clamp(0.06rem, 1vw, 0.125rem);
+            text-shadow: clamp(0.06rem, 1vw, 0.125rem) clamp(0.06rem, 1vw, 0.125rem) clamp(0.25rem, 1vw, 0.5rem) rgba(0, 0, 0, 0.7);
         }
     }
 }
+
+.slider {
+    margin: clamp(2.1rem, 1vw, 4.3rem) clamp(1.7rem, 1vw, 3.4rem);
+    max-width: 1200px;
+    overflow: hidden;
+
+    .card-list {
+        @include mix.flex-direction(row);
+        @include mix.flex-center;
+        column-gap: clamp(1rem, 1vw, 2rem);
+        height: auto;
+
+        .card-item {
+            @include mix.flex-direction(column);
+            @include mix.flex-center;
+    
+            backdrop-filter: blur(30px);
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: clamp(0.3rem, 1vw, 0.6rem);
+            color: col.$color2;
+            height: auto;
+            padding: clamp(1.1rem, 1vw, 2.2rem);
+            user-select: none;
+            width: clamp(20rem, 1vw, 40rem);     
+    
+            .user-image {
+                aspect-ratio: 1 / 1;
+                border: 3px solid col.$color2;
+                border-radius: 50%;
+                margin-bottom: clamp(1.2rem, 1vw, 2.5rem);            
+                padding: clamp(0.12rem, 1vw, 0.25rem);
+                width: clamp(4.6rem, 1vw, 9.3rem);
+            }
+    
+            .user-profession {
+                color: col.$color3;
+                font-size: clamp(0.6rem, 1vw, 1.15rem);
+                font-weight: 300;
+                padding: clamp(0.4rem, 1vw, 0.8rem) 0 clamp(0.5rem, 1vw, 1rem);
+                text-align: center;
+            }
+
+            .user-name {
+                color: col.$color6;
+                font-size: clamp(0.6rem, 1vw, 1.15rem);
+                font-weight: 300;
+                padding: clamp(0.4rem, 1vw, 0.8rem) 0 clamp(0.5rem, 1vw, 1rem);
+                text-align: center;
+            }
+    
+            .message-button {
+                background: col.$color2;
+                border: 1px solid transparent;
+                border-radius: clamp(0.2rem, 1vw, 0.4rem);
+                color: col.$color6;
+                cursor: pointer;
+                font-weight: 300;
+                font-size: clamp(0.6rem, 1vw, 1.25rem);
+                padding: clamp(0.3rem, 1vw, 0.6rem) clamp(1.1rem, 1vw, 2.2rem);
+                transition: width 0.2s ease-in cubic-bezier(0.1, 0.7, 1.0, 0.1);
+    
+                &:hover {
+                    background: rgba(255, 255, 255, 0.1);
+                    border: 1px solid col.$color5;
+                    color: col.$color2;
+                }
+            }
+              
+        }
+    }
+   
+    .swiper-bullet {
+        background: col.$color2;
+        height: clamp(0.4rem, 1vw, 0.8rem);
+        width: clamp(0.4rem, 1vw, 0.8rem);
+        opacity: 0.5;
+      
+        &:active {
+            opacity: 1;
+        }
+        
+        .button {
+            color: col.$color2;
+            margin-top: -55px;
+            transition: 0.2s ease;
+
+            &:hover {
+                color: #4658ff;
+            }
+        }
+    }  
+}
+

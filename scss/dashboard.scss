@@ -20,10 +20,10 @@ body {
 @media screen and (min-width: 0px) {
     .container {
         display: grid;
-        gap: 0.25rem;
+        gap: clamp(0.12rem, 1vw, 0.25rem);
         grid-template-areas: 'header' 'nav' 'main' 'widget' 'footer';
         grid-template-columns: 1fr;
-        grid-template-rows: 4rem 6rem auto 6rem 6rem 4rem;
+        grid-template-rows: clamp(2rem, 1vw, 4rem) clamp(3rem, 1vw, 6rem) auto clamp(3rem, 1vw, 6rem) clamp(3rem, 1vw, 6rem) clamp(2rem, 1vw, 4rem);
         height: 100vh;
 
         .header {
@@ -77,47 +77,58 @@ body {
             @include mix.flex-start;
             @include mix.glass-effect;
             background-color: col.$bg6;
-            border-radius: 1rem 0 0 1rem;
+            border-radius: clamp(0.5rem, 1vw, 1rem) 0 0 clamp(0.5rem, 1vw, 1rem);
             grid-area: nav;
             height: 98vh;
             left: 0;
-            margin: clamp(0.1rem, 1vw, 0.5rem) 0 clamp(0.1rem, 1vw, 0.5rem) clamp(0.1rem, 1vw, 0.5rem);
+            margin: clamp(0.25rem, 1vw, 0.5rem) 0 clamp(0.25rem, 1vw, 0.5rem) clamp(0.25rem, 1vw, 0.5rem);
             //overflow: hidden;
             position: fixed;  // Stays visible when scrolling
             top: 0;
             width: 12.5vw;
             z-index: 100;
 
+            .nav-logo {
+                @include mix.flex-direction(column);
+                @include mix.flex-center-flex-start;
+                background-color: col.$bg10;
+                border-radius: clamp(0.15rem, 1vw, 0.3rem);
+                box-shadow: clamp(0.15rem, 1vw, 0.3rem) rgb(219, 65, 124);
+                height: 10%;
+                margin: clamp(0.2rem, 1vw, 0.4rem);
+                width: clamp(10.6vw, 1vw, 12.5vw);
+
+                .img {                    
+                    aspect-ratio: 1 / 1;
+                    width: clamp(4rem, 1vw, 8rem);
+                }
+            }
+
             .nav-menu {
                 @include mix.flex-direction(column);
                 @include mix.flex-start;
+                height: 72%;
                 overflow-y: scroll;
-                padding: clamp(0.35rem, 1vw, 0.75rem) clamp(0.1rem, 1vw, 0.5rem);
+                padding: clamp(0.3rem, 1vw, 0.6rem) clamp(0.25rem, 1vw, 0.5rem);
 
                 label {
                     color: col.$color2;
-                    font-size: clamp(0.35rem, 1vw, 0.75rem);
+                    font-size: clamp(0.3rem, 1vw, 0.6rem);
                     font-weight: 500;
-                    margin: clamp(0.1rem, 1vw, 0.5rem) clamp(0.1rem, 1vw, 0.5rem) 0 clamp(0.1rem, 1vw, 0.5rem);
+                    margin: clamp(0.25rem, 1vw, 0.5rem) clamp(0.25rem, 1vw, 0.5rem) 0 clamp(0.25rem, 1vw, 0.5rem);
                     text-transform:uppercase;
-                }
-
-                .logo {
-                    @include mix.flex-center;
-                    @include mix.flex-direction(row);
-
-                    .img {                    
-                        aspect-ratio: 1 / 1;
-                        width: clamp(2rem, 1vw, 4rem);
-                    }
                 }
             }
 
             .nav-user {
                 @include mix.flex-direction(column);
-                @include mix.flex-centre-flex-start;
+                @include mix.flex-center-flex-end;
                 background-color: col.$bg10;
-                width: 12vw;
+                border-radius: clamp(0.15rem, 1vw, 0.3rem);
+                box-shadow: clamp(0.15rem, 1vw, 0.3rem) rgb(219, 65, 124);
+                height: 18%;
+                margin: clamp(0.2rem, 1vw, 0.4rem);
+                width: clamp(10.6vw, 1vw, 12.5vw);
 
                 .icon {
                     @include mix.flex-direction(column);
@@ -126,7 +137,8 @@ body {
                     .img {
                         aspect-ratio: 1 / 1;
                         border-radius: 50%;
-                        width: clamp(1.8rem, 1vw, 2.5rem);
+                        margin: clamp(0.25rem, 1vw, 0.5rem);
+                        width: clamp(2rem, 1vw, 2.5rem);
                     }
                 }
 
@@ -134,29 +146,17 @@ body {
                     @include mix.flex-direction(column);
                     @include mix.flex-center;
 
-                    .button {
-                        padding: clamp(0.9rem, 1vw, 1.5rem);
-                        transition: width 2s;
-                        width: clamp(0.6rem, 1vw, 1rem);
-
-                        a {
-                            text-decoration: none;
-                        }
-
-                        &:hover {
-                            background-color: col.$color2;
-                            width: clamp(0.6rem, 1vw, 1rem);
-                        }
-                    }
-
                     .name {
                         color: col.$color1;
-                        font-size: clamp(0.6rem, 1vw, 1rem);
+                        font-size: clamp(0.5rem, 1vw, 1rem);
+                        text-align: center;
+                        text-overflow: inherit;
                     }
 
                     .profession {
                         color: col.$color2;
-                        font-size: clamp(0.6rem, 1vw, 1rem);
+                        text-align: center;
+                        font-size: clamp(0.5rem, 1vw, 1rem);
                     }
                 }
             }
@@ -165,9 +165,10 @@ body {
         .header {
             @include mix.glass-effect;
             background-color: col.$bg6;
-            border-radius: 0 clamp(0.6rem, 1vw, 1rem) 0 0;
+            border-radius: 0 clamp(0.5rem, 1vw, 1rem) 0 0;
             grid-area: header;
-            margin: clamp(0.1rem, 1vw, 0.5rem) clamp(0.1rem, 1vw, 0.5rem) 0 0;
+            height: 12.5vw;
+            margin: clamp(0.25rem, 1vw, 0.5rem) clamp(0.25rem, 1vw, 0.5rem) 0 0;
             position: fixed;  // Stays visible when scrolling
             top: 0;
             right: 0;
@@ -177,17 +178,39 @@ body {
             .header-menu {
                 @include mix.flex-direction(row);
                 @include mix.flex-center;
+                background-color: #030728;
+                margin: clamp(0.25rem, 1vw, 0.5rem);
+                padding: 0 clamp(0.25rem, 1vw, 0.5rem);
+                width: 100%;
 
                 .main-links {
                     @include mix.flex-direction(row);
                     @include mix.flex-center;
+                    padding: clamp(0.25rem, 1vw, 0.5rem);
     
-                    
+                    a {
+                        color: col.$color2;
+                        padding: 0 clamp(0.25rem, 1vw, 0.5rem) 0 clamp(0.25rem, 1vw, 2.5rem);
+
+                        &:hover {
+                            color: col.$color6;
+                        }
+                    }
                 }
     
                 .extra-links {
                     @include mix.flex-direction(row);
-                    @include mix.flex-center;
+                    @include mix.flex-center-flex-end;
+                    padding: clamp(0.25rem, 1vw, 0.5rem);
+    
+                    a {
+                        color: col.$color2;
+                        padding: 0 clamp(0.25rem, 1vw, 0.5rem) 0 clamp(0.25rem, 1vw, 2.5rem);
+
+                        &:hover {
+                            color: col.$color6;
+                        }
+                    }
                 }
             }
         }
@@ -198,40 +221,119 @@ body {
             
             grid-area: main;
             height: 74vh;
-            margin: 0 clamp(0.1rem, 1vw, 0.5rem) 0 0;
+            margin: 0 clamp(0.25rem, 1vw, 0.5rem) 0 0;
             overflow-y: scroll;
             position: fixed;  // Stays visible when scrolling
             right: 0;
             width: 85.8vw;
             z-index: 100;
+
+
         }
 
         .footer {
+            @include mix.flex-direction(row);
+            @include mix.flex-center;
             @include mix.glass-effect;
             background-color: rgb(207, 40, 104);
             border-radius: 0 0 1rem 0;
             bottom: 0;
             grid-area: footer;
-            margin: 0 0.5rem 0.5rem 0;
-            padding: clamp(0.6rem, 1vw, 1rem);
+            margin: 0 clamp(0.25rem, 1vw, 0.5rem) clamp(0.25rem, 1vw, 0.5rem) 0;
+            padding: clamp(0.5rem, 1vw, 1rem);
             position: fixed;  // Stays visible when scrolling
             right: 0;
             width: 85.8vw;
             z-index: 100;
 
-            .footer-links {
+            .footer-divide1 {
                 @include mix.flex-direction(column);
                 @include mix.flex-center;
+                border: 0.1rem solid col.$color1;
+                border-radius: 0 0 0 0.5rem;
+                width: 50%;
+
+                .footer-copyright {
+                    @include mix.flex-direction(column);
+                    @include mix.flex-center-flex-start;
+                    width: 50%;
+
+                    p {
+                        color: col.$color1;
+                        font-size: clamp(0.8rem, 1vw, 1.6rem);
+                    
+                        a {
+                            color: col.$color1;
+                            font-size: clamp(0.8rem, 1vw, 1.6rem);
+                            padding: clamp(0.01rem, 1vw, 0.02rem);
+                            text-decoration: none;
+
+                            &:hover {
+                                color: col.$hover1;
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+
+                .footer-statement {
+                    @include mix.flex-direction(row);
+                    @include mix.flex-center;
+
+                    a {
+                        color: col.$color1;
+                        font-size: clamp(0.8rem, 1vw, 1.6rem);
+                        padding: clamp(0.1rem, 1vw, 0.2rem);
+                        text-decoration: none;
+
+                        &:hover {
+                            color: col.$hover1;
+                            text-decoration: underline;
+                        }
+                    }
+                }
             }
 
-            .footer-copyright {
+            .footer-divide2 {
                 @include mix.flex-direction(column);
                 @include mix.flex-center;
-            }
+                border: 0.1rem solid col.$color1;
+                border-radius: 0 0 0.5rem 0;
+                width: 50%;
 
-            .footer-social {
-                @include mix.flex-direction(column);
-                @include mix.flex-center;
+                .footer-links {
+                    @include mix.flex-direction(row);
+                    @include mix.flex-center;
+    
+                    a {
+                        color: col.$color1;
+                        font-size: clamp(0.8rem, 1vw, 1.6rem);
+                        padding: clamp(0.1rem, 1vw, 0.25rem);
+                        text-decoration: none;
+    
+                        &:hover {
+                            color: col.$hover1;
+                            text-decoration: underline;
+                        }
+                    }
+                }
+    
+                .footer-social {
+                    @include mix.flex-direction(row);
+                    @include mix.flex-center;
+    
+                    a {
+                        color: col.$color1;
+                        font-size: clamp(0.8rem, 1vw, 1.6rem);
+                        padding: clamp(0.15rem, 1vw, 3rem);
+                        text-decoration: none;
+    
+                        &:hover {
+                            color: col.$hover1;
+                            text-decoration: underline;
+                        }
+                    }
+                }
             }
         }
     }

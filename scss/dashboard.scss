@@ -69,7 +69,7 @@ body {
                                 'nav main main main main main main main main main'
                                 'nav footer footer footer footer footer footer footer footer footer';
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-        grid-template-rows: auto 5vh 90vh 5vh;
+        grid-template-rows: 9vh 4vh 90vh 5vh;
         //height: 100vh;
 
         .nav {
@@ -79,24 +79,26 @@ body {
             background-color: col.$bg6;
             border-radius: 1rem 0 0 1rem;
             grid-area: nav;
-            height: 98.5vh;
+            height: 98vh;
             left: 0;
-            margin: 0.5rem 0 0.5rem 0.5rem;
-            overflow-y: scroll;
+            margin: clamp(0.1rem, 1vw, 0.5rem) 0 clamp(0.1rem, 1vw, 0.5rem) clamp(0.1rem, 1vw, 0.5rem);
+            //overflow: hidden;
             position: fixed;  // Stays visible when scrolling
             top: 0;
+            width: 12.5vw;
             z-index: 100;
 
             .nav-menu {
                 @include mix.flex-direction(column);
                 @include mix.flex-start;
-                padding: 0.75rem 0.5rem;
+                overflow-y: scroll;
+                padding: clamp(0.35rem, 1vw, 0.75rem) clamp(0.1rem, 1vw, 0.5rem);
 
                 label {
                     color: col.$color2;
-                    font-size: 0.75rem;
+                    font-size: clamp(0.35rem, 1vw, 0.75rem);
                     font-weight: 500;
-                    margin: 1rem 1rem 0 1rem;
+                    margin: clamp(0.1rem, 1vw, 0.5rem) clamp(0.1rem, 1vw, 0.5rem) 0 clamp(0.1rem, 1vw, 0.5rem);
                     text-transform:uppercase;
                 }
 
@@ -106,14 +108,16 @@ body {
 
                     .img {                    
                         aspect-ratio: 1 / 1;
-                        width: 4rem;
+                        width: clamp(2rem, 1vw, 4rem);
                     }
                 }
             }
 
             .nav-user {
                 @include mix.flex-direction(column);
-                @include mix.flex-center;
+                @include mix.flex-centre-flex-start;
+                background-color: col.$bg10;
+                width: 12vw;
 
                 .icon {
                     @include mix.flex-direction(column);
@@ -122,7 +126,7 @@ body {
                     .img {
                         aspect-ratio: 1 / 1;
                         border-radius: 50%;
-                        width: 2rem;
+                        width: clamp(1.8rem, 1vw, 2.5rem);
                     }
                 }
 
@@ -131,22 +135,28 @@ body {
                     @include mix.flex-center;
 
                     .button {
-                        padding: 1rem;
-                        width: 100%;
+                        padding: clamp(0.9rem, 1vw, 1.5rem);
+                        transition: width 2s;
+                        width: clamp(0.6rem, 1vw, 1rem);
 
                         a {
                             text-decoration: none;
+                        }
+
+                        &:hover {
+                            background-color: col.$color2;
+                            width: clamp(0.6rem, 1vw, 1rem);
                         }
                     }
 
                     .name {
                         color: col.$color1;
-                        font-size: 0.75rem;
+                        font-size: clamp(0.6rem, 1vw, 1rem);
                     }
 
                     .profession {
                         color: col.$color2;
-                        font-size: 0.75rem;
+                        font-size: clamp(0.6rem, 1vw, 1rem);
                     }
                 }
             }
@@ -155,17 +165,17 @@ body {
         .header {
             @include mix.glass-effect;
             background-color: col.$bg6;
-            border-radius: 0 1rem 0 0;
+            border-radius: 0 clamp(0.6rem, 1vw, 1rem) 0 0;
             grid-area: header;
-            margin: 0.5rem 0.5rem 0 0;
+            margin: clamp(0.1rem, 1vw, 0.5rem) clamp(0.1rem, 1vw, 0.5rem) 0 0;
             position: fixed;  // Stays visible when scrolling
             top: 0;
             right: 0;
-            width: 87.5%;
-            z-index: 99;
+            width: 85.8vw;
+            z-index: 100;
 
             .header-menu {
-                @include mix.flex-direction(column);
+                @include mix.flex-direction(row);
                 @include mix.flex-center;
 
                 .main-links {
@@ -188,12 +198,12 @@ body {
             
             grid-area: main;
             height: 74vh;
-            margin: 0 0.5rem 0 0;
+            margin: 0 clamp(0.1rem, 1vw, 0.5rem) 0 0;
             overflow-y: scroll;
             position: fixed;  // Stays visible when scrolling
             right: 0;
-            width: 87.5%;
-            z-index: 99;
+            width: 85.8vw;
+            z-index: 100;
         }
 
         .footer {
@@ -203,10 +213,10 @@ body {
             bottom: 0;
             grid-area: footer;
             margin: 0 0.5rem 0.5rem 0;
-            padding: 1rem;
+            padding: clamp(0.6rem, 1vw, 1rem);
             position: fixed;  // Stays visible when scrolling
             right: 0;
-            width: 87.5%;
+            width: 85.8vw;
             z-index: 100;
 
             .footer-links {
@@ -226,109 +236,3 @@ body {
         }
     }
 }
-
-
-.list {
-    list-style-type: none;
-    padding-left: 20px;
-
-    .item {
-        @include mix.flex-direction(row);
-        padding: 0.5rem 0;
-
-        i {
-            color: col.$color6;
-            margin: 0 0 0 0.4rem;
-        }
-
-        /* Hide the checkbox input */
-        input[type="checkbox"] {
-            display: none;
-    
-            /* Hide the nested ul by default */
-            &~ .list {
-                display: none;
-                padding-left: 15px;
-                font-size: 0.9rem;
-                list-style-type: none;
-            }
-            
-            /* Show the nested ul when the checkbox is checked */
-            &:checked ~ .list {
-                display: block;
-                list-style-type: none;
-            }
-        }
-
-        /* Style the label as a clickable link */
-        label {
-            color: col.$color1;
-            text-decoration: none;
-            cursor: pointer;
-            user-select: none;
-        
-            &::after {
-                color: col.$hover1;
-                text-decoration: underline;
-                user-select: contain;
-            }
-        }
-
-        .text {
-            color: col.$color2;
-            margin: 0 0.4rem 0 0;
-
-            &:hover {
-                color: col.$hover3;
-            }
-        }
-    }
-                        
-}
-
-.list-menu {
-    position: relative;
-    width: 100%;
-
-    .list-toggle {
-        background: none;
-        border: none;
-        color: inherit;
-        width: 100%;
-        text-align: left;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        font: inherit;
-        cursor: pointer;
-        //padding: 0.5rem 0;
-        transition: background 0.2s;
-    
-        .list-toggle:hover,
-        .list-toggle[aria-expanded="true"] {
-            background: rgba(0,0,0,0.05);
-        }
-
-        list-arrow {
-            margin-left: auto;
-            transition: transform 0.2s;
-        }
-
-        .mini-list {
-            margin: 0.25rem 0 0 1.5rem;
-            padding: 0;
-            list-style: none;
-            background: none;
-            border-left: 2px solid #eee;
-            transition: max-height 0.2s;
-        
-            .item {
-                padding: 0.25rem 0;
-                display: flex;
-                align-items: center;
-                gap: 0.5rem;
-            }
-        }
-    }
-}
-

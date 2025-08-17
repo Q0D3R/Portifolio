@@ -1,19 +1,22 @@
 //Variable declaration
-$bold-vlight: 900;
-$bold-mlight: 700;
-$bold-llight: 500;
-$bold-slight: 300;
+$fw-vlight: 900;
+$fw-mlight: 700;
+$fw-llight: 500;
+$fw-slight: 300;
 
-$font-xlarge: 80px;
-$font-large: 26px;
-$font-medium: 20px;
-$font-normal: 16px;
-$font-small: 12px;
+$fs-xlarge: clamp(2.2rem, 1vw, 2.5rem);
+$fs-large: clamp(1.7rem, 1vw, 2.2rem);
+$fs-medium: clamp(1.4rem, 1vw, 1.7rem);
+$fs-normal: clamp(1rem, 1vw, 1.4rem);
+$fs-small: clamp(0.6rem, 1vw, 1rem);
 
 // Variables
-
 $transition: all 0.3s ease;
+$t-easein: all 0.3s ease-in;
+$t-easeout: all 0.3s ease-out;
+$t-easeinout: all 0.3s ease-in-out;
+$t-linear: all 0.3s linear;
 
-$min-width-mobile: 360px;
-$min-width-tablet: 600px;
-$min-width-desktop: 900px;
+$mw-mobile: 360px;
+$mw-tablet: 600px;
+$mw-desktop: 900px;

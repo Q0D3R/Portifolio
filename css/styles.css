@@ -25,31 +25,120 @@ Example usage in your components:
     }
 }
 */
+.list {
+  list-style-type: none;
+  padding-left: 20px;
+}
+.list .item {
+  display: flex;
+  flex-direction: row;
+  padding: 0.5rem 0;
+  /* Hide the checkbox input */
+  /* Style the label as a clickable link */
+}
+.list .item i {
+  color: #1E90FF;
+  margin: 0 0 0 0.4rem;
+}
+.list .item input[type=checkbox] {
+  display: none;
+  /* Hide the nested ul by default */
+  /* Show the nested ul when the checkbox is checked */
+}
+.list .item input[type=checkbox] ~ .list {
+  display: none;
+  padding-left: 15px;
+  font-size: 0.9rem;
+  list-style-type: none;
+}
+.list .item input[type=checkbox]:checked ~ .list {
+  display: block;
+  list-style-type: none;
+}
+.list .item label {
+  color: #121212;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+}
+.list .item label::after {
+  color: #FFFFFF;
+  text-decoration: underline;
+  user-select: contain;
+}
+.list .item .text {
+  color: #FFFFFF;
+  margin: 0 0.4rem 0 0;
+}
+.list .item .text:hover {
+  color: #4fe657;
+}
+
+.list-menu {
+  position: relative;
+  width: 100%;
+}
+.list-menu .list-toggle {
+  background: none;
+  border: none;
+  color: inherit;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font: inherit;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.list-menu .list-toggle .list-toggle:hover,
+.list-menu .list-toggle .list-toggle[aria-expanded=true] {
+  background: rgba(0, 0, 0, 0.05);
+}
+.list-menu .list-toggle list-arrow {
+  margin-left: auto;
+  transition: transform 0.2s;
+}
+.list-menu .list-toggle .mini-list {
+  margin: 0.25rem 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+  background: none;
+  border-left: 2px solid #eee;
+  transition: max-height 0.2s;
+}
+.list-menu .list-toggle .mini-list .item {
+  padding: 0.25rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .magnet-btn {
   background: linear-gradient(145deg, #3498db, #2980b9);
   border: none;
-  border-radius: 15px;
+  border-radius: clamp(0.7rem, 1vw, 1.1rem);
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.136);
   color: #FFFFFF;
   cursor: pointer;
   display: inline-block;
-  font-size: 20px;
+  font-size: clamp(1rem, 1vw, 1.4rem);
   font-weight: bold;
-  margin: 1rem;
-  padding: 15px 40px;
+  margin: clamp(0.6rem, 1vw, 1rem);
+  padding: clamp(0.7rem, 1vw, 1.1rem) clamp(0.7rem, 1vw, 1.1rem);
   position: relative;
   transform-style: preserve-3d;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease in;
 }
 .magnet-btn:hover {
-  background: linear-gradient(145deg, #4a9de6, #2c8dce);
+  background: linear-gradient(145deg, #4ae664, #2c8dce);
 }
 
 .portfolio-header {
   display: flex;
   align-items: center;
   justify-content: start;
-  background: url("img/pic/coding.jpg") center left no-repeat;
+  background: url("img/logo/Developer.png") center left no-repeat;
   background-size: cover;
   color: white;
   height: 33.5rem;
@@ -73,16 +162,17 @@ Example usage in your components:
   max-width: 50%;
 }
 .portfolio-header .overlay h1 {
-  font-size: 2.8rem;
+  font-size: clamp(1.9rem, 1vw, 2.8rem);
   font-weight: 700;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  text-shadow: clamp(0.07rem, 1vw, 0.17rem) 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 .Search-Input {
-  position: relative;
-  width: 180px;
-  margin: 12px 5px;
   --accent-color: #a3e583;
+  margin: 0.5rem 0.42rem;
+  padding: 0 0 0 2rem;
+  position: relative;
+  width: 15rem;
 }
 .Search-Input:before {
   transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -137,7 +227,9 @@ Example usage in your components:
   aspect-ratio: 1/1;
   border-radius: 50%;
   height: 1.9rem;
+  left: 12.9rem;
   position: absolute;
+  bottom: 5;
 }
 .Search-Input button i {
   color: #05502c;
@@ -154,7 +246,7 @@ Example usage in your components:
   color: #FFFFFF;
   font-size: 14px;
   font-weight: 500;
-  padding: 12px;
+  padding: 1rem;
   width: 100%;
   border-left: none;
   border-bottom: none;

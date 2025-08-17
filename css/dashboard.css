@@ -99,7 +99,7 @@ body {
     display: grid;
     grid-template-areas: "nav header header header header header header header header header" "nav main main main main main main main main main" "nav footer footer footer footer footer footer footer footer footer";
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto 5vh 90vh 5vh;
+    grid-template-rows: 9vh 4vh 90vh 5vh;
   }
   .container .nav {
     display: flex;
@@ -113,12 +113,12 @@ body {
     background-color: #444444;
     border-radius: 1rem 0 0 1rem;
     grid-area: nav;
-    height: 98.5vh;
+    height: 98vh;
     left: 0;
-    margin: 0.5rem 0 0.5rem 0.5rem;
-    overflow-y: scroll;
+    margin: clamp(0.1rem, 1vw, 0.5rem) 0 clamp(0.1rem, 1vw, 0.5rem) clamp(0.1rem, 1vw, 0.5rem);
     position: fixed;
     top: 0;
+    width: 12.5vw;
     z-index: 100;
   }
   .container .nav .nav-menu {
@@ -127,13 +127,14 @@ body {
     display: flex;
     align-items: start;
     justify-content: start;
-    padding: 0.75rem 0.5rem;
+    overflow-y: scroll;
+    padding: clamp(0.35rem, 1vw, 0.75rem) clamp(0.1rem, 1vw, 0.5rem);
   }
   .container .nav .nav-menu label {
     color: #FFFFFF;
-    font-size: 0.75rem;
+    font-size: clamp(0.35rem, 1vw, 0.75rem);
     font-weight: 500;
-    margin: 1rem 1rem 0 1rem;
+    margin: clamp(0.1rem, 1vw, 0.5rem) clamp(0.1rem, 1vw, 0.5rem) 0 clamp(0.1rem, 1vw, 0.5rem);
     text-transform: uppercase;
   }
   .container .nav .nav-menu .logo {
@@ -145,14 +146,16 @@ body {
   }
   .container .nav .nav-menu .logo .img {
     aspect-ratio: 1/1;
-    width: 4rem;
+    width: clamp(2rem, 1vw, 4rem);
   }
   .container .nav .nav-user {
     display: flex;
     flex-direction: column;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
+    background-color: #6B7A8F;
+    width: 12vw;
   }
   .container .nav .nav-user .icon {
     display: flex;
@@ -164,7 +167,7 @@ body {
   .container .nav .nav-user .icon .img {
     aspect-ratio: 1/1;
     border-radius: 50%;
-    width: 2rem;
+    width: clamp(1.8rem, 1vw, 2.5rem);
   }
   .container .nav .nav-user .user {
     display: flex;
@@ -174,37 +177,42 @@ body {
     justify-content: center;
   }
   .container .nav .nav-user .user .button {
-    padding: 1rem;
-    width: 100%;
+    padding: clamp(0.9rem, 1vw, 1.5rem);
+    transition: width 2s;
+    width: clamp(0.6rem, 1vw, 1rem);
   }
   .container .nav .nav-user .user .button a {
     text-decoration: none;
   }
+  .container .nav .nav-user .user .button:hover {
+    background-color: #FFFFFF;
+    width: clamp(0.6rem, 1vw, 1rem);
+  }
   .container .nav .nav-user .user .name {
     color: #121212;
-    font-size: 0.75rem;
+    font-size: clamp(0.6rem, 1vw, 1rem);
   }
   .container .nav .nav-user .user .profession {
     color: #FFFFFF;
-    font-size: 0.75rem;
+    font-size: clamp(0.6rem, 1vw, 1rem);
   }
   .container .header {
     backdrop-filter: blur(10px);
     border: 2px solid RGBA(255, 255, 255, 0.18);
     box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
     background-color: #444444;
-    border-radius: 0 1rem 0 0;
+    border-radius: 0 clamp(0.6rem, 1vw, 1rem) 0 0;
     grid-area: header;
-    margin: 0.5rem 0.5rem 0 0;
+    margin: clamp(0.1rem, 1vw, 0.5rem) clamp(0.1rem, 1vw, 0.5rem) 0 0;
     position: fixed;
     top: 0;
     right: 0;
-    width: 87.5%;
-    z-index: 99;
+    width: 85.8vw;
+    z-index: 100;
   }
   .container .header .header-menu {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -230,12 +238,12 @@ body {
     background-color: rgb(185, 236, 66);
     grid-area: main;
     height: 74vh;
-    margin: 0 0.5rem 0 0;
+    margin: 0 clamp(0.1rem, 1vw, 0.5rem) 0 0;
     overflow-y: scroll;
     position: fixed;
     right: 0;
-    width: 87.5%;
-    z-index: 99;
+    width: 85.8vw;
+    z-index: 100;
   }
   .container .footer {
     backdrop-filter: blur(10px);
@@ -246,10 +254,10 @@ body {
     bottom: 0;
     grid-area: footer;
     margin: 0 0.5rem 0.5rem 0;
-    padding: 1rem;
+    padding: clamp(0.6rem, 1vw, 1rem);
     position: fixed;
     right: 0;
-    width: 87.5%;
+    width: 85.8vw;
     z-index: 100;
   }
   .container .footer .footer-links {
@@ -273,92 +281,4 @@ body {
     align-items: center;
     justify-content: center;
   }
-}
-.list {
-  list-style-type: none;
-  padding-left: 20px;
-}
-.list .item {
-  display: flex;
-  flex-direction: row;
-  padding: 0.5rem 0;
-  /* Hide the checkbox input */
-  /* Style the label as a clickable link */
-}
-.list .item i {
-  color: #1E90FF;
-  margin: 0 0 0 0.4rem;
-}
-.list .item input[type=checkbox] {
-  display: none;
-  /* Hide the nested ul by default */
-  /* Show the nested ul when the checkbox is checked */
-}
-.list .item input[type=checkbox] ~ .list {
-  display: none;
-  padding-left: 15px;
-  font-size: 0.9rem;
-  list-style-type: none;
-}
-.list .item input[type=checkbox]:checked ~ .list {
-  display: block;
-  list-style-type: none;
-}
-.list .item label {
-  color: #121212;
-  text-decoration: none;
-  cursor: pointer;
-  user-select: none;
-}
-.list .item label::after {
-  color: #FFFFFF;
-  text-decoration: underline;
-  user-select: contain;
-}
-.list .item .text {
-  color: #FFFFFF;
-  margin: 0 0.4rem 0 0;
-}
-.list .item .text:hover {
-  color: #4fe657;
-}
-
-.list-menu {
-  position: relative;
-  width: 100%;
-}
-.list-menu .list-toggle {
-  background: none;
-  border: none;
-  color: inherit;
-  width: 100%;
-  text-align: left;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font: inherit;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.list-menu .list-toggle .list-toggle:hover,
-.list-menu .list-toggle .list-toggle[aria-expanded=true] {
-  background: rgba(0, 0, 0, 0.05);
-}
-.list-menu .list-toggle list-arrow {
-  margin-left: auto;
-  transition: transform 0.2s;
-}
-.list-menu .list-toggle .mini-list {
-  margin: 0.25rem 0 0 1.5rem;
-  padding: 0;
-  list-style: none;
-  background: none;
-  border-left: 2px solid #eee;
-  transition: max-height 0.2s;
-}
-.list-menu .list-toggle .mini-list .item {
-  padding: 0.25rem 0;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
 }

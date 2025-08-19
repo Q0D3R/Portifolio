@@ -99,7 +99,7 @@ body {
     display: grid;
     grid-template-areas: "nav header header header header header header header header header" "nav main main main main main main main main main" "nav footer footer footer footer footer footer footer footer footer";
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 9vh 4vh 90vh 5vh;
+    grid-template-rows: 9vh auto 90vh 5vh;
   }
   .container .nav {
     display: flex;
@@ -110,7 +110,7 @@ body {
     backdrop-filter: blur(10px);
     border: 2px solid RGBA(255, 255, 255, 0.18);
     box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
-    background-color: #444444;
+    background-color: #202531;
     border-radius: clamp(0.5rem, 1vw, 1rem) 0 0 clamp(0.5rem, 1vw, 1rem);
     grid-area: nav;
     height: 98vh;
@@ -127,7 +127,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: start;
-    background-color: #6B7A8F;
+    background-color: #D1D6E0;
     border-radius: clamp(0.15rem, 1vw, 0.3rem);
     box-shadow: clamp(0.15rem, 1vw, 0.3rem) rgb(219, 65, 124);
     height: 10%;
@@ -161,10 +161,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    background-color: #6B7A8F;
-    border-radius: clamp(0.15rem, 1vw, 0.3rem);
+    background-color: #D1D6E0;
+    border-radius: 0 0 0 clamp(0.37rem, 1vw, 0.75rem);
     box-shadow: clamp(0.15rem, 1vw, 0.3rem) rgb(219, 65, 124);
-    height: 18%;
+    height: auto;
     margin: clamp(0.2rem, 1vw, 0.4rem);
     width: 10.6vw;
   }
@@ -200,13 +200,18 @@ body {
     font-size: clamp(0.5rem, 1vw, 1rem);
   }
   .container .header {
+    display: flex;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     backdrop-filter: blur(10px);
     border: 2px solid RGBA(255, 255, 255, 0.18);
     box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
-    background-color: #444444;
+    background-color: #202531;
     border-radius: 0 clamp(0.5rem, 1vw, 1rem) 0 0;
     grid-area: header;
-    height: 12.5vw;
+    height: auto;
     margin: clamp(0.25rem, 1vw, 0.5rem) clamp(0.25rem, 1vw, 0.5rem) 0 0;
     position: fixed;
     top: 0;
@@ -221,8 +226,9 @@ body {
     align-items: center;
     justify-content: center;
     background-color: #030728;
-    margin: clamp(0.25rem, 1vw, 0.5rem);
-    padding: 0 clamp(0.25rem, 1vw, 0.5rem);
+    border-radius: 0 clamp(0.25rem, 1vw, 0.5rem) 0 0;
+    margin: clamp(0.25rem, 1vw, 0.5rem) clamp(0.25rem, 1vw, 0.5rem);
+    padding: clamp(0.25rem, 1vw, 0.5rem) clamp(0.25rem, 1vw, 0.5rem);
     width: 100%;
   }
   .container .header .header-menu .main-links {
@@ -231,7 +237,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: clamp(0.25rem, 1vw, 0.5rem);
+    padding: 0 clamp(0.25rem, 1vw, 0.5rem);
   }
   .container .header .header-menu .main-links a {
     color: #FFFFFF;
@@ -246,7 +252,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding: clamp(0.25rem, 1vw, 0.5rem);
+    padding: 0 clamp(0.25rem, 1vw, 0.5rem) 0 25vw;
   }
   .container .header .header-menu .extra-links a {
     color: #FFFFFF;
@@ -260,14 +266,35 @@ body {
     border: 2px solid RGBA(255, 255, 255, 0.18);
     box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
     background-color: rgb(185, 236, 66);
+    bottom: 120;
     grid-area: main;
-    height: 74vh;
+    height: 83vh;
     margin: 0 clamp(0.25rem, 1vw, 0.5rem) 0 0;
     overflow-y: scroll;
     position: fixed;
     right: 0;
     width: 85.8vw;
     z-index: 100;
+  }
+  .container .main .main-badges {
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    backdrop-filter: blur(10px);
+    border: 2px solid RGBA(255, 255, 255, 0.18);
+    box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
+  }
+  .container .main .main-charts {
+    display: flex;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    border: 2px solid RGBA(255, 255, 255, 0.18);
+    box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
   }
   .container .footer {
     display: flex;
@@ -296,24 +323,27 @@ body {
     align-items: center;
     justify-content: center;
     border: 0.1rem solid #121212;
-    border-radius: 0 0 0 0.5rem;
-    width: 50%;
+    border-radius: 0;
+    margin: clamp(0.1rem, 1vw, 0.2rem);
+    width: 60%;
   }
   .container .footer .footer-divide1 .footer-copyright {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     display: flex;
     align-items: center;
-    justify-content: start;
-    width: 50%;
+    justify-content: center;
+    padding: clamp(0.01rem, 1vw, 0.02rem);
+    width: 100%;
   }
   .container .footer .footer-divide1 .footer-copyright p {
     color: #121212;
-    font-size: clamp(0.8rem, 1vw, 1.6rem);
+    font-size: clamp(0.4rem, 1vw, 0.8rem);
+    text-align: center;
   }
   .container .footer .footer-divide1 .footer-copyright p a {
     color: #121212;
-    font-size: clamp(0.8rem, 1vw, 1.6rem);
+    font-size: clamp(0.4rem, 1vw, 0.8rem);
     padding: clamp(0.01rem, 1vw, 0.02rem);
     text-decoration: none;
   }
@@ -327,16 +357,28 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: clamp(0.01rem, 1vw, 0.02rem);
+    width: 100%;
   }
-  .container .footer .footer-divide1 .footer-statement a {
+  .container .footer .footer-divide1 .footer-statement p {
     color: #121212;
-    font-size: clamp(0.8rem, 1vw, 1.6rem);
-    padding: clamp(0.1rem, 1vw, 0.2rem);
+    font-size: clamp(0.4rem, 1vw, 0.8rem);
+    text-align: center;
+  }
+  .container .footer .footer-divide1 .footer-statement p a {
+    color: #121212;
+    font-size: clamp(0.4rem, 1vw, 0.8rem);
+    padding: clamp(0.01rem, 1vw, 0.02rem);
     text-decoration: none;
   }
-  .container .footer .footer-divide1 .footer-statement a:hover {
+  .container .footer .footer-divide1 .footer-statement p a:hover {
     color: #FFFFFF;
     text-decoration: underline;
+  }
+  .container .footer .footer-divide1 hr {
+    border: 0.12rem solid #05502c;
+    margin: clamp(0.2rem, 1vw, 0.4rem);
+    width: 80%;
   }
   .container .footer .footer-divide2 {
     display: flex;
@@ -346,7 +388,8 @@ body {
     justify-content: center;
     border: 0.1rem solid #121212;
     border-radius: 0 0 0.5rem 0;
-    width: 50%;
+    margin: clamp(0.1rem, 1vw, 0.2rem);
+    width: 40%;
   }
   .container .footer .footer-divide2 .footer-links {
     display: flex;
@@ -375,7 +418,7 @@ body {
   .container .footer .footer-divide2 .footer-social a {
     color: #121212;
     font-size: clamp(0.8rem, 1vw, 1.6rem);
-    padding: clamp(0.15rem, 1vw, 3rem);
+    padding: clamp(0.15rem, 1vw, 0.3rem);
     text-decoration: none;
   }
   .container .footer .footer-divide2 .footer-social a:hover {

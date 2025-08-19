@@ -2,6 +2,57 @@
 @use "colors" as col;
 @use "mixins" as mix;
 
+.align {
+
+    .center {
+        align-items: center; 
+    }
+
+    .left {
+        align-items: flex-start; 
+    }
+
+    .right {
+        align-items: flex-end; 
+    }
+}
+
+// Masked text using an image background
+.masked-text-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 20vh;
+    background: transparent;
+
+    .masked-text {
+        
+        font-family: 'Montserrat', 'Arial Black', sans-serif;
+        letter-spacing: 0.1em;
+        /* Use an image as the background for the text */
+        background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
+        color: transparent;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        /* Optional: add a subtle shadow for readability */
+        text-shadow: 0 0.12rem 0.5rem rgba(0, 0, 0, 0.15);
+        border-radius: 0.5rem;
+        padding: 0.5em 1rem;
+        box-shadow: 0 0.12rem 1rem 0 rgba(0, 0, 0, 0.08);
+
+        h1 {
+            font-size: clamp(1rem, 8vw, 3rem);
+            font-weight: 500;
+        }
+
+        p {
+            font-size: clamp(0.75rem, 1vw, 2rem);
+            font-weight: 200;
+        }
+    }
+}
+
 .group {
     display: flex;
     line-height: clamp(0.8rem, 1vw, 1.75rem);
@@ -9,7 +60,7 @@
     margin: 0 0 0 clamp(0.5rem, 1vw, 1rem);
     max-width: clamp(6rem, 1vw, 12rem);
     position: relative;
-    
+
 
     .input {
         background-color: #f3f3f4;
@@ -47,7 +98,7 @@
         height: 1rem;
         left: 0.5rem;
         position: absolute;
-        width: 1rem; 
+        width: 1rem;
     }
 }
 
@@ -189,8 +240,9 @@
 }
 
 .portfolio-header {
-    @include mix.flex-center-flex-start;
-    background: url('img/logo/Developer.png') center left no-repeat;
+    @include mix.flex-center;
+    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80') center left no-repeat;
+    //url('img/logo/Developer.png')
     background-size: cover;
     color: col.$color2;
     height: clamp(17rem, 1vw, 33.5rem); // Adjust height as needed
@@ -213,7 +265,7 @@
         position: relative;
         z-index: 2;
         padding: 0 clamp(1.2rem, 1vw, 2.5rem);
-        max-width: 50%; 
+        max-width: 50%;
 
         button {
             background: linear-gradient(145deg, #3498db, #2980b9);
@@ -236,7 +288,7 @@
                 color: col.$color2;
             }
         }
-        
+
         // Text over half the section
         h1 {
             font-size: clamp(2rem, 1vw, 2rem);
@@ -268,7 +320,7 @@
         .card-item {
             @include mix.flex-direction(column);
             @include mix.flex-center;
-    
+
             backdrop-filter: blur(30px);
             background: rgba(255, 255, 255, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.5);
@@ -277,17 +329,17 @@
             height: auto;
             padding: clamp(1.1rem, 1vw, 2.2rem);
             user-select: none;
-            width: clamp(20rem, 1vw, 40rem);     
-    
+            width: clamp(20rem, 1vw, 40rem);
+
             .user-image {
                 aspect-ratio: 1 / 1;
                 border: 3px solid col.$color2;
                 border-radius: 50%;
-                margin-bottom: clamp(1.2rem, 1vw, 2.5rem);            
+                margin-bottom: clamp(1.2rem, 1vw, 2.5rem);
                 padding: clamp(0.12rem, 1vw, 0.25rem);
                 width: clamp(4.6rem, 1vw, 9.3rem);
             }
-    
+
             .user-profession {
                 color: col.$color3;
                 font-size: clamp(0.6rem, 1vw, 1.15rem);
@@ -303,7 +355,7 @@
                 padding: clamp(0.4rem, 1vw, 0.8rem) 0 clamp(0.5rem, 1vw, 1rem);
                 text-align: center;
             }
-    
+
             .message-button {
                 background: col.$color2;
                 border: 1px solid transparent;
@@ -314,27 +366,27 @@
                 font-size: clamp(0.6rem, 1vw, 1.25rem);
                 padding: clamp(0.3rem, 1vw, 0.6rem) clamp(1.1rem, 1vw, 2.2rem);
                 transition: width 0.2s ease-in cubic-bezier(0.1, 0.7, 1.0, 0.1);
-    
+
                 &:hover {
                     background: rgba(255, 255, 255, 0.1);
                     border: 1px solid col.$color5;
                     color: col.$color2;
                 }
             }
-              
+
         }
     }
-   
+
     .swiper-bullet {
         background: col.$color2;
         height: clamp(0.4rem, 1vw, 0.8rem);
         width: clamp(0.4rem, 1vw, 0.8rem);
         opacity: 0.5;
-      
+
         &:active {
             opacity: 1;
         }
-        
+
         .button {
             color: col.$color2;
             margin-top: -55px;
@@ -344,6 +396,5 @@
                 color: #4658ff;
             }
         }
-    }  
+    }
 }
-

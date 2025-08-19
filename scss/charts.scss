@@ -1,0 +1,237 @@
+@use "variables" as var;
+@use "colors" as col;
+@use "mixins" as mix;
+
+.chart-container {
+    display: grid;
+    grid-template-areas: 'badge badge badge badge badge'
+        'chart chart chart chart report'
+        'graph graph graph graph report';
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto auto auto;
+
+    .badge-section {
+        @include mix.flex-direction(row);
+        @include mix.flex-center;
+        flex-wrap: wrap;
+        gap: clamp(0.25rem, 1vw, 1rem);
+        grid-area: badge;
+        padding: 0 clamp(0.12rem, 1vw, 0.25rem) clamp(0.12rem, 1vw, 0.25rem) clamp(0.12rem, 1vw, 0.25rem);
+        margin: clamp(0.25rem, 1vw, 0.5rem);
+
+        .boarders {
+            @include mix.flex-direction(column);
+            @include mix.flex-center;
+            @include mix.glass-effect;
+            aspect-ratio: 5 / 4;
+            background-color: col.$bg10;
+            border-radius: clamp(0.25rem, 1vw, 0.5rem);
+            color: col.$color1;
+            padding: 0 clamp(0.12rem, 1vw, 0.25rem) clamp(0.12rem, 1vw, 0.25rem) clamp(0.12rem, 1vw, 0.25rem);
+            margin: clamp(0.25rem, 1vw, 0.5rem);
+            width: auto;
+
+            .one {
+                @include mix.flex-direction(row);
+
+                i {
+                    color: col.$color4;
+                    width: 30%;
+
+                    &:hover {
+                        color: col.$hover3;
+                    }
+                }
+
+                h3 {
+                    font-size: clamp(0.25rem, 1vw, 1.5rem);
+                    text-align: left;
+                    width: 70%;
+                }
+            }
+
+            .two {
+                @include mix.flex-direction(row);
+
+                h1 {
+                    font-size: clamp(1.5rem, 1vw, 3rem);
+                    font-weight: 700;
+                    text-align: left;
+                    width: 100%;
+                }
+            }
+
+            .three {
+                @include mix.flex-direction(row);
+
+                p {
+                    font-size: clamp(0.1rem, 1vw, 0.75rem);
+                    text-align: center;
+                    width: 100%;
+                }
+            }
+
+            &:hover {
+                background-color: col.$color5;
+                color: col.$hover1;
+            }
+        }
+    }
+
+    .preview-section {
+        @include mix.flex-direction(row);
+        @include mix.flex-center-flex-start;
+        flex-wrap: wrap;
+        gap: clamp(0.25rem, 1vw, 1rem);
+        grid-area: chart;
+        padding: 0 clamp(0.12rem, 1vw, 0.25rem) clamp(0.12rem, 1vw, 0.25rem) clamp(0.12rem, 1vw, 0.25rem);
+        margin: clamp(0.25rem, 1vw, 0.5rem);
+
+        .show {
+            aspect-ratio: 16 / 9;
+            background-color: col.$bg5;
+            border-radius: clamp(0.25rem, 1vw, 0.5rem);
+            width: 25vw;
+        }
+    }
+
+    .report-section {
+        @include mix.flex-direction(column);
+        @include mix.flex-center-flex-start;
+        @include mix.glass-effect;
+        aspect-ratio: 5 / 4;
+        background-color: col.$bg10;
+        border-radius: clamp(0.25rem, 1vw, 0.5rem);
+        color: col.$color1;            
+        flex-wrap: wrap;
+        gap: clamp(0.25rem, 1vw, 1rem);
+        grid-area: report;
+        padding: 0 clamp(0.12rem, 1vw, 0.25rem) clamp(0.12rem, 1vw, 0.25rem) clamp(0.12rem, 1vw, 0.25rem);
+        margin: clamp(0.25rem, 1vw, 0.5rem);
+        width: auto;
+
+        .give {
+            aspect-ratio: 16 / 9;
+            background-color: col.$bg5;
+            border-radius: clamp(0.25rem, 1vw, 0.5rem);
+            width: 50vw;
+
+            .one {
+                @include mix.flex-direction(row);
+
+                i {
+                    color: col.$color4;
+                    width: 30%;
+
+                    &:hover {
+                        color: col.$hover3;
+                    }
+                }
+
+                h3 {
+                    font-size: clamp(0.25rem, 1vw, 1.5rem);
+                    text-align: left;
+                    width: 70%;
+                }
+            }
+
+            .two {
+                @include mix.flex-direction(row);
+
+                h1 {
+                    font-size: clamp(1.5rem, 1vw, 3rem);
+                    font-weight: 700;
+                    text-align: left;
+                    width: 100%;
+                }
+            }
+
+            .three {
+                @include mix.flex-direction(row);
+
+                p {
+                    font-size: clamp(0.1rem, 1vw, 0.75rem);
+                    text-align: center;
+                    width: 100%;
+                }
+            }
+
+            &:hover {
+                background-color: col.$color5;
+                color: col.$hover1;
+            }
+        }
+    }
+
+    .chart-section {
+        @include mix.flex-direction(row);
+        @include mix.flex-center-flex-start;
+        flex-wrap: wrap;
+        gap: clamp(0.25rem, 1vw, 1rem);
+        grid-area: graph;
+        padding: 0 clamp(0.12rem, 1vw, 0.25rem) clamp(0.12rem, 1vw, 0.25rem) clamp(0.12rem, 1vw, 0.25rem);
+        margin: clamp(0.25rem, 1vw, 0.5rem);
+
+        .one {
+            aspect-ratio: 1 / 1;
+            background-color: col.$bg6;
+            border-radius: clamp(0.25rem, 1vw, 0.5rem);
+            width: clamp(50vw, 1vw, 50vw);
+        }
+    }
+}
+
+
+.finance-section {
+    @include mix.flex-direction(column);
+    @include mix.flex-center;
+    @include mix.glass-effect;
+
+    .legend-extra {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    .fin-pie {
+        aspect-ratio: 1 / 1;
+        display: block;
+        margin: 0 auto;
+        max-width: 25rem;
+        width: 20rem;
+    }
+
+    .fin-chart {
+        border-radius: 2px;
+        display: inline-block;
+        height: 1em;
+        margin-right: 0.5em;
+        width: 1em;
+
+        .sales {
+            background: #4e79a7;
+        }
+    }
+
+    .bookings {
+
+    }
+
+    .donations {
+        
+    }
+
+    .inventory {
+        
+    }
+
+    .purchases {
+        
+    }
+
+    .others {
+        
+    }
+}

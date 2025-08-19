@@ -25,6 +25,47 @@ Example usage in your components:
     }
 }
 */
+.align .center {
+  align-items: center;
+}
+.align .left {
+  align-items: flex-start;
+}
+.align .right {
+  align-items: flex-end;
+}
+
+.masked-text-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 20vh;
+  background: transparent;
+}
+.masked-text-container .masked-text {
+  font-family: "Montserrat", "Arial Black", sans-serif;
+  letter-spacing: 0.1em;
+  /* Use an image as the background for the text */
+  background: url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80") center/cover no-repeat;
+  color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  /* Optional: add a subtle shadow for readability */
+  text-shadow: 0 0.12rem 0.5rem rgba(0, 0, 0, 0.15);
+  border-radius: 0.5rem;
+  padding: 0.5em 1rem;
+  box-shadow: 0 0.12rem 1rem 0 rgba(0, 0, 0, 0.08);
+}
+.masked-text-container .masked-text h1 {
+  font-size: clamp(1rem, 8vw, 3rem);
+  font-weight: 500;
+}
+.masked-text-container .masked-text p {
+  font-size: clamp(0.75rem, 1vw, 2rem);
+  font-weight: 200;
+}
+
 .group {
   display: flex;
   line-height: clamp(0.8rem, 1vw, 1.75rem);
@@ -190,8 +231,8 @@ Example usage in your components:
 .portfolio-header {
   display: flex;
   align-items: center;
-  justify-content: start;
-  background: url("img/logo/Developer.png") center left no-repeat;
+  justify-content: center;
+  background: url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80") center left no-repeat;
   background-size: cover;
   color: #FFFFFF;
   height: clamp(17rem, 1vw, 33.5rem);

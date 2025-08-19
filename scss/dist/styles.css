@@ -25,34 +25,217 @@ Example usage in your components:
     }
 }
 */
+.align .center {
+  align-items: center;
+}
+.align .left {
+  align-items: flex-start;
+}
+.align .right {
+  align-items: flex-end;
+}
+
+.masked-text-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 20vh;
+  background: transparent;
+}
+.masked-text-container .masked-text {
+  font-family: "Montserrat", "Arial Black", sans-serif;
+  letter-spacing: 0.1em;
+  /* Use an image as the background for the text */
+  background: url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80") center/cover no-repeat;
+  color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  /* Optional: add a subtle shadow for readability */
+  text-shadow: 0 0.12rem 0.5rem rgba(0, 0, 0, 0.15);
+  border-radius: 0.5rem;
+  padding: 0.5em 1rem;
+  box-shadow: 0 0.12rem 1rem 0 rgba(0, 0, 0, 0.08);
+}
+.masked-text-container .masked-text h1 {
+  font-size: clamp(1rem, 8vw, 3rem);
+  font-weight: 500;
+}
+.masked-text-container .masked-text p {
+  font-size: clamp(0.75rem, 1vw, 2rem);
+  font-weight: 200;
+}
+
+.group {
+  display: flex;
+  line-height: clamp(0.8rem, 1vw, 1.75rem);
+  align-items: center;
+  margin: 0 0 0 clamp(0.5rem, 1vw, 1rem);
+  max-width: clamp(6rem, 1vw, 12rem);
+  position: relative;
+}
+.group .input {
+  background-color: #f3f3f4;
+  border: 2px solid transparent;
+  border-radius: clamp(0.25rem, 1vw, 0.5rem);
+  color: #0d0c22;
+  height: clamp(1.2rem, 1vw, 2.5rem);
+  line-height: clamp(0.8rem, 1vw, 1.75rem);
+  outline: none;
+  padding: 0 clamp(0.5rem, 1vw, 1rem);
+  padding-left: clamp(1.2rem, 1vw, 2.5rem);
+  transition: 0.3s ease;
+  width: 100%;
+}
+.group .input::placeholder {
+  color: #9e9ea7;
+}
+.group .input:focus,
+.group .input input:hover {
+  outline: none;
+  border-color: rgba(234, 76, 137, 0.4);
+  background-color: #fff;
+  box-shadow: 0 0 0 clamp(0.12rem, 1vw, 0.25rem) rgba(234, 76, 137, 0.1);
+}
+.group i {
+  aspect-ratio: 1/1;
+  width: clamp(0.3rem, 1vw, 0.6rem);
+}
+.group .icon {
+  fill: #9e9ea7;
+  height: 1rem;
+  left: 0.5rem;
+  position: absolute;
+  width: 1rem;
+}
+
+.list {
+  list-style-type: none;
+  padding-left: clamp(0.1rem, 1vw, 0.2rem);
+}
+.list .item {
+  display: flex;
+  flex-direction: row;
+  padding: clamp(0.1rem, 1vw, 0.2rem) 0;
+  /* Hide the checkbox input */
+  /* Style the label as a clickable link */
+}
+.list .item i {
+  color: #1E90FF;
+  font-size: clamp(0.2rem, 1vw, 1.5rem);
+  margin: 0 0 0 clamp(0.07rem, 1vw, 0.15rem);
+}
+.list .item input[type=checkbox] {
+  display: none;
+  /* Hide the nested ul by default */
+  /* Show the nested ul when the checkbox is checked */
+}
+.list .item input[type=checkbox] ~ .list {
+  display: none;
+  padding-left: clamp(0.4rem, 1vw, 0.9rem);
+  font-size: clamp(0.4rem, 1vw, 0.9rem);
+  list-style-type: none;
+}
+.list .item input[type=checkbox]:checked ~ .list {
+  display: block;
+  list-style-type: none;
+}
+.list .item label {
+  color: #121212;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+}
+.list .item label::after {
+  color: #FFFFFF;
+  text-decoration: underline;
+  user-select: contain;
+}
+.list .item .text {
+  color: #FFFFFF;
+  font-size: clamp(0.2rem, 1vw, 1.5rem);
+  margin: 0 clamp(0.2rem, 1vw, 0.4rem) 0 0;
+}
+.list .item .text:hover {
+  color: #4fe657;
+}
+
+.list-menu {
+  position: relative;
+  width: 100%;
+}
+.list-menu .list-toggle {
+  background: none;
+  border: none;
+  color: inherit;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: clamp(0.25rem, 1vw, 0.5rem);
+  font: inherit;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.list-menu .list-toggle .list-toggle:hover,
+.list-menu .list-toggle .list-toggle[aria-expanded=true] {
+  background: rgba(0, 0, 0, 0.05);
+}
+.list-menu .list-toggle .list-arrow {
+  margin-left: auto;
+  transition: transform 0.2s;
+}
+.list-menu .list-toggle .mini-list {
+  margin: clamp(0.25rem, 1vw, 0.5rem) 0 0 clamp(0.7rem, 1vw, 1.5rem);
+  padding: 0;
+  list-style: none;
+  background: none;
+  border-left: clamp(0.06rem, 1vw, 0.125rem) solid #eee;
+  transition: max-height 0.2s;
+}
+.list-menu .list-toggle .mini-list .item {
+  padding: clamp(0.25rem, 1vw, 0.4rem) 0;
+  display: flex;
+  align-items: center;
+  gap: clamp(0.25rem, 1vw, 0.5rem);
+}
+
 .magnet-btn {
   background: linear-gradient(145deg, #3498db, #2980b9);
   border: none;
-  border-radius: 15px;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.136);
+  border-radius: clamp(0.5rem, 1vw, 1.1rem);
+  box-shadow: clamp(0.15rem, 0.1vw, 0.3rem) clamp(0.15rem, 1vw, 0.3rem) clamp(0.4rem, 1vw, 0.9rem) rgba(0, 0, 0, 0.136);
   color: #FFFFFF;
   cursor: pointer;
   display: inline-block;
-  font-size: 20px;
+  font-size: clamp(0.2rem, 1vw, 1.5rem);
   font-weight: bold;
-  margin: 1rem;
-  padding: 15px 40px;
+  margin: clamp(0.5rem, 1vw, 1rem);
+  padding: clamp(0.5rem, 1vw, 1.1rem) clamp(0.5rem, 1vw, 1.1rem);
   position: relative;
   transform-style: preserve-3d;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease in;
+}
+.magnet-btn a {
+  color: #121212;
+  text-decoration: none;
+}
+.magnet-btn a:hover {
+  color: #FFFFFF;
 }
 .magnet-btn:hover {
-  background: linear-gradient(145deg, #4a9de6, #2c8dce);
+  background: linear-gradient(145deg, #7dad85, #021c2e);
+  color: #121212;
 }
 
 .portfolio-header {
   display: flex;
   align-items: center;
-  justify-content: start;
-  background: url("img/pic/coding.jpg") center left no-repeat;
+  justify-content: center;
+  background: url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80") center left no-repeat;
   background-size: cover;
-  color: white;
-  height: 33.5rem;
+  color: #FFFFFF;
+  height: clamp(17rem, 1vw, 33.5rem);
   position: relative;
 }
 .portfolio-header::after {
@@ -69,110 +252,175 @@ Example usage in your components:
 .portfolio-header .overlay {
   position: relative;
   z-index: 2;
-  padding: 0 40px;
+  padding: 0 clamp(1.2rem, 1vw, 2.5rem);
   max-width: 50%;
 }
+.portfolio-header .overlay button {
+  background: linear-gradient(145deg, #3498db, #2980b9);
+  border: none;
+  border-radius: clamp(0.5rem, 1vw, 1.1rem);
+  box-shadow: clamp(0.15rem, 0.1vw, 0.3rem) clamp(0.15rem, 1vw, 0.3rem) clamp(0.4rem, 1vw, 0.9rem) rgba(0, 0, 0, 0.136);
+  color: #121212;
+  cursor: pointer;
+  display: inline-block;
+  font-size: clamp(1rem, 1vw, 1.5rem);
+  font-weight: 400;
+  margin: clamp(0.5rem, 1vw, 1rem);
+  padding: 0 clamp(1rem, 1vw, 1.1rem);
+  position: relative;
+  transform-style: preserve-3d;
+  transition: background 0.3s ease in;
+}
+.portfolio-header .overlay button:hover {
+  background: linear-gradient(145deg, #7dad85, #021c2e);
+  color: #FFFFFF;
+}
 .portfolio-header .overlay h1 {
-  font-size: 2.8rem;
+  font-size: clamp(2rem, 1vw, 2rem);
   font-weight: 700;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  text-align: center;
+  text-shadow: clamp(0.06rem, 1vw, 0.125rem) clamp(0.06rem, 1vw, 0.125rem) clamp(0.25rem, 1vw, 0.5rem) rgba(0, 0, 0, 0.7);
+}
+.portfolio-header .overlay p {
+  font-size: clamp(1rem, 1vw, 2rem);
+  font-weight: 100;
+  padding: 0 clamp(0.06rem, 1vw, 0.125rem);
+  text-shadow: clamp(0.06rem, 1vw, 0.125rem) clamp(0.06rem, 1vw, 0.125rem) clamp(0.25rem, 1vw, 0.5rem) rgba(0, 0, 0, 0.7);
 }
 
-.Search-Input {
+.slider {
+  margin: clamp(2.1rem, 1vw, 4.3rem) clamp(1.7rem, 1vw, 3.4rem);
+  max-width: 1200px;
+  overflow: hidden;
+}
+.slider .card-list {
+  display: flex;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: clamp(1rem, 1vw, 2rem);
+  height: auto;
+}
+.slider .card-list .card-item {
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(30px);
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: clamp(0.3rem, 1vw, 0.6rem);
+  color: #FFFFFF;
+  height: auto;
+  padding: clamp(1.1rem, 1vw, 2.2rem);
+  user-select: none;
+  width: clamp(20rem, 1vw, 40rem);
+}
+.slider .card-list .card-item .user-image {
+  aspect-ratio: 1/1;
+  border: 3px solid #FFFFFF;
+  border-radius: 50%;
+  margin-bottom: clamp(1.2rem, 1vw, 2.5rem);
+  padding: clamp(0.12rem, 1vw, 0.25rem);
+  width: clamp(4.6rem, 1vw, 9.3rem);
+}
+.slider .card-list .card-item .user-profession {
+  color: #05502c;
+  font-size: clamp(0.6rem, 1vw, 1.15rem);
+  font-weight: 300;
+  padding: clamp(0.4rem, 1vw, 0.8rem) 0 clamp(0.5rem, 1vw, 1rem);
+  text-align: center;
+}
+.slider .card-list .card-item .user-name {
+  color: #1E90FF;
+  font-size: clamp(0.6rem, 1vw, 1.15rem);
+  font-weight: 300;
+  padding: clamp(0.4rem, 1vw, 0.8rem) 0 clamp(0.5rem, 1vw, 1rem);
+  text-align: center;
+}
+.slider .card-list .card-item .message-button {
+  background: #FFFFFF;
+  border: 1px solid transparent;
+  border-radius: clamp(0.2rem, 1vw, 0.4rem);
+  color: #1E90FF;
+  cursor: pointer;
+  font-weight: 300;
+  font-size: clamp(0.6rem, 1vw, 1.25rem);
+  padding: clamp(0.3rem, 1vw, 0.6rem) clamp(1.1rem, 1vw, 2.2rem);
+  transition: width 0.2s ease-in cubic-bezier(0.1, 0.7, 1, 0.1);
+}
+.slider .card-list .card-item .message-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #FF0099;
+  color: #FFFFFF;
+}
+.slider .swiper-bullet {
+  background: #FFFFFF;
+  height: clamp(0.4rem, 1vw, 0.8rem);
+  width: clamp(0.4rem, 1vw, 0.8rem);
+  opacity: 0.5;
+}
+.slider .swiper-bullet:active {
+  opacity: 1;
+}
+.slider .swiper-bullet .button {
+  color: #FFFFFF;
+  margin-top: -55px;
+  transition: 0.2s ease;
+}
+.slider .swiper-bullet .button:hover {
+  color: #4658ff;
+}
+
+.hamburger-menu {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: clamp(0.3rem, 1vw, 0.7rem);
+  display: flex;
+  align-items: center;
   position: relative;
-  width: 180px;
-  margin: 12px 5px;
-  --accent-color: #a3e583;
+  z-index: 1001;
 }
-.Search-Input:before {
-  transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+.hamburger-menu .hamburger-icon {
+  display: inline-block;
+  width: clamp(1.5rem, 4vw, 2.5rem);
+  height: clamp(1.2rem, 3vw, 2rem);
+  position: relative;
 }
-.Search-Input:before, .Search-Input:after {
-  content: "";
+.hamburger-menu .hamburger-icon span {
+  display: block;
+  height: clamp(0.18rem, 0.5vw, 0.25rem);
+  width: 100%;
+  background: #FFFFFF;
+  border-radius: clamp(0.1rem, 0.5vw, 0.2rem);
+  margin: clamp(0.18rem, 0.5vw, 0.25rem) 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.hamburger-menu[aria-expanded=true] .hamburger-icon span:nth-child(1) {
+  transform: translateY(clamp(0.38rem, 1vw, 0.7rem)) rotate(45deg);
+}
+.hamburger-menu[aria-expanded=true] .hamburger-icon span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger-menu[aria-expanded=true] .hamburger-icon span:nth-child(3) {
+  transform: translateY(clamp(-0.38rem, -1vw, -0.7rem)) rotate(-45deg);
+}
+
+.hamburger-menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
   left: 0;
   right: 0;
-  position: absolute;
-  pointer-events: none;
-  bottom: -1px;
-  z-index: 4;
-  width: 100%;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  transition: opacity 0.2s;
 }
-.Search-Input:focus-within:before {
-  border-bottom: 1px solid var(--accent-color);
-}
-.Search-Input:before {
-  transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
-}
-.Search-Input:focus-within:before {
-  border-bottom: 1px solid var(--accent-color);
-  transform: scaleX(1);
-}
-.Search-Input:focus-within:after {
-  border-bottom: 2px solid var(--accent-color);
-  transform: scaleX(1);
-}
-.Search-Input:after {
-  content: "";
-  transform: scaleX(0);
-  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1) 0ms;
-  will-change: transform;
-  border-bottom: 2px solid var(--accent-color);
-  border-bottom-color: var(--accent-color);
-}
-.Search-Input::placeholder {
-  transition: opacity 250ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+.hamburger-menu-overlay.active {
+  display: block;
   opacity: 1;
-  user-select: none;
-  color: rgba(255, 255, 255, 0.582);
-}
-.Search-Input:focus-within .textInput {
-  background-color: #353535;
-}
-.Search-Input:focus-within .textInput::placeholder {
-  opacity: 0;
-}
-.Search-Input button {
-  aspect-ratio: 1/1;
-  border-radius: 50%;
-  height: 1.9rem;
-  position: absolute;
-}
-.Search-Input button i {
-  color: #05502c;
-}
-.Search-Input .textInput {
-  border-radius: 5px 5px 0px 0px;
-  box-shadow: 0px 2px 5px rgba(35, 35, 35, 0.3);
-  max-height: 36px;
-  background-color: #252525;
-  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
-  transition-duration: 200ms;
-  transition-property: background-color;
-  border-radius: 1.7rem;
-  color: #FFFFFF;
-  font-size: 14px;
-  font-weight: 500;
-  padding: 12px;
-  width: 100%;
-  border-left: none;
-  border-bottom: none;
-  border-right: none;
-}
-.Search-Input .textInput:focus, .Search-Input .textInput:active {
-  outline: none;
-}
-.Search-Input .textInput:focus, .Search-Input .textInput:active {
-  background-color: #353535;
-}
-.Search-Input .textInput .reset {
-  border: none;
-  background: none;
-  opacity: 0;
-  visibility: hidden;
-}
-.Search-Input .textInput:not(:placeholder-shown) ~ .reset {
-  opacity: 1;
-  visibility: visible;
 }

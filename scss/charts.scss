@@ -166,17 +166,33 @@
     .chart-section {
         @include mix.flex-direction(row);
         @include mix.flex-center-flex-start;
-        flex-wrap: wrap;
+        background-color: col.$bg2;
+        //flex-wrap: wrap;
         gap: clamp(0.25rem, 1vw, 1rem);
         grid-area: graph;
-        padding: 0 clamp(0.12rem, 1vw, 0.25rem) clamp(0.12rem, 1vw, 0.25rem) clamp(0.12rem, 1vw, 0.25rem);
-        margin: clamp(0.25rem, 1vw, 0.5rem);
+        overflow-x: scroll;
+        padding: 0 clamp(0.12rem, 1vw, 0.25rem) 0 clamp(0.12rem, 1vw, 0.25rem);
+        margin: clamp(0.12rem, 1vw, 0.3rem) 0;
+        width: 100%;
 
         .one {
-            aspect-ratio: 1 / 1;
+            //aspect-ratio: 1 / 1;
             background-color: col.$bg6;
             border-radius: clamp(0.25rem, 1vw, 0.5rem);
-            width: clamp(50vw, 1vw, 50vw);
+            height: auto;
+            padding: 0 clamp(0.12rem, 1vw, 0.25rem) 0 clamp(0.12rem, 1vw, 0.25rem);
+            width: clamp(40vw, 1vw, 50vw);
+        }
+
+        .two {
+            background-color: col.$bg6;
+            border-radius: clamp(0.25rem, 1vw, 0.5rem);
+            height: auto;
+            width: clamp(90vw, 1vw, 98vw);
+        }
+
+        canvas {
+            font-size: clamp(0.7rem, 1vw, 1.2rem);
         }
     }
 }

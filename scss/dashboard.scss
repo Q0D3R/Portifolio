@@ -17,35 +17,192 @@ body {
     background: url("images/bg.jpg") #030728 no-repeat center;
 }
 
-@media screen and (min-width: 0px) {
+@media screen and (min-width: 0px) and (max-width: 479px) {
     .container {
         display: grid;
         gap: clamp(0.12rem, 1vw, 0.25rem);
         grid-template-areas: 'header' 'nav' 'main' 'widget' 'footer';
         grid-template-columns: 1fr;
-        grid-template-rows: clamp(2rem, 1vw, 4rem) clamp(3rem, 1vw, 6rem) auto clamp(3rem, 1vw, 6rem) clamp(3rem, 1vw, 6rem) clamp(2rem, 1vw, 4rem);
+        grid-template-rows: auto auto auto auto;
+        //grid-template-rows: clamp(2rem, 1vw, 4rem) clamp(3rem, 1vw, 6rem) auto clamp(3rem, 1vw, 6rem) clamp(3rem, 1vw, 6rem) clamp(2rem, 1vw, 4rem);
         height: 100vh;
 
         .header {
             @include mix.flex-direction(row);
             @include mix.flex-center-space-between;
             @include mix.glass-effect;
-            background-color: blueviolet;
+            background-color: col.$bg6;
+            border-radius: clamp(0.5rem, 1vw, 1rem) clamp(0.5rem, 1vw, 1rem) 0 0;
             grid-area: header;
+            height: auto; //12.5vw;
+            margin: 0 clamp(0.5rem, 1vw, 1rem) 0 clamp(0.5rem, 1vw, 1rem);
+            //margin: clamp(0.25rem, 1vw, 0.5rem) clamp(0.25rem, 1vw, 0.5rem) 0 0;
+            position: fixed;  // Stays visible when scrolling
+            top: 0;
+            width: 99vw;
+            z-index: 100;
+
+            .header-menu {
+                @include mix.flex-direction(row);
+                @include mix.flex-center;
+                background-color: col.$bg1;
+                border-radius: clamp(0.25rem, 1vw, 0.5rem) clamp(0.25rem, 1vw, 0.5rem) 0 0;
+                margin: clamp(0.25rem, 1vw, 0.5rem) clamp(0.25rem, 1vw, 0.5rem);
+                padding: clamp(0.25rem, 1vw, 0.5rem) clamp(0.25rem, 1vw, 0.5rem);
+                width: 100%;
+
+                .main-links {
+                    @include mix.flex-direction(row);
+                    @include mix.flex-center;
+                    padding: 0 clamp(0.25rem, 1vw, 0.5rem);
+    
+                    a {
+                        color: col.$color2;
+                        padding: 0 clamp(0.25rem, 1vw, 0.5rem) 0 clamp(0.25rem, 1vw, 2.5rem);
+
+                        &:hover {
+                            color: col.$color6;
+                        }
+                    }
+                }
+    
+                .extra-links {
+                    @include mix.flex-direction(row);
+                    @include mix.flex-center-flex-end;
+                    padding: 0 clamp(0.25rem, 1vw, 0.5rem) 0 clamp(25vw, 1vw, 30vw);
+    
+                    a {
+                        color: col.$color2;
+                        padding: 0 clamp(0.25rem, 1vw, 0.5rem) 0 clamp(0.25rem, 1vw, 2.5rem);
+
+                        &:hover {
+                            color: col.$color6;
+                        }
+                    }
+                }
+            }
         }
 
         .nav {
-            @include mix.flex-direction(column);
+            @include mix.flex-direction(row);
             @include mix.flex-center;
             @include mix.glass-effect;
-            background-color: yellowgreen;
+            background-color: col.$bg5;
+            border-radius: clamp(0.5rem, 1vw, 1rem) 0 0 clamp(0.5rem, 1vw, 1rem);
             grid-area: nav;
+            height: 98vh;
+            left: 0;
+            margin: 0 clamp(0.5rem, 1vw, 0.5rem) 0 clamp(0.5rem, 1vw, 0.5rem);
+            //overflow: hidden;
+            //position: fixed;  // Stays visible when scrolling
+            top: 0;
+            width: 100vw;
+            z-index: 99;
+
+            .nav-logo {
+                @include mix.flex-direction(column);
+                @include mix.flex-center-flex-start;
+                background-color: col.$bg10;
+                border-radius: clamp(0.15rem, 1vw, 0.3rem);
+                box-shadow: clamp(0.15rem, 1vw, 0.3rem) rgb(219, 65, 124);
+                display: none;
+                height: auto; //10%;
+                margin: clamp(0.2rem, 1vw, 0.4rem);
+                width: auto; //clamp(10.6vw, 1vw, 12.5vw);
+
+                .img {                    
+                    aspect-ratio: 1 / 1;
+                    width: clamp(4rem, 1vw, 8rem);
+                }
+            }
+
+            .nav-menu {
+                @include mix.flex-direction(row);
+                @include mix.flex-start;
+                height: 72%;
+                overflow-y: scroll;
+                padding: clamp(0.3rem, 1vw, 0.6rem) clamp(0.25rem, 1vw, 0.5rem);
+
+                label {
+                    color: col.$color2;
+                    display: none;
+                    font-size: clamp(0.3rem, 1vw, 0.6rem);
+                    font-weight: 500;
+                    margin: clamp(0.25rem, 1vw, 0.5rem) clamp(0.25rem, 1vw, 0.5rem) 0 clamp(0.25rem, 1vw, 0.5rem);
+                    text-transform:uppercase;
+                }
+            }
+
+            .nav-user {
+                @include mix.flex-direction(row);
+                @include mix.flex-center-flex-end;
+                background-color: col.$bg10;
+                border-radius:  0 clamp(0.37rem, 1vw, 0.75rem) clamp(0.37rem, 1vw, 0.75rem) 0;
+                box-shadow: clamp(0.15rem, 1vw, 0.3rem) rgb(219, 65, 124);
+                height: auto;
+                margin: clamp(0.2rem, 1vw, 0.4rem);
+                width: 98vw; //clamp(10.6vw, 1vw, 12.5vw);
+
+                .icon {
+                    @include mix.flex-direction(column);
+                    @include mix.flex-center;
+
+                    .img {
+                        aspect-ratio: 1 / 1;
+                        border-radius: 50%;
+                        margin: clamp(0.25rem, 1vw, 0.5rem);
+                        width: clamp(2rem, 1vw, 2.5rem);
+                    }
+                }
+
+                .user {
+                    @include mix.flex-direction(row);
+                    @include mix.flex-center;
+
+                    .name {
+                        @include mix.flex-direction(column);
+                        @include mix.flex-center;
+                        color: col.$color1;
+                        font-size: clamp(0.5rem, 1vw, 1rem);
+                        text-align: center;
+                        text-overflow: inherit;
+                    }
+
+                    .profession {
+                        @include mix.flex-direction(column);
+                        @include mix.flex-center;
+                        color: col.$color2;
+                        text-align: center;
+                        font-size: clamp(0.5rem, 1vw, 1rem);
+                    }
+                }
+            }
+
         }
 
         .main {
             @include mix.glass-effect;
-            background-color: gainsboro;
+            background-color: col.$bg3;
             grid-area: main;
+            height: auto;
+            margin: 0 clamp(0.5rem, 1vw, 0.5rem) 0 clamp(0.5rem, 1vw, 0.5rem);
+            padding: clamp(0.25rem, 1vw, 0.5rem);
+            //overflow-y: scroll;
+            //position: fixed;  // Stays visible when scrolling
+            width: 98vw;
+            z-index: 99;
+
+            .main-badges {
+                @include mix.flex-direction(column);
+                @include mix.flex-center-flex-start;
+                @include mix.glass-effect;
+            }
+
+            .main-charts {
+                @include mix.flex-direction(row);
+                @include mix.flex-center;
+                @include mix.glass-effect;
+            }
         }
 
         .widget {
@@ -55,9 +212,135 @@ body {
         }
 
         .footer {
+            @include mix.flex-direction(column);
+            @include mix.flex-center;
             @include mix.glass-effect;
-            background-color: green;
+            background-color: col.$bg9;
+            border-radius: 0 0 0.5rem 0.5rem;
+            border-radius: 0 0 clamp(0.5rem, 1vw, 0.75rem) clamp(0.5rem, 1vw, 0.75rem);
+            bottom: 0;
             grid-area: footer;
+            margin: 0 clamp(0.5rem, 1vw, 1rem) 0 clamp(0.5rem, 1vw, 1rem);
+            padding: clamp(0.25rem, 1vw, 0.5rem);
+            //position: fixed;  // Stays visible when scrolling
+            width: 99vw;
+            z-index: 99;
+
+            .footer-divide1 {
+                @include mix.flex-direction(column);
+                @include mix.flex-center;
+                border: 0.1rem solid col.$color1;
+                border-radius: 0;
+                padding: clamp(0.1rem, 1vw, 0.25rem);
+                margin: clamp(0.1rem, 1vw, 0.2rem);
+                width: 100%;
+
+                .footer-copyright {
+                    @include mix.flex-direction(row);
+                    @include mix.flex-center;
+                    padding: clamp(0.1rem, 1vw, 0.25rem);
+                    width: 100%;
+
+                    p {
+                        color: col.$color1;
+                        font-size: clamp(0.6rem, 1vw, 1.2rem);
+                        padding: clamp(0.1rem, 1vw, 0.25rem);
+                        text-align: center;
+                    
+                        a {
+                            color: col.$color1;
+                            font-size: clamp(0.6rem, 1vw, 1.2rem);
+                            padding: clamp(0.01rem, 1vw, 0.02rem);
+                            text-decoration: none;
+
+                            &:hover {
+                                color: col.$hover1;
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+
+                .footer-statement {
+                    @include mix.flex-direction(row);
+                    @include mix.flex-center;
+                    padding: clamp(0.01rem, 1vw, 0.02rem);
+                    width: 100%;
+
+                    p {
+                        color: col.$color1;
+                        font-size: clamp(0.6rem, 1vw, 1rem);
+                        padding: clamp(0.1rem, 1vw, 0.25rem);
+                        text-align: center;
+                    
+                        a {
+                            color: col.$color1;
+                            font-size: clamp(0.4rem, 1vw, 0.8rem);
+                            padding: clamp(0.1rem, 1vw, 0.25rem);
+                            text-decoration: none;
+
+                            &:hover {
+                                color: col.$hover1;
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+
+                hr {
+                    border: 0.12rem solid col.$bg6;
+                    margin: clamp(0.2rem, 1vw, 0.4rem);
+                    width: 80%;
+                }
+            }
+
+            .footer-divide2 {
+                @include mix.flex-direction(column);
+                @include mix.flex-center;
+                border: 0.1rem solid col.$color1;
+                border-radius: 0 0 0.5rem 0.5rem;
+                height: auto;
+                padding: clamp(0.1rem, 1vw, 0.25rem);
+                margin: clamp(0.1rem, 1vw, 0.2rem);
+                width: 100%;
+
+                .footer-links {
+                    @include mix.flex-direction(row);
+                    @include mix.flex-center;
+                    width: 100%;
+    
+                    a {
+                        color: col.$color1;
+                        font-size: clamp(0.7rem, 1vw, 1.2rem);
+                        padding: clamp(0.1rem, 1vw, 0.25rem);
+                        text-decoration: none;
+    
+                        &:hover {
+                            color: col.$hover1;
+                            text-decoration: underline;
+                        }
+                    }
+                }
+    
+                .footer-social {
+                    @include mix.flex-direction(row);
+                    @include mix.flex-center;
+                    height: auto;
+                    width: 100%;
+    
+                    a {
+                        color: col.$color1;
+                        font-size: clamp(0.7rem, 1vw, 1.2rem);
+                        padding: clamp(0.1rem, 1vw, 0.2rem);
+                        text-decoration: none;
+    
+                        &:hover {
+                            color: col.$hover1;
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
         }
     }
 }

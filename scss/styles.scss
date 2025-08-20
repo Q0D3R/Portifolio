@@ -58,22 +58,24 @@
     line-height: clamp(0.8rem, 1vw, 1.75rem);
     align-items: center;
     margin: 0 0 0 clamp(0.5rem, 1vw, 1rem);
-    max-width: clamp(6rem, 1vw, 12rem);
+    max-width: clamp(26rem, 1vw, 42rem);
     position: relative;
 
 
     .input {
-        background-color: #f3f3f4;
+        background-color: col.$color2;
         border: 2px solid transparent;
-        border-radius: clamp(0.25rem, 1vw, 0.5rem);
+        border-radius: clamp(0.35rem, 1vw, 1.5rem);
         color: #0d0c22;
-        height: clamp(1.2rem, 1vw, 2.5rem);
+        font-size: clamp(0.7rem, 1vw, 1rem);
+        height: clamp(1.5rem, 1vw, 2.5rem);
         line-height: clamp(0.8rem, 1vw, 1.75rem);
         outline: none;
         padding: 0 clamp(0.5rem, 1vw, 1rem);
         padding-left: clamp(1.2rem, 1vw, 2.5rem);
+        text-indent: clamp(0.3rem, 1vw, 0.6rem);
         transition: .3s ease;
-        width: 100%;
+        width: clamp(9.5rem, 1vw, 22.5rem);;
 
         &::placeholder {
             color: #9e9ea7;

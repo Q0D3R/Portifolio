@@ -366,6 +366,7 @@ body {
             left: 0;
             margin: clamp(0.25rem, 1vw, 0.5rem) 0 clamp(0.25rem, 1vw, 0.5rem) clamp(0.25rem, 1vw, 0.5rem);
             //overflow: hidden;
+            //position: relative;
             position: fixed;  // Stays visible when scrolling
             top: 0;
             width: 12.5vw;
@@ -465,14 +466,14 @@ body {
                 @include mix.flex-center;
                 background-color: #030728;
                 border-radius: 0 clamp(0.25rem, 1vw, 0.5rem) 0 0;
-                margin: clamp(0.25rem, 1vw, 0.5rem) clamp(0.25rem, 1vw, 0.5rem);
-                padding: clamp(0.25rem, 1vw, 0.5rem) clamp(0.25rem, 1vw, 0.5rem);
+                margin: clamp(0.5rem, 1vw, 0.7rem) clamp(0.5rem, 1vw, 0.7rem);
+                padding: clamp(0.5rem, 1vw, 0.5rem) clamp(0.5rem, 1vw, 0.5rem);
                 width: 100%;
 
                 .main-links {
                     @include mix.flex-direction(row);
                     @include mix.flex-center;
-                    padding: 0 clamp(0.25rem, 1vw, 0.5rem);
+                    padding: 0 clamp(0.5rem, 1vw, 0.5rem);
     
                     a {
                         color: col.$color2;
@@ -504,19 +505,23 @@ body {
         .main {
             @include mix.glass-effect;
             background-color: rgb(185, 236, 66);
-            bottom: 120;
+            top: clamp(5rem, 8vw, 6.5rem); // Adjusts the top offset of .main for better header alignment
+            //bottom: 200;
             grid-area: main;
             height: 83vh;
             margin: 0 clamp(0.25rem, 1vw, 0.5rem) 0 0;
             overflow-y: scroll;
-            position: fixed;  // Stays visible when scrolling
+            position: absolute;
+            //position: fixed;  // Stays visible when scrolling
             right: 0;
+            //top: 10;
             width: 85.8vw;
-            z-index: 100;
+            z-index: 99;
 
             .main-badges {
                 @include mix.flex-direction(column);
-                @include mix.flex-center-flex-start;
+                @include mix.flex-start;
+                flex-wrap: wrap;
                 @include mix.glass-effect;
             }
 
@@ -537,10 +542,11 @@ body {
             grid-area: footer;
             margin: 0 clamp(0.25rem, 1vw, 0.5rem) clamp(0.25rem, 1vw, 0.5rem) 0;
             padding: clamp(0.5rem, 1vw, 1rem);
+            //position: relative;
             position: fixed;  // Stays visible when scrolling
             right: 0;
             width: 85.8vw;
-            z-index: 100;
+            z-index: 99;
 
             .footer-divide1 {
                 @include mix.flex-direction(column);
@@ -558,12 +564,12 @@ body {
 
                     p {
                         color: col.$color1;
-                        font-size: clamp(0.4rem, 1vw, 0.8rem);
+                        font-size: clamp(0.5rem, 1vw, 1rem);
                         text-align: center;
                     
                         a {
                             color: col.$color1;
-                            font-size: clamp(0.4rem, 1vw, 0.8rem);
+                            font-size: clamp(0.5rem, 1vw, 1rem);
                             padding: clamp(0.01rem, 1vw, 0.02rem);
                             text-decoration: none;
 
@@ -578,17 +584,17 @@ body {
                 .footer-statement {
                     @include mix.flex-direction(row);
                     @include mix.flex-center;
-                    padding: clamp(0.01rem, 1vw, 0.02rem);
+                    padding: clamp(0.1rem, 1vw, 0.2rem);
                     width: 100%;
 
                     p {
                         color: col.$color1;
-                        font-size: clamp(0.4rem, 1vw, 0.8rem);
+                        font-size: clamp(0.5rem, 1vw, 1rem);
                         text-align: center;
                     
                         a {
                             color: col.$color1;
-                            font-size: clamp(0.4rem, 1vw, 0.8rem);
+                            font-size: clamp(0.5rem, 1vw, 1rem);
                             padding: clamp(0.01rem, 1vw, 0.02rem);
                             text-decoration: none;
 
@@ -601,8 +607,8 @@ body {
                 }
 
                 hr {
-                    border: 0.12rem solid col.$color3;
-                    margin: clamp(0.2rem, 1vw, 0.4rem);
+                    border: 0.12rem solid col.$color1;
+                    margin: clamp(0.1rem, 1vw, 0.3rem);
                     width: 80%;
                 }
             }
@@ -621,7 +627,7 @@ body {
     
                     a {
                         color: col.$color1;
-                        font-size: clamp(0.8rem, 1vw, 1.6rem);
+                        font-size: clamp(0.5rem, 1vw, 1rem);
                         padding: clamp(0.1rem, 1vw, 0.25rem);
                         text-decoration: none;
     
@@ -638,8 +644,8 @@ body {
     
                     a {
                         color: col.$color1;
-                        font-size: clamp(0.8rem, 1vw, 1.6rem);
-                        padding: clamp(0.15rem, 1vw, 0.3rem);
+                        font-size: clamp(0.5rem, 1vw, 1rem);
+                        padding: clamp(0.25rem, 1vw, 0.3rem);
                         text-decoration: none;
     
                         &:hover {

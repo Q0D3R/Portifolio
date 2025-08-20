@@ -1,3 +1,129 @@
+
+// Example data for children's bubble chart
+document.addEventListener("DOMContentLoaded", function () {
+    const ctx = document.getElementById('childrenBubbleChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bubble',
+        data: {
+            datasets: [
+                {
+                    label: 'Medical',
+                    data: [
+                        { x: 8, y: 7, r: 15 }, // e.g., x: health score, y: checkup frequency, r: severity
+                        { x: 6, y: 5, r: 10 }
+                    ],
+                    backgroundColor: 'rgba(78,121,167,0.6)',
+                    borderColor: '#4e79a7'
+                },
+                {
+                    label: 'Academic',
+                    data: [
+                        { x: 9, y: 8, r: 18 }, // x: test score, y: attendance, r: improvement
+                        { x: 7, y: 6, r: 12 }
+                    ],
+                    backgroundColor: 'rgba(242,142,43,0.6)',
+                    borderColor: '#f28e2b'
+                },
+                {
+                    label: 'Social',
+                    data: [
+                        { x: 5, y: 9, r: 14 }, // x: peer rating, y: activities, r: engagement
+                        { x: 6, y: 7, r: 10 }
+                    ],
+                    backgroundColor: 'rgba(118,183,178,0.6)',
+                    borderColor: '#76b7b2'
+                },
+                {
+                    label: 'Behavior',
+                    data: [
+                        { x: 4, y: 6, r: 11 }, // x: incidents, y: positive notes, r: improvement
+                        { x: 3, y: 5, r: 8 }
+                    ],
+                    backgroundColor: 'rgba(225,87,89,0.6)',
+                    borderColor: '#e15759'
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top'
+                },
+                title: {
+                    display: true,
+                    text: "Children's Data Bubble Chart"
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function (context) {
+                            const d = context.raw;
+                            return `x: ${d.x}, y: ${d.y}, size: ${d.r}`;
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Score/Metric'
+                    },
+                    min: 0,
+                    max: 10
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Frequency/Participation'
+                    },
+                    min: 0,
+                    max: 10
+                }
+            }
+        }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Data for the ring chart
+    const data = {
+        labels: ["Sales", "Donations", "Purchases", "Expenses"],
+        datasets: [{
+            data: [3500, 1200, 900, 700],
+            backgroundColor: [
+                "#4e79a7", // Sales
+                "#f28e2b", // Donations
+                "#e15759", // Purchases
+                "#76b7b2"  // Expenses
+            ],
+            borderWidth: 2,
+            hoverOffset: 8
+        }]
+    };
+
+    // Get the canvas element
+    const ctx = document.getElementById('financeRingChart').getContext('2d');
+
+    // Create the ring (doughnut) chart
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: data,
+        options: {
+            cutout: '70%',
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'bottom'
+                },
+                tooltip: {
+                    enabled: true
+                }
+            }
+        }
+    });
+});
+
 document.addEventListener("DOMContentLoaded", function () {
     const ctx = document.getElementById('multiBarChart').getContext('2d');
     new Chart(ctx, {

@@ -187,7 +187,7 @@ Example usage in your components:
   flex-direction: row;
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: center;
   background-color: #F5F5F5;
   gap: clamp(0.25rem, 1vw, 1rem);
   grid-area: graph;
@@ -201,7 +201,7 @@ Example usage in your components:
   border-radius: clamp(0.25rem, 1vw, 0.5rem);
   height: auto;
   padding: 0 clamp(0.12rem, 1vw, 0.25rem) 0 clamp(0.12rem, 1vw, 0.25rem);
-  width: 40vw;
+  width: 50vw;
 }
 .chart-container .chart-section .two {
   background-color: #202531;
@@ -209,8 +209,8 @@ Example usage in your components:
   height: auto;
   width: 90vw;
 }
-.chart-container .chart-section canvas {
-  font-size: clamp(0.7rem, 1vw, 1.2rem);
+.chart-container .chart-section .canvas {
+  font-size: clamp(0.2rem, 1vw, 1.2rem);
 }
 
 .finance-section {

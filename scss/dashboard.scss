@@ -17,7 +17,7 @@ body {
     background: url("images/bg.jpg") #030728 no-repeat center;
 }
 
-@media screen and (min-width: 0px) and (max-width: 479px) {
+@media screen and (max-width: 768px) {
     .container {
         display: grid;
         gap: clamp(0.12rem, 1vw, 0.25rem);
@@ -345,7 +345,7 @@ body {
     }
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 768px) {
     .container {
         display: grid;
         grid-template-areas:    'nav header header header header header header header header header' 

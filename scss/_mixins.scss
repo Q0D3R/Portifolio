@@ -17,13 +17,6 @@
     transform: translate(-50%, -50%);
 }
 
-// Button styling
-@mixin button-styling {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 // Flexbox Center
 @mixin flex-center {
     display: flex;
@@ -52,11 +45,25 @@
     justify-content: flex-end;
 }
 
+// Flexbox end
+@mixin flex-end-start {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
 // Flexbox Start
 @mixin flex-start {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
+}
+
+// Flexbox Start
+@mixin flex-start-end {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
 }
 
 // Flexbox Center Space Between

@@ -3,27 +3,27 @@
 @use "mixins" as mix;
 
 .chart-container {
-    //@include mix.flex-direction(column);
-    @include mix.flex-start;
     display: grid;
-    grid-template-areas:    'badge badge badge badge report'
-                            'chart chart chart chart report'
-                            'graph graph graph graph report';
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto auto auto auto auto;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: clamp(0.125rem, 1vw, 0.25rem);
+    height: fit-content;
+    margin: clamp(0.125rem, 1vw, 0.25rem);
 
     .badge-section {
         @include mix.flex-direction(row);
         @include mix.flex-center-flex-start;
         background-color: col.$color2;
+        border-radius: clamp(0.25rem, 1vw, 0.5rem);
         flex-wrap: wrap;
-        gap: clamp(0.25rem, 1vw, 1rem);
-        grid-area: badge;
-        padding: 0 clamp(0.12rem, 1vw, 0.25rem) clamp(0.12rem, 1vw, 0.25rem) clamp(0.12rem, 1vw, 0.25rem);
+        gap: clamp(0.25rem, 1vw, 0.5rem);
+        grid-column: span 1 / span 1;
+        height: auto;
+        padding: clamp(0.1rem, 1vw, 0.2rem) clamp(0.12rem, 1vw, 0.25rem);
         margin: clamp(0.25rem, 1vw, 0.5rem);
-        width: 80%;
+        width: 69.5vw;
 
-        .boarders {
+        .badge {
             @include mix.flex-direction(column);
            // @include mix.flex-center-flex-start;
             @include mix.glass-effect;
@@ -33,7 +33,7 @@
             color: col.$color1;
             padding: 0 clamp(0.12rem, 1vw, 0.25rem) clamp(0.12rem, 1vw, 0.25rem) clamp(0.12rem, 1vw, 0.25rem);
             margin: clamp(0.25rem, 1vw, 0.5rem);
-            width: clamp(12vw, 1vw, 15vw);
+            width: clamp(10vw, 1vw, 15vw);
 
             .one {
                 @include mix.flex-direction(row);
@@ -41,6 +41,7 @@
                 margin: clamp(0.5rem, 1vw, 3.5rem);
 
                 i {
+                    @include mix.flex-center-flex-end;
                     color: col.$color4;
                     width: 30%;
 
@@ -50,6 +51,7 @@
                 }
 
                 h3 {
+                    @include mix.flex-start;
                     font-size: clamp(0.45rem, 1vw, 1.5rem);
                     text-align: left;
                     width: 70%;
@@ -75,7 +77,7 @@
                 @include mix.flex-center;
 
                 p {
-                    font-size: clamp(0.1rem, 1vw, 2.75rem);
+                    font-size: clamp(0.05rem, 1vw, 0.9rem);
                     text-align: center;
                     width: 100%;
                 }
@@ -86,29 +88,96 @@
                 color: col.$hover1;
             }
         }
+
+        .graph-section {
+            @include mix.flex-direction(row);
+            background-color: col.$color3;
+            border-radius: clamp(0.25rem, 1vw, 0.5rem);
+            gap: clamp(0.25rem, 1vw, 1rem);
+            height: 27.5vh;
+            overflow-x: scroll;
+            padding: clamp(0.25rem, 1vw, 0.5rem) clamp(0.125rem, 1vw, 0.25rem);
+            //margin: clamp(0.25rem, 1vw, 0.5rem);
+            width: 49%;
+    
+            .graph {
+                aspect-ratio: 16 / 9;
+                background-color: col.$bg2;
+                border-radius: clamp(0.25rem, 1vw, 0.5rem);
+                width: 25vw;
+            }
+        }
+    
+        .extra-section {
+            @include mix.flex-direction(column);
+            @include mix.flex-center;
+            background-color: col.$bg4;
+            flex-wrap: wrap;
+            overflow-x: scroll;
+            padding: 0 clamp(0.12rem, 1vw, 0.25rem) 0 clamp(0.12rem, 1vw, 0.25rem);
+            margin: clamp(0.12rem, 1vw, 0.3rem) 0;
+            width: 49%;
+
+            .extra {
+                aspect-ratio: 16 / 9;
+                background-color: col.$bg2;
+                border-radius: clamp(0.25rem, 1vw, 0.5rem);
+                width: 24vw;
+            }
+        }
+    
+        .finance-section {
+            @include mix.flex-direction(column);
+            @include mix.flex-center;
+            background-color: col.$bg7;
+            flex-wrap: wrap;
+            overflow-x: scroll;
+            padding: 0 clamp(0.12rem, 1vw, 0.25rem) 0 clamp(0.12rem, 1vw, 0.25rem);
+            margin: clamp(0.12rem, 1vw, 0.3rem) 0;
+            width: 60%;
+    
+            .finance {
+                aspect-ratio: 16 / 9;
+                background-color: col.$bg2;
+                border-radius: clamp(0.25rem, 1vw, 0.5rem);
+                width: 25vw;
+            }
+        }
+    
+        .chart-section {
+            @include mix.flex-direction(row);
+            @include mix.flex-center;
+            @include mix.glass-effect;
+            background-color: col.$bg6;
+    
+            .chart {
+                aspect-ratio: 16 / 9;
+                background-color: col.$bg2;
+                border-radius: clamp(0.25rem, 1vw, 0.5rem);
+                width: 25vw;
+            }
+        }
     }
 
     .report-section {
-        @include mix.flex-direction(column);
+        @include mix.flex-direction(row);
         @include mix.flex-end;
         @include mix.glass-effect;
-        aspect-ratio: 5 / 4;
-        background-color: col.$bg11;
+        background-color: col.$bg2;
         border-radius: clamp(0.25rem, 1vw, 0.5rem);
         color: col.$color1;            
         flex-wrap: wrap;
-        gap: clamp(0.25rem, 1vw, 1rem);
-        grid-area: report;
-        height: 20vh;
+        gap: clamp(0.25rem, 1vw, 0.5rem);
+        height: auto;
         padding: 0 clamp(0.12rem, 1vw, 0.25rem) clamp(0.12rem, 1vw, 0.25rem) clamp(0.12rem, 1vw, 0.25rem);
         margin: clamp(0.25rem, 1vw, 0.5rem);
-        width: 15%;
+        width: 14vw;
 
-        .give {
+        .report {
             aspect-ratio: 16 / 9;
             background-color: col.$bg5;
             border-radius: clamp(0.25rem, 1vw, 0.5rem);
-            width: 10vw;
+            width: clamp(8rem, 1vw, 10rem);
 
             .one {
                 @include mix.flex-direction(row);
@@ -157,110 +226,16 @@
         }
     }
 
-    .preview-section {
-        @include mix.flex-direction(row);
-        @include mix.flex-center-flex-start;
-        background-color: col.$color3;
-        flex-wrap: wrap;
-        gap: clamp(0.25rem, 1vw, 1rem);
-        grid-area: chart;
-        padding: 0 clamp(0.12rem, 1vw, 0.25rem) clamp(0.12rem, 1vw, 0.25rem) clamp(0.12rem, 1vw, 0.25rem);
-        margin: clamp(0.25rem, 1vw, 0.5rem);
-        width: 80%;
-
-        .show {
-            aspect-ratio: 16 / 9;
-            background-color: col.$bg5;
-            border-radius: clamp(0.25rem, 1vw, 0.5rem);
-            width: 25vw;
-        }
-    }
-
-    .chart-section {
-        @include mix.flex-direction(row);
-        @include mix.flex-center;
-        background-color: col.$bg2;
-        //flex-wrap: wrap;
-        gap: clamp(0.25rem, 1vw, 1rem);
-        grid-area: graph;
-        overflow-x: scroll;
-        padding: 0 clamp(0.12rem, 1vw, 0.25rem) 0 clamp(0.12rem, 1vw, 0.25rem);
-        margin: clamp(0.12rem, 1vw, 0.3rem) 0;
-        width: 100%;
-
-        .one {
-            //aspect-ratio: 1 / 1;
-            background-color: col.$bg6;
-            border-radius: clamp(0.25rem, 1vw, 0.5rem);
-            height: auto;
-            padding: 0 clamp(0.12rem, 1vw, 0.25rem) 0 clamp(0.12rem, 1vw, 0.25rem);
-            width: clamp(50vw, 1vw, 50vw);
-        }
-
-        .two {
-            background-color: col.$bg6;
-            border-radius: clamp(0.25rem, 1vw, 0.5rem);
-            height: auto;
-            width: clamp(90vw, 1vw, 98vw);
-        }
-
-        .canvas {
-            font-size: clamp(0.2rem, 1vw, 1.2rem);
-        }
-    }
 }
 
-
-.finance-section {
-    @include mix.flex-direction(column);
-    @include mix.flex-center;
-    @include mix.glass-effect;
-
-    .legend-extra {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1.5rem;
-        justify-content: center;
-        margin-top: 1rem;
-    }
-
-    .fin-pie {
-        aspect-ratio: 1 / 1;
-        display: block;
-        margin: 0 auto;
-        max-width: 25rem;
-        width: 20rem;
-    }
-
-    .fin-chart {
-        border-radius: 2px;
-        display: inline-block;
-        height: 1em;
-        margin-right: 0.5em;
-        width: 1em;
-
-        .sales {
-            background: #4e79a7;
-        }
-    }
-
-    .bookings {
-
-    }
-
-    .donations {
-        
-    }
-
-    .inventory {
-        
-    }
-
-    .purchases {
-        
-    }
-
-    .others {
-        
-    }
+.canvas-wrap {
+    max-width: 800px;
+    width: 100%;
+}
+  
+.canvas-responsive {
+    aspect-ratio: 16 / 9; /* keeps 16:9 */
+    display: block;
+    height: auto;
+    width: clamp(50rem, 1vw, 50rem);
 }

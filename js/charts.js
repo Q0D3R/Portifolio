@@ -1,4 +1,6 @@
 
+
+
 // Example data for children's bubble chart
 document.addEventListener("DOMContentLoaded", function () {
     const ctx = document.getElementById('childrenBubbleChart').getContext('2d');

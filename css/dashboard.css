@@ -411,10 +411,11 @@ body {
     border: 2px solid RGBA(255, 255, 255, 0.18);
     box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
     background-color: #202531;
-    border-radius: clamp(0.5rem, 1vw, 1rem) 0 0 clamp(0.5rem, 1vw, 1rem);
+    border-radius: clamp(0.6rem, 1vw, 1.2rem) 0 0 clamp(0.6rem, 1vw, 1.2rem);
     grid-area: nav;
     height: 98vh;
     left: 0;
+    padding: clamp(0.2rem, 1vw, 0.4rem);
     margin: clamp(0.25rem, 1vw, 0.5rem) 0 clamp(0.25rem, 1vw, 0.5rem) clamp(0.25rem, 1vw, 0.5rem);
     position: fixed;
     top: 0;
@@ -427,8 +428,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: start;
-    background-color: #D1D6E0;
-    border-radius: clamp(0.15rem, 1vw, 0.3rem);
+    background-image: linear-gradient(to bottom, #F5F5F5, #202531);
+    border-radius: clamp(0.4rem, 1vw, 0.8rem) 0 0 0;
     box-shadow: clamp(0.15rem, 1vw, 0.3rem) rgb(219, 65, 124);
     height: 10%;
     margin: clamp(0.2rem, 1vw, 0.4rem);
@@ -461,8 +462,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    background-color: #D1D6E0;
-    border-radius: 0 0 0 clamp(0.37rem, 1vw, 0.75rem);
+    background-image: linear-gradient(to top, #F5F5F5, #202531);
+    border-radius: 0 0 0 clamp(0.4rem, 1vw, 0.8rem);
     box-shadow: clamp(0.15rem, 1vw, 0.3rem) rgb(219, 65, 124);
     height: auto;
     margin: clamp(0.2rem, 1vw, 0.4rem);
@@ -477,9 +478,10 @@ body {
   }
   .container .nav .nav-user .icon .img {
     aspect-ratio: 1/1;
+    border: 0.1rem dashed #FFFFFF;
     border-radius: 50%;
     margin: clamp(0.25rem, 1vw, 0.5rem);
-    width: clamp(2rem, 1vw, 2.5rem);
+    width: clamp(2.5rem, 1vw, 3.5rem);
   }
   .container .nav .nav-user .user {
     display: flex;
@@ -487,17 +489,21 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #05502c;
+  }
+  .container .nav .nav-user .user button:hover {
+    background-image: linear-gradient(to bottom, #F5F5F5, #FF007F, #353333);
   }
   .container .nav .nav-user .user .name {
-    color: #121212;
     font-size: clamp(0.5rem, 1vw, 1rem);
     text-align: center;
-    text-overflow: inherit;
   }
   .container .nav .nav-user .user .profession {
-    color: #FFFFFF;
     text-align: center;
     font-size: clamp(0.5rem, 1vw, 1rem);
+  }
+  .container .nav .nav-user .user:hover {
+    color: #360303;
   }
   .container .header {
     display: flex;
@@ -525,7 +531,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #030728;
+    background-image: linear-gradient(to bottom, #202531, #FF007F, #F5F5F5);
     border-radius: 0 clamp(0.25rem, 1vw, 0.5rem) 0 0;
     margin: clamp(0.5rem, 1vw, 0.7rem) clamp(0.5rem, 1vw, 0.7rem);
     padding: clamp(0.5rem, 1vw, 0.5rem) clamp(0.5rem, 1vw, 0.5rem);
@@ -565,13 +571,13 @@ body {
     backdrop-filter: blur(10px);
     border: 2px solid RGBA(255, 255, 255, 0.18);
     box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
-    background-color: rgb(185, 236, 66);
-    top: clamp(5rem, 8vw, 6.5rem);
+    background-color: #202531;
+    top: 6.3vh;
     grid-area: main;
     height: 83vh;
-    margin: 0 clamp(0.25rem, 1vw, 0.5rem) 0 0;
+    margin: clamp(0.25rem, 1vw, 0.5rem);
     overflow-y: scroll;
-    position: absolute;
+    position: fixed;
     right: 0;
     width: 85.8vw;
     z-index: 99;
@@ -585,7 +591,7 @@ body {
     backdrop-filter: blur(10px);
     border: 2px solid RGBA(255, 255, 255, 0.18);
     box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
-    background-color: rgb(207, 40, 104);
+    background-color: #202531;
     border-radius: 0 0 1rem 0;
     bottom: 0;
     grid-area: footer;
@@ -617,18 +623,18 @@ body {
     width: 100%;
   }
   .container .footer .footer-divide1 .footer-copyright p {
-    color: #121212;
+    color: #FFFFFF;
     font-size: clamp(0.5rem, 1vw, 1rem);
     text-align: center;
   }
   .container .footer .footer-divide1 .footer-copyright p a {
-    color: #121212;
+    color: #FFFFFF;
     font-size: clamp(0.5rem, 1vw, 1rem);
     padding: clamp(0.01rem, 1vw, 0.02rem);
     text-decoration: none;
   }
   .container .footer .footer-divide1 .footer-copyright p a:hover {
-    color: #FFFFFF;
+    color: #1E90FF;
     text-decoration: underline;
   }
   .container .footer .footer-divide1 .footer-statement {
@@ -641,18 +647,18 @@ body {
     width: 100%;
   }
   .container .footer .footer-divide1 .footer-statement p {
-    color: #121212;
+    color: #FFFFFF;
     font-size: clamp(0.5rem, 1vw, 1rem);
     text-align: center;
   }
   .container .footer .footer-divide1 .footer-statement p a {
-    color: #121212;
+    color: #FFFFFF;
     font-size: clamp(0.5rem, 1vw, 1rem);
     padding: clamp(0.01rem, 1vw, 0.02rem);
     text-decoration: none;
   }
   .container .footer .footer-divide1 .footer-statement p a:hover {
-    color: #FFFFFF;
+    color: #1E90FF;
     text-decoration: underline;
   }
   .container .footer .footer-divide1 hr {
@@ -679,13 +685,13 @@ body {
     justify-content: center;
   }
   .container .footer .footer-divide2 .footer-links a {
-    color: #121212;
+    color: #FFFFFF;
     font-size: clamp(0.5rem, 1vw, 1rem);
     padding: clamp(0.1rem, 1vw, 0.25rem);
     text-decoration: none;
   }
   .container .footer .footer-divide2 .footer-links a:hover {
-    color: #FFFFFF;
+    color: #1E90FF;
     text-decoration: underline;
   }
   .container .footer .footer-divide2 .footer-social {
@@ -696,13 +702,13 @@ body {
     justify-content: center;
   }
   .container .footer .footer-divide2 .footer-social a {
-    color: #121212;
+    color: #FFFFFF;
     font-size: clamp(0.5rem, 1vw, 1rem);
     padding: clamp(0.25rem, 1vw, 0.3rem);
     text-decoration: none;
   }
   .container .footer .footer-divide2 .footer-social a:hover {
-    color: #FFFFFF;
+    color: #1E90FF;
     text-decoration: underline;
   }
 }

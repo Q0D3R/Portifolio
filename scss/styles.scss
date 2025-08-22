@@ -401,6 +401,37 @@
     }
 }
 
+.star-rating {
+    @include mix.flex-direction(row-reverse);
+    @include mix.flex-center;
+    border-radius: clamp(0.3rem, 1vw, 0.6rem);
+    margin: clamp(0.3rem, 1vw, 0.6rem) clamp(1.1rem, 1vw, 2.2rem);
+    background-image: linear-gradient(to top, col.$bg6, col.$bg12);
+
+    input {
+        display: none; /* Hide default radio buttons */
+    }
+
+    label {        
+        color: col.$color2;/* Default star color (unfilled) */
+        cursor: pointer;
+        font-size: 1em; /* Adjust star size */
+        padding: 0 5px;
+    }
+
+    input:not(:checked) ~ label:hover,
+    input:not(:checked) ~ label:hover ~ label {
+        color: col.$color9; /* Color on hover */
+    }  
+
+    /* Style for checked stars and stars to the left of a checked star */
+    input[type="radio"]:checked ~ label {
+        color: col.$color9; /* Color when checked */
+    }
+}
+
+
+
 .hamburger-menu {
     background: none;
     border: none;

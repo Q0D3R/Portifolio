@@ -28,7 +28,7 @@
            // @include mix.flex-center-flex-start;
             @include mix.glass-effect;
             aspect-ratio: 5 / 4;
-            background-color: col.$bg10;
+            background-image: linear-gradient(to bottom, col.$bg6, col.$bg10);
             border-radius: clamp(0.25rem, 1vw, 0.5rem);
             color: col.$color1;
             padding: 0 clamp(0.12rem, 1vw, 0.25rem) clamp(0.12rem, 1vw, 0.25rem) clamp(0.12rem, 1vw, 0.25rem);
@@ -42,7 +42,7 @@
 
                 i {
                     @include mix.flex-center-flex-end;
-                    color: col.$color4;
+                    color: col.$color6;
                     width: 30%;
 
                     &:hover {
@@ -84,7 +84,7 @@
             }
 
             &:hover {
-                background-color: col.$color5;
+                background-image: linear-gradient(to top, col.$bg6, col.$bg12);
                 color: col.$hover1;
             }
         }
@@ -108,21 +108,94 @@
             }
         }
     
-        .extra-section {
-            @include mix.flex-direction(column);
+        .sales-section {
+            @include mix.flex-direction(row);
             @include mix.flex-center;
-            background-color: col.$bg4;
+            background-image: linear-gradient(to top, col.$bg2, col.$bg2);
+            border-radius: clamp(0.25rem, 1vw, 0.5rem);
             flex-wrap: wrap;
             overflow-x: scroll;
-            padding: 0 clamp(0.12rem, 1vw, 0.25rem) 0 clamp(0.12rem, 1vw, 0.25rem);
-            margin: clamp(0.12rem, 1vw, 0.3rem) 0;
+            padding: clamp(0.1rem, 1vw, 0.25rem);
+            margin: clamp(0.2rem, 1vw, 0.3rem) 0;
             width: 49%;
 
-            .extra {
-                aspect-ratio: 16 / 9;
-                background-color: col.$bg2;
+            .revenue {
+                @include mix.flex-direction(column);
+                @include mix.flex-start;
+                background-image: linear-gradient(to bottom, col.$bg4, col.$bg1);
+                border-right: clamp(0.05rem, 1vw, 0.1rem) solid col.$color1;
                 border-radius: clamp(0.25rem, 1vw, 0.5rem);
-                width: 24vw;
+                height: auto;
+                margin: clamp(0.12rem, 1vw, 0.3rem) 0;
+                width: 50%;
+
+                .row {
+                    @include mix.flex-direction(row);
+                    @include mix.flex-center;
+                    width: 100%;
+                }
+
+                h1 {
+                    background-image: linear-gradient(to top, col.$bg7, col.$bg4);
+                    border-radius: clamp(0.25rem, 1vw, 0.5rem);
+                    font-size: clamp(0.5rem, 1vw, 0.9rem);
+                    font-weight: 700;
+                    padding: clamp(0.7rem, 1vw, 0.25rem) clamp(0.7rem, 1vw, 0.25rem);
+                    width: 100%;
+                }    
+
+                p {
+                    font-size: clamp(0.5rem, 1vw, 0.9rem);
+                    font-weight: 500;
+                    padding: clamp(0.7rem, 1vw, 0.25rem) clamp(0.7rem, 1vw, 0.25rem);
+                    width: 100%;
+                }
+
+                h2 {
+                    font-size: clamp(0.5rem, 1vw, 0.9rem);
+                    font-weight: 300;
+                    padding: clamp(0.7rem, 1vw, 0.25rem) clamp(0.7rem, 1vw, 0.25rem);
+                    width: 20%;
+                }    
+            }
+
+            .expenses {
+                @include mix.flex-direction(column);
+                @include mix.flex-start;
+                background-image: linear-gradient(to bottom, col.$bg3, col.$bg7);
+                border-right: clamp(0.05rem, 1vw, 0.1rem) solid col.$color1;
+                border-radius: clamp(0.25rem, 1vw, 0.5rem);
+                height: auto;
+                width: 50%;
+
+                .row {
+                    @include mix.flex-direction(row);
+                    @include mix.flex-center;
+                    width: 100%;
+                }
+
+                h1 {
+                    background-image: linear-gradient(to top, col.$bg7, col.$bg3);
+                    border-radius: clamp(0.25rem, 1vw, 0.5rem);
+                    font-size: clamp(0.5rem, 1vw, 0.9rem);
+                    font-weight: 700;
+                    padding: clamp(0.7rem, 1vw, 0.25rem) clamp(0.7rem, 1vw, 0.25rem);
+                    width: 100%;
+                }    
+
+                p {
+                    font-size: clamp(0.5rem, 1vw, 0.9rem);
+                    font-weight: 500;
+                    padding: clamp(0.7rem, 1vw, 0.25rem) clamp(0.7rem, 1vw, 0.25rem);
+                    width: 100%;
+                }
+
+                h2 {
+                    font-size: clamp(0.5rem, 1vw, 0.9rem);
+                    font-weight: 300;
+                    padding: clamp(0.7rem, 1vw, 0.25rem) clamp(0.7rem, 1vw, 0.25rem);
+                    width: 20%;
+                }    
             }
         }
     
@@ -177,9 +250,17 @@
 
         .report {
             aspect-ratio: 16 / 9;
-            background-color: col.$bg9;
+            background-image: linear-gradient(to left, col.$bg6, col.$bg10);
             border-radius: clamp(0.25rem, 1vw, 0.5rem);
             width: clamp(17rem, 1vw, 10rem);
+
+            .cur {
+                font-size: clamp(1rem, 1vw, 1.5rem);
+                font-weight: 900;
+                padding: 0 clamp(0.5rem, 1vw, 1rem);
+                text-align: center;
+                width: 100%;
+            }
 
             .one {
                 @include mix.flex-direction(row);
@@ -187,7 +268,7 @@
                 padding: clamp(0.12rem, 1vw, 0.25rem);
 
                 i {
-                    color: col.$color4;
+                    color: col.$color6;
                     width: 30%;
 
                     &:hover {
@@ -196,8 +277,9 @@
                 }
 
                 h1 {
+                    //color: col.$color8;
                     font-size: clamp(0.25rem, 1vw, 1.5rem);
-                    font-weight: 200;
+                    font-weight: 700;
                     text-align: left;
                     width: 70%;
                 }
@@ -208,19 +290,18 @@
                 padding: clamp(0.12rem, 1vw, 0.25rem);
 
                 h2 {
-                    color: col.$color3;
-                    font-size: clamp(1.5rem, 1vw, 3rem);
-                    font-weight: 700;
-                    text-align: center;
-                    text-indent: 0.5rem;
+                    font-size: clamp(1rem, 1vw, 3rem);
+                    font-weight: 500;
+                    text-align: left;
+                    text-indent: 0.05rem;
                     width: 100%;
                 }
 
                 p {
-                    color: col.$color3;
+                    color: col.$color1;
                     font-size: clamp(1.5rem, 1vw, 3rem);
                     font-weight: 700;
-                    text-align: left;
+                    text-align: center;
                     width: 100%;
                 }
             }
@@ -230,20 +311,19 @@
                 padding: clamp(0.12rem, 1vw, 0.25rem);
 
                 h2 {
-                    color: col.$color3;
-                    font-size: clamp(1.5rem, 1vw, 3rem);
-                    font-weight: 700;
+                    font-size: clamp(1rem, 1vw, 3rem);
+                    font-weight: 500;
                     text-align: left;
-                    width: 50%;
+                    text-indent: 0.05rem;
+                    width: 100%;
                 }
 
                 p {
                     color: col.$color3;
                     font-size: clamp(1.5rem, 1vw, 3rem);
                     font-weight: 700;
-                    text-align: left;
-                    text-indent: 0.5rem;
-                    width: 50%;
+                    text-align: center;
+                    width: 100%;
                 }
             }
 
@@ -252,24 +332,24 @@
                 padding: clamp(0.12rem, 1vw, 0.25rem);
 
                 h2 {
-                    color: col.$color3;
-                    font-size: clamp(1.5rem, 1vw, 3rem);
-                    font-weight: 700;
+                    font-size: clamp(1rem, 1vw, 3rem);
+                    font-weight: 500;
                     text-align: left;
-                    width: 50%;
+                    text-indent: 0.05rem;
+                    width: 100%;
                 }
 
                 p {
-                    color: col.$color3;
+                    color: col.$color9;
                     font-size: clamp(1.5rem, 1vw, 3rem);
                     font-weight: 700;
-                    text-align: left;
-                    width: 50%;
+                    text-align: center;
+                    width: 100%;
                 }
             }
 
-            &:hover {
-                background-color: col.$bg9;
+            &:hover, p::after, h2::after {
+                background-image: linear-gradient(to right, col.$bg6, col.$bg12, col.$bg10);
                 color: col.$hover1;
             }
         }

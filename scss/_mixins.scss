@@ -1,4 +1,4 @@
-@use "variables" as variables;
+@use "variables" as var;
 
 // ========================================
 // SCSS MIXINS COLLECTION
@@ -143,15 +143,15 @@
 
 // Media Query Mixin
 @mixin media-style {
-    @if variables.$mw-mobile == 360px {
+    @if var.$mw-mobile == 360px {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         grid-template-rows: repeat(4, 1fr);
-    } @else if variables.$mw-tablet == 600px {
+    } @else if var.$mw-tablet == 600px {
         display: grid;
         grid-template-columns: repeat(8, 1fr);
         grid-template-rows: repeat(3, 1fr);
-    } @else if variables.$mw-desktop == 900px {
+    } @else if var.$mw-desktop == 900px {
         display: grid;
         grid-template-columns: repeat(8, 1fr);
         grid-template-rows: repeat(3, 1fr);
@@ -488,3 +488,341 @@ Example usage in your components:
     }
 }
 */ 
+
+// Background Variant Mixins and Functions
+
+// Function to get background variant value
+@function get-bg-variant($variant, $type: 'solid') {
+  @if map-has-key($bg-variants, $variant) {
+    $variant-map: map-get($bg-variants, $variant);
+    @if map-has-key($variant-map, $type) {
+      @return map-get($variant-map, $type);
+    }
+  }
+  @warn "Background variant '#{$variant}' with type '#{$type}' not found.";
+  @return null;
+}
+
+// Function to get gradient pattern
+@function get-gradient-pattern($pattern) {
+  @if map-has-key($gradient-patterns, $pattern) {
+    @return map-get($gradient-patterns, $pattern);
+  }
+  @warn "Gradient pattern '#{$pattern}' not found.";
+  @return null;
+}
+
+// Function to get background effect
+@function get-bg-effect($effect) {
+  @if map-has-key($bg-effects, $effect) {
+    @return map-get($bg-effects, $effect);
+  }
+  @warn "Background effect '#{$effect}' not found.";
+  @return null;
+}
+
+// Mixin for solid background variants
+@mixin bg-variant($variant, $type: 'solid') {
+  background: get-bg-variant($variant, $type);
+}
+
+// Mixin for gradient backgrounds
+@mixin bg-gradient($pattern) {
+  background: get-gradient-pattern($pattern);
+}
+
+// Mixin for background with effects
+@mixin bg-with-effect($bg-color, $effect) {
+  background: $bg-color;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: get-bg-effect($effect);
+    opacity: 0.1;
+    pointer-events: none;
+  }
+}
+
+// Mixin for animated backgrounds
+@mixin bg-animated($variant, $duration: 3s) {
+  background: get-bg-variant($variant, 'gradient');
+  background-size: 400% 400%;
+  animation: gradientShift $duration ease infinite;
+}
+
+// Mixin for glass morphism effect
+@mixin bg-glass($bg-color: rgba(255, 255, 255, 0.1), $blur: 10px) {
+  background: $bg-color;
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+// Mixin for background with overlay
+@mixin bg-overlay($bg-color, $overlay-color: rgba(0, 0, 0, 0.5)) {
+  background: $bg-color;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $overlay-color;
+    z-index: 1;
+  }
+  
+  > * {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+// Mixin for background with image
+@mixin bg-image($image-url, $size: 'cover', $position: 'center', $repeat: 'no-repeat') {
+  background-image: url($image-url);
+  background-size: map-get($bg-sizes, $size);
+  background-position: map-get($bg-positions, $position);
+  background-repeat: map-get($bg-repeats, $repeat);
+}
+
+// Mixin for responsive background
+@mixin bg-responsive($mobile-bg, $tablet-bg: null, $desktop-bg: null) {
+  background: $mobile-bg;
+  
+  @if $tablet-bg {
+    @media (min-width: $mw-tablet) {
+      background: $tablet-bg;
+    }
+  }
+  
+  @if $desktop-bg {
+    @media (min-width: $mw-desktop) {
+      background: $desktop-bg;
+    }
+  }
+}
+
+// Mixin for background with blend mode
+@mixin bg-blend($bg-color, $blend-mode: 'normal') {
+  background: $bg-color;
+  background-blend-mode: map-get($bg-blend-modes, $blend-mode);
+}
+
+// Mixin for background with attachment
+@mixin bg-attachment($attachment: 'scroll') {
+  background-attachment: map-get($bg-attachments, $attachment);
+}
+
+// Mixin for background with multiple layers
+@mixin bg-layered($layers...) {
+  background: $layers;
+}
+
+// Mixin for background with clip path
+@mixin bg-clip-path($clip-path) {
+  background-clip: $clip-path;
+  -webkit-background-clip: $clip-path;
+}
+
+// Mixin for background with mask
+@mixin bg-mask($mask-image) {
+  -webkit-mask-image: $mask-image;
+  mask-image: $mask-image;
+}
+
+// Mixin for background with filter
+@mixin bg-filter($filter) {
+  filter: $filter;
+  -webkit-filter: $filter;
+}
+
+// Mixin for background with transform
+@mixin bg-transform($transform) {
+  transform: $transform;
+  -webkit-transform: $transform;
+}
+
+// Mixin for background with transition
+@mixin bg-transition($property: 'background', $duration: 0.3s, $timing: ease) {
+  transition: $property $duration $timing;
+  -webkit-transition: $property $duration $timing;
+}
+
+// Mixin for background hover effects
+@mixin bg-hover($hover-bg, $transition: true) {
+  @if $transition {
+    @include bg-transition;
+  }
+  
+  &:hover {
+    background: $hover-bg;
+  }
+}
+
+// Mixin for background with focus states
+@mixin bg-focus($focus-bg, $transition: true) {
+  @if $transition {
+    @include bg-transition;
+  }
+  
+  &:focus {
+    background: $focus-bg;
+    outline: none;
+  }
+}
+
+// Mixin for background with active states
+@mixin bg-active($active-bg, $transition: true) {
+  @if $transition {
+    @include bg-transition;
+  }
+  
+  &:active {
+    background: $active-bg;
+  }
+}
+
+// Mixin for background with disabled states
+@mixin bg-disabled($disabled-bg: rgba(0, 0, 0, 0.1), $transition: true) {
+  @if $transition {
+    @include bg-transition;
+  }
+  
+  &:disabled {
+    background: $disabled-bg;
+    cursor: not-allowed;
+  }
+}
+
+// Mixin for background with loading states
+@mixin bg-loading($loading-bg: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%)) {
+  background: $loading-bg;
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+// Mixin for background with error states
+@mixin bg-error($error-bg: $bg3, $transition: true) {
+  @if $transition {
+    @include bg-transition;
+  }
+  
+  &.error {
+    background: $error-bg;
+  }
+}
+
+// Mixin for background with success states
+@mixin bg-success($success-bg: $bg4, $transition: true) {
+  @if $transition {
+    @include bg-transition;
+  }
+  
+  &.success {
+    background: $success-bg;
+  }
+}
+
+// Mixin for background with warning states
+@mixin bg-warning($warning-bg: #ff9800, $transition: true) {
+  @if $transition {
+    @include bg-transition;
+  }
+  
+  &.warning {
+    background: $warning-bg;
+  }
+}
+
+// Mixin for background with info states
+@mixin bg-info($info-bg: $bg1, $transition: true) {
+  @if $transition {
+    @include bg-transition;
+  }
+  
+  &.info {
+    background: $info-bg;
+  }
+}
+
+// Mixin for background with theme variants
+@mixin bg-theme($theme: 'light') {
+  @if $theme == 'light' {
+    background: $bg2;
+    color: $color1;
+  } @else if $theme == 'dark' {
+    background: $bg6;
+    color: $color2;
+  } @else if $theme == 'auto' {
+    @media (prefers-color-scheme: light) {
+      background: $bg2;
+      color: $color1;
+    }
+    @media (prefers-color-scheme: dark) {
+      background: $bg6;
+      color: $color2;
+    }
+  }
+}
+
+// Mixin for background with accessibility considerations
+@mixin bg-accessible($bg-color, $text-color: null) {
+  background: $bg-color;
+  
+  @if $text-color {
+    color: $text-color;
+  } @else {
+    // Auto-determine text color based on background brightness
+    $bg-lightness: lightness($bg-color);
+    @if $bg-lightness > 50% {
+      color: $color1; // Dark text on light background
+    } @else {
+      color: $color2; // Light text on dark background
+    }
+  }
+  
+  // Ensure sufficient contrast ratio
+  @supports (filter: contrast(1)) {
+    filter: contrast(1.1);
+  }
+}
+
+// Mixin for background with print styles
+@mixin bg-print($print-bg: white) {
+  @media print {
+    background: $print-bg !important;
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+// Mixin for background with reduced motion
+@mixin bg-reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+// Mixin for background with high contrast mode
+@mixin bg-high-contrast($high-contrast-bg: black, $high-contrast-color: white) {
+  @media (prefers-contrast: high) {
+    background: $high-contrast-bg !important;
+    color: $high-contrast-color !important;
+  }
+}
+
+// Mixin for background with forced colors mode
+@mixin bg-forced-colors {
+  @media (forced-colors: active) {
+    background: Canvas !important;
+    color: CanvasText !important;
+  }
+} 

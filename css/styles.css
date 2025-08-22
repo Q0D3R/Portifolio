@@ -376,6 +376,34 @@ Example usage in your components:
   color: #4658ff;
 }
 
+.star-rating {
+  display: flex;
+  flex-direction: row-reverse;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: clamp(0.3rem, 1vw, 0.6rem);
+  margin: clamp(0.3rem, 1vw, 0.6rem) clamp(1.1rem, 1vw, 2.2rem);
+  background-image: linear-gradient(to top, #202531, #353333);
+  /* Style for checked stars and stars to the left of a checked star */
+}
+.star-rating input {
+  display: none; /* Hide default radio buttons */
+}
+.star-rating label {
+  color: #FFFFFF; /* Default star color (unfilled) */
+  cursor: pointer;
+  font-size: 1em; /* Adjust star size */
+  padding: 0 5px;
+}
+.star-rating input:not(:checked) ~ label:hover,
+.star-rating input:not(:checked) ~ label:hover ~ label {
+  color: #ffc107; /* Color on hover */
+}
+.star-rating input[type=radio]:checked ~ label {
+  color: #ffc107; /* Color when checked */
+}
+
 .hamburger-menu {
   background: none;
   border: none;

@@ -489,7 +489,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #05502c;
+    color: #ffc107;
   }
   .container .nav .nav-user .user button:hover {
     background-image: linear-gradient(to bottom, #F5F5F5, #FF007F, #353333);

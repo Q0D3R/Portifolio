@@ -1,0 +1,181 @@
+@use "variables" as var;
+@use "colors" as col;
+@use "mixins" as mix;
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: url("images/bg.jpg") #030728 no-repeat center;
+}
+
+@media screen and (max-width: 768px) {}
+
+@media screen and (min-width: 768px) {
+
+    .container {
+        display: grid;
+        gap: clamp(0.12rem, 1vw, 0.25rem);
+        grid-template-areas: 'header' 'nav' 'main' 'widget' 'footer';
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto;
+        //grid-template-rows: clamp(2rem, 1vw, 4rem) clamp(3rem, 1vw, 6rem) auto clamp(3rem, 1vw, 6rem) clamp(3rem, 1vw, 6rem) clamp(2rem, 1vw, 4rem);
+        height: 100vh;
+    
+        .header {
+            @include mix.grid(center, center);
+            background-image: linear-gradient(to bottom, col.$bg2, col.$bg6);
+            color: #D6CFE0;
+            grid-area: header;
+            margin: auto;
+            padding: 10rem auto;
+        }
+    
+        .nav {
+            @include mix.grid(center, center);
+            background-image: linear-gradient(to bottom, col.$bg2, col.$bg6);
+            color: #D6CFE0;
+            grid-area: nav;
+            margin: auto;
+            padding: 10rem auto;
+        }
+    
+        .main {
+            @include mix.grid(center, center);
+            background-image: linear-gradient(to bottom, col.$bg2, col.$bg6);
+            color: #D6CFE0;
+            grid-area: main;
+            margin: auto;
+            padding: 10rem auto;
+        }
+    
+        .footer {
+            @include mix.grid(center, center);
+            background-image: linear-gradient(to bottom, col.$bg2, col.$bg6);
+            color: #D6CFE0;
+            grid-area: footer;
+            margin: auto;
+            padding: 10rem auto;
+        }
+    }
+
+}
+
+
+
+.footer-divide1 {
+    @include mix.flex-direction(column);
+    @include mix.flex-center;
+    border: 0.1rem solid col.$color1;
+    border-radius: 0;
+    margin: clamp(0.1rem, 1vw, 0.2rem);
+    width: 60%;
+
+    .footer-copyright {
+        @include mix.flex-direction(row);
+        @include mix.flex-center;
+        padding: clamp(0.01rem, 1vw, 0.02rem);
+        width: 100%;
+
+        p {
+            color: col.$color2;
+            font-size: clamp(0.5rem, 1vw, 1rem);
+            text-align: center;
+        
+            a {
+                color: col.$color2;
+                font-size: clamp(0.5rem, 1vw, 1rem);
+                padding: clamp(0.01rem, 1vw, 0.02rem);
+                text-decoration: none;
+
+                &:hover {
+                    color: col.$hover7;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .footer-statement {
+        @include mix.flex-direction(row);
+        @include mix.flex-center;
+        padding: clamp(0.1rem, 1vw, 0.2rem);
+        width: 100%;
+
+        p {
+            color: col.$color2;
+            font-size: clamp(0.5rem, 1vw, 1rem);
+            text-align: center;
+        
+            a {
+                color: col.$color2;
+                font-size: clamp(0.5rem, 1vw, 1rem);
+                padding: clamp(0.01rem, 1vw, 0.02rem);
+                text-decoration: none;
+
+                &:hover {
+                    color: col.$hover7;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    hr {
+        border: 0.12rem solid col.$color1;
+        margin: clamp(0.1rem, 1vw, 0.3rem);
+        width: 80%;
+    }
+}
+
+.footer-divide2 {
+    @include mix.flex-direction(column);
+    @include mix.flex-center;
+    border: 0.1rem solid col.$color1;
+    border-radius: 0 0 0.5rem 0;
+    margin: clamp(0.1rem, 1vw, 0.2rem);
+    width: 40%;
+
+    .footer-links {
+        @include mix.flex-direction(row);
+        @include mix.flex-center;
+
+        a {
+            color: col.$color2;
+            font-size: clamp(0.5rem, 1vw, 1rem);
+            padding: clamp(0.1rem, 1vw, 0.25rem);
+            text-decoration: none;
+
+            &:hover {
+                color: col.$hover7;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .footer-social {
+        @include mix.flex-direction(row);
+        @include mix.flex-center;
+
+        a {
+            color: col.$color2;
+            font-size: clamp(0.5rem, 1vw, 1rem);
+            padding: clamp(0.25rem, 1vw, 0.3rem);
+            text-decoration: none;
+
+            &:hover {
+                color: col.$hover7;
+                text-decoration: underline;
+            }
+        }
+    }
+}

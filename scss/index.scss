@@ -42,8 +42,8 @@ body {
         gap: 0.10rem;
         grid-template-areas: 'nav' 'header' 'main' 'footer';
         grid-template-columns: 1fr;
-        grid-template-rows: 4rem 6rem auto auto;
-        height: 100vh;
+        grid-template-rows: 4rem auto auto auto;
+        height: auto;
 
         nav {
             @include mix.flex-center;
@@ -167,19 +167,24 @@ body {
             @include mix.flex-center;
             @include mix.flex-direction(column);
             @include mix.glass-effect;
-            background-image: linear-gradient(360degr col.$bg2 60%, col.$bg5 100%);
+            // Animated background gradient
+            animation: header-bg-move 8s ease-in-out infinite;
+            background: linear-gradient(120deg, col.$bg13 0%, col.$bg5 100%);
+            background-size: 200% 200%;
             grid-area: header;
             margin: clamp(1vw, 1vw, 1.5vw);
             padding: clamp(1vh, 1vh, 1.5vh) clamp(1vw, 1vw, 1.5vw);
+            position: relative;
+            top: 1;
             width: 98vw;
             z-index: 98;
-
+            
             .hero-section {
                 @include mix.flex-center;
                 @include mix.flex-direction(column);
                 @include mix.glass-effect;
-                margin: clamp(1vw, 1vw, 1.5vw);
-                padding: 0 clamp(1vw, 1vw, 1.5vw);
+                margin: clamp(10vh, 1vw, 1.5vw) clamp(1vw, 1vw, 1.5vw);
+                padding: clamp(1vw, 1vw, 1.5vw);
 
                 .hero-section {
                     min-height: 60vh;
@@ -301,6 +306,7 @@ body {
             grid-area: main;
             margin: clamp(1vw, 1vw, 1.5vw);
             padding: 0 clamp(1vw, 1vw, 1.5vw);
+            position: relative;
             width: 98vw;
             z-index: 98;
 
@@ -359,15 +365,6 @@ body {
                         transform: translateY(-2px) scale(1.04);
                     }
                 }
-            }
-
-            .awards-section {
-                @include mix.flex-center;
-                @include mix.flex-direction(column);
-                @include mix.glass-effect;
-                background: linear-gradient(120deg, #1a1a2e 0%, #16213e 100%);
-                //min-height: 100vh;
-                padding: 4rem 2rem;
             }
 
             .awards-section {
@@ -490,6 +487,145 @@ body {
                 }
             }
 
+            .contact-section {
+                @include mix.flex-center;
+                @include mix.flex-direction(column);
+                @include mix.glass-effect;
+                background: linear-gradient(120deg, #1a1a2e 0%, #16213e 100%);
+                //min-height: 100vh;
+                padding: 4rem 2rem;
+
+                .contact-title {
+                    color: col.$color9;
+                    font-size: 2.2rem;
+                    font-weight: 700;
+                    margin-bottom: 1.2rem;
+                    text-align: center;
+                    letter-spacing: 0.04em;
+                    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
+                }
+
+                .contact-description {
+                    color: col.$color2;
+                    font-size: 1.1rem;
+                    font-weight: 400;
+                    margin-bottom: 2rem;
+                    text-align: center;
+                    max-width: 600px;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
+                .contact-form {
+                    @include mix.flex-direction(column);
+                    @include mix.flex-center;
+                    background: rgba(255,255,255,0.04);
+                    border-radius: 1.2rem;
+                    box-shadow: 0 2px 16px rgba(44, 62, 80, 0.10);
+                    padding: 2.5rem 2rem;
+                    max-width: 480px;
+                    width: 100%;
+                    margin: 0 auto 2.5rem auto;
+                    gap: 1.2rem;
+
+                    input,
+                    textarea {
+                        width: 100%;
+                        padding: 0.9rem 1.1rem;
+                        border-radius: 0.7rem;
+                        border: 1.5px solid col.$color7;
+                        background: rgba(255,255,255,0.10);
+                        color: col.$color2;
+                        font-size: 1rem;
+                        font-family: inherit;
+                        transition: border 0.2s, box-shadow 0.2s;
+
+                        &:focus {
+                            border: 1.5px solid col.$color9;
+                            outline: none;
+                            box-shadow: 0 0 0 2px rgba(col.$color9, 0.15);
+                        }
+                    }
+
+                    textarea {
+                        min-height: 120px;
+                        resize: vertical;
+                    }
+
+                    .form-row {
+                        display: flex;
+                        gap: 1rem;
+                        width: 100%;
+
+                        @media (max-width: 500px) {
+                            flex-direction: column;
+                            gap: 0.5rem;
+                        }
+                    }
+
+                    button,
+                    .contact-submit {
+                        @include mix.flex-center;
+                        background: linear-gradient(90deg, col.$color9 0%, col.$color7 100%);
+                        color: #fff;
+                        font-size: 1.1rem;
+                        font-weight: 600;
+                        border: none;
+                        border-radius: 0.7rem;
+                        padding: 0.85rem 2.2rem;
+                        margin-top: 0.5rem;
+                        cursor: pointer;
+                        box-shadow: 0 2px 8px rgba(44, 62, 80, 0.10);
+                        transition: background 0.2s, transform 0.2s;
+
+                        &:hover,
+                        &:focus {
+                            background: linear-gradient(90deg, col.$color7 0%, col.$color9 100%);
+                            transform: translateY(-2px) scale(1.04);
+                        }
+                    }
+                }
+
+                .contact-socials {
+                    @include mix.flex-center;
+                    gap: 1.2rem;
+                    margin-top: 1.5rem;
+
+                    a {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 2.5rem;
+                        height: 2.5rem;
+                        border-radius: 50%;
+                        background: rgba(255, 255, 255, 0.07);
+                        color: col.$color7;
+                        font-size: 1.3rem;
+                        transition: background 0.2s, color 0.2s, transform 0.2s;
+                        box-shadow: 0 1px 6px rgba(44, 62, 80, 0.10);
+
+                        &:hover,
+                        &:focus {
+                            background: col.$color7;
+                            color: #fff;
+                            transform: scale(1.08) translateY(-2px);
+                        }
+                    }
+                }
+
+                @media (max-width: 700px) {
+                    padding: 2.5rem 0.5rem;
+
+                    .contact-title {
+                        font-size: 1.5rem;
+                    }
+
+                    .contact-form {
+                        padding: 1.2rem 0.5rem;
+                    }
+                }
+            }
+
             .projects-section {
                 @include mix.flex-center;
                 @include mix.flex-direction(column);
@@ -497,6 +633,95 @@ body {
                 background: linear-gradient(120deg, #1a1a2e 0%, #16213e 100%);
                 min-height: 100vh;
                 padding: 4rem 2rem;
+            }
+
+            .experience-section {
+                @include mix.flex-center;
+                @include mix.flex-direction(column);
+                @include mix.glass-effect;
+                background: linear-gradient(120deg, #45576b 50%, #16213e 100%);
+                min-height: 100vh;
+                padding: 4rem 2rem;
+
+                .timeline {
+                    position: relative;
+                    margin: 2rem 0;
+                    padding-left: 2rem;
+                    border-left: 2px solid #e0e0e0;
+
+                    .timeline-item {
+                        @include mix.flex-start;
+                        position: relative;
+                        margin-bottom: 2.5rem;
+
+                        .timeline-icon {
+                            @include mix.flex-center;
+                            
+                            border-radius: 50%;
+                            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
+                            border: 3px solid #fff;
+                            color: col.$color9;
+                            font-size: 1.3rem;
+                            height: 2.5rem;
+                            left: -1.6rem;
+                            position: absolute;
+                            top: 0;
+                            width: 2.5rem;
+                            z-index: 1;
+                        }
+
+                        .timeline-content {
+                            background: col.$bg6;
+                            backdrop-filter: blur(2px);
+                            border-radius: 1rem;
+                            padding: 1.2rem 1.5rem 1.2rem 2.5rem;
+                            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+                            margin-left: 1.5rem;
+                            width: 100%;
+
+                            .timeline-title {
+                                margin: 0 0 0.2rem 0;
+                                font-size: 1.1rem;
+                                font-weight: 600;
+                                color: col.$color6;
+                            }
+
+                            .timeline-date {
+                                font-size: 0.9rem;
+                                color: #888;
+                                font-weight: 400;
+                                margin-bottom: 0.5rem;
+                                display: block;
+                            }
+
+                            .timeline-org {
+                                display: inline-block;
+                                margin-top: 0.7rem;
+                                font-size: 0.95rem;
+                                color: #61dafb;
+                                font-weight: 500;
+                                letter-spacing: 0.03em;
+                            }
+                        }
+                    }
+
+                    @media (max-width: 600px) {
+                        .timeline {
+                            padding-left: 0.5rem;
+                        }
+
+                        .timeline-content {
+                            padding: 1rem 1rem 1rem 2.2rem;
+                        }
+
+                        .timeline-icon {
+                            width: 2rem;
+                            height: 2rem;
+                            font-size: 1rem;
+                            left: -1.1rem;
+                        }
+                    }
+                }
             }
 
             .skills-section {
@@ -704,6 +929,7 @@ body {
             grid-area: footer;
             margin: clamp(1vh, 1vh, 1.5vh) clamp(1vw, 1vw, 1.5vw);
             padding: 0 clamp(1vw, 1vw, 1.5vw);
+            position: relative;
             width: 98vw;
             z-index: 98;
 
@@ -790,10 +1016,10 @@ body {
                     @include mix.glass-effect;
                     margin-bottom: 0.5rem;
                     text-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
-                    width: 57.6vw;
+                    width: 70.6vw;
 
                     p {
-                        color: col.$color6;
+                        color: col.$color2;
                         font-size: 0.5rem;
                         font-weight: 300;
                         letter-spacing: 0.08em;
@@ -801,10 +1027,9 @@ body {
                 }
 
                 .footer-copy {
-                    @include mix.flex-center;
                     @include mix.flex-direction(column);
                     @include mix.glass-effect;
-                    color: #bdbdbd;
+                    color: col.$color2;
                     font-size: 0.75rem;
                     font-weight: 200;
                     letter-spacing: 0.03em;

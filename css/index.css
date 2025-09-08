@@ -65,8 +65,8 @@ body {
     gap: 0.1rem;
     grid-template-areas: "nav" "header" "main" "footer";
     grid-template-columns: 1fr;
-    grid-template-rows: 4rem 6rem auto auto;
-    height: 100vh;
+    grid-template-rows: 4rem auto auto auto;
+    height: auto;
   }
   .layout nav {
     display: flex;
@@ -189,10 +189,14 @@ body {
     backdrop-filter: blur(10px);
     border: 2px solid RGBA(255, 255, 255, 0.18);
     box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
-    background-image: linear-gradient(360degr #F5F5F5 60%, #800080 100%);
+    animation: header-bg-move 8s ease-in-out infinite;
+    background: linear-gradient(120deg, rgba(136, 204, 136, 0.9333333333) 0%, #800080 100%);
+    background-size: 200% 200%;
     grid-area: header;
     margin: 1vw;
     padding: 1vh 1vw;
+    position: relative;
+    top: 1;
     width: 98vw;
     z-index: 98;
   }
@@ -205,8 +209,8 @@ body {
     backdrop-filter: blur(10px);
     border: 2px solid RGBA(255, 255, 255, 0.18);
     box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
-    margin: 1vw;
-    padding: 0 1vw;
+    margin: clamp(10vh, 1vw, 1.5vw) 1vw;
+    padding: 1vw;
   }
   .layout header .hero-section .hero-section {
     min-height: 60vh;
@@ -328,6 +332,7 @@ body {
     grid-area: main;
     margin: 1vw;
     padding: 0 1vw;
+    position: relative;
     width: 98vw;
     z-index: 98;
   }
@@ -385,18 +390,6 @@ body {
   .layout main .about-section .btn:hover, .layout main .about-section .btn:focus {
     background: linear-gradient(90deg, #1E90FF 0%, #1eff83 100%);
     transform: translateY(-2px) scale(1.04);
-  }
-  .layout main .awards-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    backdrop-filter: blur(10px);
-    border: 2px solid RGBA(255, 255, 255, 0.18);
-    box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
-    background: linear-gradient(120deg, #1a1a2e 0%, #16213e 100%);
-    padding: 4rem 2rem;
   }
   .layout main .awards-section {
     display: flex;
@@ -520,6 +513,148 @@ body {
   }
 }
 @media screen and (min-width: 180px) {
+  .layout main .contact-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(10px);
+    border: 2px solid RGBA(255, 255, 255, 0.18);
+    box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
+    background: linear-gradient(120deg, #1a1a2e 0%, #16213e 100%);
+    padding: 4rem 2rem;
+  }
+  .layout main .contact-section .contact-title {
+    color: #ffc107;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    text-align: center;
+    letter-spacing: 0.04em;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  }
+  .layout main .contact-section .contact-description {
+    color: #FFFFFF;
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    text-align: center;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .layout main .contact-section .contact-form {
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 1.2rem;
+    box-shadow: 0 2px 16px rgba(44, 62, 80, 0.1);
+    padding: 2.5rem 2rem;
+    max-width: 480px;
+    width: 100%;
+    margin: 0 auto 2.5rem auto;
+    gap: 1.2rem;
+  }
+  .layout main .contact-section .contact-form input,
+  .layout main .contact-section .contact-form textarea {
+    width: 100%;
+    padding: 0.9rem 1.1rem;
+    border-radius: 0.7rem;
+    border: 1.5px solid #1eff83;
+    background: rgba(255, 255, 255, 0.1);
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border 0.2s, box-shadow 0.2s;
+  }
+  .layout main .contact-section .contact-form input:focus,
+  .layout main .contact-section .contact-form textarea:focus {
+    border: 1.5px solid #ffc107;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 193, 7, 0.15);
+  }
+  .layout main .contact-section .contact-form textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+  .layout main .contact-section .contact-form .form-row {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+  }
+}
+@media screen and (min-width: 180px) and (max-width: 500px) {
+  .layout main .contact-section .contact-form .form-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+@media screen and (min-width: 180px) {
+  .layout main .contact-section .contact-form button,
+  .layout main .contact-section .contact-form .contact-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, #ffc107 0%, #1eff83 100%);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.7rem;
+    padding: 0.85rem 2.2rem;
+    margin-top: 0.5rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.1);
+    transition: background 0.2s, transform 0.2s;
+  }
+  .layout main .contact-section .contact-form button:hover, .layout main .contact-section .contact-form button:focus,
+  .layout main .contact-section .contact-form .contact-submit:hover,
+  .layout main .contact-section .contact-form .contact-submit:focus {
+    background: linear-gradient(90deg, #1eff83 0%, #ffc107 100%);
+    transform: translateY(-2px) scale(1.04);
+  }
+  .layout main .contact-section .contact-socials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+  }
+  .layout main .contact-section .contact-socials a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.07);
+    color: #1eff83;
+    font-size: 1.3rem;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    box-shadow: 0 1px 6px rgba(44, 62, 80, 0.1);
+  }
+  .layout main .contact-section .contact-socials a:hover, .layout main .contact-section .contact-socials a:focus {
+    background: #1eff83;
+    color: #fff;
+    transform: scale(1.08) translateY(-2px);
+  }
+}
+@media screen and (min-width: 180px) and (max-width: 700px) {
+  .layout main .contact-section {
+    padding: 2.5rem 0.5rem;
+  }
+  .layout main .contact-section .contact-title {
+    font-size: 1.5rem;
+  }
+  .layout main .contact-section .contact-form {
+    padding: 1.2rem 0.5rem;
+  }
+}
+@media screen and (min-width: 180px) {
   .layout main .projects-section {
     display: flex;
     align-items: center;
@@ -533,6 +668,94 @@ body {
     min-height: 100vh;
     padding: 4rem 2rem;
   }
+  .layout main .experience-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(10px);
+    border: 2px solid RGBA(255, 255, 255, 0.18);
+    box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
+    background: linear-gradient(120deg, #45576b 50%, #16213e 100%);
+    min-height: 100vh;
+    padding: 4rem 2rem;
+  }
+  .layout main .experience-section .timeline {
+    position: relative;
+    margin: 2rem 0;
+    padding-left: 2rem;
+    border-left: 2px solid #e0e0e0;
+  }
+  .layout main .experience-section .timeline .timeline-item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    margin-bottom: 2.5rem;
+  }
+  .layout main .experience-section .timeline .timeline-item .timeline-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    border: 3px solid #fff;
+    color: #ffc107;
+    font-size: 1.3rem;
+    height: 2.5rem;
+    left: -1.6rem;
+    position: absolute;
+    top: 0;
+    width: 2.5rem;
+    z-index: 1;
+  }
+  .layout main .experience-section .timeline .timeline-item .timeline-content {
+    background: #202531;
+    backdrop-filter: blur(2px);
+    border-radius: 1rem;
+    padding: 1.2rem 1.5rem 1.2rem 2.5rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    margin-left: 1.5rem;
+    width: 100%;
+  }
+  .layout main .experience-section .timeline .timeline-item .timeline-content .timeline-title {
+    margin: 0 0 0.2rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1E90FF;
+  }
+  .layout main .experience-section .timeline .timeline-item .timeline-content .timeline-date {
+    font-size: 0.9rem;
+    color: #888;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  .layout main .experience-section .timeline .timeline-item .timeline-content .timeline-org {
+    display: inline-block;
+    margin-top: 0.7rem;
+    font-size: 0.95rem;
+    color: #61dafb;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+  }
+}
+@media screen and (min-width: 180px) and (max-width: 600px) {
+  .layout main .experience-section .timeline .timeline {
+    padding-left: 0.5rem;
+  }
+  .layout main .experience-section .timeline .timeline-content {
+    padding: 1rem 1rem 1rem 2.2rem;
+  }
+  .layout main .experience-section .timeline .timeline-icon {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+    left: -1.1rem;
+  }
+}
+@media screen and (min-width: 180px) {
   .layout main .skills-section {
     display: flex;
     align-items: center;
@@ -720,6 +943,7 @@ body {
     grid-area: footer;
     margin: 1vh 1vw;
     padding: 0 1vw;
+    position: relative;
     width: 98vw;
     z-index: 98;
   }
@@ -818,24 +1042,21 @@ body {
     box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
     margin-bottom: 0.5rem;
     text-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
-    width: 57.6vw;
+    width: 70.6vw;
   }
   .layout footer .footer-content .footer-statement p {
-    color: #1E90FF;
+    color: #FFFFFF;
     font-size: 0.5rem;
     font-weight: 300;
     letter-spacing: 0.08em;
   }
   .layout footer .footer-content .footer-copy {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    display: flex;
     flex-direction: column;
     backdrop-filter: blur(10px);
     border: 2px solid RGBA(255, 255, 255, 0.18);
     box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
-    color: #bdbdbd;
+    color: #FFFFFF;
     font-size: 0.75rem;
     font-weight: 200;
     letter-spacing: 0.03em;

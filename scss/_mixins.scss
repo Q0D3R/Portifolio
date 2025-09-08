@@ -17,6 +17,11 @@
     transform: translate(-50%, -50%);
 }
 
+// Display
+@mixin display($display) {
+  display: $display;
+}
+
 // Flexbox Center
 @mixin flex-center {
     display: flex;

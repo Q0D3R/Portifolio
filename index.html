@@ -1,234 +1,366 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slideshow with Floating Thumbnails</title>
-    <link rel="stylesheet" href="css/grid.css">
-    <link rel="stylesheet" href="css/dashboard.css" />
-    <link rel="stylesheet" href="css/grip.css" />
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" />
-</head>
-<body class="parent">
-    <header class="header">
-        <section class="portfolio-header" tabindex="0">
-            <h1>Welcome to my Portfolio</h1>
-            <p>
-              Hi, I'm Mlambo Dakarai Kushata. Driven by curiosity and a love for coding, I build 
-              modern and responsive websites, and mobile and desktop applications that engage 
-              users. Explore my projects and skills in detail!
-            </p>
-            <button>More...</button>
-          </div>
-          </div>        
-        </section>
-        <div class="">
-
-        </div>
-    </header>
-    <nav class="nav">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <img src="img/logo/Kush-black.png" alt="Logo" class="nav-logo-img" loading="lazy">
-            </div>
-            <div class="nav-links">
-                <a href="#"><i class="fas fa-home"></i>Home</a>
-                <a href="#"><i class="fas fa-user"></i>About</a>
-                <a href="#"><i class="fas fa-envelope"></i>Contact</a>
-                <a href="#"><i class="fas fa-shopping-cart"></i>Products</a>
-                <a href="#"><i class="fas fa-blog"></i>Blog</a>
-                <a href="#"><i class="fas fa-cog"></i>Services</a>
-                <a href="#"><i class="fas fa-heart"></i>Favorites</a>
-                <a href="#"><i class="fas fa-bell"></i>Notifications</a>
-                <a href="#"><i class="fas fa-cog"></i>Settings</a>
-                <div class="dropdown">
-                    <a href="#" class="dropbtn">Account</a>
-                    <div class="dropdown-content">                        
-                        <a href="#"><i class="fas fa-sign-in-alt"></i>Sign In</a>
-                        <a href="#"><i class="fas fa-sign-out-alt"></i>Sign Out</a>
-                    </div>
-                  </div>                    
-                </div>
-            </div>
-            <div class="nav-social">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-            </div>
-            <div class="nav-contact">
-                <a href="#">Contact</a>
-                <a href="#">Services</a>
-                <a href="#">Products</a>
-                <a href="#">Blog</a>
-            </div>
-            <div class="nav-search">
-                <input type="text" placeholder="Search">
-                <button><i class="fas fa-search"></i></button>
-                <button><i class="fas fa-bars"></i></button>
-                <button><i class="fas fa-times"></i></button>
-                <button><i class="fas fa-user"></i></button>
-                <button><i class="fas fa-shopping-cart"></i></button>
-                <button><i class="fas fa-heart"></i></button>
-                <button><i class="fas fa-bell"></i></button>
-                <button><i class="fas fa-cog"></i></button>
-                <button><i class="fas fa-sign-out-alt"></i></button>
-                <button><i class="fas fa-sign-in-alt"></i></button>
-            </div>
-        </div>
-    </nav>
-    <main class="main">
-        <div class="main-container">
-
-        </div>
-        <section class="slider">
-            <div class="card-list swiper-wrapper">
-              <div class="card-item swiper-slide">
-                <img src="img/logo/Developer.jpg" alt="User Image" class="user-image">
-                <h2 class="user-name">Mlambo Dakarai Kushata</h2>
-                <p class="user-profession">Web Developer</p>
-                <button class="message-button">Get more</button>
-              </div>
-              <div class="card-item swiper-slide">
-                <img src="img/logo/Developer.jpg" alt="User Image" class="user-image">
-                <h2 class="user-name">Mlambo Dakarai Kushata</h2>
-                <p class="user-profession">Graphic Designer</p>
-                <button class="message-button">Get more</button>
-              </div>
-              <div class="card-item swiper-slide">
-                <img src="img/logo/Developer.jpg" alt="User Image" class="user-image">
-                <h2 class="user-name">Mlambo Dakarai Kushata</h2>
-                <p class="user-profession">Software Developer</p>
-                <button class="message-button">Get more</button>
-              </div>
-              <div class="card-item swiper-slide">
-                <img src="img/logo/Developer.jpg" alt="User Image" class="user-image">
-                <h2 class="user-name">Mlambo Dakarai Kushata</h2>
-                <p class="user-profession">IT Officer</p>
-                <button class="message-button">Get more</button>
-              </div>
-              <div class="card-item swiper-slide">
-                <img src="img/logo/Developer.jpg" alt="User Image" class="user-image">
-                <h2 class="user-name">Mlambo Dakarai Kushata</h2>
-                <p class="user-profession">Sports Director(Deputy)</p>
-                <button class="message-button">Get more</button>
-              </div>
-              <div class="card-item swiper-slide">
-                <img src="img/logo/Developer.jpg" alt="User Image" class="user-image">
-                <h2 class="user-name">Mlambo Dakarai Kushata</h2>
-                <p class="user-profession">Caregiver</p>
-                <button class="message-button">Get more</button>
-              </div>
-            </div>
-      
-            <div class="swiper-pagination"></div>
-            <div class="swiper-slide-button swiper-button-prev"></div>
-            <div class="swiper-slide-button swiper-button-next"></div>
-          </section>
-    </main>
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-content">
-                <div class="footer-profile">
-                    <img src="img/logo/Kush-black.png" alt="Logo" class="img" loading="lazy">
-                    <div class="">
-
-                    </div>
-                </div>
-                <div class="footer-qlinks">
-                    <a href="#">Home</a>
-                    <a href="#">Projects</a>
-                    <a href="#">Service</a>
-                    <a href="#">Contact</a>
-                    <a href="#">About</a>
-                </div>
-                <div class="footer-gallery">
-                    <img src="" loading="lazy">
-                    <img src="" loading="lazy">
-                    <img src="" loading="lazy">
-                    <img src="" loading="lazy">
-                </div>
-                <div class="footer-contact">
-                    <form>
-                        <input type="text"/>
-                        <input type="text"/>
-                        <textarea>
-
-                        </textarea>
-                    </form>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="footer-copyright">
-                    <p>&copy; 2013-25 <a href="#">Kush Systems</a>. All rights reserved.</p>
-                </div>
-                <div class="footer-links">
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Cookie Policy</a>
-                </div>
-                <div class="footer-social">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-tiktok"></i></a>
-                    <a href="#"><i class="fab fa-discord"></i></a>
-                    <a href="#"><i class="fab fa-telegram"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
-</body>
-</html> 
-
-
-<!DOCTYPE html>
 <html>
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Magic Menu Indicator</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Dev | Portifolio</title>
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" />
 </head>
 
-<body>
-  <div class="navigation">
-    <ul>
-      <li class="list active">
-        <a href="#"><span class="icon"><ion-icon name="home-outline"></ion-icon></span>
-          <span class="text">Home</span>
-        </a>
-      </li>
-      <li class="list">
-        <a href="#"><span class="icon"><ion-icon name="person-outline"></ion-icon></span>
-          <span class="text">Profile</span>
-        </a>
-      </li>
-      <li class="list">
-        <a href="#"><span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
-          <span class="text">Massage</span>
-        </a>
-      </li>
-      <li class="list">
-        <a href="#"><span class="icon"><ion-icon name="camera-outline"></ion-icon></span>
-          <span class="text">Camera</span>
-        </a>
-      </li>
-      <li class="list">
-        <a href="#"><span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
-          <span class="text">Settings</span>
-        </a>
-      </li>
-      <div class="indicator">
-
+<body class="layout">
+  <nav>
+    <div class=" navigation">
+      <div class="logo"">
+        <img src=" img/logo/Kush-bg.png" alt="logo">
       </div>
-    </ul>
-  </div>
+      <ul>
+        <li class="list active">
+          <a href="#"><span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+            <span class="text">Home</span>
+          </a>
+        </li>
+        <li class="list">
+          <a href="#"><span class="icon"><ion-icon name="briefcase-outline"></ion-icon></span>
+            <span class="text">Projects</span>
+          </a>
+        </li>
+        <li class="list">
+          <a href="#"><span class="icon"><ion-icon name="flask-outline"></ion-icon></span>
+            <span class="text">Skills</span>
+          </a>
+        </li>
+        <li class="list">
+          <a href="#"><span class="icon"><ion-icon name="ribbon-outline"></ion-icon></span>
+            <span class="text">Awards</span>
+          </a>
+        </li>
+        <li class="list">
+          <a href="#"><span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
+            <span class="text">Contact</span>
+          </a>
+        </li>
+        <div class="indicator">
+
+        </div>
+      </ul>
+      <ul>
+        <li class="list">
+          <a href="#"><span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+            <span class="text">Account</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <header>
+    <section class="hero-section reveal-on-scroll">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title">Hi, I'm <span class="highlight">Dakarai Mlambo Kushata</span></h1>
+          <p class="hero-subtitle">A passionate <span class="highlight">Software and Web Developer, and Graphic
+              Designer</span> crafting modern,
+            responsive, and interactive websites.</p>
+          <a href="#projects" class="btn">View My Work</a>
+        </div>
+        <div class="hero-image">
+          <img src="https://avatars.githubusercontent.com/u/9919?s=200&v=4" alt="Web Developer Avatar" loading="lazy"
+            style="border-radius:50%;max-width:180px;">
+        </div>
+      </div>
+    </section>
+  </header>
+  <main>
+    <section class="awards-section reveal-on-scroll" id="awards">
+      <h2 class="section-title">Featured Achievements</h2>
+      <div class="grid awards-list">
+        <div class="card reveal-on-scroll">
+          <div class="award-icon">
+            <ion-icon name="trophy-outline" style="color:#e94560;"></ion-icon>
+          </div>
+          <div class="award-content">
+            <h3 class="award-title">Winner - Hackathon 2023</h3>
+            <p class="award-desc">Led a team to victory in a 48-hour coding marathon, building an AI-powered
+              productivity app recognized for innovation and usability.</p>
+            <span class="award-meta">Tech Innovators Hackathon &bull; 2023</span>
+          </div>
+        </div>
+        <div class="card reveal-on-scroll">
+          <div class="award-icon">
+            <ion-icon name="medal-outline" style="color:#286ec4;"></ion-icon>
+          </div>
+          <div class="award-content">
+            <h3 class="award-title">Certified Web Developer</h3>
+            <p class="award-desc">Achieved professional certification in Full Stack Web Development, demonstrating
+              advanced skills in modern web technologies.</p>
+            <span class="award-meta">FreeCodeCamp &bull; 2022</span>
+          </div>
+        </div>
+        <div class="card reveal-on-scroll">
+          <div class="award-icon">
+            <ion-icon name="star-outline" style="color:#ffd700;"></ion-icon>
+          </div>
+          <div class="award-content">
+            <h3 class="award-title">Open Source Contributor</h3>
+            <p class="award-desc">Contributed to several high-impact open source projects, including bug fixes, feature
+              development, and documentation improvements.</p>
+            <span class="award-meta">GitHub &bull; 2021 - Present</span>
+          </div>
+        </div>
+        <div class="card reveal-on-scroll">
+          <div class="award-icon">
+            <ion-icon name="school-outline" style="color:#43e97b;"></ion-icon>
+          </div>
+          <div class="award-content">
+            <h3 class="award-title">Dean's List</h3>
+            <p class="award-desc">Recognized for outstanding academic performance in Computer Science, maintaining a GPA
+              of 3.9+ throughout studies.</p>
+            <span class="award-meta">University of Technology &bull; 2020-2023</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects-section reveal-on-scroll" id="projects">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="grid">
+        <div class="card reveal-on-scroll">
+          <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80"
+            alt="Project 1" class="card-img" loading="lazy">
+          <div class="card-content">
+            <h3 class="card-title">ChampCheck Website</h3>
+            <p class="card-desc">A sleek, animated portfolio to showcase my work and skills, built with HTML5, CSS3, and
+              JavaScript.</p>
+            <div class="card-tags">
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Php</span>
+            </div>
+          </div>
+        </div>
+        <div class="card reveal-on-scroll">
+          <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80"
+            alt="Project 1" class="card-img" loading="lazy">
+          <div class="card-content">
+            <h3 class="card-title">Portfolio Website</h3>
+            <p class="card-desc">A sleek, animated portfolio to showcase my work and skills, built with HTML5, CSS3, and
+              JavaScript.</p>
+            <div class="card-tags">
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">JavaScript</span>
+            </div>
+          </div>
+        </div>
+        <div class="card reveal-on-scroll">
+          <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80"
+            alt="Project 2" class="card-img" loading="lazy">
+          <div class="card-content">
+            <h3 class="card-title">E-Commerce UI</h3>
+            <p class="card-desc">A modern, responsive e-commerce front-end with smooth animations and a user-friendly
+              interface.</p>
+            <div class="card-tags">
+              <span class="tag">React</span>
+              <span class="tag">Sass</span>
+              <span class="tag">UI/UX</span>
+            </div>
+          </div>
+        </div>
+        <div class="card reveal-on-scroll">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+            alt="Project 3" class="card-img" loading="lazy">
+          <div class="card-content">
+            <h3 class="card-title">Blog Platform</h3>
+            <p class="card-desc">A fast and accessible blog platform with markdown support and a beautiful reading
+              experience.</p>
+            <div class="card-tags">
+              <span class="tag">Node.js</span>
+              <span class="tag">Express</span>
+              <span class="tag">MongoDB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="skills-section reveal-on-scroll" id="skills">
+      <div class="skills-intro">
+        <p>
+          As a passionate developer, I thrive on building modern, performant,
+          and accessible web applications. My skill set spans both front-end
+          and back-end technologies, enabling me to deliver seamless user
+          experiences and robust solutions.
+        </p>
+      </div>
+      <h2 class="section-title">Skills</h2>
+      <div class="grid">
+        <div class="card reveal-on-scroll">
+          <div class="card">
+            <i class="fab fa-html5 skill-icon" style="color:#e44d26"></i>
+            <h3 class="card-title">HTML5</h3>
+            <p class="card-desc">Semantic, accessible markup and modern web standards.</p>
+          </div>
+        </div>
+        <div class="card reveal-on-scroll">
+          <div class="card-content">
+            <i class="fab fa-css3-alt skill-icon" style="color:#1572b6"></i>
+            <h3 class="card-title">CSS3 / Sass</h3>
+            <p class="card-desc">Responsive layouts, animations, and maintainable stylesheets.</p>
+          </div>
+        </div>
+        <div class="card reveal-on-scroll">
+          <div class="card">
+            <i class="fab fa-js-square skill-icon" style="color:#f7df1e"></i>
+            <h3 class="skill-title">JavaScript</h3>
+            <p class="skill-desc">ES6+, DOM manipulation, and interactive UI development.</p>
+          </div>
+        </div>
+        <div class="card reveal-on-scroll">
+          <div class="card">
+            <i class="fab fa-react skill-icon" style="color:#61dafb"></i>
+            <h3 class="skill-title">React</h3>
+            <p class="skill-desc">Component-based architecture and state management.</p>
+          </div>
+        </div>
+        <div class="card reveal-on-scroll">
+          <div class="card">
+            <i class="fab fa-node-js skill-icon" style="color:#68a063"></i>
+            <h3 class="skill-title">Node.js</h3>
+            <p class="skill-desc">Backend APIs, Express, and RESTful services.</p>
+          </div>
+        </div>
+        <div class="card reveal-on-scroll">
+          <div class="card">
+            <i class="fas fa-database skill-icon" style="color:#4db33d"></i>
+            <h3 class="skill-title">MongoDB</h3>
+            <p class="skill-desc">NoSQL databases and data modeling for web apps.</p>
+          </div>
+        </div>
+        <div class="card reveal-on-scroll">
+          <div class="card">
+            <i class="fab fa-git-alt skill-icon" style="color:#f34f29"></i>
+            <h3 class="skill-title">Git</h3>
+            <p class="skill-desc">Version control, collaboration, and workflow management.</p>
+          </div>
+        </div>
+        <div class="card reveal-on-scroll">
+          <div class="card">
+            <i class="fas fa-paint-brush skill-icon" style="color:#e94560"></i>
+            <h3 class="skill-title">UI/UX Design</h3>
+            <p class="skill-desc">Wireframing, prototyping, and user-centered design.</p>
+          </div>
+        </div>
+        <div class="card reveal-on-scroll">
+
+        </div>
+        <div class="card reveal-on-scroll">
+
+        </div>
+        <div class="card reveal-on-scroll">
+
+        </div>
+      </div>
+      </div>
+    </section>
+    <section id="projects" class="portfolio-section reveal-on-scroll">
+
+
+
+    </section>
+    <section class="about-section reveal-on-scroll">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <p class="about-text">
+          I'm Mlambo Dakarai Kushata, a web developer with a love for clean code, creative design, and seamless user
+          experiences. I
+          specialize in building responsive, accessible, and performant web applications. When I'm not coding, you can
+          find me exploring new tech, hiking, or playing guitar.
+        </p>
+        <a href="#contact" class="btn">Get in Touch</a>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section reveal-on-scroll">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <form class="contact-form" autocomplete="off">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+        <div class="contact-social">
+          <a href="https://github.com/" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="mailto:alex@example.com" title="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="contact-social">
+        <a href="#"><span class="icon"><ion-icon name="logo-facebook"></ion-icon></span></a>
+        <a href="#"><span class="icon"><ion-icon name="logo-instagram"></ion-icon></span></a>
+        <a href="#"><span class="icon"><ion-icon name="logo-linkedin"></ion-icon></span></a>
+        <a href="#"><span class="icon"><ion-icon name="logo-github"></ion-icon></span></a>
+        <a href="#"><span class="icon"><ion-icon name="logo-tiktok"></ion-icon></span></a>
+        <a href="#"><span class="icon"><ion-icon name="logo-whatsapp"></ion-icon></span></a>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-content">
+      <div class="row">
+        <div class="footer-logo">
+
+        </div>
+        <div class="footer-statement">
+          <p>
+            Kush Systems, Inc.® is a small organisation founded and established 
+            by Mlambo Dakarai Kushata, a software and web developer, graphic 
+            designer, coach of various sporting disciplines and a former tutor. 
+            Kush Systems name is used for the brand name. In Harare, Kush Systems, 
+            operates in various economic sectors.
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="footer-copy">
+          <p>Copyright &copy; 2013-25 Kush Systems. All rights reserved.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#">Home</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Privacy Policy</a>
+          <a href="#about">About</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Reveal on scroll animation
+    function revealOnScroll() {
+      const reveals = document.querySelectorAll('.reveal-on-scroll');
+      const windowHeight = window.innerHeight;
+      reveals.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < windowHeight - 80) {
+          el.classList.add('is-visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('DOMContentLoaded', revealOnScroll);
+
+    // Contact form (demo only)
+    document.querySelector('.contact-form')?.addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('Thank you for reaching out! I will get back to you soon.');
+      this.reset();
+    });
+  </script>
+  <!-- Font Awesome for social icons (CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </body>
 <script>
   const list = document.querySelectorAll('.list');

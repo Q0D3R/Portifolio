@@ -1,0 +1,198 @@
+/*
+Example usage in your components:
+
+.button {
+    @include custom-button(#1E90FF, white);
+}
+
+.card {
+    @include card-base;
+    @include flex-center;
+}
+
+.responsive-text {
+    @include responsive-font(16px, 24px);
+}
+
+.glass-card {
+    @include glass-effect;
+    @include card-base;
+}
+
+@media (max-width: 768px) {
+    .mobile-only {
+        @include hide;
+    }
+}
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: url("images/bg.jpg") #030728 no-repeat center;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    display: grid;
+    gap: clamp(0.12rem, 1vw, 0.25rem);
+    grid-template-areas: "header" "nav" "main" "widget" "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    height: 100vh;
+  }
+  .container .header {
+    display: grid;
+    place-items: center;
+    background-image: linear-gradient(to bottom, #F5F5F5, #202531);
+    color: #D6CFE0;
+    grid-area: header;
+    margin: auto;
+    padding: 10rem auto;
+  }
+  .container .nav {
+    display: grid;
+    place-items: center;
+    background-image: linear-gradient(to bottom, #F5F5F5, #202531);
+    color: #D6CFE0;
+    grid-area: nav;
+    margin: auto;
+    padding: 10rem auto;
+  }
+  .container .main {
+    display: grid;
+    place-items: center;
+    background-image: linear-gradient(to bottom, #F5F5F5, #202531);
+    color: #D6CFE0;
+    grid-area: main;
+    margin: auto;
+    padding: 10rem auto;
+  }
+  .container .footer {
+    display: grid;
+    place-items: center;
+    background-image: linear-gradient(to bottom, #F5F5F5, #202531);
+    color: #D6CFE0;
+    grid-area: footer;
+    margin: auto;
+    padding: 10rem auto;
+  }
+}
+.footer-divide1 {
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.1rem solid #121212;
+  border-radius: 0;
+  margin: clamp(0.1rem, 1vw, 0.2rem);
+  width: 60%;
+}
+.footer-divide1 .footer-copyright {
+  display: flex;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(0.01rem, 1vw, 0.02rem);
+  width: 100%;
+}
+.footer-divide1 .footer-copyright p {
+  color: #FFFFFF;
+  font-size: clamp(0.5rem, 1vw, 1rem);
+  text-align: center;
+}
+.footer-divide1 .footer-copyright p a {
+  color: #FFFFFF;
+  font-size: clamp(0.5rem, 1vw, 1rem);
+  padding: clamp(0.01rem, 1vw, 0.02rem);
+  text-decoration: none;
+}
+.footer-divide1 .footer-copyright p a:hover {
+  color: #1E90FF;
+  text-decoration: underline;
+}
+.footer-divide1 .footer-statement {
+  display: flex;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(0.1rem, 1vw, 0.2rem);
+  width: 100%;
+}
+.footer-divide1 .footer-statement p {
+  color: #FFFFFF;
+  font-size: clamp(0.5rem, 1vw, 1rem);
+  text-align: center;
+}
+.footer-divide1 .footer-statement p a {
+  color: #FFFFFF;
+  font-size: clamp(0.5rem, 1vw, 1rem);
+  padding: clamp(0.01rem, 1vw, 0.02rem);
+  text-decoration: none;
+}
+.footer-divide1 .footer-statement p a:hover {
+  color: #1E90FF;
+  text-decoration: underline;
+}
+.footer-divide1 hr {
+  border: 0.12rem solid #121212;
+  margin: clamp(0.1rem, 1vw, 0.3rem);
+  width: 80%;
+}
+
+.footer-divide2 {
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.1rem solid #121212;
+  border-radius: 0 0 0.5rem 0;
+  margin: clamp(0.1rem, 1vw, 0.2rem);
+  width: 40%;
+}
+.footer-divide2 .footer-links {
+  display: flex;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer-divide2 .footer-links a {
+  color: #FFFFFF;
+  font-size: clamp(0.5rem, 1vw, 1rem);
+  padding: clamp(0.1rem, 1vw, 0.25rem);
+  text-decoration: none;
+}
+.footer-divide2 .footer-links a:hover {
+  color: #1E90FF;
+  text-decoration: underline;
+}
+.footer-divide2 .footer-social {
+  display: flex;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer-divide2 .footer-social a {
+  color: #FFFFFF;
+  font-size: clamp(0.5rem, 1vw, 1rem);
+  padding: clamp(0.25rem, 1vw, 0.3rem);
+  text-decoration: none;
+}
+.footer-divide2 .footer-social a:hover {
+  color: #1E90FF;
+  text-decoration: underline;
+}

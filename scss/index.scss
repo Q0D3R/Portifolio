@@ -198,27 +198,24 @@ body {
                     overflow: hidden;
 
                     .container {
-                        display: flex;
-                        flex-direction: row;
-                        align-items: center;
-                        justify-content: space-between;
+                        @include mix.flex-center-space-between;
+                        @include mix.flex-direction(row);
                         gap: 3rem;
-                        width: 100%;
                         max-width: 1200px;
                         padding: 2rem 1.5rem;
+                        width: 100%;
 
                         @media (max-width: 900px) {
-                            flex-direction: column;
+                            @include mix.flex-direction(column);
                             gap: 2rem;
                             text-align: center;
                         }
                     }
 
                     .hero-content {
+                        @include mix.flex-start;
+                        @include mix.flex-direction(column);
                         flex: 1 1 0;
-                        display: flex;
-                        flex-direction: column;
-                        align-items: flex-start;
                         gap: 1.5rem;
 
                         @media (max-width: 900px) {
@@ -253,16 +250,16 @@ body {
                         }
 
                         .btn {
-                            display: inline-block;
-                            padding: 0.75rem 2rem;
-                            font-size: 1.1rem;
-                            font-weight: 600;
-                            color: #fff;
+                            @include mix.display(inline-block);
                             background: linear-gradient(90deg, col.$color6 0%, col.$color7 100%);
                             border: none;
                             border-radius: 2rem;
                             box-shadow: 0 2px 12px 0 rgba(233, 69, 96, 0.15);
+                            color: #fff;
                             cursor: pointer;
+                            font-size: 1.1rem;
+                            font-weight: 600;
+                            padding: 0.75rem 2rem;
                             transition: background 0.3s, transform 0.2s;
 
                             &:hover,
@@ -274,23 +271,21 @@ body {
                     }
 
                     .hero-image {
+                        @include mix.flex-center;
                         flex: 0 0 auto;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
 
                         img {
-                            width: 180px;
-                            height: 180px;
-                            border-radius: 50%;
-                            object-fit: cover;
-                            box-shadow: 0 4px 24px 0 rgba(44, 62, 80, 0.18);
-                            border: 5px solid col.$color6;
                             background: #fff;
+                            border: 5px solid col.$color6;
+                            border-radius: 50%;
+                            box-shadow: 0 4px 24px 0 rgba(44, 62, 80, 0.18);                           
+                            height: 180px;             
+                            object-fit: cover;
+                            width: 180px;
 
                             @media (max-width: 600px) {
-                                width: 120px;
                                 height: 120px;
+                                width: 120px;                                
                             }
                         }
                     }

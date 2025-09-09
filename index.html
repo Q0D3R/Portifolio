@@ -48,7 +48,7 @@
       </ul>
       <ul>
         <li class="list">
-          <a href="#"><span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+          <a href="#"><span class="icon" title="Account"><ion-icon name="person-outline" title="Account"></ion-icon></span>
             <span class="text">Account</span>
           </a>
         </li>
@@ -75,15 +75,15 @@
       <div class="container">
         <div class="hero-content">
           <p class="hero-subtitle">
-            A passionate <span class="highlight">Software and Web Developer, and Graphic 
-            Designer</span> crafting modern, responsive, and interactive websites.<br>
-            
+            A passionate <span class="highlight">Software and Web Developer, and Graphic
+              Designer</span> crafting modern, responsive, and interactive websites.<br>
+
             <br>
-            With a strong foundation in both software engineering and visual design, 
-            I blend technical expertise with creative vision to deliver engaging digital 
-            experiences. My journey spans web development, graphic design, and mentoring, 
-            allowing me to approach projects holistically—from concept to deployment. I 
-            thrive on solving complex problems, learning new technologies, and collaborating 
+            With a strong foundation in both software engineering and visual design,
+            I blend technical expertise with creative vision to deliver engaging digital
+            experiences. My journey spans web development, graphic design, and mentoring,
+            allowing me to approach projects holistically—from concept to deployment. I
+            thrive on solving complex problems, learning new technologies, and collaborating
             with others to build impactful solutions. Let's create something amazing together!
           </p>
           <a href="#projects" class="btn">View My Work</a>
@@ -143,12 +143,89 @@
             <span class="award-meta">University of Technology &bull; 2020-2023</span>
           </div>
         </div>
+      <div class="card reveal-on-scroll">
+        <div class="award-icon">
+          <ion-icon name="code-slash-outline" style="color:#8e44ad;"></ion-icon>
+        </div>
+        <div class="award-content">
+          <h3 class="award-title">Top 1% on Stack Overflow</h3>
+          <p class="award-desc">Recognized among the top contributors for providing high-quality answers and solutions to programming questions, helping thousands of developers worldwide.</p>
+          <span class="award-meta">Stack Overflow &bull; 2022-2024</span>
+        </div>
+      </div>
+      <div class="card reveal-on-scroll">
+        <div class="award-icon">
+          <ion-icon name="rocket-outline" style="color:#f39c12;"></ion-icon>
+        </div>
+        <div class="award-content">
+          <h3 class="award-title">Launched SaaS Product</h3>
+          <p class="award-desc">Designed, developed, and launched a successful SaaS platform serving over 5,000 users, focusing on automation and productivity for small businesses.</p>
+          <span class="award-meta">Indie Developer &bull; 2023</span>
+        </div>
+      </div>
+      <div class="card reveal-on-scroll">
+        <div class="award-icon">
+          <ion-icon name="people-outline" style="color:#00b894;"></ion-icon>
+        </div>
+        <div class="award-content">
+          <h3 class="award-title">Mentor of the Year</h3>
+          <p class="award-desc">Awarded for outstanding mentorship, guiding junior developers and interns through code reviews, workshops, and career development sessions.</p>
+          <span class="award-meta">Tech Mentorship Program &bull; 2022</span>
+        </div>
+      </div>
       </div>
     </section>
-
     <section class="projects-section reveal-on-scroll" id="projects">
       <h2 class="section-title">Featured Projects</h2>
-      <div class="grid">
+      <div class="projects-list">
+        <div class="card reveal-on-scroll">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80"
+            alt="Hogar Hostel Management System" class="card-img" loading="lazy">
+          <div class="card-content">
+            <h3 class="card-title">Hogar Hostel Management System</h3>
+            <p class="card-desc">A comprehensive web application for managing hostel operations, including room
+              allocation, student records, payments, and notifications. Designed for efficiency and ease of use for both
+              administrators and residents.</p>
+            <div class="card-tags">
+              <span class="tag">PHP</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">JavaScript</span>
+            </div>
+          </div>
+        </div>
+        <div class="card reveal-on-scroll">
+          <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
+            alt="Kush System website" class="card-img" loading="lazy">
+          <div class="card-content">
+            <h3 class="card-title">Kush System Website</h3>
+            <p class="card-desc">Developed a modern, responsive website for Kush System, featuring company information,
+              services, and a contact portal. Focused on clean design and seamless user experience across devices.</p>
+            <div class="card-tags">
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">UI/UX</span>
+            </div>
+          </div>
+        </div>
+        <div class="card reveal-on-scroll">
+          <img src="https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=400&q=80"
+            alt="Roosevelt Girls High School" class="card-img" loading="lazy">
+          <div class="card-content">
+            <h3 class="card-title">Roosevelt Girls High School</h3>
+            <p class="card-desc">Created a dynamic school website for Roosevelt Girls High School, including news
+              updates, event calendars, and student resources. Enhanced communication between staff, students, and
+              parents.</p>
+            <div class="card-tags">
+              <span class="tag">WordPress</span>
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">School Portal</span>
+            </div>
+          </div>
+        </div>
         <div class="card reveal-on-scroll">
           <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80"
             alt="Project 1" class="card-img" loading="lazy">
@@ -207,88 +284,292 @@
           </div>
         </div>
       </div>
-    </section>
-    <section class="skills-section reveal-on-scroll" id="skills">
-      <div class="skills-intro">
-        <p>
-          As a passionate developer, I thrive on building modern, performant,
-          and accessible web applications. My skill set spans both front-end
-          and back-end technologies, enabling me to deliver seamless user
-          experiences and robust solutions.
-        </p>
-      </div>
-      <h2 class="section-title">Skills</h2>
-      <div class="grid">
+    <div class="future-projects">
+      <h2 class="section-title">Future Projects</h2>
+      <div class="cards-grid">
         <div class="card reveal-on-scroll">
-          <div class="card">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80"
+            alt="Future Project 1" class="card-img" loading="lazy">
+          <div class="card-content">
+            <h3 class="card-title">AI-Powered Tutoring Platform</h3>
+            <p class="card-desc">An interactive platform leveraging AI to provide personalized learning experiences and mentorship for students in Zimbabwe and beyond.</p>
+            <div class="card-tags">
+              <span class="tag">AI</span>
+              <span class="tag">EdTech</span>
+              <span class="tag">React</span>
+              <span class="tag">Node.js</span>
+            </div>
+          </div>
+        </div>
+        <div class="card reveal-on-scroll">
+          <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
+            alt="Future Project 2" class="card-img" loading="lazy">
+          <div class="card-content">
+            <h3 class="card-title">Smart Agriculture Dashboard</h3>
+            <p class="card-desc">A web-based dashboard for monitoring and optimizing crop yields using IoT sensors and real-time analytics for local farmers.</p>
+            <div class="card-tags">
+              <span class="tag">IoT</span>
+              <span class="tag">Analytics</span>
+              <span class="tag">Vue.js</span>
+              <span class="tag">Python</span>
+            </div>
+          </div>
+        </div>
+        <div class="card reveal-on-scroll">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80"
+            alt="Future Project 3" class="card-img" loading="lazy">
+          <div class="card-content">
+            <h3 class="card-title">Community Health App</h3>
+            <p class="card-desc">A mobile-friendly app to connect communities with local health resources, appointment booking, and health education.</p>
+            <div class="card-tags">
+              <span class="tag">Mobile</span>
+              <span class="tag">HealthTech</span>
+              <span class="tag">Flutter</span>
+              <span class="tag">Firebase</span>
+            </div>
+          </div>
+        </div>
+        <div class="card reveal-on-scroll">
+          <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=400&q=80"
+            alt="Future Project 4" class="card-img" loading="lazy">
+          <div class="card-content">
+            <h3 class="card-title">Zimbabwe Heritage Portal</h3>
+            <p class="card-desc">A digital archive and interactive map to showcase Zimbabwe's cultural heritage, landmarks, and history for educational and tourism purposes.</p>
+            <div class="card-tags">
+              <span class="tag">Culture</span>
+              <span class="tag">GIS</span>
+              <span class="tag">Next.js</span>
+              <span class="tag">GraphQL</span>
+            </div>
+          </div>
+        </div>
+      <div class="card reveal-on-scroll">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+          alt="Harare Children's Home Website" class="card-img" loading="lazy">
+        <div class="card-content">
+          <h3 class="card-title">Harare Children's Home Website</h3>
+          <p class="card-desc">A modern, user-friendly website for Harare Children's Home, featuring donation portals, volunteer sign-ups, event updates, and resources to support the well-being of children in need.</p>
+          <div class="card-tags">
+            <span class="tag">Nonprofit</span>
+            <span class="tag">Charity</span>
+            <span class="tag">WordPress</span>
+            <span class="tag">UI/UX</span>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    </section>
+    <section class="skills-section reveal-on-scroll" id="projects">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-intro">
+        As a passionate developer, I thrive on building modern, performant,
+        and accessible web applications. My skill set spans both front-end
+        and back-end technologies, enabling me to deliver seamless user
+        experiences and robust solutions.
+      </div>
+      <div class="skills-list">
+        <div class="card reveal-on-scroll">
+          <div class="skill-item">
             <i class="fab fa-html5 skill-icon" style="color:#e44d26"></i>
             <h3 class="card-title">HTML5</h3>
             <p class="card-desc">Semantic, accessible markup and modern web standards.</p>
           </div>
         </div>
         <div class="card reveal-on-scroll">
-          <div class="card-content">
+          <div class="skill-item">
             <i class="fab fa-css3-alt skill-icon" style="color:#1572b6"></i>
-            <h3 class="card-title">CSS3 / Sass</h3>
+            <h3 class="card-title">CSS3</h3>
             <p class="card-desc">Responsive layouts, animations, and maintainable stylesheets.</p>
           </div>
         </div>
         <div class="card reveal-on-scroll">
-          <div class="card">
+          <div class="skill-item">
+            <i class="fab fa-sass skill-icon" style="color:#b623aa"></i>
+            <h3 class="card-title">Sass</h3>
+            <p class="card-desc">Responsive layouts, animations, and maintainable stylesheets.</p>
+          </div>
+        </div>
+        <div class="card reveal-on-scroll">
+          <div class="skill-item">
+            <i class="fab fa-java skill-icon" style="color:#007396"></i>
+            <h3 class="skill-title">Java</h3>
+            <p class="skill-desc">Object-oriented programming, desktop and web applications.</p>
+          </div>
+        </div>
+        <div class="card reveal-on-scroll">
+          <div class="skill-item">
+            <i class="fas fa-code skill-icon" style="color:#68217a"></i>
+            <h3 class="skill-title">VB.NET</h3>
+            <p class="skill-desc">Windows Forms, event-driven programming, and .NET framework.</p>
+          </div>
+        </div>
+        <div class="card reveal-on-scroll">
+          <div class="skill-item">
+            <i class="fas fa-database skill-icon" style="color:#003b57"></i>
+            <h3 class="skill-title">SQL</h3>
+            <p class="skill-desc">Database design, queries, and data manipulation.</p>
+          </div>
+        </div>
+        <div class="card reveal-on-scroll">
+          <div class="skill-item">
+            <i class="fas fa-database skill-icon" style="color:#4479a1"></i>
+            <h3 class="skill-title">MySQL</h3>
+            <p class="skill-desc">Relational database management and optimization.</p>
+          </div>
+        </div>
+        <div class="card reveal-on-scroll">
+          <div class="skill-item">
+            <i class="fas fa-terminal skill-icon" style="color:#555"></i>
+            <h3 class="skill-title">C</h3>
+            <p class="skill-desc">Procedural programming, low-level systems, and embedded development.</p>
+          </div>
+        </div>
+        <div class="card reveal-on-scroll">
+          <div class="skill-item">
+            <i class="fab fa-cuttlefish skill-icon" style="color:#239120"></i>
+            <h3 class="skill-title">C#</h3>
+            <p class="skill-desc">.NET development, desktop and web applications, and game development with Unity.</p>
+          </div>
+        </div>
+        <div class="card reveal-on-scroll">
+          <div class="skill-item">
+            <i class="fas fa-code-branch skill-icon" style="color:#00599c"></i>
+            <h3 class="skill-title">C++</h3>
+            <p class="skill-desc">Object-oriented programming, performance-critical applications, and game engines.</p>
+          </div>
+        </div>
+        <div class="card reveal-on-scroll">
+          <div class="skill-item">
             <i class="fab fa-js-square skill-icon" style="color:#f7df1e"></i>
             <h3 class="skill-title">JavaScript</h3>
             <p class="skill-desc">ES6+, DOM manipulation, and interactive UI development.</p>
           </div>
         </div>
         <div class="card reveal-on-scroll">
-          <div class="card">
+          <div class="skill-item">
             <i class="fab fa-react skill-icon" style="color:#61dafb"></i>
             <h3 class="skill-title">React</h3>
             <p class="skill-desc">Component-based architecture and state management.</p>
           </div>
         </div>
         <div class="card reveal-on-scroll">
-          <div class="card">
+          <div class="skill-item">
             <i class="fab fa-node-js skill-icon" style="color:#68a063"></i>
             <h3 class="skill-title">Node.js</h3>
             <p class="skill-desc">Backend APIs, Express, and RESTful services.</p>
           </div>
         </div>
         <div class="card reveal-on-scroll">
-          <div class="card">
+          <div class="skill-item">
             <i class="fas fa-database skill-icon" style="color:#4db33d"></i>
             <h3 class="skill-title">MongoDB</h3>
             <p class="skill-desc">NoSQL databases and data modeling for web apps.</p>
           </div>
         </div>
         <div class="card reveal-on-scroll">
-          <div class="card">
+          <div class="skill-item">
             <i class="fab fa-git-alt skill-icon" style="color:#f34f29"></i>
             <h3 class="skill-title">Git</h3>
             <p class="skill-desc">Version control, collaboration, and workflow management.</p>
           </div>
         </div>
         <div class="card reveal-on-scroll">
-          <div class="card">
+          <div class="skill-item">
             <i class="fas fa-paint-brush skill-icon" style="color:#e94560"></i>
             <h3 class="skill-title">UI/UX Design</h3>
             <p class="skill-desc">Wireframing, prototyping, and user-centered design.</p>
           </div>
         </div>
         <div class="card reveal-on-scroll">
-
+          <div class="skill-item">
+            <i class="fab fa-python skill-icon" style="color:#3776ab"></i>
+            <h3 class="skill-title">Python</h3>
+            <p class="skill-desc">Scripting, automation, and backend development with Django/Flask.</p>
+          </div>
         </div>
         <div class="card reveal-on-scroll">
-
+          <div class="skill-item">
+            <i class="fab fa-aws skill-icon" style="color:#ff9900"></i>
+            <h3 class="skill-title">AWS</h3>
+            <p class="skill-desc">Cloud deployment, serverless architecture, and DevOps practices.</p>
+          </div>
         </div>
         <div class="card reveal-on-scroll">
-
+          <div class="skill-item">
+            <i class="fas fa-code skill-icon" style="color:#6c63ff"></i>
+            <h3 class="skill-title">TypeScript</h3>
+            <p class="skill-desc">Typed JavaScript for scalable and maintainable codebases.</p>
+          </div>
+        </div>
+        <div class="card reveal-on-scroll">
+          <div class="skill-item">
+            <i class="fab fa-docker skill-icon" style="color:#2496ed"></i>
+            <h3 class="skill-title">Docker</h3>
+            <p class="skill-desc">Containerization and deployment of applications.</p>
+          </div>
+        </div>
+        <div class="card reveal-on-scroll">
+          <div class="skill-item">
+            <i class="fas fa-mobile-alt skill-icon" style="color:#25d366"></i>
+            <h3 class="skill-title">Responsive Design</h3>
+            <p class="skill-desc">Mobile-first, cross-device web development.</p>
+          </div>
+        </div>
+        <div class="card reveal-on-scroll">
+          <div class="skill-item">
+            <i class="fas fa-shield-alt skill-icon" style="color:#f7b731"></i>
+            <h3 class="skill-title">Web Security</h3>
+            <p class="skill-desc">OWASP best practices, authentication, and secure coding.</p>
+          </div>
+        </div>
+        <div class="card reveal-on-scroll">
+          <div class="skill-item">
+            <i class="fas fa-database skill-icon" style="color:#4db33d"></i>
+            <h3 class="skill-title">Database Management</h3>
+            <p class="skill-desc">Design, optimization, and administration of SQL/NoSQL databases.</p>
+          </div>
+        </div>
+        <div class="card reveal-on-scroll">
+          <div class="skill-item">
+            <i class="fas fa-project-diagram skill-icon" style="color:#f39c12"></i>
+            <h3 class="skill-title">Software Architecture</h3>
+            <p class="skill-desc">Designing scalable, maintainable, and robust software systems.</p>
+          </div>
+        </div>
+        <div class="card reveal-on-scroll">
+          <div class="skill-item">
+            <i class="fas fa-users-cog skill-icon" style="color:#00b894"></i>
+            <h3 class="skill-title">Agile Development</h3>
+            <p class="skill-desc">Scrum, Kanban, and iterative software delivery practices.</p>
+          </div>
+        </div>
+        <div class="card reveal-on-scroll">
+          <div class="skill-item">
+            <i class="fas fa-bug skill-icon" style="color:#e17055"></i>
+            <h3 class="skill-title">Testing & QA</h3>
+            <p class="skill-desc">Unit, integration, and end-to-end testing for quality assurance.</p>
+          </div>
+        </div>
+        <div class="card reveal-on-scroll">
+          <div class="skill-item">
+            <i class="fas fa-sync-alt skill-icon" style="color:#0984e3"></i>
+            <h3 class="skill-title">CI/CD</h3>
+            <p class="skill-desc">Continuous integration and deployment pipelines for rapid delivery.</p>
+          </div>
+        </div>
+        <div class="card reveal-on-scroll">
+          <div class="skill-item">
+            <i class="fas fa-code-branch skill-icon" style="color:#6f42c1"></i>
+            <h3 class="skill-title">Version Control</h3>
+            <p class="skill-desc">Git workflows, branching strategies, and collaborative coding.</p>
+          </div>
         </div>
       </div>
       </div>
     </section>
     <section id="experience" class="experience-section reveal-on-scroll">
-      <div class="container">
+      <div class="experience-list">
         <h2 class="section-title">Experience</h2>
         <div class="timeline grid">
           <div class="timeline-item reveal-on-scroll">
@@ -454,24 +735,23 @@
           coding, you can find me exploring new tech, hiking, or playing guitar.
 
           <span style="font-size:0.98em;">
-            <strong>Based in Harare, Zimbabwe</strong>, I am the founder of 
-            <span class="highlight">Kush Systems, Inc.®</span>—a brand dedicated to 
-            delivering innovative digital solutions and creative design services. With 
-            over 8 years of experience, I have worked with clients across education, 
-            business, and non-profit sectors, helping them achieve their goals through 
+            <strong>Based in Harare, Zimbabwe</strong>, I am the founder of
+            <span class="highlight">Kush Systems, Inc.®</span>—a brand dedicated to
+            delivering innovative digital solutions and creative design services. With
+            over 8 years of experience, I have worked with clients across education,
+            business, and non-profit sectors, helping them achieve their goals through
             technology and design.
             <br>
-            <strong>Skills:</strong> Full Stack Web Development, UI/UX Design, Branding, 
+            <strong>Skills:</strong> Full Stack Web Development, UI/UX Design, Branding,
             Software Engineering, Mentorship, and more.
             <br>
-            <strong>Values:</strong> Clean code, accessibility, collaboration, and 
+            <strong>Values:</strong> Clean code, accessibility, collaboration, and
             continuous learning.
           </span>
         </p>
         <a href="#contact" class="btn">Get in Touch</a>
       </div>
     </section>
-
     <section id="contact" class="contact-section reveal-on-scroll">
       <div class="container">
         <h2 class="section-title">Contact</h2>
@@ -481,14 +761,14 @@
           <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
           <button type="submit" class="btn">Send Message</button>
         </form>
-      </div>
-      <div class="contact-social">
-        <a href="#"><span class="icon"><ion-icon name="logo-facebook"></ion-icon></span></a>
-        <a href="#"><span class="icon"><ion-icon name="logo-instagram"></ion-icon></span></a>
-        <a href="#"><span class="icon"><ion-icon name="logo-linkedin"></ion-icon></span></a>
-        <a href="#"><span class="icon"><ion-icon name="logo-github"></ion-icon></span></a>
-        <a href="#"><span class="icon"><ion-icon name="logo-tiktok"></ion-icon></span></a>
-        <a href="#"><span class="icon"><ion-icon name="logo-whatsapp"></ion-icon></span></a>
+        <div class="contact-socials">
+          <a href="#"><span class="icon"><ion-icon name="logo-facebook"></ion-icon></span></a>
+          <a href="#"><span class="icon"><ion-icon name="logo-instagram"></ion-icon></span></a>
+          <a href="#"><span class="icon"><ion-icon name="logo-linkedin"></ion-icon></span></a>
+          <a href="#"><span class="icon"><ion-icon name="logo-github"></ion-icon></span></a>
+          <a href="#"><span class="icon"><ion-icon name="logo-tiktok"></ion-icon></span></a>
+          <a href="#"><span class="icon"><ion-icon name="logo-whatsapp"></ion-icon></span></a>
+        </div>
       </div>
     </section>
   </main>
@@ -510,7 +790,7 @@
       </div>
       <div class="row">
         <div class="footer-copy">
-          <p>Copyright &copy; 2013-25 Kush Systems. All rights reserved.</p>
+          <p>Copyright &copy; 2013-25 <a href="#kush-systems">Kush Systems</a>. All rights reserved.</p>
         </div>
         <div class="footer-links">
           <a href="#">Home</a>
@@ -521,8 +801,17 @@
       </div>
     </div>
   </footer>
-
+  
   <script>
+    // Optionally animate progress bars on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      const bars = document.querySelectorAll('.skill-progress');
+      bars.forEach(bar => {
+        const percent = bar.getAttribute('data-percent');
+        bar.style.width = percent + '%';
+      });
+    });
+  
     // Reveal on scroll animation
     function revealOnScroll() {
       const reveals = document.querySelectorAll('.reveal-on-scroll');

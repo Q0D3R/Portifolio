@@ -22,7 +22,7 @@
         height: 140px;
         perspective: 800px;
 
-        & > div {
+        &>div {
             width: 100%;
             height: 100%;
             position: absolute;
@@ -54,6 +54,13 @@
     .avatar-flip:focus .avatar-back {
         transform: rotateY(0deg);
     }
+
+    img {
+        border-radius:50%;
+        width:140px;
+        height:140px;
+        object-fit:cover;
+    }
 }
 
 .snow {
@@ -75,9 +82,11 @@ body {
         0% {
             background-position: 0% 50%;
         }
+
         50% {
             background-position: 100% 50%;
         }
+
         100% {
             background-position: 0% 50%;
         }
@@ -256,27 +265,27 @@ canvas {
                         transform: translateY(10px);
                     }
 
-                    li:nth-child(1).active ~ .indicator {
+                    li:nth-child(1).active~.indicator {
                         transform: translateX(calc(70px * 0));
                     }
 
-                    li:nth-child(2).active ~ .indicator {
+                    li:nth-child(2).active~.indicator {
                         transform: translateX(calc(70px * 1));
                     }
 
-                    li:nth-child(3).active ~ .indicator {
+                    li:nth-child(3).active~.indicator {
                         transform: translateX(calc(70px * 2));
                     }
 
-                    li:nth-child(4).active ~ .indicator {
+                    li:nth-child(4).active~.indicator {
                         transform: translateX(calc(70px * 3));
                     }
 
-                    li:nth-child(5).active ~ .indicator {
+                    li:nth-child(5).active~.indicator {
                         transform: translateX(calc(70px * 4));
                     }
 
-                    li:nth-child(6).active ~ .indicator {
+                    li:nth-child(6).active~.indicator {
                         transform: translateX(calc(70px * 5));
                     }
                 }
@@ -289,8 +298,9 @@ canvas {
             @include mix.glass-effect;
             // Animated background gradient
             animation: header-bg-move 8s ease-in-out infinite;
-            background: linear-gradient(120deg, col.$bg13 0%, col.$bg5 100%);
+            background: linear-gradient(120deg, col.$bg15 0%, col.$bg16 100%);
             background-size: 200% 200%;
+            border-radius: 1rem 1rem 0 0;
             grid-area: header;
             margin: clamp(1vw, 1vw, 1.5vw);
             padding: clamp(1vh, 1vh, 1.5vh) clamp(1vw, 1vw, 1.5vw);
@@ -303,113 +313,111 @@ canvas {
                 @include mix.flex-center;
                 @include mix.flex-direction(column);
                 @include mix.glass-effect;
+                align-items: center;
+                //background: linear-gradient(120deg, col.$bg2 0%, col.$bg5 100%);
+                border-radius: 0.5rem;
+                box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+                display: flex;
+                justify-content: center;
                 margin: clamp(10vh, 1vw, 1.5vw) clamp(1vw, 1vw, 1.5vw) 0 clamp(1vw, 1vw, 1.5vw);
+                min-height: 60vh;
+                overflow: hidden;
                 padding: clamp(1vw, 1vw, 1.5vw);
+                position: relative;
 
-                .hero-section {
-                    min-height: 60vh;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    background: linear-gradient(120deg, col.$bg2 0%, col.$bg5 100%);
-                    border-radius: 1.5rem;
-                    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
-                    position: relative;
-                    overflow: hidden;
 
-                    .container {
-                        @include mix.flex-center-space-between;
-                        @include mix.flex-direction(row);
-                        gap: 3rem;
-                        max-width: 1200px;
-                        padding: 2rem 1.5rem;
-                        width: 100%;
+                .container {
+                    @include mix.flex-center-space-between;
+                    @include mix.flex-direction(row);
+                    gap: 3rem;
+                    max-width: 1200px;
+                    padding: 2rem 1.5rem;
+                    width: 100%;
 
-                        @media (max-width: 900px) {
-                            @include mix.flex-direction(column);
-                            gap: 2rem;
-                            text-align: center;
-                        }
-                    }
-
-                    .hero-content {
-                        @include mix.flex-start;
+                    @media (max-width: 900px) {
                         @include mix.flex-direction(column);
-                        flex: 1 1 0;
-                        gap: 1.5rem;
+                        gap: 2rem;
+                        text-align: center;
+                    }
+                }
 
-                        @media (max-width: 900px) {
-                            align-items: center;
-                        }
+                .hero-content {
+                    @include mix.flex-start;
+                    @include mix.flex-direction(column);
+                    flex: 1 1 0;
+                    gap: 1.5rem;
 
-                        .hero-title {
-                            font-size: clamp(2.2rem, 5vw, 3.5rem);
-                            font-weight: 700;
-                            color: col.$color1;
-                            margin-bottom: 0.5rem;
+                    @media (max-width: 900px) {
+                        align-items: center;
+                    }
 
-                            .highlight {
-                                color: col.$color6;
-                                background: linear-gradient(90deg, col.$color6 40%, col.$color7 100%);
-                                -webkit-background-clip: text;
-                                -webkit-text-fill-color: transparent;
-                                background-clip: text;
-                            }
-                        }
+                    .hero-title {
+                        font-size: clamp(2.2rem, 5vw, 3.5rem);
+                        font-weight: 700;
+                        color: col.$color2;
+                        margin-bottom: 0.5rem;
 
-                        .hero-subtitle {
-                            font-size: clamp(1.1rem, 2vw, 1.5rem);
-                            color: col.$color3;
-                            line-height: 1.6;
-                            margin-bottom: 1.5rem;
-
-                            .highlight {
-                                color: col.$color7;
-                                font-weight: 600;
-                            }
-                        }
-
-                        .btn {
-                            @include mix.display(inline-block);
-
-                            background: linear-gradient(90deg, col.$color6 0%, col.$color7 100%);
-                            border: none;
-                            border-radius: 2rem;
-                            box-shadow: 0 2px 12px 0 rgba(233, 69, 96, 0.15);
-                            color: #fff;
-                            cursor: pointer;
-                            font-size: 1.1rem;
-                            font-weight: 600;
-                            padding: 0.75rem 2rem;
-                            transition:
-                                background 0.3s,
-                                transform 0.2s;
-
-                            &:hover,
-                            &:focus {
-                                background: linear-gradient(90deg, col.$color7 0%, col.$color6 100%);
-                                transform: translateY(-2px) scale(1.04);
-                            }
+                        .highlight {
+                            color: col.$color5;
+                            background: linear-gradient(90deg, col.$color6 40%, col.$color7 100%);
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
+                            background-clip: text;
                         }
                     }
 
-                    .hero-image {
-                        @include mix.flex-center;
-                        flex: 0 0 auto;
+                    .hero-subtitle {
+                        font-size: clamp(1.1rem, 2vw, 1.5rem);
+                        color: col.$color2;
+                        line-height: 1.6;
+                        margin-bottom: 1.5rem;
 
-                        img {
-                            background: #fff;
-                            border: 5px solid col.$color6;
-                            border-radius: 50%;
-                            box-shadow: 0 4px 24px 0 rgba(44, 62, 80, 0.18);
-                            height: 180px;
-                            object-fit: cover;
-                            width: 180px;
+                        .highlight {
+                            color: col.$color5;
+                            font-weight: 600;
+                        }
+                    }
 
-                            @media (max-width: 600px) {
-                                height: 120px;
-                                width: 120px;
-                            }
+                    .btn {
+                        @include mix.display(inline-block);
+
+                        background: linear-gradient(90deg, col.$bg1 0%, col.$bg3 100%);
+                        border: none;
+                        border-radius: 2rem;
+                        box-shadow: 0 2px 12px 0 rgba(233, 69, 96, 0.15);
+                        color: #fff;
+                        cursor: pointer;
+                        font-size: 1.1rem;
+                        font-weight: 600;
+                        padding: 0.75rem 2rem;
+                        transition:
+                            background 0.3s,
+                            transform 0.2s;
+
+                        &:hover,
+                        &:focus {
+                            background: linear-gradient(90deg, col.$color7 0%, col.$color6 100%);
+                            transform: translateY(-2px) scale(1.04);
+                        }
+                    }
+                }
+
+                .hero-image {
+                    @include mix.flex-center;
+                    flex: 0 0 auto;
+
+                    img {
+                        background: #fff;
+                        border: 5px solid col.$color6;
+                        border-radius: 50%;
+                        box-shadow: 0 4px 24px 0 rgba(44, 62, 80, 0.18);
+                        height: 180px;
+                        object-fit: cover;
+                        width: 180px;
+
+                        @media (max-width: 600px) {
+                            height: 120px;
+                            width: 120px;
                         }
                     }
                 }
@@ -420,17 +428,9 @@ canvas {
             @include mix.flex-center;
             @include mix.flex-direction(column);
             @include mix.glass-effect;
-            /* https://grabient.com/HQdgLAbANKkwnPAzFAtABmAJnQRhruumpocRsGDiZVtBZGDOgKwsw4g1ZVA?style=linearGradient&steps=5&angle=45 */
-
-            background: linear-gradient(
-                45deg,
-                rgba(142, 197, 252, 1) 0%,
-                rgba(141, 211, 255, 1) 25%,
-                rgba(161, 216, 255, 1) 50%,
-                rgba(193, 210, 255, 1) 75%,
-                rgba(224, 195, 255, 1) 100%
-            );
-            //background-image: radial-gradient(circle,rgba(174, 219, 238, 1) 0%, rgba(233, 148, 174, 1) 100%); //linear-gradient(360degr col.$bg2 60%, col.$bg5 100%);
+            // Animated background gradient
+            animation: header-bg-move 8s ease-in-out infinite;
+            background: linear-gradient(120deg, col.$bg15 0%, col.$bg16 100%);
             grid-area: main;
             margin: clamp(1vw, 1vw, 1.5vw);
             padding: 0 clamp(1vw, 1vw, 1.5vw);
@@ -443,7 +443,8 @@ canvas {
                 @include mix.flex-direction(column);
                 @include mix.glass-effect;
                 background: linear-gradient(120deg, #1a1a2e 0%, #16213e 100%);
-                padding: 4rem 2rem;
+                margin: clamp(1vh, 1vw, 1.5vw) clamp(1vw, 1vw, 1.5vw) 0 clamp(1vw, 1vw, 1.5vw);
+                padding: clamp(1vw, 1vw, 1.5vw);
 
                 .container {
                     max-width: 900px;
@@ -502,8 +503,8 @@ canvas {
                 @include mix.flex-direction(column);
                 @include mix.glass-effect;
                 background: linear-gradient(120deg, #1a1a2e 0%, #16213e 100%);
-                //min-height: 100vh;
-                padding: 4rem 2rem;
+                margin: clamp(1vh, 1vw, 1.5vw) clamp(1vw, 1vw, 1.5vw) 0 clamp(1vw, 1vw, 1.5vw);
+                padding: clamp(1vw, 1vw, 1.5vw);
 
                 .contact-section {
                     @include mix.flex-center;
@@ -627,7 +628,8 @@ canvas {
                 @include mix.flex-direction(column);
                 @include mix.glass-effect;
                 background: linear-gradient(120deg, #1a1a2e 0%, #16213e 100%);
-                padding: 4rem 2rem;
+                margin: clamp(1vh, 1vw, 1.5vw) clamp(1vw, 1vw, 1.5vw) 0 clamp(1vw, 1vw, 1.5vw);
+                padding: clamp(1vw, 1vw, 1.5vw);
 
                 .contact-list {
                     display: grid;
@@ -783,8 +785,8 @@ canvas {
                 @include mix.flex-direction(column);
                 @include mix.glass-effect;
                 background: linear-gradient(120deg, #45576b 50%, #16213e 100%);
-                min-height: 100vh;
-                padding: 4rem 2rem;
+                margin: clamp(1vh, 1vw, 1.5vw) clamp(1vw, 1vw, 1.5vw) 0 clamp(1vw, 1vw, 1.5vw);
+                padding: clamp(1vw, 1vw, 1.5vw);
 
                 .experience-list {
                     display: grid;
@@ -883,8 +885,8 @@ canvas {
                 @include mix.flex-direction(column);
                 @include mix.glass-effect;
                 background: linear-gradient(120deg, #1a1a2e 0%, #16213e 100%);
-                min-height: 100vh;
-                padding: 4rem 2rem;
+                margin: clamp(1vh, 1vw, 1.5vw) clamp(1vw, 1vw, 1.5vw) 0 clamp(1vw, 1vw, 1.5vw);
+                padding: clamp(1vw, 1vw, 1.5vw);
 
                 .cards-grid {
                     display: grid;
@@ -1005,6 +1007,7 @@ canvas {
                         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
                         gap: 1.5rem 1rem;
                     }
+
                     .card {
                         min-width: 200px;
                         max-width: 100%;
@@ -1015,14 +1018,17 @@ canvas {
                     .projects-section {
                         padding: 2.2rem 0.5rem;
                     }
+
                     .projects-list {
                         grid-template-columns: 1fr;
                         gap: 1.2rem;
                     }
+
                     .card {
                         .card-img {
                             height: 130px;
                         }
+
                         .card-content {
                             padding: 1rem 0.7rem 0.8rem 0.7rem;
                         }
@@ -1035,8 +1041,8 @@ canvas {
                 @include mix.flex-direction(column);
                 @include mix.glass-effect;
                 background: linear-gradient(120deg, #1a1a2e 0%, #16213e 100%);
-                min-height: 100vh;
-                padding: 4rem 2rem;
+                margin: clamp(1vh, 1vw, 1.5vw) clamp(1vw, 1vw, 1.5vw) 0 clamp(1vw, 1vw, 1.5vw);
+                padding: clamp(1vw, 1vw, 1.5vw);
 
                 .skills-intro {
                     max-width: 700px;
@@ -1081,12 +1087,14 @@ canvas {
                     background: rgba(255, 255, 255, 0.06);
                     border-radius: 1rem;
                     box-shadow: 0 2px 12px 0 rgba(44, 62, 80, 0.1);
-                    padding: 1.5rem 1rem;
+                    margin: 1.5rem 1rem;
+                    padding: 1rem 1rem;
                     transition:
                         transform 0.2s,
                         box-shadow 0.2s;
                     text-align: center;
                     position: relative;
+                    width: 8rem;
 
                     &:hover,
                     &:focus {
@@ -1104,7 +1112,7 @@ canvas {
                     .skill-name {
                         font-size: 1.1rem;
                         font-weight: 600;
-                        color: #fff;
+                        color: col.$color2;
                         margin-bottom: 0.25rem;
                         letter-spacing: 0.03em;
                     }
@@ -1121,14 +1129,16 @@ canvas {
                         background: #232946;
                         border-radius: 999px;
                         height: 0.5rem;
-                        margin: 0.5rem 0 0.2rem 0;
+                        margin: 0.5rem 0 1.2rem 0;
                         overflow: hidden;
                     }
+
                     .skill-progress {
                         height: 100%;
                         border-radius: 999px;
                         transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1);
                     }
+
                     .skill-percentage {
                         font-size: 0.92rem;
                         color: #bdbdbd;
@@ -1139,149 +1149,15 @@ canvas {
                     }
                 }
             }
-
-            // Portfolio grid layout
-            .section-title {
-                font-size: 2.5rem;
-                font-weight: 700;
-                color: #fff;
-                margin-bottom: 2rem;
-                letter-spacing: 0.05em;
-                text-align: center;
-                text-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
-            }
-
-            .grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-                gap: 2rem;
-                margin-top: 2rem;
-            }
-
-            .card {
-                background: rgba(255, 255, 255, 0.04);
-                border-radius: 1.5rem;
-                box-shadow: 0 4px 32px rgba(0, 0, 0, 0.12);
-                overflow: hidden;
-                position: relative;
-                transition:
-                    transform 0.3s cubic-bezier(0.23, 1, 0.32, 1),
-                    box-shadow 0.3s;
-                cursor: pointer;
-
-                &:hover,
-                &:focus {
-                    transform: translateY(-8px) scale(1.03);
-                    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.18);
-                }
-
-                .award-icon {
-                    @include mix.display(var.$d-bloc);
-                    filter: grayscale(0.2) brightness(0.95);
-                    height: 20px;
-                    object-fit: cover;
-                    margin: 0 1rem;
-                    padding: auto 15rem;
-                    transition: filter 0.3s;
-                    width: 100%;
-
-                    ion-icon {
-                        font-size: clamp(2.5rem, 1vw, 3rem);
-                    }
-                }
-
-                &:hover .award-icon {
-                    filter: grayscale(0) brightness(1.1);
-                }
-
-                .award-content {
-                    padding: 1.5rem;
-                    color: #eaeaea;
-
-                    .award-desc {
-                        font-size: 1rem;
-                        color: #bdbdbd;
-                        margin-bottom: 1rem;
-                    }
-
-                    .award-meta {
-                        display: flex;
-                        flex-wrap: wrap;
-                        gap: 0.5rem;
-
-                        .tag {
-                            background: #0f3460;
-                            color: #e94560;
-                            font-size: 0.85rem;
-                            padding: 0.25rem 0.75rem;
-                            border-radius: 999px;
-                            font-weight: 500;
-                            letter-spacing: 0.03em;
-                        }
-                    }
-
-                    .award-title {
-                        font-size: 1.4rem;
-                        font-weight: 600;
-                        margin-bottom: 0.5rem;
-                        color: #fff;
-                    }
-                }
-
-                .card-image {
-                    width: 100%;
-                    height: 220px;
-                    object-fit: cover;
-                    display: block;
-                    filter: grayscale(0.2) brightness(0.95);
-                    transition: filter 0.3s;
-                }
-
-                &:hover .award-image .card-image {
-                    filter: grayscale(0) brightness(1.1);
-                }
-
-                .card-content {
-                    padding: 1.5rem;
-                    color: #eaeaea;
-
-                    .card-title {
-                        font-size: 1.4rem;
-                        font-weight: 600;
-                        margin-bottom: 0.5rem;
-                        color: #fff;
-                    }
-
-                    .card-desc {
-                        font-size: 1rem;
-                        color: #bdbdbd;
-                        margin-bottom: 1rem;
-                    }
-
-                    .card-tags {
-                        display: flex;
-                        flex-wrap: wrap;
-                        gap: 0.5rem;
-
-                        .tag {
-                            background: #0f3460;
-                            color: #e94560;
-                            font-size: 0.85rem;
-                            padding: 0.25rem 0.75rem;
-                            border-radius: 999px;
-                            font-weight: 500;
-                            letter-spacing: 0.03em;
-                        }
-                    }
-                }
-            }
         }
 
         footer {
             @include mix.flex-center;
             @include mix.flex-direction(row);
             @include mix.glass-effect;
-            background-image: linear-gradient(360degr col.$bg2 60%, col.$bg6 100%);
+            // Animated background gradient
+            animation: header-bg-move 8s ease-in-out infinite;
+            background: linear-gradient(120deg, col.$bg15 0%, col.$bg16 100%);
             border-radius: 0 0 1rem 1rem;
             grid-area: footer;
             margin: clamp(1vh, 1vh, 1.5vh) clamp(1rem, 1vw, 1.5rem);

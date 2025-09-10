@@ -61,6 +61,31 @@ Example usage in your components:
     transform: translateY(0) scale(1);
   }
 }
+.about-hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  background: linear-gradient(120deg, rgba(26, 26, 46, 0.95) 0%, rgba(22, 33, 62, 0.92) 100%);
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.12);
+  padding: 2.5rem 2rem 2rem 2rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.about-hero-img {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-hero-info {
+  flex: 1 1 320px;
+  min-width: 260px;
+}
+
 .btn {
   display: inline-block;
   padding: 0.75rem 2rem;
@@ -78,6 +103,464 @@ Example usage in your components:
 .btn:hover, .btn:focus {
   background: linear-gradient(90deg, #0f3460 0%, #e94560 100%);
   transform: translateY(-2px) scale(1.04);
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 2rem;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem 0.5rem;
+  margin-top: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.3s;
+}
+.card:hover, .card:focus {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.18);
+}
+.card .about-icon,
+.card .awards-icon,
+.card .contact-icon,
+.card .experience-icon,
+.card .projects-icon,
+.card .skills-icon {
+  display: block;
+  filter: grayscale(0.2) brightness(0.95);
+  height: 20px;
+  object-fit: cover;
+  margin: 0 1rem;
+  padding: auto 15rem;
+  transition: filter 0.3s;
+  width: 100%;
+}
+.card .about-icon ion-icon,
+.card .awards-icon ion-icon,
+.card .contact-icon ion-icon,
+.card .experience-icon ion-icon,
+.card .projects-icon ion-icon,
+.card .skills-icon ion-icon {
+  font-size: clamp(2.5rem, 1vw, 3rem);
+}
+.card:hover .about-icon, .card:hover .awards-icon, .card:hover .contact-icon, .card:hover .experience-icon, .card:hover .projects-icon, .card:hover .skills-icon {
+  filter: grayscale(0) brightness(1.1);
+}
+.card .about-content,
+.card .awards-content,
+.card .contact-content,
+.card .experience-content,
+.card .projects-content,
+.card .skills-content {
+  padding: 1.5rem;
+  color: #FFFFFF;
+}
+.card .about-content .about-desc,
+.card .about-content .awards-desc,
+.card .about-content .contact-desc,
+.card .about-content .experience-desc,
+.card .about-content .projects-desc,
+.card .about-content .skills-desc,
+.card .awards-content .about-desc,
+.card .awards-content .awards-desc,
+.card .awards-content .contact-desc,
+.card .awards-content .experience-desc,
+.card .awards-content .projects-desc,
+.card .awards-content .skills-desc,
+.card .contact-content .about-desc,
+.card .contact-content .awards-desc,
+.card .contact-content .contact-desc,
+.card .contact-content .experience-desc,
+.card .contact-content .projects-desc,
+.card .contact-content .skills-desc,
+.card .experience-content .about-desc,
+.card .experience-content .awards-desc,
+.card .experience-content .contact-desc,
+.card .experience-content .experience-desc,
+.card .experience-content .projects-desc,
+.card .experience-content .skills-desc,
+.card .projects-content .about-desc,
+.card .projects-content .awards-desc,
+.card .projects-content .contact-desc,
+.card .projects-content .experience-desc,
+.card .projects-content .projects-desc,
+.card .projects-content .skills-desc,
+.card .skills-content .about-desc,
+.card .skills-content .awards-desc,
+.card .skills-content .contact-desc,
+.card .skills-content .experience-desc,
+.card .skills-content .projects-desc,
+.card .skills-content .skills-desc {
+  font-size: 1rem;
+  color: #bdbdbd;
+  margin-bottom: 1rem;
+}
+.card .about-content .about-meta,
+.card .about-content .awards-meta,
+.card .about-content .contact-meta,
+.card .about-content .experience-meta,
+.card .about-content .projects-meta,
+.card .about-content .skills-meta,
+.card .awards-content .about-meta,
+.card .awards-content .awards-meta,
+.card .awards-content .contact-meta,
+.card .awards-content .experience-meta,
+.card .awards-content .projects-meta,
+.card .awards-content .skills-meta,
+.card .contact-content .about-meta,
+.card .contact-content .awards-meta,
+.card .contact-content .contact-meta,
+.card .contact-content .experience-meta,
+.card .contact-content .projects-meta,
+.card .contact-content .skills-meta,
+.card .experience-content .about-meta,
+.card .experience-content .awards-meta,
+.card .experience-content .contact-meta,
+.card .experience-content .experience-meta,
+.card .experience-content .projects-meta,
+.card .experience-content .skills-meta,
+.card .projects-content .about-meta,
+.card .projects-content .awards-meta,
+.card .projects-content .contact-meta,
+.card .projects-content .experience-meta,
+.card .projects-content .projects-meta,
+.card .projects-content .skills-meta,
+.card .skills-content .about-meta,
+.card .skills-content .awards-meta,
+.card .skills-content .contact-meta,
+.card .skills-content .experience-meta,
+.card .skills-content .projects-meta,
+.card .skills-content .skills-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.card .about-content .about-meta .about-tag,
+.card .about-content .about-meta .awards-tag,
+.card .about-content .about-meta .contact-tag,
+.card .about-content .about-meta .experience-tag,
+.card .about-content .about-meta .projects-tag,
+.card .about-content .about-meta .skills-tag,
+.card .about-content .awards-meta .about-tag,
+.card .about-content .awards-meta .awards-tag,
+.card .about-content .awards-meta .contact-tag,
+.card .about-content .awards-meta .experience-tag,
+.card .about-content .awards-meta .projects-tag,
+.card .about-content .awards-meta .skills-tag,
+.card .about-content .contact-meta .about-tag,
+.card .about-content .contact-meta .awards-tag,
+.card .about-content .contact-meta .contact-tag,
+.card .about-content .contact-meta .experience-tag,
+.card .about-content .contact-meta .projects-tag,
+.card .about-content .contact-meta .skills-tag,
+.card .about-content .experience-meta .about-tag,
+.card .about-content .experience-meta .awards-tag,
+.card .about-content .experience-meta .contact-tag,
+.card .about-content .experience-meta .experience-tag,
+.card .about-content .experience-meta .projects-tag,
+.card .about-content .experience-meta .skills-tag,
+.card .about-content .projects-meta .about-tag,
+.card .about-content .projects-meta .awards-tag,
+.card .about-content .projects-meta .contact-tag,
+.card .about-content .projects-meta .experience-tag,
+.card .about-content .projects-meta .projects-tag,
+.card .about-content .projects-meta .skills-tag,
+.card .about-content .skills-meta .about-tag,
+.card .about-content .skills-meta .awards-tag,
+.card .about-content .skills-meta .contact-tag,
+.card .about-content .skills-meta .experience-tag,
+.card .about-content .skills-meta .projects-tag,
+.card .about-content .skills-meta .skills-tag,
+.card .awards-content .about-meta .about-tag,
+.card .awards-content .about-meta .awards-tag,
+.card .awards-content .about-meta .contact-tag,
+.card .awards-content .about-meta .experience-tag,
+.card .awards-content .about-meta .projects-tag,
+.card .awards-content .about-meta .skills-tag,
+.card .awards-content .awards-meta .about-tag,
+.card .awards-content .awards-meta .awards-tag,
+.card .awards-content .awards-meta .contact-tag,
+.card .awards-content .awards-meta .experience-tag,
+.card .awards-content .awards-meta .projects-tag,
+.card .awards-content .awards-meta .skills-tag,
+.card .awards-content .contact-meta .about-tag,
+.card .awards-content .contact-meta .awards-tag,
+.card .awards-content .contact-meta .contact-tag,
+.card .awards-content .contact-meta .experience-tag,
+.card .awards-content .contact-meta .projects-tag,
+.card .awards-content .contact-meta .skills-tag,
+.card .awards-content .experience-meta .about-tag,
+.card .awards-content .experience-meta .awards-tag,
+.card .awards-content .experience-meta .contact-tag,
+.card .awards-content .experience-meta .experience-tag,
+.card .awards-content .experience-meta .projects-tag,
+.card .awards-content .experience-meta .skills-tag,
+.card .awards-content .projects-meta .about-tag,
+.card .awards-content .projects-meta .awards-tag,
+.card .awards-content .projects-meta .contact-tag,
+.card .awards-content .projects-meta .experience-tag,
+.card .awards-content .projects-meta .projects-tag,
+.card .awards-content .projects-meta .skills-tag,
+.card .awards-content .skills-meta .about-tag,
+.card .awards-content .skills-meta .awards-tag,
+.card .awards-content .skills-meta .contact-tag,
+.card .awards-content .skills-meta .experience-tag,
+.card .awards-content .skills-meta .projects-tag,
+.card .awards-content .skills-meta .skills-tag,
+.card .contact-content .about-meta .about-tag,
+.card .contact-content .about-meta .awards-tag,
+.card .contact-content .about-meta .contact-tag,
+.card .contact-content .about-meta .experience-tag,
+.card .contact-content .about-meta .projects-tag,
+.card .contact-content .about-meta .skills-tag,
+.card .contact-content .awards-meta .about-tag,
+.card .contact-content .awards-meta .awards-tag,
+.card .contact-content .awards-meta .contact-tag,
+.card .contact-content .awards-meta .experience-tag,
+.card .contact-content .awards-meta .projects-tag,
+.card .contact-content .awards-meta .skills-tag,
+.card .contact-content .contact-meta .about-tag,
+.card .contact-content .contact-meta .awards-tag,
+.card .contact-content .contact-meta .contact-tag,
+.card .contact-content .contact-meta .experience-tag,
+.card .contact-content .contact-meta .projects-tag,
+.card .contact-content .contact-meta .skills-tag,
+.card .contact-content .experience-meta .about-tag,
+.card .contact-content .experience-meta .awards-tag,
+.card .contact-content .experience-meta .contact-tag,
+.card .contact-content .experience-meta .experience-tag,
+.card .contact-content .experience-meta .projects-tag,
+.card .contact-content .experience-meta .skills-tag,
+.card .contact-content .projects-meta .about-tag,
+.card .contact-content .projects-meta .awards-tag,
+.card .contact-content .projects-meta .contact-tag,
+.card .contact-content .projects-meta .experience-tag,
+.card .contact-content .projects-meta .projects-tag,
+.card .contact-content .projects-meta .skills-tag,
+.card .contact-content .skills-meta .about-tag,
+.card .contact-content .skills-meta .awards-tag,
+.card .contact-content .skills-meta .contact-tag,
+.card .contact-content .skills-meta .experience-tag,
+.card .contact-content .skills-meta .projects-tag,
+.card .contact-content .skills-meta .skills-tag,
+.card .experience-content .about-meta .about-tag,
+.card .experience-content .about-meta .awards-tag,
+.card .experience-content .about-meta .contact-tag,
+.card .experience-content .about-meta .experience-tag,
+.card .experience-content .about-meta .projects-tag,
+.card .experience-content .about-meta .skills-tag,
+.card .experience-content .awards-meta .about-tag,
+.card .experience-content .awards-meta .awards-tag,
+.card .experience-content .awards-meta .contact-tag,
+.card .experience-content .awards-meta .experience-tag,
+.card .experience-content .awards-meta .projects-tag,
+.card .experience-content .awards-meta .skills-tag,
+.card .experience-content .contact-meta .about-tag,
+.card .experience-content .contact-meta .awards-tag,
+.card .experience-content .contact-meta .contact-tag,
+.card .experience-content .contact-meta .experience-tag,
+.card .experience-content .contact-meta .projects-tag,
+.card .experience-content .contact-meta .skills-tag,
+.card .experience-content .experience-meta .about-tag,
+.card .experience-content .experience-meta .awards-tag,
+.card .experience-content .experience-meta .contact-tag,
+.card .experience-content .experience-meta .experience-tag,
+.card .experience-content .experience-meta .projects-tag,
+.card .experience-content .experience-meta .skills-tag,
+.card .experience-content .projects-meta .about-tag,
+.card .experience-content .projects-meta .awards-tag,
+.card .experience-content .projects-meta .contact-tag,
+.card .experience-content .projects-meta .experience-tag,
+.card .experience-content .projects-meta .projects-tag,
+.card .experience-content .projects-meta .skills-tag,
+.card .experience-content .skills-meta .about-tag,
+.card .experience-content .skills-meta .awards-tag,
+.card .experience-content .skills-meta .contact-tag,
+.card .experience-content .skills-meta .experience-tag,
+.card .experience-content .skills-meta .projects-tag,
+.card .experience-content .skills-meta .skills-tag,
+.card .projects-content .about-meta .about-tag,
+.card .projects-content .about-meta .awards-tag,
+.card .projects-content .about-meta .contact-tag,
+.card .projects-content .about-meta .experience-tag,
+.card .projects-content .about-meta .projects-tag,
+.card .projects-content .about-meta .skills-tag,
+.card .projects-content .awards-meta .about-tag,
+.card .projects-content .awards-meta .awards-tag,
+.card .projects-content .awards-meta .contact-tag,
+.card .projects-content .awards-meta .experience-tag,
+.card .projects-content .awards-meta .projects-tag,
+.card .projects-content .awards-meta .skills-tag,
+.card .projects-content .contact-meta .about-tag,
+.card .projects-content .contact-meta .awards-tag,
+.card .projects-content .contact-meta .contact-tag,
+.card .projects-content .contact-meta .experience-tag,
+.card .projects-content .contact-meta .projects-tag,
+.card .projects-content .contact-meta .skills-tag,
+.card .projects-content .experience-meta .about-tag,
+.card .projects-content .experience-meta .awards-tag,
+.card .projects-content .experience-meta .contact-tag,
+.card .projects-content .experience-meta .experience-tag,
+.card .projects-content .experience-meta .projects-tag,
+.card .projects-content .experience-meta .skills-tag,
+.card .projects-content .projects-meta .about-tag,
+.card .projects-content .projects-meta .awards-tag,
+.card .projects-content .projects-meta .contact-tag,
+.card .projects-content .projects-meta .experience-tag,
+.card .projects-content .projects-meta .projects-tag,
+.card .projects-content .projects-meta .skills-tag,
+.card .projects-content .skills-meta .about-tag,
+.card .projects-content .skills-meta .awards-tag,
+.card .projects-content .skills-meta .contact-tag,
+.card .projects-content .skills-meta .experience-tag,
+.card .projects-content .skills-meta .projects-tag,
+.card .projects-content .skills-meta .skills-tag,
+.card .skills-content .about-meta .about-tag,
+.card .skills-content .about-meta .awards-tag,
+.card .skills-content .about-meta .contact-tag,
+.card .skills-content .about-meta .experience-tag,
+.card .skills-content .about-meta .projects-tag,
+.card .skills-content .about-meta .skills-tag,
+.card .skills-content .awards-meta .about-tag,
+.card .skills-content .awards-meta .awards-tag,
+.card .skills-content .awards-meta .contact-tag,
+.card .skills-content .awards-meta .experience-tag,
+.card .skills-content .awards-meta .projects-tag,
+.card .skills-content .awards-meta .skills-tag,
+.card .skills-content .contact-meta .about-tag,
+.card .skills-content .contact-meta .awards-tag,
+.card .skills-content .contact-meta .contact-tag,
+.card .skills-content .contact-meta .experience-tag,
+.card .skills-content .contact-meta .projects-tag,
+.card .skills-content .contact-meta .skills-tag,
+.card .skills-content .experience-meta .about-tag,
+.card .skills-content .experience-meta .awards-tag,
+.card .skills-content .experience-meta .contact-tag,
+.card .skills-content .experience-meta .experience-tag,
+.card .skills-content .experience-meta .projects-tag,
+.card .skills-content .experience-meta .skills-tag,
+.card .skills-content .projects-meta .about-tag,
+.card .skills-content .projects-meta .awards-tag,
+.card .skills-content .projects-meta .contact-tag,
+.card .skills-content .projects-meta .experience-tag,
+.card .skills-content .projects-meta .projects-tag,
+.card .skills-content .projects-meta .skills-tag,
+.card .skills-content .skills-meta .about-tag,
+.card .skills-content .skills-meta .awards-tag,
+.card .skills-content .skills-meta .contact-tag,
+.card .skills-content .skills-meta .experience-tag,
+.card .skills-content .skills-meta .projects-tag,
+.card .skills-content .skills-meta .skills-tag {
+  background: #0f3460;
+  color: #e94560;
+  font-size: 0.85rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+.card .about-content .about-title,
+.card .about-content .awards-title,
+.card .about-content .content-title,
+.card .about-content .experience-title,
+.card .about-content .projects-title,
+.card .about-content .skills-title,
+.card .awards-content .about-title,
+.card .awards-content .awards-title,
+.card .awards-content .content-title,
+.card .awards-content .experience-title,
+.card .awards-content .projects-title,
+.card .awards-content .skills-title,
+.card .contact-content .about-title,
+.card .contact-content .awards-title,
+.card .contact-content .content-title,
+.card .contact-content .experience-title,
+.card .contact-content .projects-title,
+.card .contact-content .skills-title,
+.card .experience-content .about-title,
+.card .experience-content .awards-title,
+.card .experience-content .content-title,
+.card .experience-content .experience-title,
+.card .experience-content .projects-title,
+.card .experience-content .skills-title,
+.card .projects-content .about-title,
+.card .projects-content .awards-title,
+.card .projects-content .content-title,
+.card .projects-content .experience-title,
+.card .projects-content .projects-title,
+.card .projects-content .skills-title,
+.card .skills-content .about-title,
+.card .skills-content .awards-title,
+.card .skills-content .content-title,
+.card .skills-content .experience-title,
+.card .skills-content .projects-title,
+.card .skills-content .skills-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #FFFFFF;
+}
+.card .card-image {
+  display: block;
+  filter: grayscale(0.2) brightness(0.95);
+  height: 220px;
+  object-fit: cover;
+  transition: filter 0.3s;
+  width: 100%;
+}
+.card:hover .card-image {
+  filter: grayscale(0) brightness(1.1);
+}
+.card .card-content {
+  color: #eaeaea;
+  padding: 1.5rem;
+}
+.card .card-content .card-title {
+  color: #FFFFFF;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.card .card-content .card-desc {
+  color: #bdbdbd;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.card .card-content .card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.card .card-content .card-tags .tag {
+  background: #0f3460;
+  color: #e94560;
+  font-size: 0.85rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
 }
 
 .col {
@@ -218,6 +701,10 @@ Example usage in your components:
   letter-spacing: 0.04em;
   margin-bottom: 0.5rem;
 }
+.typing-title .highlight {
+  color: #FF0099;
+  font-weight: 600;
+}
 
 .dropping-subtitle {
   font-size: clamp(1.1rem, 2.5vw, 1.7rem);
@@ -294,13 +781,38 @@ Example usage in your components:
   }
 }
 @media (max-width: 700px) {
-  .typing-title {
-    font-size: clamp(1.5rem, 7vw, 2.2rem);
+  .about-hero {
+    flex-direction: column;
+    padding: 1.5rem 0.7rem 1.2rem 0.7rem;
+    gap: 1.2rem;
+  }
+  .about-hero-img img {
+    width: 110px !important;
+    height: 110px !important;
   }
   .dropping-subtitle {
     font-size: clamp(0.9rem, 3vw, 1.1rem);
   }
+  .row {
+    display: flex;
+    flex-wrap: wrap-reverse;
+  }
+  .row .footer-copy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .row .footer-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
   .icon-slideshow .icon-slide {
     font-size: 1.3rem;
+  }
+  .typing-title {
+    font-size: clamp(1.5rem, 7vw, 2.2rem);
   }
 }

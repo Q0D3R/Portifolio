@@ -2,6 +2,82 @@
 @use "colors" as col;
 @use "mixins" as mix;
 
+ // Responsive adjustments
+ @media (max-width: 900px) {
+  .section {
+      padding: 2.5rem 1rem;
+
+      .grid {
+          gap: 1.2rem;
+      }
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+      padding: 1.5rem 0.5rem;
+
+      .section-title {
+          font-size: 1.6rem;
+      }
+
+      .grid {
+          grid-template-columns: 1fr;
+      }
+
+      .card .card-content {
+          padding: 1rem;
+      }
+  }
+}
+
+// Fade-in and slide-up animation for elements appearing on scroll
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+  }
+
+  60% {
+    opacity: 0.7;
+    transform: translateY(10px) scale(1.01);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+// Cool button styles for actions
+.btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background: linear-gradient(90deg, #e94560 0%, #0f3460 100%);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  box-shadow: 0 2px 12px rgba(233, 69, 96, 0.12);
+  cursor: pointer;
+  transition:
+      background 0.3s,
+      transform 0.2s;
+
+  &:hover,
+  &:focus {
+      background: linear-gradient(90deg, #0f3460 0%, #e94560 100%);
+      transform: translateY(-2px) scale(1.04);
+  }
+}
+
+.col {
+  @include mix.flex-center;
+  @include mix.flex-direction(column);
+}
+
 .indicator {
   position: absolute;
   top: -50%;
@@ -52,7 +128,9 @@
     position: relative;
     left: 0;
     top: 0;
-    transition: opacity 0.6s, transform 0.6s;
+    transition:
+      opacity 0.6s,
+      transform 0.6s;
     font-size: 8.2vh;
     //color: col.$color1;
     filter: drop-shadow(0 2px 8px rgba(44, 62, 80, 0.13));
@@ -69,8 +147,6 @@
     animation: fly-random 1.6s cubic-bezier(0.4, 0.7, 0.6, 1) forwards;
   }
 
-
-
   // Keyframes for random fly-away effect
   // Use CSS variables for random X/Y, scale, and rotation
   @keyframes fly-random {
@@ -81,14 +157,14 @@
 
     80% {
       opacity: 1;
-      transform:
-        scale(var(--fly-scale, 1.2)) rotate(var(--fly-rotate, 30deg)) translate(var(--fly-x, 60px), var(--fly-y, -80px));
+      transform: scale(var(--fly-scale, 1.2)) rotate(var(--fly-rotate, 30deg))
+        translate(var(--fly-x, 60px), var(--fly-y, -80px));
     }
 
     100% {
       opacity: 0;
-      transform:
-        scale(var(--fly-scale, 1.2)) rotate(var(--fly-rotate, 30deg)) translate(var(--fly-x, 60px), var(--fly-y, -80px));
+      transform: scale(var(--fly-scale, 1.2)) rotate(var(--fly-rotate, 30deg))
+        translate(var(--fly-x, 60px), var(--fly-y, -80px));
     }
   }
 
@@ -99,6 +175,27 @@
     z-index: 2;
   }
 }
+
+// Utility class to trigger animation
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  transition:
+    opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+    transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: opacity, transform;
+
+  &.is-visible {
+    animation: fadeInUp 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  }
+}
+
+.row {
+  @include mix.flex-center;
+  @include mix.flex-direction(row);
+  width: 100%;
+}
+
 
 // Slideshow dots
 .slideshow-dots {
@@ -113,7 +210,9 @@
     border-radius: 50%;
     background: col.$color7;
     opacity: 0.3;
-    transition: opacity 0.2s, background 0.2s;
+    transition:
+      opacity 0.2s,
+      background 0.2s;
   }
 
   .dot.active {
@@ -132,7 +231,9 @@
   border-right: 0.15em solid col.$color7;
   text-align: center;
   width: 0;
-  animation: typing 2.8s steps(30, end) 0.5s forwards, blink-caret 0.7s step-end infinite;
+  animation:
+    typing 2.8s steps(30, end) 0.5s forwards,
+    blink-caret 0.7s step-end infinite;
   letter-spacing: 0.04em;
   margin-bottom: 0.5rem;
 }
@@ -176,7 +277,6 @@
 }
 
 @keyframes blink-caret {
-
   0%,
   100% {
     border-color: transparent;

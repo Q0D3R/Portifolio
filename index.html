@@ -8,13 +8,14 @@
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 
 <body class="layout">
   <nav>
     <div class=" navigation">
       <div class="logo"">
-        <img src=" img/logo/Kush-bg.png" alt="logo">
+        <img src=" img/logo/Kush-bg (2).png" alt="logo">
       </div>
       <ul>
         <li class="list active">
@@ -48,7 +49,8 @@
       </ul>
       <ul>
         <li class="list">
-          <a href="#"><span class="icon" title="Account"><ion-icon name="person-outline" title="Account"></ion-icon></span>
+          <a href="#"><span class="icon" title="Account"><ion-icon name="person-outline"
+                title="Account"></ion-icon></span>
             <span class="text">Account</span>
           </a>
         </li>
@@ -58,6 +60,18 @@
   <header>
     <section class="hero-section reveal-on-scroll">
       <div class="typing-title">Hi, l'm Mlambo Dakarai</div>
+      <section class="avatar-flip-container">
+        <div class="avatar-flip">
+          <div class="avatar-front">
+            <img src="img/logo/IT-Officer.jpg" alt="Avatar Back"
+              style="border-radius:50%;width:140px;height:140px;object-fit:cover;">
+          </div>
+          <div class="avatar-back">
+            <img src="img/logo/Developer.jpg" alt="Developer Face"
+              style="border-radius:50%;width:140px;height:140px;object-fit:cover;">
+          </div>
+        </div>
+      </section>
       <div class="dropping-subtitle">Software &amp; Web Developer • Graphic Designer • Tech Enthusiast</div>
       <div class="icon-slideshow">
         <span class="icon-slide" style="animation-delay: 0s;"><ion-icon name="logo-html5"></ion-icon></span>
@@ -95,7 +109,9 @@
       </div>
     </section>
   </header>
+
   <main>
+    <canvas></canvas>
     <section class="awards-section reveal-on-scroll" id="awards">
       <h2 class="section-title">Featured Achievements</h2>
       <div class="grid awards-list">
@@ -143,36 +159,39 @@
             <span class="award-meta">University of Technology &bull; 2020-2023</span>
           </div>
         </div>
-      <div class="card reveal-on-scroll">
-        <div class="award-icon">
-          <ion-icon name="code-slash-outline" style="color:#8e44ad;"></ion-icon>
+        <div class="card reveal-on-scroll">
+          <div class="award-icon">
+            <ion-icon name="code-slash-outline" style="color:#8e44ad;"></ion-icon>
+          </div>
+          <div class="award-content">
+            <h3 class="award-title">Top 1% on Stack Overflow</h3>
+            <p class="award-desc">Recognized among the top contributors for providing high-quality answers and solutions
+              to programming questions, helping thousands of developers worldwide.</p>
+            <span class="award-meta">Stack Overflow &bull; 2022-2024</span>
+          </div>
         </div>
-        <div class="award-content">
-          <h3 class="award-title">Top 1% on Stack Overflow</h3>
-          <p class="award-desc">Recognized among the top contributors for providing high-quality answers and solutions to programming questions, helping thousands of developers worldwide.</p>
-          <span class="award-meta">Stack Overflow &bull; 2022-2024</span>
+        <div class="card reveal-on-scroll">
+          <div class="award-icon">
+            <ion-icon name="rocket-outline" style="color:#f39c12;"></ion-icon>
+          </div>
+          <div class="award-content">
+            <h3 class="award-title">Launched SaaS Product</h3>
+            <p class="award-desc">Designed, developed, and launched a successful SaaS platform serving over 5,000 users,
+              focusing on automation and productivity for small businesses.</p>
+            <span class="award-meta">Indie Developer &bull; 2023</span>
+          </div>
         </div>
-      </div>
-      <div class="card reveal-on-scroll">
-        <div class="award-icon">
-          <ion-icon name="rocket-outline" style="color:#f39c12;"></ion-icon>
+        <div class="card reveal-on-scroll">
+          <div class="award-icon">
+            <ion-icon name="people-outline" style="color:#00b894;"></ion-icon>
+          </div>
+          <div class="award-content">
+            <h3 class="award-title">Mentor of the Year</h3>
+            <p class="award-desc">Awarded for outstanding mentorship, guiding junior developers and interns through code
+              reviews, workshops, and career development sessions.</p>
+            <span class="award-meta">Tech Mentorship Program &bull; 2022</span>
+          </div>
         </div>
-        <div class="award-content">
-          <h3 class="award-title">Launched SaaS Product</h3>
-          <p class="award-desc">Designed, developed, and launched a successful SaaS platform serving over 5,000 users, focusing on automation and productivity for small businesses.</p>
-          <span class="award-meta">Indie Developer &bull; 2023</span>
-        </div>
-      </div>
-      <div class="card reveal-on-scroll">
-        <div class="award-icon">
-          <ion-icon name="people-outline" style="color:#00b894;"></ion-icon>
-        </div>
-        <div class="award-content">
-          <h3 class="award-title">Mentor of the Year</h3>
-          <p class="award-desc">Awarded for outstanding mentorship, guiding junior developers and interns through code reviews, workshops, and career development sessions.</p>
-          <span class="award-meta">Tech Mentorship Program &bull; 2022</span>
-        </div>
-      </div>
       </div>
     </section>
     <section class="projects-section reveal-on-scroll" id="projects">
@@ -284,81 +303,87 @@
           </div>
         </div>
       </div>
-    <div class="future-projects">
-      <h2 class="section-title">Future Projects</h2>
-      <div class="cards-grid">
-        <div class="card reveal-on-scroll">
-          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80"
-            alt="Future Project 1" class="card-img" loading="lazy">
-          <div class="card-content">
-            <h3 class="card-title">AI-Powered Tutoring Platform</h3>
-            <p class="card-desc">An interactive platform leveraging AI to provide personalized learning experiences and mentorship for students in Zimbabwe and beyond.</p>
-            <div class="card-tags">
-              <span class="tag">AI</span>
-              <span class="tag">EdTech</span>
-              <span class="tag">React</span>
-              <span class="tag">Node.js</span>
+      <div class="future-projects">
+        <h2 class="section-title">Future Projects</h2>
+        <div class="cards-grid">
+          <div class="card reveal-on-scroll">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80"
+              alt="Future Project 1" class="card-img" loading="lazy">
+            <div class="card-content">
+              <h3 class="card-title">AI-Powered Tutoring Platform</h3>
+              <p class="card-desc">An interactive platform leveraging AI to provide personalized learning experiences
+                and mentorship for students in Zimbabwe and beyond.</p>
+              <div class="card-tags">
+                <span class="tag">AI</span>
+                <span class="tag">EdTech</span>
+                <span class="tag">React</span>
+                <span class="tag">Node.js</span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="card reveal-on-scroll">
-          <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
-            alt="Future Project 2" class="card-img" loading="lazy">
-          <div class="card-content">
-            <h3 class="card-title">Smart Agriculture Dashboard</h3>
-            <p class="card-desc">A web-based dashboard for monitoring and optimizing crop yields using IoT sensors and real-time analytics for local farmers.</p>
-            <div class="card-tags">
-              <span class="tag">IoT</span>
-              <span class="tag">Analytics</span>
-              <span class="tag">Vue.js</span>
-              <span class="tag">Python</span>
+          <div class="card reveal-on-scroll">
+            <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
+              alt="Future Project 2" class="card-img" loading="lazy">
+            <div class="card-content">
+              <h3 class="card-title">Smart Agriculture Dashboard</h3>
+              <p class="card-desc">A web-based dashboard for monitoring and optimizing crop yields using IoT sensors and
+                real-time analytics for local farmers.</p>
+              <div class="card-tags">
+                <span class="tag">IoT</span>
+                <span class="tag">Analytics</span>
+                <span class="tag">Vue.js</span>
+                <span class="tag">Python</span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="card reveal-on-scroll">
-          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80"
-            alt="Future Project 3" class="card-img" loading="lazy">
-          <div class="card-content">
-            <h3 class="card-title">Community Health App</h3>
-            <p class="card-desc">A mobile-friendly app to connect communities with local health resources, appointment booking, and health education.</p>
-            <div class="card-tags">
-              <span class="tag">Mobile</span>
-              <span class="tag">HealthTech</span>
-              <span class="tag">Flutter</span>
-              <span class="tag">Firebase</span>
+          <div class="card reveal-on-scroll">
+            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80"
+              alt="Future Project 3" class="card-img" loading="lazy">
+            <div class="card-content">
+              <h3 class="card-title">Community Health App</h3>
+              <p class="card-desc">A mobile-friendly app to connect communities with local health resources, appointment
+                booking, and health education.</p>
+              <div class="card-tags">
+                <span class="tag">Mobile</span>
+                <span class="tag">HealthTech</span>
+                <span class="tag">Flutter</span>
+                <span class="tag">Firebase</span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="card reveal-on-scroll">
-          <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=400&q=80"
-            alt="Future Project 4" class="card-img" loading="lazy">
-          <div class="card-content">
-            <h3 class="card-title">Zimbabwe Heritage Portal</h3>
-            <p class="card-desc">A digital archive and interactive map to showcase Zimbabwe's cultural heritage, landmarks, and history for educational and tourism purposes.</p>
-            <div class="card-tags">
-              <span class="tag">Culture</span>
-              <span class="tag">GIS</span>
-              <span class="tag">Next.js</span>
-              <span class="tag">GraphQL</span>
+          <div class="card reveal-on-scroll">
+            <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=400&q=80"
+              alt="Future Project 4" class="card-img" loading="lazy">
+            <div class="card-content">
+              <h3 class="card-title">Zimbabwe Heritage Portal</h3>
+              <p class="card-desc">A digital archive and interactive map to showcase Zimbabwe's cultural heritage,
+                landmarks, and history for educational and tourism purposes.</p>
+              <div class="card-tags">
+                <span class="tag">Culture</span>
+                <span class="tag">GIS</span>
+                <span class="tag">Next.js</span>
+                <span class="tag">GraphQL</span>
+              </div>
             </div>
           </div>
-        </div>
-      <div class="card reveal-on-scroll">
-        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
-          alt="Harare Children's Home Website" class="card-img" loading="lazy">
-        <div class="card-content">
-          <h3 class="card-title">Harare Children's Home Website</h3>
-          <p class="card-desc">A modern, user-friendly website for Harare Children's Home, featuring donation portals, volunteer sign-ups, event updates, and resources to support the well-being of children in need.</p>
-          <div class="card-tags">
-            <span class="tag">Nonprofit</span>
-            <span class="tag">Charity</span>
-            <span class="tag">WordPress</span>
-            <span class="tag">UI/UX</span>
+          <div class="card reveal-on-scroll">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+              alt="Harare Children's Home Website" class="card-img" loading="lazy">
+            <div class="card-content">
+              <h3 class="card-title">Harare Children's Home Website</h3>
+              <p class="card-desc">A modern, user-friendly website for Harare Children's Home, featuring donation
+                portals, volunteer sign-ups, event updates, and resources to support the well-being of children in need.
+              </p>
+              <div class="card-tags">
+                <span class="tag">Nonprofit</span>
+                <span class="tag">Charity</span>
+                <span class="tag">WordPress</span>
+                <span class="tag">UI/UX</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      </div>
-    </div>
     </section>
     <section class="skills-section reveal-on-scroll" id="projects">
       <h2 class="section-title">Skills</h2>
@@ -801,52 +826,10 @@
       </div>
     </div>
   </footer>
-  
-  <script>
-    // Optionally animate progress bars on scroll
-    document.addEventListener('DOMContentLoaded', function() {
-      const bars = document.querySelectorAll('.skill-progress');
-      bars.forEach(bar => {
-        const percent = bar.getAttribute('data-percent');
-        bar.style.width = percent + '%';
-      });
-    });
-  
-    // Reveal on scroll animation
-    function revealOnScroll() {
-      const reveals = document.querySelectorAll('.reveal-on-scroll');
-      const windowHeight = window.innerHeight;
-      reveals.forEach(el => {
-        const top = el.getBoundingClientRect().top;
-        if (top < windowHeight - 80) {
-          el.classList.add('is-visible');
-        }
-      });
-    }
-    window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('DOMContentLoaded', revealOnScroll);
 
-    // Contact form (demo only)
-    document.querySelector('.contact-form')?.addEventListener('submit', function (e) {
-      e.preventDefault();
-      alert('Thank you for reaching out! I will get back to you soon.');
-      this.reset();
-    });
-  </script>
-  <!-- Font Awesome for social icons (CDN) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <script src="js/back.js"></script>
+  <script src="js/index.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script module src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
-<script>
-  const list = document.querySelectorAll('.list');
-
-  function activeLink() {
-    list.forEach((item) => item.classList.remove('active'));
-    this.classList.add('active');
-  }
-  list.forEach((item) => item.addEventListener('click', activeLink));
-</script>
-
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script module src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
 </html>

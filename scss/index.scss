@@ -11,58 +11,6 @@
     font-family: "Poppins", sans-serif;
 }
 
-.avatar-flip-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 1.5rem 0;
-
-    .avatar-flip {
-        width: 140px;
-        height: 140px;
-        perspective: 800px;
-
-        &>div {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            backface-visibility: hidden;
-            transition: transform 0.6s cubic-bezier(0.4, 2, 0.6, 1);
-        }
-    }
-
-    .avatar-front {
-        z-index: 2;
-        transform: rotateY(0deg);
-    }
-
-    .avatar-back {
-        transform: rotateY(180deg);
-    }
-
-    .avatar-flip {
-        position: relative;
-        cursor: pointer;
-    }
-
-    .avatar-flip:hover .avatar-front,
-    .avatar-flip:focus .avatar-front {
-        transform: rotateY(-180deg);
-    }
-
-    .avatar-flip:hover .avatar-back,
-    .avatar-flip:focus .avatar-back {
-        transform: rotateY(0deg);
-    }
-
-    img {
-        border-radius:50%;
-        width:140px;
-        height:140px;
-        object-fit:cover;
-    }
-}
-
 .snow {
     position: absolute;
     top: 0;
@@ -117,6 +65,58 @@ canvas {
     }
 }
 
+@media (max-width: 1200px) {
+    header {
+        padding: 1.5rem 1rem;
+        margin: 0;
+    }
+}
+
+@media (max-width: 900px) {
+    header {
+        padding: 1rem 0.5rem;
+        margin: 0;
+        border-radius: 0;
+
+        .hero-section {
+            padding: 1.5rem 0.5rem;
+            max-width: 100vw;
+        }
+
+        .hero-content {
+            @include mix.flex-direction(column);
+            align-items: center;
+            gap: 1.2rem;
+            text-align: center;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        padding: 0.5rem 0.2rem;
+        margin: 0;
+        border-radius: 0;
+        width: 100vw;
+
+        .hero-section {
+            padding: 1rem 0.2rem;
+            border-radius: 0;
+
+            .typing-title,
+            .dropping-subtitle,
+            .icon-slideshow,
+            .hero-content,
+            .hero-image {
+                margin-bottom: 0.8rem;
+            }
+            .avatar-flip-container {
+                margin-bottom: 0.8rem;
+            }
+        }
+    }
+}
+
 @media screen and (min-width: 180px) {
     .layout {
         @include mix.display(var.$d-grid);
@@ -125,7 +125,6 @@ canvas {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto auto;
         height: fit-content;
-        //margin: 0 50% 100% 50%;
 
         nav {
             @include mix.glass-effect;
@@ -152,17 +151,13 @@ canvas {
                 background: rgba(26, 33, 46, 0.85);
                 backdrop-filter: blur(8px);
                 box-shadow: 0 2px 16px 0 rgba(44, 62, 80, 0.12);
-                //background-image: linear-gradient(col.$bg2 50%, col.$bg11 100%);
                 border-radius: 10px;
                 height: clamp(4.3rem, 1vw, 9rem);
-                //position: relative;
                 width: fit-content;
 
                 .logo {
                     @include mix.flex-center;
                     aspect-ratio: 1 / 1;
-                    //background-image: linear-gradient(col.$bg2 50%, col.$bg11 100%);
-                    //border: 1px solid col.$color1;
                     overflow: hidden;
                     margin: 0 clamp(2vw, 1vw, 1.5vw);
                     width: clamp(4rem, 1vw, 9rem);
@@ -265,27 +260,27 @@ canvas {
                         transform: translateY(10px);
                     }
 
-                    li:nth-child(1).active~.indicator {
+                    li:nth-child(1).active ~ .indicator {
                         transform: translateX(calc(70px * 0));
                     }
 
-                    li:nth-child(2).active~.indicator {
+                    li:nth-child(2).active ~ .indicator {
                         transform: translateX(calc(70px * 1));
                     }
 
-                    li:nth-child(3).active~.indicator {
+                    li:nth-child(3).active ~ .indicator {
                         transform: translateX(calc(70px * 2));
                     }
 
-                    li:nth-child(4).active~.indicator {
+                    li:nth-child(4).active ~ .indicator {
                         transform: translateX(calc(70px * 3));
                     }
 
-                    li:nth-child(5).active~.indicator {
+                    li:nth-child(5).active ~ .indicator {
                         transform: translateX(calc(70px * 4));
                     }
 
-                    li:nth-child(6).active~.indicator {
+                    li:nth-child(6).active ~ .indicator {
                         transform: translateX(calc(70px * 5));
                     }
                 }
@@ -303,80 +298,95 @@ canvas {
             border-radius: 1rem 1rem 0 0;
             grid-area: header;
             margin: clamp(1vw, 1vw, 1.5vw);
-            padding: clamp(1vh, 1vh, 1.5vh) clamp(1vw, 1vw, 1.5vw);
+            max-width: 100vw;
+            min-width: 0;
+            padding: clamp(6vh, 1vh, 1.5vh) clamp(1vw, 1vw, 1.5vw) clamp(1vw, 1vw, 1.5vw) clamp(1vw, 1vw, 1.5vw);
             position: relative;
             top: 0;
-            width: 98vw;
             z-index: 98;
+            width: 98vw;
 
             .hero-section {
                 @include mix.flex-center;
                 @include mix.flex-direction(column);
                 @include mix.glass-effect;
-                align-items: center;
-                //background: linear-gradient(120deg, col.$bg2 0%, col.$bg5 100%);
                 border-radius: 0.5rem;
                 box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
-                display: flex;
-                justify-content: center;
-                margin: clamp(10vh, 1vw, 1.5vw) clamp(1vw, 1vw, 1.5vw) 0 clamp(1vw, 1vw, 1.5vw);
-                min-height: 60vh;
-                overflow: hidden;
-                padding: clamp(1vw, 1vw, 1.5vw);
-                position: relative;
+                max-width: 1200px;
+                min-width: 0;
+                margin: 0 auto;
+                padding: clamp(1.5rem, 4vw, 3rem);
+                width: 100%;
 
+                .typing-title {
+                    font-size: clamp(1.5rem, 5vw, 2.5rem);
+                    font-weight: 700;
+                    color: col.$color2;
+                    text-align: center;
+                    margin-bottom: 1rem;
 
-                .container {
-                    @include mix.flex-center-space-between;
-                    @include mix.flex-direction(row);
-                    gap: 3rem;
-                    max-width: 1200px;
-                    padding: 2rem 1.5rem;
-                    width: 100%;
-
-                    @media (max-width: 900px) {
-                        @include mix.flex-direction(column);
-                        gap: 2rem;
-                        text-align: center;
+                    .highlight {
+                        color: col.$color5;
+                        background: linear-gradient(90deg, col.$color6 40%, col.$color7 100%);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        background-clip: text;
                     }
                 }
 
+                .dropping-subtitle {
+                    color: col.$color2;
+                    font-size: clamp(1rem, 2.5vw, 1.3rem);
+                    text-align: center;
+                    margin-bottom: 1.2rem;
+                    font-weight: 400;
+                }
+
+                .icon-slideshow {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 0.5rem;
+                    margin-bottom: 1.5rem;
+
+                    .icon-slide {
+                        font-size: clamp(1.5rem, 4vw, 2.5rem);
+                        color: col.$color7;
+                        opacity: 0.85;
+                        transition: transform 0.2s;
+                        &:hover {
+                            transform: scale(1.15);
+                            color: col.$color5;
+                        }
+                    }
+                }
+
+                .hero-image {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 1.5rem 0;
+
+                    img {
+                        border-radius: 50%;
+                        max-width: 180px;
+                        width: 100%;
+                        height: auto;
+                        box-shadow: 0 4px 24px rgba(44, 62, 80, 0.18);
+                        background: #fff;
+                        border: 5px solid col.$color5;
+                    }
+                }
+
+                // Responsive adjustments for hero-content
                 .hero-content {
-                    @include mix.flex-start;
                     @include mix.flex-direction(column);
-                    flex: 1 1 0;
-                    gap: 1.5rem;
-
-                    @media (max-width: 900px) {
-                        align-items: center;
-                    }
-
-                    .hero-title {
-                        font-size: clamp(2.2rem, 5vw, 3.5rem);
-                        font-weight: 700;
-                        color: col.$color2;
-                        margin-bottom: 0.5rem;
-
-                        .highlight {
-                            color: col.$color5;
-                            background: linear-gradient(90deg, col.$color6 40%, col.$color7 100%);
-                            -webkit-background-clip: text;
-                            -webkit-text-fill-color: transparent;
-                            background-clip: text;
-                        }
-                    }
-
-                    .hero-subtitle {
-                        font-size: clamp(1.1rem, 2vw, 1.5rem);
-                        color: col.$color2;
-                        line-height: 1.6;
-                        margin-bottom: 1.5rem;
-
-                        .highlight {
-                            color: col.$color5;
-                            font-weight: 600;
-                        }
-                    }
+                    align-items: flex-center;
+                    gap: 2rem;
+                    justify-content: center;
+                    text-align: left;
+                    width: 100%;
 
                     .btn {
                         @include mix.display(inline-block);
@@ -393,6 +403,7 @@ canvas {
                         transition:
                             background 0.3s,
                             transform 0.2s;
+                        width: 12vw;
 
                         &:hover,
                         &:focus {

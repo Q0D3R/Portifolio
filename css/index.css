@@ -33,50 +33,6 @@ Example usage in your components:
   font-family: "Poppins", sans-serif;
 }
 
-.avatar-flip-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 1.5rem 0;
-}
-.avatar-flip-container .avatar-flip {
-  width: 140px;
-  height: 140px;
-  perspective: 800px;
-}
-.avatar-flip-container .avatar-flip > div {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  backface-visibility: hidden;
-  transition: transform 0.6s cubic-bezier(0.4, 2, 0.6, 1);
-}
-.avatar-flip-container .avatar-front {
-  z-index: 2;
-  transform: rotateY(0deg);
-}
-.avatar-flip-container .avatar-back {
-  transform: rotateY(180deg);
-}
-.avatar-flip-container .avatar-flip {
-  position: relative;
-  cursor: pointer;
-}
-.avatar-flip-container .avatar-flip:hover .avatar-front,
-.avatar-flip-container .avatar-flip:focus .avatar-front {
-  transform: rotateY(-180deg);
-}
-.avatar-flip-container .avatar-flip:hover .avatar-back,
-.avatar-flip-container .avatar-flip:focus .avatar-back {
-  transform: rotateY(0deg);
-}
-.avatar-flip-container img {
-  border-radius: 50%;
-  width: 140px;
-  height: 140px;
-  object-fit: cover;
-}
-
 .snow {
   position: absolute;
   top: 0;
@@ -127,6 +83,52 @@ canvas {
     box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
     background-image: linear-gradient(360degr #F5F5F5 60%, #800080 100%);
     grid-area: header;
+  }
+}
+@media (max-width: 1200px) {
+  header {
+    padding: 1.5rem 1rem;
+    margin: 0;
+  }
+}
+@media (max-width: 900px) {
+  header {
+    padding: 1rem 0.5rem;
+    margin: 0;
+    border-radius: 0;
+  }
+  header .hero-section {
+    padding: 1.5rem 0.5rem;
+    max-width: 100vw;
+  }
+  header .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    text-align: center;
+  }
+}
+@media (max-width: 600px) {
+  header {
+    padding: 0.5rem 0.2rem;
+    margin: 0;
+    border-radius: 0;
+    width: 100vw;
+  }
+  header .hero-section {
+    padding: 1rem 0.2rem;
+    border-radius: 0;
+  }
+  header .hero-section .typing-title,
+  header .hero-section .dropping-subtitle,
+  header .hero-section .icon-slideshow,
+  header .hero-section .hero-content,
+  header .hero-section .hero-image {
+    margin-bottom: 0.8rem;
+  }
+  header .hero-section .avatar-flip-container {
+    margin-bottom: 0.8rem;
   }
 }
 @media screen and (min-width: 180px) {
@@ -293,11 +295,13 @@ canvas {
     border-radius: 1rem 1rem 0 0;
     grid-area: header;
     margin: 1vw;
-    padding: 1vh 1vw;
+    max-width: 100vw;
+    min-width: 0;
+    padding: 6vh 1vw 1vw 1vw;
     position: relative;
     top: 0;
-    width: 98vw;
     z-index: 98;
+    width: 98vw;
   }
   .layout header .hero-section {
     display: flex;
@@ -308,75 +312,76 @@ canvas {
     backdrop-filter: blur(10px);
     border: 2px solid RGBA(255, 255, 255, 0.18);
     box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
-    align-items: center;
     border-radius: 0.5rem;
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
-    display: flex;
-    justify-content: center;
-    margin: clamp(10vh, 1vw, 1.5vw) 1vw 0 1vw;
-    min-height: 60vh;
-    overflow: hidden;
-    padding: 1vw;
-    position: relative;
-  }
-  .layout header .hero-section .container {
-    align-items: center;
-    justify-content: space-between;
-    display: flex;
-    flex-direction: row;
-    gap: 3rem;
     max-width: 1200px;
-    padding: 2rem 1.5rem;
+    min-width: 0;
+    margin: 0 auto;
+    padding: clamp(1.5rem, 4vw, 3rem);
     width: 100%;
   }
-}
-@media screen and (min-width: 180px) and (max-width: 900px) {
-  .layout header .hero-section .container {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    text-align: center;
-  }
-}
-@media screen and (min-width: 180px) {
-  .layout header .hero-section .hero-content {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 0;
-    gap: 1.5rem;
-  }
-}
-@media screen and (min-width: 180px) and (max-width: 900px) {
-  .layout header .hero-section .hero-content {
-    align-items: center;
-  }
-}
-@media screen and (min-width: 180px) {
-  .layout header .hero-section .hero-content .hero-title {
-    font-size: clamp(2.2rem, 5vw, 3.5rem);
+  .layout header .hero-section .typing-title {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
     font-weight: 700;
     color: #FFFFFF;
-    margin-bottom: 0.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
   }
-  .layout header .hero-section .hero-content .hero-title .highlight {
+  .layout header .hero-section .typing-title .highlight {
     color: #FF0099;
     background: linear-gradient(90deg, #1E90FF 40%, #1eff83 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  .layout header .hero-section .hero-content .hero-subtitle {
-    font-size: clamp(1.1rem, 2vw, 1.5rem);
+  .layout header .hero-section .dropping-subtitle {
     color: #FFFFFF;
-    line-height: 1.6;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    text-align: center;
+    margin-bottom: 1.2rem;
+    font-weight: 400;
+  }
+  .layout header .hero-section .icon-slideshow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
     margin-bottom: 1.5rem;
   }
-  .layout header .hero-section .hero-content .hero-subtitle .highlight {
+  .layout header .hero-section .icon-slideshow .icon-slide {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: #1eff83;
+    opacity: 0.85;
+    transition: transform 0.2s;
+  }
+  .layout header .hero-section .icon-slideshow .icon-slide:hover {
+    transform: scale(1.15);
     color: #FF0099;
-    font-weight: 600;
+  }
+  .layout header .hero-section .hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem 0;
+  }
+  .layout header .hero-section .hero-image img {
+    border-radius: 50%;
+    max-width: 180px;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 4px 24px rgba(44, 62, 80, 0.18);
+    background: #fff;
+    border: 5px solid #FF0099;
+  }
+  .layout header .hero-section .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-center;
+    gap: 2rem;
+    justify-content: center;
+    text-align: left;
+    width: 100%;
   }
   .layout header .hero-section .hero-content .btn {
     display: inline-block;
@@ -390,6 +395,7 @@ canvas {
     font-weight: 600;
     padding: 0.75rem 2rem;
     transition: background 0.3s, transform 0.2s;
+    width: 12vw;
   }
   .layout header .hero-section .hero-content .btn:hover, .layout header .hero-section .hero-content .btn:focus {
     background: linear-gradient(90deg, #1eff83 0%, #1E90FF 100%);

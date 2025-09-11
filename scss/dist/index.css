@@ -33,44 +33,6 @@ Example usage in your components:
   font-family: "Poppins", sans-serif;
 }
 
-.avatar-flip-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 1.5rem 0;
-}
-.avatar-flip-container .avatar-flip {
-  width: 140px;
-  height: 140px;
-  perspective: 800px;
-}
-.avatar-flip-container .avatar-flip > div {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  backface-visibility: hidden;
-  transition: transform 0.6s cubic-bezier(0.4, 2, 0.6, 1);
-}
-.avatar-flip-container .avatar-front {
-  z-index: 2;
-  transform: rotateY(0deg);
-}
-.avatar-flip-container .avatar-back {
-  transform: rotateY(180deg);
-}
-.avatar-flip-container .avatar-flip {
-  position: relative;
-  cursor: pointer;
-}
-.avatar-flip-container .avatar-flip:hover .avatar-front,
-.avatar-flip-container .avatar-flip:focus .avatar-front {
-  transform: rotateY(-180deg);
-}
-.avatar-flip-container .avatar-flip:hover .avatar-back,
-.avatar-flip-container .avatar-flip:focus .avatar-back {
-  transform: rotateY(0deg);
-}
-
 .snow {
   position: absolute;
   top: 0;
@@ -121,6 +83,52 @@ canvas {
     box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
     background-image: linear-gradient(360degr #F5F5F5 60%, #800080 100%);
     grid-area: header;
+  }
+}
+@media (max-width: 1200px) {
+  header {
+    padding: 1.5rem 1rem;
+    margin: 0;
+  }
+}
+@media (max-width: 900px) {
+  header {
+    padding: 1rem 0.5rem;
+    margin: 0;
+    border-radius: 0;
+  }
+  header .hero-section {
+    padding: 1.5rem 0.5rem;
+    max-width: 100vw;
+  }
+  header .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    text-align: center;
+  }
+}
+@media (max-width: 600px) {
+  header {
+    padding: 0.5rem 0.2rem;
+    margin: 0;
+    border-radius: 0;
+    width: 100vw;
+  }
+  header .hero-section {
+    padding: 1rem 0.2rem;
+    border-radius: 0;
+  }
+  header .hero-section .typing-title,
+header .hero-section .dropping-subtitle,
+header .hero-section .icon-slideshow,
+header .hero-section .hero-content,
+header .hero-section .hero-image {
+    margin-bottom: 0.8rem;
+  }
+  header .hero-section .avatar-flip-container {
+    margin-bottom: 0.8rem;
   }
 }
 @media screen and (min-width: 180px) {
@@ -282,15 +290,18 @@ canvas {
     border: 2px solid RGBA(255, 255, 255, 0.18);
     box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
     animation: header-bg-move 8s ease-in-out infinite;
-    background: linear-gradient(120deg, #8C8E 0%, #800080 100%);
+    background: linear-gradient(120deg, #3b3c36 0%, #002147 100%);
     background-size: 200% 200%;
+    border-radius: 1rem 1rem 0 0;
     grid-area: header;
     margin: clamp(1vw, 1vw, 1.5vw);
-    padding: clamp(1vh, 1vh, 1.5vh) clamp(1vw, 1vw, 1.5vw);
+    max-width: 100vw;
+    min-width: 0;
+    padding: clamp(6vh, 1vh, 1.5vh) clamp(1vw, 1vw, 1.5vw) clamp(1vw, 1vw, 1.5vw) clamp(1vw, 1vw, 1.5vw);
     position: relative;
     top: 0;
-    width: 98vw;
     z-index: 98;
+    width: 98vw;
   }
   .layout header .hero-section {
     display: flex;
@@ -301,86 +312,80 @@ canvas {
     backdrop-filter: blur(10px);
     border: 2px solid RGBA(255, 255, 255, 0.18);
     box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
-    margin: clamp(10vh, 1vw, 1.5vw) clamp(1vw, 1vw, 1.5vw) 0 clamp(1vw, 1vw, 1.5vw);
-    padding: clamp(1vw, 1vw, 1.5vw);
-  }
-  .layout header .hero-section .hero-section {
-    min-height: 60vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(120deg, #F5F5F5 0%, #800080 100%);
-    border-radius: 1.5rem;
+    border-radius: 0.5rem;
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
-    position: relative;
-    overflow: hidden;
-  }
-  .layout header .hero-section .hero-section .container {
-    align-items: center;
-    justify-content: space-between;
-    display: flex;
-    flex-direction: row;
-    gap: 3rem;
     max-width: 1200px;
-    padding: 2rem 1.5rem;
+    min-width: 0;
+    margin: 0 auto;
+    padding: clamp(1.5rem, 4vw, 3rem);
     width: 100%;
   }
-}
-@media screen and (min-width: 180px) and (max-width: 900px) {
-  .layout header .hero-section .hero-section .container {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    text-align: center;
-  }
-}
-@media screen and (min-width: 180px) {
-  .layout header .hero-section .hero-section .hero-content {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 0;
-    gap: 1.5rem;
-  }
-}
-@media screen and (min-width: 180px) and (max-width: 900px) {
-  .layout header .hero-section .hero-section .hero-content {
-    align-items: center;
-  }
-}
-@media screen and (min-width: 180px) {
-  .layout header .hero-section .hero-section .hero-content .hero-title {
-    font-size: clamp(2.2rem, 5vw, 3.5rem);
+  .layout header .hero-section .typing-title {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
     font-weight: 700;
-    color: #121212;
-    margin-bottom: 0.5rem;
+    color: #FFFFFF;
+    text-align: center;
+    margin-bottom: 1rem;
   }
-  .layout header .hero-section .hero-section .hero-content .hero-title .highlight {
-    color: #1E90FF;
+  .layout header .hero-section .typing-title .highlight {
+    color: #FF0099;
     background: linear-gradient(90deg, #1E90FF 40%, #1eff83 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-}
-@media screen and (min-width: 180px) {
-  .layout header .hero-section .hero-section .hero-content .hero-subtitle {
-    font-size: clamp(1.1rem, 2vw, 1.5rem);
-    color: #05502c;
-    line-height: 1.6;
+  .layout header .hero-section .dropping-subtitle {
+    color: #FFFFFF;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    text-align: center;
+    margin-bottom: 1.2rem;
+    font-weight: 400;
+  }
+  .layout header .hero-section .icon-slideshow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
     margin-bottom: 1.5rem;
   }
-  .layout header .hero-section .hero-section .hero-content .hero-subtitle .highlight {
+  .layout header .hero-section .icon-slideshow .icon-slide {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
     color: #1eff83;
-    font-weight: 600;
+    opacity: 0.85;
+    transition: transform 0.2s;
   }
-}
-@media screen and (min-width: 180px) {
-  .layout header .hero-section .hero-section .hero-content .btn {
+  .layout header .hero-section .icon-slideshow .icon-slide:hover {
+    transform: scale(1.15);
+    color: #FF0099;
+  }
+  .layout header .hero-section .hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem 0;
+  }
+  .layout header .hero-section .hero-image img {
+    border-radius: 50%;
+    max-width: 180px;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 4px 24px rgba(44, 62, 80, 0.18);
+    background: #fff;
+    border: 5px solid #FF0099;
+  }
+  .layout header .hero-section .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-center;
+    gap: 2rem;
+    justify-content: center;
+    text-align: left;
+    width: 100%;
+  }
+  .layout header .hero-section .hero-content .btn {
     display: inline-block;
-    background: linear-gradient(90deg, #1E90FF 0%, #1eff83 100%);
+    background: linear-gradient(90deg, #3399CC 0%, #FF3333 100%);
     border: none;
     border-radius: 2rem;
     box-shadow: 0 2px 12px 0 rgba(233, 69, 96, 0.15);
@@ -390,20 +395,19 @@ canvas {
     font-weight: 600;
     padding: 0.75rem 2rem;
     transition: background 0.3s, transform 0.2s;
+    width: 12vw;
   }
-  .layout header .hero-section .hero-section .hero-content .btn:hover, .layout header .hero-section .hero-section .hero-content .btn:focus {
+  .layout header .hero-section .hero-content .btn:hover, .layout header .hero-section .hero-content .btn:focus {
     background: linear-gradient(90deg, #1eff83 0%, #1E90FF 100%);
     transform: translateY(-2px) scale(1.04);
   }
-}
-@media screen and (min-width: 180px) {
-  .layout header .hero-section .hero-section .hero-image {
+  .layout header .hero-section .hero-image {
     display: flex;
     align-items: center;
     justify-content: center;
     flex: 0 0 auto;
   }
-  .layout header .hero-section .hero-section .hero-image img {
+  .layout header .hero-section .hero-image img {
     background: #fff;
     border: 5px solid #1E90FF;
     border-radius: 50%;
@@ -414,7 +418,7 @@ canvas {
   }
 }
 @media screen and (min-width: 180px) and (max-width: 600px) {
-  .layout header .hero-section .hero-section .hero-image img {
+  .layout header .hero-section .hero-image img {
     height: 120px;
     width: 120px;
   }
@@ -429,8 +433,8 @@ canvas {
     backdrop-filter: blur(10px);
     border: 2px solid RGBA(255, 255, 255, 0.18);
     box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
-    /* https://grabient.com/HQdgLAbANKkwnPAzFAtABmAJnQRhruumpocRsGDiZVtBZGDOgKwsw4g1ZVA?style=linearGradient&steps=5&angle=45 */
-    background: linear-gradient(45deg, #8ec5fc 0%, #8dd3ff 25%, #a1d8ff 50%, #c1d2ff 75%, #e0c3ff 100%);
+    animation: header-bg-move 8s ease-in-out infinite;
+    background: linear-gradient(120deg, #3b3c36 0%, #002147 100%);
     grid-area: main;
     margin: clamp(1vw, 1vw, 1.5vw);
     padding: 0 clamp(1vw, 1vw, 1.5vw);
@@ -448,7 +452,8 @@ canvas {
     border: 2px solid RGBA(255, 255, 255, 0.18);
     box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
     background: linear-gradient(120deg, #1a1a2e 0%, #16213e 100%);
-    padding: 4rem 2rem;
+    margin: clamp(1vh, 1vw, 1.5vw) clamp(1vw, 1vw, 1.5vw) 0 clamp(1vw, 1vw, 1.5vw);
+    padding: clamp(1vw, 1vw, 1.5vw);
   }
   .layout main .about-section .container {
     max-width: 900px;
@@ -503,7 +508,8 @@ canvas {
     border: 2px solid RGBA(255, 255, 255, 0.18);
     box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
     background: linear-gradient(120deg, #1a1a2e 0%, #16213e 100%);
-    padding: 4rem 2rem;
+    margin: clamp(1vh, 1vw, 1.5vw) clamp(1vw, 1vw, 1.5vw) 0 clamp(1vw, 1vw, 1.5vw);
+    padding: clamp(1vw, 1vw, 1.5vw);
   }
   .layout main .awards-section .contact-section {
     display: flex;
@@ -625,7 +631,8 @@ canvas {
     border: 2px solid RGBA(255, 255, 255, 0.18);
     box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
     background: linear-gradient(120deg, #1a1a2e 0%, #16213e 100%);
-    padding: 4rem 2rem;
+    margin: clamp(1vh, 1vw, 1.5vw) clamp(1vw, 1vw, 1.5vw) 0 clamp(1vw, 1vw, 1.5vw);
+    padding: clamp(1vw, 1vw, 1.5vw);
   }
   .layout main .contact-section .contact-list {
     display: grid;
@@ -779,8 +786,8 @@ canvas {
     border: 2px solid RGBA(255, 255, 255, 0.18);
     box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
     background: linear-gradient(120deg, #45576b 50%, #16213e 100%);
-    min-height: 100vh;
-    padding: 4rem 2rem;
+    margin: clamp(1vh, 1vw, 1.5vw) clamp(1vw, 1vw, 1.5vw) 0 clamp(1vw, 1vw, 1.5vw);
+    padding: clamp(1vw, 1vw, 1.5vw);
   }
   .layout main .experience-section .experience-list {
     display: grid;
@@ -877,8 +884,8 @@ canvas {
     border: 2px solid RGBA(255, 255, 255, 0.18);
     box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
     background: linear-gradient(120deg, #1a1a2e 0%, #16213e 100%);
-    min-height: 100vh;
-    padding: 4rem 2rem;
+    margin: clamp(1vh, 1vw, 1.5vw) clamp(1vw, 1vw, 1.5vw) 0 clamp(1vw, 1vw, 1.5vw);
+    padding: clamp(1vw, 1vw, 1.5vw);
   }
   .layout main .projects-section .cards-grid {
     display: grid;
@@ -1020,8 +1027,8 @@ canvas {
     border: 2px solid RGBA(255, 255, 255, 0.18);
     box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
     background: linear-gradient(120deg, #1a1a2e 0%, #16213e 100%);
-    min-height: 100vh;
-    padding: 4rem 2rem;
+    margin: clamp(1vh, 1vw, 1.5vw) clamp(1vw, 1vw, 1.5vw) 0 clamp(1vw, 1vw, 1.5vw);
+    padding: clamp(1vw, 1vw, 1.5vw);
   }
   .layout main .skills-section .skills-intro {
     max-width: 700px;
@@ -1070,10 +1077,12 @@ canvas {
     background: rgba(255, 255, 255, 0.06);
     border-radius: 1rem;
     box-shadow: 0 2px 12px 0 rgba(44, 62, 80, 0.1);
-    padding: 1.5rem 1rem;
+    margin: 1.5rem 1rem;
+    padding: 1rem 1rem;
     transition: transform 0.2s, box-shadow 0.2s;
     text-align: center;
     position: relative;
+    width: 8rem;
   }
   .layout main .skills-section .skill-item:hover, .layout main .skills-section .skill-item:focus {
     transform: translateY(-4px) scale(1.04);
@@ -1088,7 +1097,7 @@ canvas {
   .layout main .skills-section .skill-item .skill-name {
     font-size: 1.1rem;
     font-weight: 600;
-    color: #fff;
+    color: #FFFFFF;
     margin-bottom: 0.25rem;
     letter-spacing: 0.03em;
   }
@@ -1103,7 +1112,7 @@ canvas {
     background: #232946;
     border-radius: 999px;
     height: 0.5rem;
-    margin: 0.5rem 0 0.2rem 0;
+    margin: 0.5rem 0 1.2rem 0;
     overflow: hidden;
   }
   .layout main .skills-section .skill-item .skill-progress {
@@ -1121,125 +1130,6 @@ canvas {
   }
 }
 @media screen and (min-width: 180px) {
-  .layout main .section-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 2rem;
-    letter-spacing: 0.05em;
-    text-align: center;
-    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
-  }
-}
-@media screen and (min-width: 180px) {
-  .layout main .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-  }
-}
-@media screen and (min-width: 180px) {
-  .layout main .card {
-    background: rgba(255, 255, 255, 0.04);
-    border-radius: 1.5rem;
-    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.12);
-    overflow: hidden;
-    position: relative;
-    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.3s;
-    cursor: pointer;
-  }
-  .layout main .card:hover, .layout main .card:focus {
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.18);
-  }
-  .layout main .card .award-icon {
-    display: block;
-    filter: grayscale(0.2) brightness(0.95);
-    height: 20px;
-    object-fit: cover;
-    margin: 0 1rem;
-    padding: auto 15rem;
-    transition: filter 0.3s;
-    width: 100%;
-  }
-  .layout main .card .award-icon ion-icon {
-    font-size: clamp(2.5rem, 1vw, 3rem);
-  }
-  .layout main .card:hover .award-icon {
-    filter: grayscale(0) brightness(1.1);
-  }
-  .layout main .card .award-content {
-    padding: 1.5rem;
-    color: #eaeaea;
-  }
-  .layout main .card .award-content .award-desc {
-    font-size: 1rem;
-    color: #bdbdbd;
-    margin-bottom: 1rem;
-  }
-  .layout main .card .award-content .award-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-  .layout main .card .award-content .award-meta .tag {
-    background: #0f3460;
-    color: #e94560;
-    font-size: 0.85rem;
-    padding: 0.25rem 0.75rem;
-    border-radius: 999px;
-    font-weight: 500;
-    letter-spacing: 0.03em;
-  }
-  .layout main .card .award-content .award-title {
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: #fff;
-  }
-  .layout main .card .card-image {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    display: block;
-    filter: grayscale(0.2) brightness(0.95);
-    transition: filter 0.3s;
-  }
-  .layout main .card:hover .award-image .card-image {
-    filter: grayscale(0) brightness(1.1);
-  }
-  .layout main .card .card-content {
-    padding: 1.5rem;
-    color: #eaeaea;
-  }
-  .layout main .card .card-content .card-title {
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: #fff;
-  }
-  .layout main .card .card-content .card-desc {
-    font-size: 1rem;
-    color: #bdbdbd;
-    margin-bottom: 1rem;
-  }
-  .layout main .card .card-content .card-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-  .layout main .card .card-content .card-tags .tag {
-    background: #0f3460;
-    color: #e94560;
-    font-size: 0.85rem;
-    padding: 0.25rem 0.75rem;
-    border-radius: 999px;
-    font-weight: 500;
-    letter-spacing: 0.03em;
-  }
-}
-@media screen and (min-width: 180px) {
   .layout footer {
     display: flex;
     align-items: center;
@@ -1249,7 +1139,8 @@ canvas {
     backdrop-filter: blur(10px);
     border: 2px solid RGBA(255, 255, 255, 0.18);
     box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
-    background-image: linear-gradient(360degr #F5F5F5 60%, #202531 100%);
+    animation: header-bg-move 8s ease-in-out infinite;
+    background: linear-gradient(120deg, #3b3c36 0%, #002147 100%);
     border-radius: 0 0 1rem 1rem;
     grid-area: footer;
     margin: clamp(1vh, 1vh, 1.5vh) clamp(1rem, 1vw, 1.5rem);

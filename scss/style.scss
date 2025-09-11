@@ -54,9 +54,9 @@
   align-items: center;
   justify-content: center;
   gap: 2.5rem;
-  background: linear-gradient(120deg, rgba(26,26,46,0.95) 0%, rgba(22,33,62,0.92) 100%);
+  background: linear-gradient(120deg, rgba(26, 26, 46, 0.95) 0%, rgba(22, 33, 62, 0.92) 100%);
   border-radius: 1.5rem;
-  box-shadow: 0 4px 32px rgba(0,0,0,0.12);
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.12);
   padding: 2.5rem 2rem 2rem 2rem;
   margin-bottom: 2.5rem;
   flex-wrap: wrap;
@@ -72,6 +72,60 @@
   min-width: 260px;
 }
 
+.avatar-flip-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem 0;
+
+  .avatar-flip {
+      width: 140px;
+      height: 140px;
+      perspective: 800px;
+
+      & > div {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          backface-visibility: hidden;
+          transition: transform 0.6s cubic-bezier(0.4, 2, 0.6, 1);
+      }
+  }
+
+  .avatar-front {
+      z-index: 2;
+      transform: rotateY(0deg);
+  }
+
+  .avatar-back {
+      transform: rotateY(180deg);
+  }
+
+  .avatar-flip {
+      position: relative;
+      cursor: pointer;
+  }
+
+  .avatar-flip:hover .avatar-front,
+  .avatar-flip:focus .avatar-front {
+      transform: rotateY(-180deg);
+  }
+
+  .avatar-flip:hover .avatar-back,
+  .avatar-flip:focus .avatar-back {
+      transform: rotateY(0deg);
+  }
+
+  img {
+      background: col.$bg2; 
+      border:5px solid #e94560;
+      border-radius:50%; 
+      box-shadow:0 4px 24px rgba(44,62,80,0.18); 
+      height:160px; 
+      object-fit: cover;
+      width:160px; 
+  }
+}
 
 
 // Cool button styles for actions
@@ -131,13 +185,13 @@
   overflow: hidden;
   position: relative;
   transition:
-      transform 0.3s cubic-bezier(0.23, 1, 0.32, 1),
-      box-shadow 0.3s;
+    transform 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 0.3s;
 
   &:hover,
   &:focus {
-      transform: translateY(-8px) scale(1.03);
-      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.18);
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.18);
   }
 
   .about-icon,
@@ -146,18 +200,18 @@
   .experience-icon,
   .projects-icon,
   .skills-icon {
-      @include mix.display(var.$d-bloc);
-      filter: grayscale(0.2) brightness(0.95);
-      height: 20px;
-      object-fit: cover;
-      margin: 0 1rem;
-      padding: auto 15rem;
-      transition: filter 0.3s;
-      width: 100%;
+    @include mix.display(var.$d-bloc);
+    filter: grayscale(0.2) brightness(0.95);
+    height: 20px;
+    object-fit: cover;
+    margin: 0 1rem;
+    padding: auto 15rem;
+    transition: filter 0.3s;
+    width: 100%;
 
-      ion-icon {
-          font-size: clamp(2.5rem, 1vw, 3rem);
-      }
+    ion-icon {
+      font-size: clamp(2.5rem, 1vw, 3rem);
+    }
   }
 
   &:hover .about-icon,
@@ -166,7 +220,7 @@
   &:hover .experience-icon,
   &:hover .projects-icon,
   &:hover .skills-icon {
-      filter: grayscale(0) brightness(1.1);
+    filter: grayscale(0) brightness(1.1);
   }
 
   .about-content,
@@ -175,104 +229,104 @@
   .experience-content,
   .projects-content,
   .skills-content {
-      padding: 1.5rem;
+    padding: 1.5rem;
+    color: col.$color2;
+
+    .about-desc,
+    .awards-desc,
+    .contact-desc,
+    .experience-desc,
+    .projects-desc,
+    .skills-desc {
+      font-size: 1rem;
+      color: #bdbdbd;
+      margin-bottom: 1rem;
+    }
+
+    .about-meta,
+    .awards-meta,
+    .contact-meta,
+    .experience-meta,
+    .projects-meta,
+    .skills-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+
+      .about-tag,
+      .awards-tag,
+      .contact-tag,
+      .experience-tag,
+      .projects-tag,
+      .skills-tag {
+        background: #0f3460;
+        color: #e94560;
+        font-size: 0.85rem;
+        padding: 0.25rem 0.75rem;
+        border-radius: 999px;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+      }
+    }
+
+    .about-title,
+    .awards-title,
+    .content-title,
+    .experience-title,
+    .projects-title,
+    .skills-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
       color: col.$color2;
-
-      .about-desc,
-      .awards-desc, 
-      .contact-desc, 
-      .experience-desc, 
-      .projects-desc, 
-      .skills-desc {
-          font-size: 1rem;
-          color: #bdbdbd;
-          margin-bottom: 1rem;
-      }
-
-      .about-meta,
-      .awards-meta,
-      .contact-meta,
-      .experience-meta,
-      .projects-meta,
-      .skills-meta {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 0.5rem;
-
-          .about-tag,
-          .awards-tag,
-          .contact-tag,
-          .experience-tag,
-          .projects-tag,
-          .skills-tag {
-              background: #0f3460;
-              color: #e94560;
-              font-size: 0.85rem;
-              padding: 0.25rem 0.75rem;
-              border-radius: 999px;
-              font-weight: 500;
-              letter-spacing: 0.03em;
-          }
-      }
-
-      .about-title,
-      .awards-title,
-      .content-title,
-      .experience-title,
-      .projects-title,
-      .skills-title {
-          font-size: 1.4rem;
-          font-weight: 600;
-          margin-bottom: 0.5rem;
-          color: col.$color2;
-      }
+    }
   }
 
-  .card-image {      
-      display: block;
-      filter: grayscale(0.2) brightness(0.95);
-      height: 220px;
-      object-fit: cover;
-      transition: filter 0.3s;
-      width: 100%;
+  .card-image {
+    display: block;
+    filter: grayscale(0.2) brightness(0.95);
+    height: 220px;
+    object-fit: cover;
+    transition: filter 0.3s;
+    width: 100%;
   }
 
   &:hover .card-image {
-      filter: grayscale(0) brightness(1.1);
+    filter: grayscale(0) brightness(1.1);
   }
 
   .card-content {
-      color: #eaeaea;
-      padding: 1.5rem;
+    color: #eaeaea;
+    padding: 1.5rem;
 
-      .card-title {
-          color: col.$color2;
-          font-size: 1.4rem;
-          font-weight: 600;
-          margin-bottom: 0.5rem;
+    .card-title {
+      color: col.$color2;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-desc {
+      color: #bdbdbd;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+
+      .tag {
+        background: #0f3460;
+        color: #e94560;
+        font-size: 0.85rem;
+        padding: 0.25rem 0.75rem;
+        border-radius: 999px;
+        font-weight: 500;
+        letter-spacing: 0.03em;
       }
-
-      .card-desc {
-          color: #bdbdbd;
-          font-size: 1rem;
-          margin-bottom: 1rem;
-      }
-
-      .card-tags {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 0.5rem;
-
-          .tag {
-              background: #0f3460;
-              color: #e94560;
-              font-size: 0.85rem;
-              padding: 0.25rem 0.75rem;
-              border-radius: 999px;
-              font-weight: 500;
-              letter-spacing: 0.03em;
-          }
-      }
+    }
   }
 }
 
@@ -360,12 +414,14 @@
 
     80% {
       opacity: 1;
-      transform: scale(var(--fly-scale, 1.2)) rotate(var(--fly-rotate, 30deg)) translate(var(--fly-x, 60px), var(--fly-y, -80px));
+      transform: scale(var(--fly-scale, 1.2)) rotate(var(--fly-rotate, 30deg))
+        translate(var(--fly-x, 60px), var(--fly-y, -80px));
     }
 
     100% {
       opacity: 0;
-      transform: scale(var(--fly-scale, 1.2)) rotate(var(--fly-rotate, 30deg)) translate(var(--fly-x, 60px), var(--fly-y, -80px));
+      transform: scale(var(--fly-scale, 1.2)) rotate(var(--fly-rotate, 30deg))
+        translate(var(--fly-x, 60px), var(--fly-y, -80px));
     }
   }
 
@@ -397,7 +453,6 @@
   width: 100%;
 }
 
-
 // Slideshow dots
 .slideshow-dots {
   display: flex;
@@ -419,28 +474,6 @@
   .dot.active {
     opacity: 1;
     background: col.$color9;
-  }
-}
-
-// Typing effect for main title
-.typing-title {
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  font-weight: 800;
-  color: col.$color1;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 0.15em solid col.$color7;
-  text-align: center;
-  width: 0;
-  animation:
-    typing 2.8s steps(30, end) 0.5s forwards,
-    blink-caret 0.7s step-end infinite;
-  letter-spacing: 0.04em;
-  margin-bottom: 0.5rem;
-
-  .highlight {
-    color: col.$color5;
-    font-weight: 600;
   }
 }
 
@@ -483,7 +516,6 @@
 }
 
 @keyframes blink-caret {
-
   0%,
   100% {
     border-color: transparent;
@@ -564,7 +596,7 @@
       @include mix.flex-center;
       width: 100%;
     }
-  
+
     .footer-links {
       @include mix.flex-center;
       width: 100%;

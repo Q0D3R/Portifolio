@@ -86,6 +86,53 @@ Example usage in your components:
   min-width: 260px;
 }
 
+.avatar-flip-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem 0;
+}
+.avatar-flip-container .avatar-flip {
+  width: 140px;
+  height: 140px;
+  perspective: 800px;
+}
+.avatar-flip-container .avatar-flip > div {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  transition: transform 0.6s cubic-bezier(0.4, 2, 0.6, 1);
+}
+.avatar-flip-container .avatar-front {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+.avatar-flip-container .avatar-back {
+  transform: rotateY(180deg);
+}
+.avatar-flip-container .avatar-flip {
+  position: relative;
+  cursor: pointer;
+}
+.avatar-flip-container .avatar-flip:hover .avatar-front,
+.avatar-flip-container .avatar-flip:focus .avatar-front {
+  transform: rotateY(-180deg);
+}
+.avatar-flip-container .avatar-flip:hover .avatar-back,
+.avatar-flip-container .avatar-flip:focus .avatar-back {
+  transform: rotateY(0deg);
+}
+.avatar-flip-container img {
+  background: #F5F5F5;
+  border: 5px solid #e94560;
+  border-radius: 50%;
+  box-shadow: 0 4px 24px rgba(44, 62, 80, 0.18);
+  height: 160px;
+  object-fit: cover;
+  width: 160px;
+}
+
 .btn {
   display: inline-block;
   padding: 0.75rem 2rem;
@@ -686,24 +733,6 @@ Example usage in your components:
 .slideshow-dots .dot.active {
   opacity: 1;
   background: #ffc107;
-}
-
-.typing-title {
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  font-weight: 800;
-  color: #121212;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 0.15em solid #1eff83;
-  text-align: center;
-  width: 0;
-  animation: typing 2.8s steps(30, end) 0.5s forwards, blink-caret 0.7s step-end infinite;
-  letter-spacing: 0.04em;
-  margin-bottom: 0.5rem;
-}
-.typing-title .highlight {
-  color: #FF0099;
-  font-weight: 600;
 }
 
 .dropping-subtitle {

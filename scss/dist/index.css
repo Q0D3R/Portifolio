@@ -109,7 +109,7 @@ canvas {
     text-align: center;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   header {
     padding: 0.5rem 0.2rem;
     margin: 0;
@@ -129,6 +129,38 @@ header .hero-section .hero-image {
   }
   header .hero-section .avatar-flip-container {
     margin-bottom: 0.8rem;
+  }
+
+  main .about-section {
+    padding: 2.5rem 0.5rem;
+  }
+  main .about-section .contact-title {
+    font-size: 1.5rem;
+  }
+  main .about-section .contact-form {
+    padding: 1.2rem 0.5rem;
+  }
+  main .award-section {
+    padding: 2.5rem 0.5rem;
+  }
+  main .award-section .contact-title {
+    font-size: 1.5rem;
+  }
+  main .award-section .contact-form {
+    padding: 1.2rem 0.5rem;
+  }
+  main .contact-section {
+    padding: 2.5rem 0.5rem;
+  }
+  main .contact-section .contact-title {
+    font-size: 1.5rem;
+  }
+  main .contact-section .contact-form {
+    padding: 1.2rem 0.5rem;
+  }
+
+  footer .footer-content {
+    padding: 1.5rem 0 0.5rem 0;
   }
 }
 @media screen and (min-width: 180px) {
@@ -455,14 +487,56 @@ header .hero-section .hero-image {
     margin: clamp(1vh, 1vw, 1.5vw) clamp(1vw, 1vw, 1.5vw) 0 clamp(1vw, 1vw, 1.5vw);
     padding: clamp(1vw, 1vw, 1.5vw);
   }
-  .layout main .about-section .container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
+  .layout main .about-section .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     display: flex;
     flex-direction: column;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 1.2rem;
+    box-shadow: 0 2px 16px rgba(44, 62, 80, 0.08);
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    gap: 1.5rem;
+  }
+  .layout main .about-section .container {
+    display: flex;
     align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
     gap: 2rem;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  .layout main .about-section .container .about-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    background: linear-gradient(120deg, rgba(26, 26, 46, 0.95) 0%, rgba(22, 33, 62, 0.92) 100%);
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.12);
+    padding: 2.5rem 2rem 2rem 2rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+    width: auto;
+  }
+  .layout main .about-section .container .about-hero .about-hero-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    padding: 0.5vw;
+  }
+  .layout main .about-section .container .about-hero .about-hero-info {
+    flex: 1 1 20vw;
+    min-width: 15vw;
+  }
+  .layout main .about-section .container .about-hero .about-hero-more {
+    flex: 1 1 30vw;
+    min-width: 20vw;
   }
   .layout main .about-section .section-title {
     font-size: 2.5rem;
@@ -634,14 +708,33 @@ header .hero-section .hero-image {
     margin: clamp(1vh, 1vw, 1.5vw) clamp(1vw, 1vw, 1.5vw) 0 clamp(1vw, 1vw, 1.5vw);
     padding: clamp(1vw, 1vw, 1.5vw);
   }
+  .layout main .contact-section .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+  }
+  .layout main .contact-section .container .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 1.2rem;
+    box-shadow: 0 2px 16px rgba(44, 62, 80, 0.08);
+    padding: 2rem 1.5rem;
+    margin-bottom: 1.5rem;
+    gap: 1.5rem;
+  }
   .layout main .contact-section .contact-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 2.2rem 1.5rem;
     width: 100%;
-    max-width: 1100px;
-    margin: 2.5rem auto 0 auto;
-    padding: 0;
+    margin: clamp(1vw, 1vw, 1.5vw) clamp(1vw, 1vw, 1.5vw) 0 auto;
+    padding: clamp(1vw, 1vw, 1.5vw);
     list-style: none;
   }
   .layout main .contact-section .contact-title {
@@ -743,7 +836,7 @@ header .hero-section .hero-image {
     align-items: center;
     justify-content: center;
     gap: 1.2rem;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
   }
   .layout main .contact-section .contact-socials a {
     display: flex;
@@ -753,26 +846,16 @@ header .hero-section .hero-image {
     height: 2.5rem;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.07);
-    color: #1eff83;
+    color: #FFFFFF;
     font-size: 1.3rem;
     transition: background 0.2s, color 0.2s, transform 0.2s;
+    text-decoration: none;
     box-shadow: 0 1px 6px rgba(44, 62, 80, 0.1);
   }
   .layout main .contact-section .contact-socials a:hover, .layout main .contact-section .contact-socials a:focus {
-    background: #1eff83;
+    background: #002147;
     color: #fff;
     transform: scale(1.08) translateY(-2px);
-  }
-}
-@media screen and (min-width: 180px) and (max-width: 700px) {
-  .layout main .contact-section {
-    padding: 2.5rem 0.5rem;
-  }
-  .layout main .contact-section .contact-title {
-    font-size: 1.5rem;
-  }
-  .layout main .contact-section .contact-form {
-    padding: 1.2rem 0.5rem;
   }
 }
 @media screen and (min-width: 180px) {
@@ -1164,13 +1247,6 @@ header .hero-section .hero-image {
     text-align: center;
     width: 100%;
   }
-}
-@media screen and (min-width: 180px) and (max-width: 700px) {
-  .layout footer .footer-content {
-    padding: 1.5rem 0 0.5rem 0;
-  }
-}
-@media screen and (min-width: 180px) {
   .layout footer .footer-content .footer-logo {
     font-size: 2rem;
     font-weight: 700;
@@ -1179,8 +1255,6 @@ header .hero-section .hero-image {
     margin-bottom: 0.5rem;
     text-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
   }
-}
-@media screen and (min-width: 180px) {
   .layout footer .footer-content .footer-links {
     display: flex;
     align-items: flex-end;
@@ -1205,8 +1279,6 @@ header .hero-section .hero-image {
     color: #ffc107;
     text-decoration: underline;
   }
-}
-@media screen and (min-width: 180px) {
   .layout footer .footer-content .footer-socials {
     display: flex;
     align-items: flex-end;
@@ -1223,7 +1295,7 @@ header .hero-section .hero-image {
     aspect-ratio: 1/1;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.07);
-    color: #1eff83;
+    color: #FFFFFF;
     font-size: 1rem;
     height: 1.5rem;
     text-align: center;
@@ -1231,12 +1303,10 @@ header .hero-section .hero-image {
     transition: background 0.2s, color 0.2s, transform 0.2s;
   }
   .layout footer .footer-content .footer-socials a:hover, .layout footer .footer-content .footer-socials a:focus {
-    background: #1eff83;
-    color: #fff;
+    background: #002147;
+    color: #ffc107;
     transform: scale(1.08) translateY(-2px);
   }
-}
-@media screen and (min-width: 180px) {
   .layout footer .footer-content .footer-statement {
     display: flex;
     align-items: center;
@@ -1255,8 +1325,6 @@ header .hero-section .hero-image {
     letter-spacing: 0.08em;
     text-align: center;
   }
-}
-@media screen and (min-width: 180px) {
   .layout footer .footer-content .footer-copy {
     display: flex;
     flex-direction: row;

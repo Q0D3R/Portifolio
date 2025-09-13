@@ -61,31 +61,6 @@ Example usage in your components:
     transform: translateY(0) scale(1);
   }
 }
-.about-hero {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2.5rem;
-  background: linear-gradient(120deg, rgba(26, 26, 46, 0.95) 0%, rgba(22, 33, 62, 0.92) 100%);
-  border-radius: 1.5rem;
-  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.12);
-  padding: 2.5rem 2rem 2rem 2rem;
-  margin-bottom: 2.5rem;
-  flex-wrap: wrap;
-}
-
-.about-hero-img {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.about-hero-info {
-  flex: 1 1 320px;
-  min-width: 260px;
-}
-
 .avatar-flip-container {
   display: flex;
   justify-content: center;

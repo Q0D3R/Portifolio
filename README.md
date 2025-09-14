@@ -1,31 +1,7 @@
 # Portifolio
-A developer's portifolio or biograpghy
-
-Technologies or Languages used
-Front-end Development
-HTML5
-Sassy CSS
-Less
-JavaScript
-Node.js
-
-Back-end Development
-SQL
-MySQL
-mongoDB
-Php
-Javascript
-
-Designing
-Canva
-Adobe Photoshop
-
+A developer's portifolio or biography
 
 Started development on 24 July 2025
-
-Here’s a README template for your developer portfolio website project, assuming it uses HTML, SCSS, and JavaScript. You can customize the details as needed for your specific project.
-
----
 
 # Developer Portfolio Website
 

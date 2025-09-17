@@ -1,4 +1,20 @@
 @import url(https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900);
+input:not(:placeholder-shown) ~ .user-label {
+  background-color: #FDFFF5;
+  color: #00bcd4;
+  font-size: 1rem;
+  padding: 0 0.2em;
+  transform: translateY(-50%) scale(0.8);
+}
+
+input:not(:focus):placeholder-shown ~ .user-label {
+  background-color: transparent;
+  color: #e8e8e8;
+  font-size: 1rem;
+  padding: 0 0.2em;
+  transform: translateY(1rem) scale(1);
+}
+
 /*
 Example usage in your components:
 
@@ -81,7 +97,7 @@ canvas {
     backdrop-filter: blur(10px);
     border: 2px solid RGBA(255, 255, 255, 0.18);
     box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
-    background-image: linear-gradient(360degr #F5F5F5 60%, #800080 100%);
+    background-image: linear-gradient(360degr #FDFFF5 60%, #800080 100%);
     grid-area: header;
   }
 }
@@ -174,7 +190,7 @@ canvas {
     backdrop-filter: blur(10px);
     border: 2px solid RGBA(255, 255, 255, 0.18);
     box-shadow: 0px 0px 30px RGBA(227, 228, 237, 0.37);
-    background-image: linear-gradient(360degr #F5F5F5 60%, #800080 100%);
+    background-image: linear-gradient(360degr #FDFFF5 60%, #800080 100%);
     border-radius: 1rem 1rem;
     display: flex;
     grid-area: nav;

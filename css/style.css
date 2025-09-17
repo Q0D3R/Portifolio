@@ -1,3 +1,19 @@
+input:not(:placeholder-shown) ~ .user-label {
+  background-color: #FDFFF5;
+  color: #00bcd4;
+  font-size: 1rem;
+  padding: 0 0.2em;
+  transform: translateY(-50%) scale(0.8);
+}
+
+input:not(:focus):placeholder-shown ~ .user-label {
+  background-color: transparent;
+  color: #e8e8e8;
+  font-size: 1rem;
+  padding: 0 0.2em;
+  transform: translateY(1rem) scale(1);
+}
+
 /*
 Example usage in your components:
 
@@ -99,7 +115,7 @@ Example usage in your components:
   transform: rotateY(0deg);
 }
 .avatar-flip-container img {
-  background: #F5F5F5;
+  background: #FDFFF5;
   border: 5px solid #e94560;
   border-radius: 50%;
   box-shadow: 0 4px 24px rgba(44, 62, 80, 0.18);

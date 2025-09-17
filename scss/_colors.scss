@@ -1,6 +1,6 @@
 //Variable Declaration
 $bg1: #3399CC;
-$bg2: #F5F5F5;
+$bg2: #FDFFF5;
 $bg3: #FF3333;
 $bg4: #4C9900;
 $bg5: #800080;
@@ -26,6 +26,10 @@ $color7: #1eff83;
 $color8: #360303;
 $color9: #ffc107;
 $color10: #222327;
+$color11: #2196f3;
+$color12: #1a73e8;
+$color13: #00bcd4;
+$color14: #3f51b5;
 
 $hover1: #FFFFFF;
 $hover2: #0D0D0D;
@@ -41,3 +45,19 @@ $gray: #f0f0f0;
 $dark-gray: #333;
 $shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 $border-radius: 12px;
+
+input:not(:placeholder-shown) ~ .user-label {
+    background-color: $bg2;
+    color: $color13;
+    font-size: 1rem;
+    padding: 0 .2em;
+    transform: translateY(-50%) scale(0.8);
+}
+
+input:not(:focus):placeholder-shown ~ .user-label {
+    background-color: transparent;
+    color: #e8e8e8;
+    font-size: 1rem;
+    padding: 0 .2em;
+    transform: translateY(1rem) scale(1);
+}

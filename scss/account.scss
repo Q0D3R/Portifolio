@@ -2,6 +2,30 @@
 @use "colors" as col;
 @use "mixins" as mix;
 
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, col.$bg1 0%, col.$bg2 100%);
+    color: col.$color1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    transition: background 0.5s;
+
+    @media (max-width: 700px) {
+        background: linear-gradient(120deg, col.$bg2 60%, col.$bg1 100%);
+        font-size: 0.97rem;
+    }
+    @media (max-width: 500px) {
+        font-size: 0.93rem;
+        padding: 0;
+    }
+}
+
+
 /* Responsive Auth Container */
 .auth-container {
     max-width: 400px;
@@ -111,6 +135,37 @@
                 font-size: 1rem;
                 padding: 0 .2em;
                 transform: translateY(-50%) scale(0.8);
+            }
+        }
+
+        .socials {
+            @include mix.flex-end;
+            @include mix.display(var.$d-flex);
+            gap: 0.5rem;
+            margin: 0.5rem;
+            width: 38, 4vw;
+
+            a {
+                @include mix.flex-center;
+                aspect-ratio: 1 / 1;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.07);
+                color: col.$color2;
+                font-size: 1rem;
+                height: 1.5rem;
+                text-align: center;
+                text-justify: auto;
+                transition:
+                    background 0.2s,
+                    color 0.2s,
+                    transform 0.2s;
+
+                &:hover,
+                &:focus {
+                    background: col.$bg16;
+                    color: col.$color9;
+                    transform: scale(1.08) translateY(-2px);
+                }
             }
         }
 

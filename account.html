@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dev | Account</title>
   <link rel="stylesheet" href="css/account.css">
+  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
@@ -21,183 +22,77 @@
   <!-- Login Form -->
   <form class="auth-form active" id="login-form" method="POST" autocomplete="off">
     <div id="login-message"></div>
-    <div class="input-group">        
-        <input autocomplete="off" class="input" id="login-email" name="email" required="" type="email">
-        <label class="user-label" for="login-email">Email</label>
+    <div class="input-group">
+      <input autocomplete="off" class="input" id="login-email" name="email" required="" type="email">
+      <label class="user-label" for="login-email">Email</label>
     </div>
-    <div class="input-group">        
-        <input autocomplete="off" class="input" id="login-password" name="password" required="" type="password">
-        <label class="user-label" for="login-password">Passcode</label>
+    <div class="input-group">
+      <input autocomplete="off" class="input" id="login-password" name="password" required="" type="password">
+      <label class="user-label" for="login-password">Passcode</label>
     </div>
-    
-    
+
+    <a href="#" class="auth-link" id="show-forgot">Forgot password?</a>
     <button type="submit">Login</button>
-    <div class="column">
-        <a href="#" class="auth-link" id="show-forgot">New User?</a>
-        <a href="#" class="auth-link" id="show-forgot">Forgot password?</a>
-    </div>
     
+    <div class="row">
+      <a href="#" class="auth-link" id="show-register">New User?</a>
+    </div>
+
   </form>
   <!-- Register Form -->
   <form class="auth-form" id="register-form" method="POST" autocomplete="off">
     <div id="register-message"></div>
     <div class="input-group">
-        <input autocomplete="off" class="input" id="register-name" name="name" required="" type="text">
-        <label class="user-label" for="register-name">Full Name</label>
+      <input autocomplete="off" class="input" id="register-name" name="name" required="" type="text">
+      <label class="user-label" for="register-name">Full Name</label>
     </div>
-    <div class="input-group">        
-        <input autocomplete="off" class="input" id="register-email" name="email" required="" type="email">
-        <label class="user-label" for="register-email">Email</label>
+    <div class="input-group">
+      <input autocomplete="off" class="input" id="register-email" name="email" required="" type="email">
+      <label class="user-label" for="register-email">Email</label>
     </div>
-    <div class="input-group">        
-        <input autocomplete="off" class="input" id="register-password" name="password" required="" type="password">
-        <label class="user-label" for="register-password">Enter Passcode</label>
+    <section class="row">
+      <div class="input-group">
+        <select class="input country-code-select" id="register-country-code" name="country_code" required
+          style="width: 80px; display: inline-block;">
+          <option value="+263" selected>+263 (ZW)</option>
+          <option value="+260">+260 (ZM)</option>
+          <option value="+27">+27 (ZA)</option>
+          <option value="+1">+1 (US)</option>
+          <option value="+44">+44 (UK)</option>
+          <option value="+91">+91 (IN)</option>
+          <!-- Add more as needed -->
+        </select>
+        <input autocomplete="off" class="input" id="register-phone" name="phone" required="" type="tel"
+          style="width: calc(100% - 125px); display: inline-block;">
+        <label class="user-label" for="register-phone">Mobile</label>
+      </div>
+    </section>
+    <div class="input-group">
+      <input autocomplete="off" class="input" id="register-password" name="password" required="" type="password">
+      <label class="user-label" for="register-password">Enter Passcode</label>
     </div>
-    <div class="input-group">        
-        <input autocomplete="off" class="input" id="register-password" name="password" required="" type="password">
-        <label class="user-label" for="register-password">Confirm Passcode</label>
+    <div class="input-group">
+      <input autocomplete="off" class="input" id="register-password" name="password" required="" type="password">
+      <label class="user-label" for="register-password">Confirm Passcode</label>
     </div>
-    
+
     <button type="submit">Register</button>
     <a href="#" class="auth-link" id="back-to-login">Sign In</a>
   </form>
   <!-- Forgot Password Form -->
   <form class="auth-form" id="forgot-form" method="POST" autocomplete="off">
     <div id="forgot-message"></div>
-    <div class="input-group">        
-        <input autocomplete="off" class="input" id="forgot-email" name="email" required="" type="email">
-        <label class="user-label" for="forget-email">Enter your email</label>
+    <div class="input-group">
+      <input autocomplete="off" class="input" id="forgot-email" name="email" required="" type="email">
+      <label class="user-label" for="forget-email">Enter your email</label>
     </div>
-    
+
     <button type="submit">Send Reset Link</button>
     <a href="#" class="auth-link" id="back-to-login">Sign In</a>
   </form>
 </div>
 
-<!-- PHP Backend (in the same file for demo, but should be in separate .php files in production) -->
-<?php
-session_start();
-header('Content-Type: application/json');
-
-function respond($success, $message) {
-  echo json_encode(['success' => $success, 'message' => $message]);
-  exit;
-}
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $action = $_POST['action'] ?? '';
-  $usersFile = __DIR__ . '/users.json';
-
-  // Simple file-based user storage (for demo only)
-  if (!file_exists($usersFile)) file_put_contents($usersFile, '{}');
-  $users = json_decode(file_get_contents($usersFile), true);
-
-  if ($action === 'register') {
-    $name = trim($_POST['name'] ?? '');
-    $email = strtolower(trim($_POST['email'] ?? ''));
-    $password = $_POST['password'] ?? '';
-    if (!$name || !$email || !$password) respond(false, 'All fields are required.');
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) respond(false, 'Invalid email address.');
-    if (isset($users[$email])) respond(false, 'Email already registered.');
-    if (strlen($password) < 6) respond(false, 'Password must be at least 6 characters.');
-    $users[$email] = [
-      'name' => htmlspecialchars($name),
-      'password' => password_hash($password, PASSWORD_DEFAULT)
-    ];
-    file_put_contents($usersFile, json_encode($users));
-    respond(true, 'Registration successful! You can now log in.');
-  }
-
-  if ($action === 'login') {
-    $email = strtolower(trim($_POST['email'] ?? ''));
-    $password = $_POST['password'] ?? '';
-    if (!$email || !$password) respond(false, 'All fields are required.');
-    if (!isset($users[$email])) respond(false, 'No account found with that email.');
-    if (!password_verify($password, $users[$email]['password'])) respond(false, 'Incorrect password.');
-    $_SESSION['user'] = $users[$email]['name'];
-    respond(true, 'Login successful! Welcome, ' . $users[$email]['name'] . '.');
-  }
-
-  if ($action === 'forgot') {
-    $email = strtolower(trim($_POST['email'] ?? ''));
-    if (!$email) respond(false, 'Please enter your email.');
-    if (!isset($users[$email])) respond(false, 'No account found with that email.');
-    // In real app, send email. Here, just simulate.
-    respond(true, 'A password reset link has been sent to your email (simulated).');
-  }
-}
-?>
-
-<!-- JavaScript for tab switching and AJAX auth -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Tab switching
-  const loginTab = document.getElementById('login-tab');
-  const registerTab = document.getElementById('register-tab');
-  const loginForm = document.getElementById('login-form');
-  const registerForm = document.getElementById('register-form');
-  const forgotForm = document.getElementById('forgot-form');
-  const showForgot = document.getElementById('show-forgot');
-  const backToLogin = document.getElementById('back-to-login');
-
-  function showForm(form) {
-    [loginForm, registerForm, forgotForm].forEach(f => f.classList.remove('active'));
-    form.classList.add('active');
-  }
-  function setActiveTab(tab) {
-    [loginTab, registerTab].forEach(t => t.classList.remove('active'));
-    if (tab) tab.classList.add('active');
-  }
-
-  loginTab.onclick = () => { showForm(loginForm); setActiveTab(loginTab); };
-  registerTab.onclick = () => { showForm(registerForm); setActiveTab(registerTab); };
-  showForgot.onclick = (e) => { e.preventDefault(); showForm(forgotForm); setActiveTab(null); };
-  backToLogin.onclick = (e) => { e.preventDefault(); showForm(loginForm); setActiveTab(loginTab); };
-
-  // AJAX helpers
-  function postForm(form, action, messageDivId) {
-    const formData = new FormData(form);
-    formData.append('action', action);
-    fetch(window.location.href, {
-      method: 'POST',
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    })
-    .then(r => r.json())
-    .then(data => {
-      const msgDiv = document.getElementById(messageDivId);
-      msgDiv.innerHTML = `<div class="${data.success ? 'auth-success' : 'auth-error'}">${data.message}</div>`;
-      if (data.success && action === 'register') {
-        setTimeout(() => { showForm(loginForm); setActiveTab(loginTab); }, 1200);
-      }
-      if (data.success && action === 'login') {
-        setTimeout(() => { window.location.href = 'index.html'; }, 1200);
-      }
-      if (data.success && action === 'forgot') {
-        setTimeout(() => { showForm(loginForm); setActiveTab(loginTab); }, 1500);
-      }
-    })
-    .catch(() => {
-      const msgDiv = document.getElementById(messageDivId);
-      msgDiv.innerHTML = `<div class="auth-error">Server error. Please try again.</div>`;
-    });
-  }
-
-  loginForm.onsubmit = function(e) {
-    e.preventDefault();
-    postForm(loginForm, 'login', 'login-message');
-  };
-  registerForm.onsubmit = function(e) {
-    e.preventDefault();
-    postForm(registerForm, 'register', 'register-message');
-  };
-  forgotForm.onsubmit = function(e) {
-    e.preventDefault();
-    postForm(forgotForm, 'forgot', 'forgot-message');
-  };
-});
-</script>
-<!-- Authentication System End -->
+<script src="js/back.js"></script>
 </body>
 
 </html>

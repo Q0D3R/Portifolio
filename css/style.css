@@ -1,5 +1,5 @@
 input:not(:placeholder-shown) ~ .user-label {
-  background-color: #FDFFF5;
+  background-color: #FFF;
   color: #00bcd4;
   font-size: 1rem;
   padding: 0 0.2em;
@@ -115,7 +115,7 @@ Example usage in your components:
   transform: rotateY(0deg);
 }
 .avatar-flip-container img {
-  background: #FDFFF5;
+  background: #FFF;
   border: 5px solid #e94560;
   border-radius: 50%;
   box-shadow: 0 4px 24px rgba(44, 62, 80, 0.18);

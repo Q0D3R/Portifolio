@@ -42,50 +42,64 @@ Example usage in your components:
 }
 */
 body {
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  font-family: "Montserrat", "Segoe UI", Arial, sans-serif;
-  background: linear-gradient(135deg, #3399CC 0%, #FFF 100%);
-  color: #121212;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
+  animation: header-bg-move-dark 8s ease-in-out infinite;
+  background: linear-gradient(120deg, #181c24 2%, #FFF 60%);
+  color: #121212;
+  font-family: "Montserrat", "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  padding: 0;
   transition: background 0.5s;
+  /* Responsive Auth Container */
 }
-@media (max-width: 700px) {
-  body {
-    background: linear-gradient(120deg, #FFF 60%, #3399CC 100%);
-    font-size: 0.97rem;
+@keyframes header-bg-move-dark {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
-@media (max-width: 500px) {
-  body {
-    font-size: 0.93rem;
-    padding: 0;
-  }
+body .arched-bg-container {
+  width: 100%;
 }
-
-/* Responsive Auth Container */
-.auth-container {
+body .arched-bg-container::before {
+  content: "";
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/img/pic/media.jpg");
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+body .arched-bg-container .arched-bg-content {
+  position: relative;
+  z-index: 2;
+}
+body .auth-container {
   max-width: 400px;
-  margin: 60px auto;
-  background: #FFF;
+  margin: auto;
+  background: linear-gradient(230deg, #FFF 30%, #202531 70%);
   border-radius: 18px;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  box-shadow: 0 0.5rem 2rem 0 rgba(31, 38, 135, 0.18);
   padding: 2.5rem 2rem 2rem 2rem;
   font-family: "Montserrat", "Segoe UI", Arial, sans-serif;
   position: relative;
   z-index: 2;
   animation: fadeIn 1s;
-}
-
-@media (max-width: 500px) {
-  .auth-container {
-    padding: 1.2rem 0.5rem 1.5rem 0.5rem;
-    max-width: 98vw;
-  }
 }
 @keyframes fadeIn {
   from {
@@ -97,13 +111,12 @@ body {
     transform: translateY(0);
   }
 }
-.auth-tabs {
+body .auth-tabs {
   display: flex;
   justify-content: space-between;
   margin-bottom: 2rem;
 }
-
-.auth-tab {
+body .auth-tab {
   flex: 1;
   text-align: center;
   padding: 0.7rem 0;
@@ -114,7 +127,7 @@ body {
   transition: color 0.2s, border-bottom 0.2s;
   letter-spacing: 1px;
 }
-.auth-tab::after {
+body .auth-tab::after {
   content: "";
   display: block;
   position: absolute;
@@ -128,46 +141,45 @@ body {
   transform: scaleX(0.5);
   transition: opacity 0.25s, transform 0.25s;
 }
-.auth-tab.active {
+body .auth-tab.active {
   color: #FFFFFF;
   background: linear-gradient(90deg, #3f51b5 60%, #00bcd4 100%);
   border-radius: 8px 8px 0 0;
   border-bottom: 2px solid #00bcd4;
 }
-
-.auth-form {
+body .auth-form {
   animation: fadeIn 0.7s;
   display: none;
 }
-.auth-form .input-group {
+body .auth-form .input-group {
   padding: clamp(0.75rem, 3vw, 1rem) 0;
   position: relative;
   width: 100%;
 }
-.auth-form .input-group .input {
+body .auth-form .input-group .input {
   background: none;
   border: solid 1.5px #9e9e9e;
   border-radius: 1rem;
-  color: #121212;
-  font-size: 1rem;
+  color: #ffc107;
+  font-size: clamp(0.5rem, 3vw, 1rem);
   padding: clamp(0.5rem, 3vw, 1rem);
   transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  width: 90%;
+  width: 15vw;
 }
-.auth-form .input-group .input:focus,
-.auth-form .input-group .input input:valid {
+body .auth-form .input-group .input:focus,
+body .auth-form .input-group .input input:valid {
   outline: none;
   border: 1.5px solid #1a73e8;
 }
-.auth-form .input-group .input:focus ~ label,
-.auth-form .input-group .input input:valid ~ label {
+body .auth-form .input-group .input:focus ~ label,
+body .auth-form .input-group .input input:valid ~ label {
   background-color: #FFF;
   color: #00bcd4;
   font-size: 1rem;
   padding: 0 0.2em;
   transform: translateY(-50%) scale(0.8);
 }
-.auth-form .input-group .socials {
+body .auth-form .input-group .socials {
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
@@ -176,7 +188,7 @@ body {
   margin: 0.5rem;
   width: 38, 4vw;
 }
-.auth-form .input-group .socials a {
+body .auth-form .input-group .socials a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -190,20 +202,21 @@ body {
   text-justify: auto;
   transition: background 0.2s, color 0.2s, transform 0.2s;
 }
-.auth-form .input-group .socials a:hover, .auth-form .input-group .socials a:focus {
+body .auth-form .input-group .socials a:hover, body .auth-form .input-group .socials a:focus {
   background: #002147;
   color: #ffc107;
   transform: scale(1.08) translateY(-2px);
 }
-.auth-form .input-group .user-label {
+body .auth-form .input-group .user-label {
   color: #e8e8e8;
+  background: transparent;
   left: 0.5rem;
   pointer-events: none;
   position: absolute;
   transform: translateY(1rem);
   transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.auth-form button {
+body .auth-form button {
   background: linear-gradient(90deg, #3f51b5 60%, #00bcd4 100%);
   border: none;
   border-radius: 7px;
@@ -217,43 +230,94 @@ body {
   transition: background 0.2s;
   width: 100%;
 }
-.auth-form button:hover {
+body .auth-form button:hover {
   background: linear-gradient(90deg, #00bcd4 60%, #3f51b5 100%);
 }
-.auth-form.active {
+body .auth-form.active {
   display: block;
 }
-.auth-form .auth-link {
+body .auth-form .auth-link {
   display: block;
   text-align: right;
   color: #00bcd4;
   font-size: 0.95rem;
+  padding: 0.5rem;
   text-decoration: none;
   margin-bottom: 1rem;
-  transition: color 0.2s;
+  transition: color 0.2s transform 0.2s;
 }
-.auth-form .auth-link:hover {
+body .auth-form .auth-link:focus, body .auth-form .auth-link:hover {
   color: #3f51b5;
   text-decoration: underline;
+  transform: scale(1.08) translateY(-2px);
 }
-
-.auth-error,
-.auth-success {
+body .auth-error,
+body .auth-success {
   margin-bottom: 1rem;
   padding: 0.7rem 1rem;
   border-radius: 6px;
   font-size: 0.98rem;
   text-align: center;
 }
-
-.auth-error {
+body .auth-error {
   background: #ffeaea;
   color: #d32f2f;
   border: 1px solid #ffcdd2;
 }
-
-.auth-success {
+body .auth-success {
   background: #e8f5e9;
   color: #388e3c;
   border: 1px solid #a5d6a7;
+}
+
+@media (max-width: 700px) {
+  body {
+    background: linear-gradient(120deg, #4C9900 25%, #FFF 45%);
+    font-size: 0.97rem;
+  }
+  body .auth-container {
+    margin: 0;
+    padding: 0;
+    max-width: 98vw;
+  }
+  body .auth-form {
+    margin: 0;
+    padding: 0;
+    width: 70vw;
+  }
+  body .auth-form .input-group {
+    padding: clamp(0.3rem, 1vw, 0.5rem);
+  }
+  body .auth-form .input-group .input {
+    width: 85%;
+  }
+  body .auth-form button {
+    margin: clamp(0.25rem, 1vw, 0.5rem);
+    width: 97%;
+  }
+}
+@media (max-width: 500px) {
+  body {
+    font-size: 0.93rem;
+    padding: 0;
+  }
+  body .auth-container {
+    padding: 1.2rem 0.5rem 1.5rem 0.5rem;
+    max-width: 98vw;
+  }
+  body .auth-form {
+    margin: 0;
+    padding: 0;
+    width: 70vw;
+  }
+  body .auth-form .input-group {
+    padding: clamp(0.3rem, 1vw, 0.5rem);
+  }
+  body .auth-form .input-group .input {
+    width: 85%;
+  }
+  body .auth-form button {
+    margin: clamp(0.25rem, 1vw, 0.5rem);
+    width: 97%;
+  }
 }

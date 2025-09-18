@@ -10,89 +10,97 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
-<!-- Authentication System Start -->
 
-<!-- SCSS styles (to be compiled to CSS) -->
-
-<div class="auth-container">
-  <div class="auth-tabs">
-    <div class="auth-tab active" id="login-tab">Login</div>
-    <div class="auth-tab" id="register-tab">Register</div>
-  </div>
-  <!-- Login Form -->
-  <form class="auth-form active" id="login-form" method="POST" autocomplete="off">
-    <div id="login-message"></div>
-    <div class="input-group">
-      <input autocomplete="off" class="input" id="login-email" name="email" required="" type="email">
-      <label class="user-label" for="login-email">Email</label>
-    </div>
-    <div class="input-group">
-      <input autocomplete="off" class="input" id="login-password" name="password" required="" type="password">
-      <label class="user-label" for="login-password">Passcode</label>
-    </div>
-
-    <a href="#" class="auth-link" id="show-forgot">Forgot password?</a>
-    <button type="submit">Login</button>
-    
-    <div class="row">
-      <a href="#" class="auth-link" id="show-register">New User?</a>
-    </div>
-
-  </form>
-  <!-- Register Form -->
-  <form class="auth-form" id="register-form" method="POST" autocomplete="off">
-    <div id="register-message"></div>
-    <div class="input-group">
-      <input autocomplete="off" class="input" id="register-name" name="name" required="" type="text">
-      <label class="user-label" for="register-name">Full Name</label>
-    </div>
-    <div class="input-group">
-      <input autocomplete="off" class="input" id="register-email" name="email" required="" type="email">
-      <label class="user-label" for="register-email">Email</label>
-    </div>
-    <section class="row">
-      <div class="input-group">
-        <select class="input country-code-select" id="register-country-code" name="country_code" required
-          style="width: 80px; display: inline-block;">
-          <option value="+263" selected>+263 (ZW)</option>
-          <option value="+260">+260 (ZM)</option>
-          <option value="+27">+27 (ZA)</option>
-          <option value="+1">+1 (US)</option>
-          <option value="+44">+44 (UK)</option>
-          <option value="+91">+91 (IN)</option>
-          <!-- Add more as needed -->
-        </select>
-        <input autocomplete="off" class="input" id="register-phone" name="phone" required="" type="tel"
-          style="width: calc(100% - 125px); display: inline-block;">
-        <label class="user-label" for="register-phone">Mobile</label>
+<body>
+  <section class="arched-bg-container">
+    <canvas></canvas>
+    <div class="auth-container">
+      <div class="auth-tabs">
+        <div class="auth-tab active" id="login-tab">Login</div>
+        <div class="auth-tab" id="register-tab">Register</div>
       </div>
-    </section>
-    <div class="input-group">
-      <input autocomplete="off" class="input" id="register-password" name="password" required="" type="password">
-      <label class="user-label" for="register-password">Enter Passcode</label>
-    </div>
-    <div class="input-group">
-      <input autocomplete="off" class="input" id="register-password" name="password" required="" type="password">
-      <label class="user-label" for="register-password">Confirm Passcode</label>
+      <!-- Login Form -->
+      <form class="auth-form active" id="login-form" method="POST" autocomplete="off">
+        <div id="login-message"></div>
+        <div class="input-group">
+          <input autocomplete="off" class="input" id="login-email" name="email" required="" type="email">
+          <label class="user-label" for="login-email">Email</label>
+        </div>
+        <div class="input-group">
+          <input autocomplete="off" class="input" id="login-password" name="password" required="" type="password">
+          <label class="user-label" for="login-password">Passcode</label>
+        </div>
+
+        <a href="#" class="auth-link" id="show-forgot">Forgot password?</a>
+        <button type="submit">Login</button>
+
+        <div class="row">
+          <a href="#" class="auth-link" id="show-register">New User?</a>
+        </div>
+
+      </form>
+      <!-- Register Form -->
+      <form class="auth-form" id="register-form" method="POST" autocomplete="off">
+        <div id="register-message"></div>
+        <div class="input-group">
+          <input autocomplete="off" class="input" id="register-name" name="name" required="" type="text">
+          <label class="user-label" for="register-name">Full Name</label>
+        </div>
+        <div class="input-group">
+          <input autocomplete="off" class="input" id="register-email" name="email" required="" type="email">
+          <label class="user-label" for="register-email">Email</label>
+        </div>
+        <section class="row">
+          <div class="input-group">
+            <select class="input country-code-select" id="register-country-code" name="country_code" required
+              style="width: 80px; display: inline-block;">
+              <option value="+263" selected>+263 (ZW)</option>
+              <option value="+260">+260 (ZM)</option>
+              <option value="+27">+27 (ZA)</option>
+              <option value="+1">+1 (US)</option>
+              <option value="+44">+44 (UK)</option>
+              <option value="+91">+91 (IN)</option>
+              <!-- Add more as needed -->
+            </select>
+            <input autocomplete="off" class="input" id="register-phone" name="phone" required="" type="tel"
+              style="width: calc(100% - 125px); display: inline-block;">
+            <label class="user-label" for="register-phone">Mobile</label>
+          </div>
+        </section>
+        <div class="input-group">
+          <input autocomplete="off" class="input" id="register-password" name="password" required="" type="password">
+          <label class="user-label" for="register-password">Enter Passcode</label>
+        </div>
+        <div class="input-group">
+          <input autocomplete="off" class="input" id="register-password" name="password" required="" type="password">
+          <label class="user-label" for="register-password">Confirm Passcode</label>
+        </div>
+
+        <button type="submit">Register</button>
+        <a href="#" class="auth-link" id="back-to-login">Sign In</a>
+      </form>
+      <!-- Forgot Password Form -->
+      <form class="auth-form" id="forgot-form" method="POST" autocomplete="off">
+        <div id="forgot-message"></div>
+        <div class="input-group">
+          <input autocomplete="off" class="input" id="forgot-email" name="email" required="" type="email">
+          <label class="user-label" for="forget-email">Enter your email</label>
+        </div>
+
+        <button type="submit">Send Reset Link</button>
+
+        <div class="row">
+          <a href="#" class="auth-link" id="back-to-login">Sign In</a>
+          <a href="#" class="auth-link" id="show-register">New User?</a>
+        </div>
+      </form>
     </div>
 
-    <button type="submit">Register</button>
-    <a href="#" class="auth-link" id="back-to-login">Sign In</a>
-  </form>
-  <!-- Forgot Password Form -->
-  <form class="auth-form" id="forgot-form" method="POST" autocomplete="off">
-    <div id="forgot-message"></div>
-    <div class="input-group">
-      <input autocomplete="off" class="input" id="forgot-email" name="email" required="" type="email">
-      <label class="user-label" for="forget-email">Enter your email</label>
-    </div>
-
-    <button type="submit">Send Reset Link</button>
-    <a href="#" class="auth-link" id="back-to-login">Sign In</a>
-  </form>
-</div>
-
-<script src="js/back.js"></script>
+    <script src="js/back.js"></script>
+    <script src="js/index.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script module src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  </section>
 </body>
 
 </html>

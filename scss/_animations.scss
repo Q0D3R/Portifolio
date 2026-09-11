@@ -1,0 +1,163 @@
+@use "variables" as var;
+@use "colors" as col;
+
+// Keyframes for background animation
+@keyframes header-bg-move {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes header-bg-move-dark {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+// Keyframes for typing effect
+@keyframes typing {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  0%,
+  100% {
+    border-color: transparent;
+  }
+
+  50% {
+    border-color: transparent;
+  }
+}
+
+// Fade-in and slide-up animation for elements appearing on scroll
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+  }
+
+  60% {
+    opacity: 0.7;
+    transform: translateY(10px) scale(1.01);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+// Keyframes for dropping subtitle
+@keyframes drop-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+
+  80% {
+    opacity: 1;
+    transform: translateY(8px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Keyframes for rotating icons
+@keyframes icon-rotate {
+  0% {
+    opacity: 0;
+    transform: scale(0.7) rotate(-20deg);
+  }
+
+  5% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+
+  20% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+
+  25% {
+    opacity: 0;
+    transform: scale(0.7) rotate(20deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.7) rotate(20deg);
+  }
+}
+
+// Keyframes for random fly-away effect
+@keyframes fly-random {
+  0% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg) translate(0, 0);
+  }
+
+  80% {
+    opacity: 1;
+    transform: scale(var(--fly-scale, 1.2)) rotate(var(--fly-rotate, 30deg))
+      translate(var(--fly-x, 60px), var(--fly-y, -80px));
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(var(--fly-scale, 1.2)) rotate(var(--fly-rotate, 30deg))
+      translate(var(--fly-x, 60px), var(--fly-y, -80px));
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Utility class to trigger scroll reveal animation
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  transition:
+    opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+    transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: opacity, transform;
+
+  &.is-visible {
+    animation: fadeInUp 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  }
+}

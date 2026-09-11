@@ -1,0 +1,63 @@
+@use "variables" as var;
+@use "colors" as col;
+@use "mixins" as mix;
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.snow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(transparent, rgba(#000, 0.5)), linear-gradient(to right, #224, #336, #224);
+}
+
+body {
+  @include mix.flex-center;
+  animation: header-bg-move-dark 8s ease-in-out infinite;
+  background: linear-gradient(120deg, #181c24 0%, #232a36 100%);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+canvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111a22;
+}
+
+@media screen and (min-width: 0px) {
+  .layout {
+    display: grid;
+    gap: 0.25rem;
+    grid-template-areas: "header" "nav" "main" "widget" "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: 4rem 6rem auto 6rem 6rem 4rem;
+    height: 100vh;
+
+    .header {
+      @include mix.glass-effect;
+      background-image: linear-gradient(360deg, col.$bg2 60%, col.$bg5 100%);
+      grid-area: header;
+    }
+  }
+}
+
+@media screen and (min-width: 180px) {
+  .layout {
+    @include mix.display(var.$d-grid);
+    gap: 0.1rem;
+    grid-template-areas: "nav" "header" "main" "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    height: fit-content;
+  }
+}

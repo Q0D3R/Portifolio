@@ -4,6 +4,9 @@
   "description": "A developer's portifolio or biograpghy",
   "main": "index.js",
   "scripts": {
+    "build:css": "sass scss/style.scss css/style.css",
+    "build:html": "python build.py",
+    "build": "npm run build:css && npm run build:html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

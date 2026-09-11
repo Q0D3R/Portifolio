@@ -1,0 +1,249 @@
+@use "variables" as var;
+@use "colors" as col;
+@use "mixins" as mix;
+
+nav {
+  @include mix.glass-effect;
+  background-image: linear-gradient(360deg, col.$bg2 60%, col.$bg5 100%);
+  border-radius: 1rem 1rem;
+  display: flex;
+  grid-area: nav;
+  justify-content: center;
+  left: 50%;
+  margin-left: 0;
+  margin-right: 0;
+  padding: clamp(0.5rem, 1.5vw, 1.5vw) clamp(0.5rem, 1.5vw, 1.5vw) 0 clamp(0.5rem, 1.5vw, 1.5vw);
+  position: fixed;
+  right: auto;
+  text-align: center;
+  top: 0;
+  transform: translateX(-50%);
+  width: auto;
+  max-width: 96vw;
+  z-index: 100;
+
+  .navigation {
+    @include mix.flex-center;
+
+    background: rgba(26, 33, 46, 0.85);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 16px 0 rgba(44, 62, 80, 0.12);
+    border-radius: 10px;
+    height: clamp(3.8rem, 1vw, 9rem);
+    width: fit-content;
+    max-width: 100%;
+
+    .logo {
+      @include mix.flex-center;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      margin: 0 clamp(0.5vw, 1vw, 1.5vw);
+      width: clamp(3rem, 1vw, 9rem);
+
+      img {
+        aspect-ratio: 1 / 1;
+        width: 100%;
+        max-width: 4.5rem;
+        object-fit: contain;
+      }
+    }
+
+    ul {
+      @include mix.display(var.$d-flex);
+      margin: 0 clamp(0.3vw, 1vw, 1.5vw);
+      width: fit-content;
+      padding: 0;
+
+      li {
+        height: 70px;
+        list-style: none;
+        position: relative;
+        width: 70px;
+        z-index: 1;
+
+        a {
+          @include mix.flex-center;
+          @include mix.flex-direction(column);
+          font-weight: 500;
+          position: relative;
+          text-align: center;
+          width: 100%;
+          text-decoration: none;
+
+          .icon {
+            @include mix.display(var.$d-bloc);
+            color: col.$color6;
+            font-size: 1.5em;
+            line-height: 75px;
+            position: relative;
+            text-align: center;
+            transition: 0.5s;
+          }
+
+          .text {
+            color: col.$color2;
+            font-size: 15px;
+            font-weight: bold;
+            letter-spacing: 0.05em;
+            opacity: 0;
+            position: absolute;
+            transition: 0.5s;
+          }
+        }
+
+        &.active a .icon {
+          transform: translateY(-32px);
+        }
+
+        &.active a .text {
+          opacity: 1;
+          transform: translateY(10px);
+        }
+      }
+    }
+  }
+}
+
+.indicator {
+  position: absolute;
+  top: -50%;
+  width: 70px;
+  height: 70px;
+  background: col.$bg1;
+  border-radius: 50%;
+  border: 6px solid col.$color10;
+  transition: 0.5s;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -22px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-right-radius: 20px;
+    box-shadow: 0px -10px 0 0 col.$color10;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -22px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-left-radius: 20px;
+    box-shadow: -1px -10px 0 0 col.$color10;
+  }
+}
+
+// Mobile Responsive Navigation Breakpoints
+@media (max-width: 768px) {
+  nav {
+    padding: 0.4rem 0.4rem 0 0.4rem;
+
+    .navigation {
+      height: 3.8rem;
+
+      .logo {
+        width: 2.8rem;
+        margin: 0 0.2rem;
+      }
+
+      ul li {
+        width: 52px;
+        height: 60px;
+
+        a .icon {
+          font-size: 1.25em;
+          line-height: 60px;
+        }
+
+        a .text {
+          font-size: 11px;
+        }
+
+        &.active a .icon {
+          transform: translateY(-24px);
+        }
+
+        &.active a .text {
+          transform: translateY(8px);
+        }
+      }
+    }
+  }
+
+  .indicator {
+    width: 52px;
+    height: 52px;
+    top: -42%;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    max-width: 98vw;
+    padding: 0.3rem 0.2rem 0 0.2rem;
+
+    .navigation {
+      height: 3.4rem;
+
+      .logo {
+        width: 2.2rem;
+        margin: 0 0.1rem;
+
+        img {
+          max-width: 2.2rem;
+        }
+      }
+
+      ul {
+        margin: 0;
+
+        li {
+          width: 44px;
+          height: 52px;
+
+          a .icon {
+            font-size: 1.15em;
+            line-height: 52px;
+          }
+
+          a .text {
+            font-size: 10px;
+          }
+
+          &.active a .icon {
+            transform: translateY(-20px);
+          }
+
+          &.active a .text {
+            transform: translateY(6px);
+          }
+        }
+      }
+    }
+  }
+
+  .indicator {
+    width: 44px;
+    height: 44px;
+    top: -40%;
+    border-width: 4px;
+
+    &::before {
+      left: -16px;
+      width: 15px;
+      height: 15px;
+    }
+
+    &::after {
+      right: -16px;
+      width: 15px;
+      height: 15px;
+    }
+  }
+}

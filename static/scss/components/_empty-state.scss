@@ -1,0 +1,30 @@
+// Empty State Component
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--theme-text-muted);
+
+  svg {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 16px;
+    opacity: 0.5;
+    color: var(--theme-text-muted);
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    color: var(--theme-text);
+    margin-bottom: 8px;
+  }
+
+  p {
+    font-size: 0.95rem;
+    max-width: 400px;
+    margin-bottom: 20px;
+  }
+}

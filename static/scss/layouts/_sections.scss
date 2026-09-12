@@ -1,0 +1,30 @@
+@use 'abstracts/colors' as *;
+@use 'abstracts/variables' as *;
+@use 'abstracts/mixins' as *;
+
+.section-layout {
+    width: 100%;
+    padding: 3rem 0;
+
+    @include respond-to('d-md') {
+        padding: 5rem 0;
+    }
+
+    &--compact {
+        padding: 1.5rem 0;
+
+        @include respond-to('d-md') {
+            padding: 2.5rem 0;
+        }
+    }
+
+    &__header {
+        text-align: center;
+        max-width: 720px;
+        margin: 0 auto 2.5rem auto;
+    }
+
+    &__body {
+        width: 100%;
+    }
+}

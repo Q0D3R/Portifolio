@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dev | Portifolio</title>
+  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+
+<body>
+  {% include 'partials/page/header.html' %}
+
+  <main class="main-container">
+    <div id="page-hero" class="page-section">
+      {% include 'partials/sections/hero.html' %}
+    </div>
+    <div id="page-projects" class="page-section" style="display: none;">
+      {% include 'partials/sections/projects.html' %}
+    </div>
+    <div id="page-about" class="page-section" style="display: none;">
+      {% include 'partials/sections/about.html' %}
+      {% include 'partials/sections/contact.html' %}
+    </div>
+    <div id="page-experience" class="page-section" style="display: none;">
+      {% include 'partials/sections/awards.html' %}
+      {% include 'partials/sections/experience.html' %}
+    </div>
+    <div id="page-authentication" class="page-section" style="display: none;">
+      {% include 'partials/sections/authentication.html' %}
+      {% include 'partials/sections/auth_forms.html' %}
+    </div>
+  </main>
+
+  {% include 'partials/page/footer.html' %}
+
+  <script src="{{ url_for('static', filename='js/back.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script module src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  {% include 'partials/theme_switch.html' %}
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!-- Step 2: Verify Code -->
+<form v-if="resetStep === 2" @submit.prevent="verifyResetCode" class="auth-form">
+    <div class="code-info-box" v-if="resetStep === 2" style="text-align: center; margin-bottom: 1rem;">
+        <span class="code-label" style="display: block; font-size: 0.9rem; color: var(--theme-text-muted);">Time
+            Remaining</span>
+        <div class="code-display"
+            :style="{ color: countdown === 0 ? 'var(--theme-error)' : 'var(--theme-text)', fontSize: '1.5rem', fontWeight: 'bold' }"
+            v-text="formattedCountdown"></div>
+        <div class="code-time" v-if="countdown === 0"
+            style="color: var(--theme-error); font-size: 0.9rem; margin-top: 0.5rem;">
+            Code expired. Please resend a new code.
+        </div>
+    </div>
+    <div class="input-group">
+        <input type="text" id="reset-code" v-model="resetForm.code" required maxlength="6" :disabled="countdown === 0">
+        <label for="reset-code">6-Digit Code</label>
+    </div>
+    <button type="submit" class="btn primary-btn" :disabled="isLoading || isResending || countdown === 0">
+        <span v-if="!isLoading">Verify Code</span>
+        <span v-else class="spinner"></span>
+    </button>
+    <div style="text-align: center; margin-top: 1rem;">
+        <a href="#" @click.prevent="resendResetCode" :class="{'disabled-link': isResending}"
+            style="font-size: 0.9rem; color: var(--theme-text-muted);">
+            <span v-if="!isResending">Didn't receive a code? Resend</span>
+            <span v-else>Resending...</span>
+        </a>
+    </div>
+    <p class="error-msg" v-if="resetError" v-text="resetError"></p>
+</form>

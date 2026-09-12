@@ -1,0 +1,51 @@
+<section class="auth-panel sign-up-panel">
+    <div class="panel-header">
+        <h2>Create Account</h2>
+        <p>Join us and start your journey</p>
+    </div>
+    <form @submit.prevent="handleSignUp" class="auth-form">
+        <div class="input-group">
+            <input type="text" id="signup-name" v-model="signUpForm.name" :class="{'is-valid': signUpValidation.nameValid === true, 'is-invalid': signUpValidation.nameValid === false}" required>
+            <label for="signup-name">Full Name</label>
+        </div>
+        <div class="input-group">
+            <input type="email" id="signup-email" v-model="signUpForm.email" :class="{'is-valid': signUpValidation.emailValid === true, 'is-invalid': signUpValidation.emailValid === false}" required>
+            <label for="signup-email">Email Address</label>
+        </div>
+        <div class="input-group">
+            <input :type="showPasswords.signup ? 'text' : 'password'" id="signup-password" v-model="signUpForm.password"
+                :class="{'is-valid': signUpValidation.passwordValid === true, 'is-invalid': signUpValidation.passwordValid === false}" required>
+            <label for="signup-password">Password</label>
+            <span class="password-toggle" @click="showPasswords.signup = !showPasswords.signup">
+                <svg v-if="!showPasswords.signup" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                <svg v-else xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                        d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">
+                    </path>
+                    <line x1="1" y1="1" x2="23" y2="23"></line>
+                </svg>
+            </span>
+        </div>
+        <div class="password-strength" v-if="signUpForm.password">
+            <div class="strength-bar-bg">
+                <div class="strength-bar-fill"
+                    :style="{ width: passwordStrength.width, backgroundColor: passwordStrength.color }">
+                </div>
+            </div>
+            <p class="strength-label" :style="{ color: passwordStrength.color }" v-text="passwordStrength.label"></p>
+        </div>
+        <button type="submit" class="btn primary-btn">
+            <span v-if="!isLoading">Sign Up</span>
+            <span v-else class="spinner"></span>
+        </button>
+    </form>
+    <div class="panel-footer">
+        <p>Already have an account? <a href="#" @click.prevent="toggleMode">Sign in</a></p>
+    </div>
+</section>

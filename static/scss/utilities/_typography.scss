@@ -1,0 +1,76 @@
+// ==========================================================================
+// Utilities: Typography
+// ==========================================================================
+
+// 1. Text Alignment
+// Generates: .text-left, .text-center, .text-right, .text-justify
+$alignments: (
+    left,
+    center,
+    right,
+    justify
+);
+
+@each $align in $alignments {
+    .text-#{$align} {
+        text-align: $align !important;
+    }
+}
+
+
+// 2. Font Weights
+// Generates: .font-light, .font-normal, .font-medium, .font-bold
+$weights: (
+    "light": 300,
+    "normal": 400,
+    "medium": 500,
+    "bold": 700
+);
+
+@each $key, $value in $weights {
+    .font-#{$key} {
+        font-weight: $value !important;
+    }
+}
+
+
+// 3. Text Transformations
+// Generates: .uppercase, .lowercase, .capitalize, .text-transform-none
+$transforms: (
+    uppercase,
+    lowercase,
+    capitalize,
+    none
+);
+
+@each $transform in $transforms {
+    // If 'none', name it '.text-transform-none' to prevent naming conflicts
+    // Standard block avoids the VS Code inline if() syntax parsing bug
+    $class-name: "";
+
+    @if $transform ==none {
+        $class-name: "text-transform-none";
+    }
+
+    @else {
+        $class-name: $transform;
+    }
+
+    .#{$class-name} {
+        text-transform: $transform !important;
+    }
+}
+
+
+// 4. Extra Helpers (Optional but useful)
+// Text wrap / truncation
+.text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap !important;
+}
+
+.text-break {
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+}

@@ -1,0 +1,26 @@
+@use 'abstracts/colors' as *;
+@use 'abstracts/variables' as *;
+@use 'abstracts/mixins' as *;
+
+.sidebar-layout {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+
+    @include respond-to('d-md') {
+        width: 260px;
+        flex-shrink: 0;
+    }
+
+    &__nav {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    &__widget {
+        padding: 1rem;
+        border-radius: $border-radius;
+    }
+}

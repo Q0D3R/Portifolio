@@ -1,0 +1,27 @@
+@use 'abstracts/colors' as *;
+@use 'abstracts/variables' as *;
+@use 'abstracts/mixins' as *;
+
+h2 {
+    margin-bottom: 10px;
+    color: $secondary-color;
+
+    @include respond-to("d-sm") {
+        font-size: 1.3rem;
+    }
+}
+
+header {
+    margin-bottom: 2rem;
+
+    h1 {
+        color: var(--theme-text);
+        font-size: 1.8rem;
+        font-weight: 700;
+    }
+
+    p {
+        color: var(--text-muted);
+        margin-top: 0.25rem;
+    }
+}

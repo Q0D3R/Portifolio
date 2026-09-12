@@ -1,0 +1,46 @@
+@use 'abstracts/colors' as *;
+@use 'abstracts/variables' as *;
+@use 'abstracts/mixins' as *;
+
+.header-layout {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.5rem;
+    gap: 1rem;
+
+    &__brand {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    &__nav {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
+// 3. Header Styling
+header {
+    background: var(--theme-primary);
+
+    body.dark-theme & {
+        background: var(--theme-surface);
+    }
+
+    padding: clamp(0.1rem, 1vw, 2rem);
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}

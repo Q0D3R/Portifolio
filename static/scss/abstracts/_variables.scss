@@ -1,0 +1,24 @@
+// Load the built-in Sass map module at the very top of your file
+@use "sass:map";
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+
+// 1. Define the breakpoint map
+$breakpoints: (
+    "d-xs": 576px,
+    "d-sm": 768px,
+    "d-md": 992px,
+    "d-lg": 1200px,
+    "d-xl": 1400px
+);
+
+$border-radius: 12px;
+
+$social-size: 2.5rem;
+$social-gap: 0.35rem;
+$social-bg: #f3f4f6;
+$social-color: #222;
+$social-transition: 200ms;
+
+$transition-speed: 0.3s;

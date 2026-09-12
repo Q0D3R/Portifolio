@@ -1,0 +1,36 @@
+<!-- 2FA Verification Modal -->
+<section class="modal-overlay" v-if="is2FAModalOpen" @click.self="close2FAModal">
+    <div class="modal-content auth-card">
+        <button type="button" class="close-btn" @click="close2FAModal" aria-label="Close">&times;</button>
+        <div class="panel-header">
+            <h2>Two-Factor Authentication</h2>
+            <p>Enter the 6-digit verification code sent to your email</p>
+            <div v-if="twoFADevCode"
+                style="margin-top: 8px; padding: 6px 12px; background: rgba(217, 119, 6, 0.15); border: 1px dashed #d97706; border-radius: 8px; font-size: 0.82rem; color: var(--theme-text);">
+                Local Dev Code: <strong style="letter-spacing: 2px; color: #d97706;">{{ twoFADevCode }}</strong>
+            </div>
+        </div>
+
+        <form @submit.prevent="handle2FASubmit" class="auth-form">
+            <div class="input-group">
+                <input type="text" id="twofa-code" v-model="twoFACode" required maxlength="6" autofocus>
+                <label for="twofa-code">6-Digit Code</label>
+            </div>
+            <button type="submit" class="btn primary-btn" :disabled="isLoading">
+                <span v-if="!isLoading">Verify & Log In</span>
+                <span v-else class="spinner"></span>
+            </button>
+            <div style="text-align: center; margin-top: 1rem;">
+                <a href="#" @click.prevent="resend2FACode" :class="{'disabled-link': isResending2FA}"
+                    style="font-size: 0.9rem; color: var(--theme-text-muted);">
+                    <span v-if="!isResending2FA">Didn't receive a code? Resend</span>
+                    <span v-else>Resending code...</span>
+                </a>
+            </div>
+            <p class="error-msg" v-if="twoFAError" v-text="twoFAError"></p>
+            <p class="success-msg" v-if="twoFAMessage"
+                style="color: #10b981; font-size: 0.85rem; text-align: center; margin-top: 0.5rem;"
+                v-text="twoFAMessage"></p>
+        </form>
+    </div>
+</section>

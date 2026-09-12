@@ -1,0 +1,117 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Modern Hardware-Accelerated Reveal Engine
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    filter: blur(4px);
+    transition: 
+        opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+        clip-path 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform, filter;
+
+    // Mobile adjustments for smoother performance
+    @include respond-to('d-sm', 'max') {
+        transform: translateY(20px);
+        filter: blur(2px);
+    }
+
+    // ------------------------------------
+    // Reveal Variation Classes (Initial Unrevealed States)
+    // ------------------------------------
+
+    // Fade only
+    &.reveal-fade {
+        transform: none;
+        filter: none;
+    }
+
+    // Slide directions
+    &.reveal-up {
+        transform: translateY(50px);
+    }
+
+    &.reveal-down {
+        transform: translateY(-50px);
+    }
+
+    &.reveal-left {
+        transform: translateX(-50px);
+    }
+
+    &.reveal-right {
+        transform: translateX(50px);
+    }
+
+    // Scaling & Zoom variations
+    &.reveal-zoom-in {
+        transform: scale(0.85);
+    }
+
+    &.reveal-zoom-out {
+        transform: scale(1.15);
+    }
+
+    // 3D Rotations
+    &.reveal-flip-x {
+        transform: perspective(800px) rotateX(45deg) translateY(30px);
+    }
+
+    &.reveal-flip-y {
+        transform: perspective(800px) rotateY(-45deg) translateX(-30px);
+    }
+
+    &.reveal-rotate {
+        transform: rotate(-6deg) scale(0.92) translateY(30px);
+    }
+
+    // Blur focus effect
+    &.reveal-blur {
+        filter: blur(16px);
+        transform: translateY(20px);
+    }
+
+    // Curtain / Wipe Reveal
+    &.reveal-curtain {
+        clip-path: inset(0 100% 0 0);
+        transform: none;
+        filter: none;
+    }
+
+    // ------------------------------------
+    // Active State (Placed AFTER variations to ensure clean override)
+    // ------------------------------------
+    &.active {
+        opacity: 1 !important;
+        transform: translate(0, 0) scale(1) rotate(0deg) rotateX(0deg) rotateY(0deg) !important;
+        filter: blur(0) !important;
+        clip-path: inset(0 0 0 0) !important;
+    }
+
+    // ------------------------------------
+    // Transition Durations
+    // ------------------------------------
+    &.duration-fast {
+        transition-duration: 0.4s;
+    }
+
+    &.duration-normal {
+        transition-duration: 0.7s;
+    }
+
+    &.duration-slow {
+        transition-duration: 1.1s;
+    }
+
+    // ------------------------------------
+    // Staggered Delay Utilities (delay-100 to delay-1000)
+    // ------------------------------------
+    @for $i from 1 through 10 {
+        &.delay-#{$i * 100} {
+            transition-delay: #{$i * 100}ms;
+        }
+    }
+}

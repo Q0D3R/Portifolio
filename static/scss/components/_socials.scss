@@ -1,0 +1,98 @@
+@use 'abstracts/colors' as *;
+@use 'abstracts/variables' as *;
+@use 'abstracts/mixins' as *;
+
+.footer-socials {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+
+
+    .social-link {
+        display: inline-flex;
+        align-items: center;
+        border-radius: 50%;
+        justify-content: center;
+        text-decoration: none;
+        color: $text-light;
+        padding: clamp(0.45rem, 0.5vw, 0.75rem);
+        transition: transform $social-transition, box-shadow $social-transition;
+        margin: clamp(0.05rem, 0.05rem + 0.35vw, 0.15rem);
+
+        /* Or current theme header color */
+        svg {
+            aspect-ratio: 1 / 1;
+            backface-visibility: hidden;
+            display: block;
+            fill: currentColor;
+            height: 1rem;
+            pointer-events: none;
+
+            @include respond-to("d-md") {
+                height: 0.95rem;
+            }
+
+            @include respond-to("d-sm") {
+                height: 0.85rem;
+            }
+
+            @include respond-to("d-xs") {
+                height: 0.75rem;
+            }
+        }
+
+        &:hover,
+        &:focus {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.12);
+        }
+
+        // Platform Background Colors
+        &.facebook {
+            background: $color-facebook;
+        }
+
+        &.github {
+            background: $color-github;
+        }
+
+        &.linkedin {
+            background: $color-linkedin;
+        }
+
+        &.tiktok {
+            background: $color-tiktok;
+        }
+
+        &.twitter {
+            background: $color-twitter;
+        }
+
+        &.youtube {
+            background: $color-youtube;
+        }
+
+        &.whatsapp {
+            background: $color-whatsapp;
+        }
+
+        &.instagram {
+            background: linear-gradient(45deg, #f58529 0%, #dd2a7b 35%, #8134af 65%, #515bd4 100%); //var(--social-instagram)
+        }
+
+        @include respond-to("d-md") {
+            padding: 0.35rem;
+        }
+
+        @include respond-to("d-sm") {
+            padding: 0.25rem;
+        }
+
+        @include respond-to("d-xs") {
+            padding: 0.15rem;
+        }
+    }
+}

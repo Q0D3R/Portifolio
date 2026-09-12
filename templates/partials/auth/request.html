@@ -1,0 +1,12 @@
+<!-- Step 1: Request Code -->
+<form v-if="resetStep === 1" @submit.prevent="requestResetCode" class="auth-form">
+    <div class="input-group">
+        <input type="email" id="reset-email" v-model="resetForm.email" required>
+        <label for="reset-email">Email Address</label>
+    </div>
+    <button type="submit" class="btn primary-btn">
+        <span v-if="!isLoading">Send Code</span>
+        <span v-else class="spinner"></span>
+    </button>
+    <p class="error-msg" v-if="resetError" v-text="resetError"></p>
+</form>

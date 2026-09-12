@@ -1,0 +1,162 @@
+@use "../abstracts/colors" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+
+@property --num {
+    syntax: "<integer>";
+    initial-value: 0;
+    inherits: true;
+}
+
+.stat-card {
+
+    &.stat-bar-card,
+    &.stat-circle-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        @include dynamic-radius(1.5rem);
+        background: color-mix(in srgb, var(--theme-surface) 85%, transparent);
+        border: 1px solid color-mix(in srgb, var(--theme-text) 15%, transparent);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        backdrop-filter: blur(12px);
+        transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+            transform: translateY(-4px);
+            border-color: color-mix(in srgb, var(--theme-logo2, #2196F3) 40%, transparent);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+        }
+
+        .stat-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+
+            .stat-icon-wrapper {
+                width: 44px;
+                height: 44px;
+                border-radius: 12px;
+                background: color-mix(in srgb, var(--theme-logo2, #2196F3) 15%, transparent);
+                border: 1px solid color-mix(in srgb, var(--theme-logo2, #2196F3) 30%, transparent);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+
+                svg {
+                    width: 22px;
+                    height: 22px;
+                    stroke: var(--theme-logo2, #2196F3);
+                }
+            }
+
+            .stat-info {
+                h3 {
+                    font-size: 1.05rem;
+                    font-weight: 700;
+                    color: var(--theme-text);
+                    margin-bottom: 2px;
+                }
+
+                .stat-subtitle {
+                    font-size: 0.85rem;
+                    color: var(--theme-text-muted);
+                    font-weight: 500;
+                }
+            }
+
+            .stat-badge {
+                margin-left: auto;
+                font-size: 1.15rem;
+                font-weight: 800;
+                color: var(--theme-logo2, #2196F3);
+                background: color-mix(in srgb, var(--theme-logo2, #2196F3) 15%, transparent);
+                border: 1px solid color-mix(in srgb, var(--theme-logo2, #2196F3) 30%, transparent);
+                padding: 4px 12px;
+                border-radius: 20px;
+                letter-spacing: 0.02em;
+            }
+        }
+    }
+}
+
+.bar {
+    width: var(--bar-fill, calc(var(--num, 0) * 1%));
+    height: 100%;
+    background: linear-gradient(90deg, var(--theme-error, $error-color) 0%, var(--theme-warning, $warning-color) 50%, var(--theme-success, $success-color) 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    transition: width 1.2s cubic-bezier(0.1, 1, 0.1, 1);
+    box-shadow: 0 0 12px color-mix(in srgb, var(--theme-success, #4CAF50) 40%, transparent);
+    min-width: 35px;
+
+    .bar-text {
+        margin-right: 8px;
+        font-size: 0.72rem;
+        font-weight: 800;
+        color: #ffffff;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+        white-space: nowrap;
+    }
+}
+
+// ⭕ The Circle Donut Layout
+.circle-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 0;
+}
+
+.circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: conic-gradient(from 0deg,
+            var(--theme-error, $error-color) 0%,
+            var(--theme-warning, $warning-color) calc(var(--num, 0) * 0.33%),
+            var(--theme-info, #2196F3) calc(var(--num, 0) * 0.66%),
+            var(--theme-success, $success-color) calc(var(--num, 0) * 1%),
+            color-mix(in srgb, var(--theme-text) 12%, transparent) 0%);
+    position: relative;
+    box-shadow: 0 0 20px color-mix(in srgb, var(--theme-logo2, #2196F3) 25%, transparent);
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 90px;
+        height: 90px;
+        background: var(--theme-surface);
+        border-radius: 50%;
+        box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    .circle-text {
+        position: relative;
+        font-size: 1.35rem;
+        font-weight: 800;
+        color: var(--theme-text);
+        z-index: 2;
+    }
+}
+
+.stat {
+    counter-reset: n var(--num);
+}
+
+@keyframes count {
+    from {
+        --num: 0;
+    }
+
+    to {
+        --num: var(--num);
+    }
+}

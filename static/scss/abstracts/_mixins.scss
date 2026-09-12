@@ -1,0 +1,57 @@
+@use 'abstracts/colors' as *;
+@use 'abstracts/variables' as *;
+@use "sass:map";
+
+
+@mixin apply-theme($bg-color, $text-color) {
+    background-color: $bg-color;
+    color: $text-color;
+    transition: background 0.3s, color 0.3s;
+}
+
+// 3. Updated mixin using the modern syntax
+@mixin respond-to($breakpoint, $direction: 'min') {
+
+    // Use map.has-key instead of map-has-key
+    @if map.has-key($breakpoints, $breakpoint) {
+
+        $value: map.get($breakpoints, $breakpoint);
+        @if $direction == 'max' {
+            @media (max-width: $value) {
+                @content;
+            }
+        } @else {
+            @media (min-width: $value) {
+                @content;
+            }
+        }
+    }
+
+    @else {
+        @warn "Unknown breakpoint: #{$breakpoint}.";
+    }
+}
+
+// Create a specialized glassmorphism mixin compatible with CSS Custom Properties
+@mixin theme-glass($bg-color: var(--theme-surface), $bg-opacity: 0.45, $blur: 16px, $border-color: var(--theme-border)) {
+    // Solid background fallback layer for old, unsupportive browsers
+    background-color: $bg-color;
+
+    // Modern glass engine configuration
+    @supports (backdrop-filter: blur($blur)) or (-webkit-backdrop-filter: blur($blur)) {
+        $percent-opacity: $bg-opacity * 100%;
+        background-color: color-mix(in srgb, $bg-color #{$percent-opacity}, transparent);
+        -webkit-backdrop-filter: blur($blur) saturate(120%);
+        backdrop-filter: blur($blur) saturate(120%);
+        border: 1px solid $border-color;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.04);
+        transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+}
+
+// Standardize the "Outer Radius = Inner Radius + Padding" aesthetic logic
+@mixin dynamic-radius($padding: 24px, $inner-radius: 12px) {
+    padding: $padding;
+    // Calculate the outer radius by dynamically adding the padding and inner radius
+    border-radius: calc(#{$padding} + #{$inner-radius});
+}

@@ -1,0 +1,50 @@
+@use 'abstracts/colors' as *;
+@use 'abstracts/variables' as *;
+@use 'abstracts/mixins' as *;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* Fluid typography scale for the whole project */
+  /* Scales from 14px on mobile to 18px on large desktops */
+  font-size: clamp(14px, 1vw + 10px, 18px);
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: $background-dark;
+  color: $text-light;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Focus States for Keyboard Navigation */
+:focus-visible {
+  outline: 2px solid var(--theme-primary, #2196F3) !important;
+  outline-offset: 2px !important;
+  border-radius: 4px !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--theme-surface, #FFFFFF);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--theme-border, #E0E0E0);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--theme-text-muted, #9E9E9E);
+}

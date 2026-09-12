@@ -1,0 +1,70 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+// Light Theme (Human & Soulful Organic Palette)
+:root {
+    --theme-primary: #1F2E4A;
+    --theme-secondary: #343A40;
+    --theme-accent: #1F2E4A; // Darker accent for readability
+    --theme-bg: #F8F9FA;
+    --theme-surface: #ffffff;
+    --theme-text: #1F2E4A;
+    --theme-text-light: #ffffff; // White text on dark primary elements
+    --theme-text-muted: #545B62; // Darker gray for readable muted text (was too light)
+    --theme-border: #CED4DA; // Use the palette's light gray for borders instead
+    --theme-nav-accent: #CED4DA; // Light gray for nav hover/active state on dark header
+
+    --theme-logo1: #F44336;
+    --theme-logo2: #2196F3;
+    --theme-logo3: #9C27B0;
+
+    // Light Mode Status Colors (Rich, High-Contrast Readability)
+    --theme-success: #2E7D32;
+    --theme-error: #D32F2F;
+    --theme-warning: #ED6C02;
+    --theme-danger: #FF4D4D;
+    --theme-info: #0288D1;
+
+    --theme-facebook: #4267B2;
+    --theme-github: #24292e;
+    --theme-linkedin: #0a66c2;
+    --theme-instagram: #e4405f;
+    --theme-tiktok: #000000;
+    --theme-twitter: #1da1f2;
+    --theme-youtube: #ff0000;
+    --theme-whatsapp: #25D366;
+}
+
+// Dark Theme
+body.dark-theme {
+    --theme-primary: #918670; // Olive-Gray Accent Primary
+    --theme-secondary: #BDB7A7; // Soft Warm Muted Gray/Beige
+    --theme-accent: #918670; // Olive-Gray
+    --theme-bg: #252628; // Dark Gray background
+    --theme-surface: #1e1e1e; // Elevated Surface
+    --theme-text: #D2D6D7; // Light Gray text
+    --theme-text-light: #D2D6D7;
+    --theme-text-muted: #BDB7A7;
+    --theme-border: rgba(210, 214, 215, 0.25);
+    --theme-nav-accent: #918670; // Olive-Gray for nav hover/active state
+
+    --theme-logo1: #9C27B0;
+    --theme-logo2: #F44336;
+    --theme-logo3: #2196F3;
+
+    // Dark Mode Status Colors
+    --theme-success: #2E7D32;
+    --theme-error: #D32F2F;
+    --theme-warning: #ED6C02;
+    --theme-danger: #FF4D4D;
+    --theme-info: #38BDF8;
+
+    --theme-facebook: #4267B2;
+    --theme-github: #24292e;
+    --theme-linkedin: #0a66c2;
+    --theme-instagram: #e4405f;
+    --theme-tiktok: #000000;
+    --theme-twitter: #1da1f2;
+    --theme-youtube: #ff0000;
+    --theme-whatsapp: #25D366;
+}

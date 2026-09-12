@@ -1,0 +1,187 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.services-hero {
+    text-align: center;
+    padding: 3.125rem 1.25rem;
+    margin-bottom: 2.5rem;
+
+    h1 {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        margin-bottom: 1.25rem;
+        color: var(--theme-text);
+        background: linear-gradient(135deg, $primary-color, $secondary-color);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    p {
+        font-size: clamp(1rem, 2vw, 1.25rem);
+        max-width: 700px;
+        margin: 0 auto;
+        color: $text-muted;
+        line-height: 1.6;
+    }
+}
+
+.services-grid-section {
+    margin-bottom: 60px;
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+
+        @include respond-to("d-sm") {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    .service-card {
+        @include theme-glass($surface-dark, 0.25);
+        @include dynamic-radius();
+        text-align: center;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+        &:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border-color: $primary-color;
+        }
+
+        .service-icon {
+            margin-bottom: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: color-mix(in srgb, var(--theme-accent) 15%, var(--theme-surface));
+            color: var(--theme-accent);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 1px solid color-mix(in srgb, var(--theme-accent) 30%, var(--theme-surface));
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--theme-text);
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: $text-muted;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+    }
+}
+
+.services-process {
+    margin-bottom: 60px;
+
+    h2 {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 40px;
+        color: var(--theme-text);
+    }
+
+    .process-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        max-width: 1000px;
+        margin: 0 auto;
+
+        @include respond-to("d-md") {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    .process-step {
+        @include theme-glass($surface-dark, 0.2);
+        @include dynamic-radius();
+        text-align: center;
+        position: relative;
+
+        .step-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--theme-accent);
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            color: var(--theme-text);
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: $text-muted;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+    }
+}
+
+.services-benefits {
+    margin-bottom: 60px;
+
+    h2 {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 40px;
+        color: var(--theme-text);
+    }
+
+    .benefits-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+        max-width: 900px;
+        margin: 0 auto;
+
+        @include respond-to("d-md") {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    .benefit-item {
+        @include theme-glass($surface-dark, 0.25);
+        @include dynamic-radius();
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+
+        .benefit-icon {
+            background: color-mix(in srgb, var(--theme-accent) 15%, var(--theme-surface));
+            color: var(--theme-accent);
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 1px solid color-mix(in srgb, var(--theme-accent) 30%, var(--theme-surface));
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            color: var(--theme-text);
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: $text-muted;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+    }
+}

@@ -33,7 +33,7 @@
     }
 
     .typing-title {
-        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        font-size: clamp(1.5rem, 5vw, 3.5rem);
         font-weight: 800;
         color: var(--theme-text);
         margin-bottom: 2rem;
@@ -156,7 +156,7 @@
     }
 
     .hero-content {
-        max-width: 800px;
+        max-width: 1200px;
         @include theme-glass(var(--theme-surface), 0.75, 16px);
         @include dynamic-radius(40px, 20px);
         border: 1px solid var(--theme-border);

@@ -5,36 +5,35 @@ document.addEventListener('DOMContentLoaded', function () {
   navLinks.forEach(link => {
     link.addEventListener('click', function (e) {
       e.preventDefault();
-
-      // Remove active class from all links
-      navLinks.forEach(l => l.classList.remove('active'));
-      // Add active class to clicked link
-      this.classList.add('active');
-
-      // Get target section id
       const targetId = this.getAttribute('data-target');
       if (targetId) {
-        // Hide all sections
-        pageSections.forEach(section => {
-          section.style.display = 'none';
-        });
-
-        // Show target section
-        const targetSection = document.getElementById(targetId);
-        if (targetSection) {
-          targetSection.style.display = 'block';
-
-          // Trigger scroll reveal animations for newly visible elements
-          if (typeof revealOnScroll === 'function') {
-            // Small timeout to allow DOM display update
-            setTimeout(revealOnScroll, 50);
-          }
-        }
+        window.showSection(targetId);
       }
     });
   });
-});
 
+  window.showSection = function (targetId) {
+    pageSections.forEach(section => {
+      section.style.display = 'none';
+    });
+    const targetSection = document.getElementById(targetId);
+    if (targetSection) {
+      targetSection.style.display = 'block';
+      navLinks.forEach(l => {
+        if (l.getAttribute('data-target') === targetId) {
+          l.classList.add('active');
+          document.title = `Dev | ${l.innerText.trim()}`;
+        } else {
+          l.classList.remove('active');
+        }
+      });
+      if (typeof revealOnScroll === 'function') {
+        setTimeout(revealOnScroll, 50);
+      }
+      window.scrollTo(0, 0);
+    }
+  };
+});
 // Optionally animate progress bars on scroll
 document.addEventListener('DOMContentLoaded', function () {
   const bars = document.querySelectorAll('.skill-progress');

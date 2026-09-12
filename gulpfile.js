@@ -10,7 +10,7 @@ function buildStyles() {
 }
 
 function watchFiles() {
-    watch('static/css/*.scss', buildStyles); // Watch for changes in SCSS files
+    watch('static/scss/**/*.scss', buildStyles); // Watch for changes in SCSS files
 }
 
-exports.default = series(buildStyles, watchFiles); // Default task to run both build and watch
+exports.default = series(buildStyles, watchFiles);

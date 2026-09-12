@@ -2,27 +2,311 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
-.about-hero {
-    text-align: center;
-    padding: 3.125rem 1.25rem;
-    margin-bottom: 2.5rem;
+.bento-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+    max-width: 1200px;
+    margin: 0 auto;
 
-    h1 {
-        font-size: clamp(2rem, 5vw, 3.5rem);
-        margin-bottom: 1.25rem;
-        color: var(--theme-text);
-        background: linear-gradient(135deg, $primary-color, $secondary-color);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
+    @include respond-to('d-md') {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    p {
-        font-size: clamp(1rem, 2vw, 1.25rem);
-        max-width: 700px;
-        margin: 0 auto;
-        color: $text-muted;
-        line-height: 1.6;
+    @include respond-to('d-lg') {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.bento-card {
+    @include theme-glass(var(--theme-surface), 0.7, 24px);
+    border-radius: 32px;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    border: 1px solid color-mix(in srgb, var(--theme-text) 5%, transparent);
+
+    &:hover {
+        transform: translateY(-5px) scale(1.01);
+        box-shadow: 0 20px 40px color-mix(in srgb, $primary-color 15%, transparent),
+            0 0 0 1px color-mix(in srgb, $primary-color 30%, transparent);
+        z-index: 10;
+    }
+}
+
+.bento-subtitle {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: $primary-color;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+/* --- Hero Card --- */
+.bento-hero {
+    @include respond-to('d-md') {
+        grid-column: span 2;
+    }
+
+    @include respond-to('d-lg') {
+        grid-column: span 3;
+    }
+
+    .bento-hero-inner {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+
+        @include respond-to('d-md') {
+            flex-direction: row;
+            align-items: flex-start;
+        }
+    }
+
+    .avatar-flip-container {
+        width: 100%;
+        max-width: 250px;
+        flex-shrink: 0;
+    }
+
+    .hero-info {
+        flex: 1;
+
+        .bento-title {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--theme-text);
+        }
+
+        .bento-desc {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: color-mix(in srgb, var(--theme-text) 80%, var(--theme-bg));
+            margin-bottom: 1.2rem;
+        }
+
+        .btn {
+            margin-top: 1rem;
+        }
+    }
+}
+
+/* --- Location Card --- */
+.bento-location {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--theme-surface) 90%, transparent), color-mix(in srgb, $primary-color 10%, transparent));
+
+    .location-pulse-container {
+        position: relative;
+        width: 80px;
+        height: 80px;
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .pulse-dot {
+            width: 20px;
+            height: 20px;
+            background-color: $primary-color;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .pulse-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: $primary-color;
+            border-radius: 50%;
+            animation: pulse-animation 2.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+            z-index: 1;
+        }
+    }
+
+    .bento-value {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--theme-text);
+        margin-bottom: 0.5rem;
+    }
+
+    .bento-subvalue {
+        font-size: 1rem;
+        color: color-mix(in srgb, var(--theme-text) 60%, var(--theme-bg));
+    }
+}
+
+@keyframes pulse-animation {
+    0% {
+        transform: scale(0.3);
+        opacity: 0.8;
+    }
+
+    80% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* --- Skills Card --- */
+.bento-skills {
+    @include respond-to('d-md') {
+        grid-column: span 1;
+    }
+
+    @include respond-to('d-lg') {
+        grid-column: span 2;
+    }
+
+    .bento-tags-cluster {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+
+        .tag {
+            padding: 0.5rem 1.2rem;
+            border-radius: 999px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            background: color-mix(in srgb, var(--theme-text) 5%, transparent);
+            color: var(--theme-text);
+            transition: all 0.3s ease;
+            cursor: default;
+
+            &.tag-web {
+                color: #e94560;
+                background: color-mix(in srgb, #e94560 10%, transparent);
+            }
+
+            &.tag-design {
+                color: #43e97b;
+                background: color-mix(in srgb, #43e97b 10%, transparent);
+            }
+
+            &.tag-it {
+                color: #f39c12;
+                background: color-mix(in srgb, #f39c12 10%, transparent);
+            }
+
+            &.tag-athletics {
+                color: #00b894;
+                background: color-mix(in srgb, #00b894 10%, transparent);
+            }
+
+            &.tag-stem {
+                color: #8e44ad;
+                background: color-mix(in srgb, #8e44ad 10%, transparent);
+            }
+
+            &:hover {
+                transform: translateY(-3px) scale(1.05);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                filter: brightness(1.2);
+            }
+        }
+    }
+}
+
+/* --- Beyond Code Card --- */
+.bento-beyond {
+    @include respond-to('d-md') {
+        grid-column: 1 / -1;
+    }
+
+    .beyond-header {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 2rem;
+
+        @include respond-to('d-md') {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .bento-tags-cluster {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+
+            .tag {
+                padding: 0.4rem 1rem;
+                border-radius: 999px;
+                font-size: 0.85rem;
+                font-weight: 600;
+
+                &.tag-athletics {
+                    color: #00b894;
+                    background: color-mix(in srgb, #00b894 10%, transparent);
+                }
+
+                &.tag-stem {
+                    color: #8e44ad;
+                    background: color-mix(in srgb, #8e44ad 10%, transparent);
+                }
+            }
+        }
+    }
+
+    .beyond-content {
+        p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: color-mix(in srgb, var(--theme-text) 80%, var(--theme-bg));
+            margin-bottom: 1.5rem;
+            max-width: 900px;
+        }
+
+        .beyond-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            list-style: none;
+            padding: 0;
+
+            @include respond-to('d-md') {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            li {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                font-size: 1.05rem;
+                color: var(--theme-text);
+                padding: 1rem;
+                background: color-mix(in srgb, var(--theme-surface) 40%, transparent);
+                border-radius: 16px;
+                transition: transform 0.3s ease;
+
+                i {
+                    color: $primary-color;
+                    font-size: 1.3rem;
+                }
+
+                &:hover {
+                    transform: translateX(5px);
+                    background: color-mix(in srgb, var(--theme-surface) 80%, transparent);
+                }
+            }
+        }
     }
 }
 

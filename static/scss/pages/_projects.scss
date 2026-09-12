@@ -85,6 +85,24 @@
                     flex-grow: 1;
                 }
 
+                .project-link {
+                    display: inline-flex;
+                    align-items: center;
+                    color: $primary-color;
+                    font-size: 0.95rem;
+                    font-weight: 800;
+                    text-decoration: none;
+                    transition: all 0.3s ease;
+                    margin-bottom: 1.5rem;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+
+                    &:hover {
+                        color: $secondary-color;
+                        padding-left: 0.5rem;
+                    }
+                }
+
                 .projects-meta {
                     display: flex;
                     flex-wrap: wrap;
